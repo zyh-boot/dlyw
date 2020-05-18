@@ -51,6 +51,11 @@ public class AppController extends BaseController {
     IEquipmentRollerInfoService equipmentRollerInfoService;
     @Autowired
     IEquipmentEnergyInfoService equipmentEnergyInfoService;
+    @Autowired
+    IEquipmentTobaccoAttrService iEquipmentTobaccoAttrService;
+    @Autowired
+    IEquipmentTobaccoHistroyService iEquipmentTobaccoHistroyService;
+
     @RequestMapping
     public Object login(HttpServletRequest request) throws Exception {
         ModelAndView mav = new ModelAndView();
@@ -63,14 +68,15 @@ public class AppController extends BaseController {
         mav.setViewName(CommonUtil.view("app/index"));
         return mav;
     }
+
     @RequestMapping("/go_realtime_page")
     public Object index(HttpServletRequest request, String period, String code, Model model) throws Exception {
         ModelAndView mav = new ModelAndView();
         if(StringUtils.isNotEmpty(period)){
             model.addAttribute("work_id",period);
             model.addAttribute("code",code);
-            mav.setViewName(CommonUtil.view("app/ScingData"));
         }
+        mav.setViewName(CommonUtil.view("app/ScingData"));
         return mav;
     }
 
@@ -86,19 +92,27 @@ public class AppController extends BaseController {
     }
 
 
-    //登录
+    /**
+     * type==1获取炒货机列表  ==2 获取烟炕设备列表
+     * @param request
+     * @param start
+     * @param end
+     * @param kh_id
+     * @param type
+     * @return
+     */
     @RequestMapping(value = "/acc_sb")
     @ResponseBody
-    public CommonResponse acc_sb(HttpServletRequest request,int start,int end,String kh_id) {
+    public CommonResponse acc_sb(HttpServletRequest request,int start,int end,String kh_id,Integer type) {
         HashMap<String,Object> res=new HashMap<>();
         res.put("start",start);
         res.put("limit",end);
+        res.put("type",type);
         res.put("khId",kh_id);
         int count= equipmentService.selectCount(res);
         List<Map<String,Object>> list= equipmentService.queryList(res);
         res.put("count",count);
         res.put("list",list);
-
         return new CommonResponse().code(1).data(res);
     }
 
@@ -229,5 +243,37 @@ public class AppController extends BaseController {
         return  res;
     }
 
+
+    /**
+     * 进入烟炕页面
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/tobaccoIndex")
+    public Object tobaccoIndex(HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName(CommonUtil.view("app/tobaccoIndex"));
+        return mav;
+    }
+
+    /**
+     * 烟炕设备详细页面
+     * @param request
+     * @param period
+     * @param code
+     * @param model
+     * @return
+     */
+    @RequestMapping("/tobaccoDetail")
+    public Object tobaccoDetail(HttpServletRequest request, String period, String code, Model model){
+        ModelAndView mav = new ModelAndView();
+        if(StringUtils.isNotEmpty(period)){
+            model.addAttribute("work_id",period);
+            model.addAttribute("code",code);
+        }
+        mav.setViewName(CommonUtil.view("app/tobaccoDetail"));
+        return mav;
+    }
 
 }

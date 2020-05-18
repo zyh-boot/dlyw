@@ -607,4 +607,75 @@ public class ViewController extends BaseController {
         model.addAttribute("manualSettingService",obj);
         return  CommonUtil.view("mobile/manualSettingService/update");
     }
+
+    /************************烟炕设备属性***********************/
+    @Autowired
+    IEquipmentTobaccoAttrService iEquipmentTobaccoAttrService;
+
+    /**
+     * 烟炕设备属性跳转列表页面
+     * @param request
+     * @param model com.cx.module.mobile.entity
+     * @return
+     */
+    @GetMapping("equipmentTobaccoAttr/index")
+    public String equipmentTobaccoAttrIndex(HttpServletRequest request,ModelMap model){
+        return CommonUtil.view("mobile/equipmentTobaccoAttr/index");
+    }
+
+    /**
+     * 烟炕设备属性新增页面
+     */
+    @GetMapping("equipmentTobaccoAttr/add")
+    @PreAuthorize("hasRole('equipmentTobaccoAttr:add')")
+    public String equipmentTobaccoAttrAdd(HttpServletRequest request,ModelMap model){
+        return  CommonUtil.view("mobile/equipmentTobaccoAttr/add");
+    }
+
+    /**
+     *烟炕设备属性 修改页面
+     */
+    @GetMapping("equipmentTobaccoAttr/update/{id}")
+    @PreAuthorize("hasRole('equipmentTobaccoAttr:mod')")
+    public String equipmentTobaccoAttrUpdate(HttpServletRequest request,ModelMap model, @PathVariable Long id){
+        EquipmentTobaccoAttr obj=iEquipmentTobaccoAttrService.selectOne(id);
+        model.addAttribute("equipmentTobaccoAttr",obj);
+        return  CommonUtil.view("mobile/equipmentTobaccoAttr/update");
+    }
+
+    /************************烟炕设备历史数据************************/
+
+    @Autowired
+    IEquipmentTobaccoHistroyService iEquipmentTobaccoHistroyService;
+
+    /**
+     * 烟炕设备历史数据跳转列表页面
+     * @param request
+     * @param model com.cx.module.mobile.entity
+     * @return
+     */
+    @GetMapping("equipmentTobaccoHistroy/index")
+    public String equipmentTobaccoHistroyIndex(HttpServletRequest request,ModelMap model){
+        return CommonUtil.view("mobile/equipmentTobaccoHistroy/index");
+    }
+
+    /**
+     * 烟炕设备历史数据新增页面
+     */
+    @GetMapping("equipmentTobaccoHistroy/add")
+    @PreAuthorize("hasRole('equipmentTobaccoHistroy:add')")
+    public String equipmentTobaccoHistroyAdd(HttpServletRequest request,ModelMap model){
+        return  CommonUtil.view("mobile/equipmentTobaccoHistroy/add");
+    }
+
+    /**
+     *烟炕设备历史数据 修改页面
+     */
+    @GetMapping("equipmentTobaccoHistroy/update/{id}")
+    @PreAuthorize("hasRole('equipmentTobaccoHistroy:mod')")
+    public String equipmentTobaccoHistroyUpdate(HttpServletRequest request,ModelMap model, @PathVariable Long id){
+        EquipmentTobaccoHistroy obj=iEquipmentTobaccoHistroyService.selectOne(id);
+        model.addAttribute("equipmentTobaccoHistroy",obj);
+        return  CommonUtil.view("mobile/equipmentTobaccoHistroy/update");
+    }
 }
