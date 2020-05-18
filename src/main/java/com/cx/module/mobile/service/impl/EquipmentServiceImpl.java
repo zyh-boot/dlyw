@@ -73,7 +73,7 @@ public class EquipmentServiceImpl extends ServiceImpl<EquipmentMapper, Equipment
 
         User user = CommonUtil.getCurrentUser();
         LambdaQueryWrapper<Equipment> queryWrapper = new LambdaQueryWrapper<>();
-
+        queryWrapper.eq(Equipment::getType,obj.getType());
         return this.baseMapper.selectList(queryWrapper);
     }
 
@@ -90,7 +90,7 @@ public class EquipmentServiceImpl extends ServiceImpl<EquipmentMapper, Equipment
         }
 
         Page<Equipment> page = new Page<>(query.getPageNum(), query.getPageSize());
-        SortUtil.handlePageSort(query, page, "id", Constant.ORDER_ASC, true);
+        SortUtil.handlePageSort(query, page, "sb", Constant.ORDER_ASC, true);
         return this.baseMapper.selectPage(page, queryWrapper);
     }
 

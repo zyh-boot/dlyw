@@ -1,5 +1,7 @@
 package com.cx.netty;
 
+import com.cx.module.mobile.entity.Equipment;
+import com.cx.module.mobile.service.IEquipmentService;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -9,23 +11,43 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.timeout.IdleStateHandler;
 import io.netty.util.CharsetUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
 import java.net.InetSocketAddress;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
+
+@Component
 public class Client {
+    @Autowired
+    private IEquipmentService equipmentService;
     private EventLoopGroup eventLoopGroup = new NioEventLoopGroup();
-    //多个tcp服务器的端口
-   /* private static List<Integer> PORTS = Arrays.asList(6003,20000, 20001, 20002, 20003, 20004);
-    //多个tcp服务器的ip
-    private static List<String> HOSTS = Arrays.asList("127.0.0.1");
-    public static Map<Integer, ChannelFuture> channels = getChannel(HOSTS, PORTS);*/
     public static Map<Integer, ChannelFuture> channels = new HashMap<>();
+
+    @PostConstruct
+    public void start() throws InterruptedException {
+        List<Integer> PORTS = new ArrayList<>();
+        //多个tcp服务器的ip
+        List<String> HOSTS = new ArrayList<>();
+        Equipment e=new Equipment();
+        e.setType(2);
+        List<Equipment> list= equipmentService.list(e);
+        if(list!=null&&list.size()>0){
+           for (Equipment equ:list){
+               PORTS.add(Integer.valueOf(equ.getCode()));
+               HOSTS.add("127.0.0.1");
+           }
+            Client.getChannel(HOSTS, PORTS);
+        }
+    }
+
+
     /**
      * 初始化Bootstrap
      */
+
     public static final Bootstrap getBootstrap(EventLoopGroup group) {
         if (null == group) {
             group = new NioEventLoopGroup();
@@ -47,6 +69,7 @@ public class Client {
     }
 
     //   获取所有连接
+
     public static final Map<Integer, ChannelFuture> getChannel(List<String> hosts, List<Integer> ports) {
         Map<Integer, ChannelFuture> result = new HashMap<>();
         Bootstrap bootstrap = getBootstrap(null);
@@ -157,10 +180,11 @@ class ClientHandler extends ChannelInboundHandlerAdapter{
     }
 
     public static void main(String[] args) {
-        List<Integer> PORTS = Arrays.asList(6003,6001,6002);
+       List<Integer> PORTS = Arrays.asList(6003,6001,6002);
         //多个tcp服务器的ip
        List<String> HOSTS = Arrays.asList("127.0.0.1","127.0.0.1","127.0.0.1");
        Client.getChannel(HOSTS, PORTS);
+
     }
 
 }
