@@ -1,0 +1,319 @@
+2020-05-16 17:44:11.836 febs [main] INFO  com.cx.AppApplication - Starting AppApplication on SKY-20190914UNV with PID 8860 (D:\fxp_xm\ZG_APP\target\classes started by Administrator in D:\fxp_xm\ZG_APP)
+2020-05-16 17:44:11.838 febs [main] INFO  com.cx.AppApplication - The following profiles are active: dev
+2020-05-16 17:44:13.133 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-05-16 17:44:13.135 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-05-16 17:44:13.223 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 73ms. Found 0 repository interfaces.
+2020-05-16 17:44:13.711 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.datasource.dynamic-com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-16 17:44:13.850 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$6d3721f3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-16 17:44:13.857 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dsProcessor' of type [com.baomidou.dynamic.datasource.processor.DsHeaderProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-16 17:44:13.861 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicDatasourceAnnotationAdvisor' of type [com.baomidou.dynamic.datasource.aop.DynamicDataSourceAnnotationAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-16 17:44:13.870 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3a8b122] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-16 17:44:13.894 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfigure' of type [com.cx.common.configure.RedisConfigure$$EnhancerBySpringCGLIB$$e7a12851] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-16 17:44:13.938 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$9c56795c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-16 17:44:13.942 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-16 17:44:13.945 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@38f502fc' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-16 17:44:13.945 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$c12b1c0e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-16 17:44:13.952 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-16 17:44:14.308 febs [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2020-05-16 17:44:14.321 febs [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2020-05-16 17:44:14.329 febs [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-05-16 17:44:14.329 febs [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-05-16 17:44:14.335 febs [main] INFO  o.a.c.core.AprLifecycleListener - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-05-16 17:44:14.335 febs [main] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-05-16 17:44:14.335 febs [main] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-05-16 17:44:14.355 febs [main] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-05-16 17:44:14.477 febs [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-05-16 17:44:14.477 febs [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2587 ms
+2020-05-16 17:44:14.776 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 动态数据源-检测到并开启了p6spy
+2020-05-16 17:44:14.785 febs [main] INFO  com.zaxxer.hikari.HikariDataSource - base - Starting...
+2020-05-16 17:44:15.135 febs [main] INFO  com.zaxxer.hikari.HikariDataSource - base - Start completed.
+2020-05-16 17:44:15.135 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 初始共加载 1 个数据源
+2020-05-16 17:44:15.135 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 动态数据源-加载 base 成功
+2020-05-16 17:44:15.135 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 当前的默认数据源是单数据源，数据源名为 base
+2020-05-16 17:44:15.560 febs [main] INFO  com.cx.common.xss.XssFilter - ------------ xss filter init ------------
+2020-05-16 17:44:17.042 febs [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2020-05-16 17:44:17.055 febs [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-05-16 17:44:17.055 febs [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.0 created.
+2020-05-16 17:44:17.055 febs [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2020-05-16 17:44:17.056 febs [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-05-16 17:44:17.056 febs [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-05-16 17:44:17.056 febs [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.0
+2020-05-16 17:44:17.056 febs [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@790d629a
+2020-05-16 17:44:18.182 febs [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-05-16 17:44:18.445 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/test/**'], []
+2020-05-16 17:44:18.446 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/common/**'], []
+2020-05-16 17:44:18.446 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/app/**'], []
+2020-05-16 17:44:18.446 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/*.js'], []
+2020-05-16 17:44:18.446 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/*.css'], []
+2020-05-16 17:44:18.446 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/font/**'], []
+2020-05-16 17:44:18.446 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/images/**'], []
+2020-05-16 17:44:18.447 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/img/**'], []
+2020-05-16 17:44:18.447 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/lay/**'], []
+2020-05-16 17:44:18.447 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/layui/**'], []
+2020-05-16 17:44:18.447 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/json/**'], []
+2020-05-16 17:44:18.447 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/api/**'], []
+2020-05-16 17:44:18.447 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/app/**'], []
+2020-05-16 17:44:18.447 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-ui.html'], []
+2020-05-16 17:44:18.447 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger/**'], []
+2020-05-16 17:44:18.447 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-resources/**'], []
+2020-05-16 17:44:18.447 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/webjars/**'], []
+2020-05-16 17:44:18.447 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/v2/api-docs'], []
+2020-05-16 17:44:18.448 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/views/403'], []
+2020-05-16 17:44:18.448 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/views/401'], []
+2020-05-16 17:44:18.448 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/views/404'], []
+2020-05-16 17:44:18.532 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7d836c4a, org.springframework.security.web.context.SecurityContextPersistenceFilter@5ae67f05, org.springframework.security.web.header.HeaderWriterFilter@5f596a1a, org.springframework.security.web.authentication.logout.LogoutFilter@211cf27b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6f9b5f01, org.springframework.security.web.session.ConcurrentSessionFilter@32b8992e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1e37cb10, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c8ed958, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@4a225014, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@485547ac, org.springframework.security.web.session.SessionManagementFilter@13edc1bc, org.springframework.security.web.access.ExceptionTranslationFilter@222a7429, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@684bfba9]
+2020-05-16 17:44:18.581 febs [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-05-16 17:44:18.595 febs [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService
+2020-05-16 17:44:18.596 febs [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'apsAsyncThreadPool'
+2020-05-16 17:44:19.327 febs [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2020-05-16 17:44:21.039 febs [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2020-05-16 17:44:21.079 febs [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2020-05-16 17:44:21.164 febs [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2020-05-16 17:44:21.201 febs [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2020-05-16 17:44:21.201 febs [main] INFO  org.quartz.core.QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-05-16 17:44:21.214 febs [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+2020-05-16 17:44:21.254 febs [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+2020-05-16 17:44:21.259 febs [main] INFO  com.cx.AppApplication - Started AppApplication in 10.13 seconds (JVM running for 11.536)
+2020-05-16 17:44:21.302 febs [main] INFO  com.cx.common.runner.StartedUpRunner -  __    ___   _      ___   _     ____ _____  ____ 
+2020-05-16 17:44:21.303 febs [main] INFO  com.cx.common.runner.StartedUpRunner - / /`  / / \ | |\/| | |_) | |   | |_   | |  | |_  
+2020-05-16 17:44:21.303 febs [main] INFO  com.cx.common.runner.StartedUpRunner - \_\_, \_\_/ |_|  | |_|   |_|__ |_|__  |_|  |_|__ 
+2020-05-16 17:44:21.303 febs [main] INFO  com.cx.common.runner.StartedUpRunner -                                                       
+2020-05-16 17:44:21.303 febs [main] INFO  com.cx.common.runner.StartedUpRunner - 智工系统启动完毕，地址：http://192.168.137.101:8099/login
+2020-05-16 17:44:22.073 febs [AmqpProvider :(1):[amqps://1950696194510916.iot-amqp.cn-shanghai.aliyuncs.com:-1]] INFO  o.a.q.jms.sasl.SaslMechanismFinder - Best match for SASL auth was: SASL-PLAIN
+2020-05-16 17:44:22.305 febs [AmqpProvider :(1):[amqps://1950696194510916.iot-amqp.cn-shanghai.aliyuncs.com:-1]] INFO  org.apache.qpid.jms.JmsConnection - Connection ID:5421cc60-76cc-4f28-b572-4b68f3e126e2:1 connected to remote Broker: amqps://1950696194510916.iot-amqp.cn-shanghai.aliyuncs.com
+2020-05-16 17:44:22.305 febs [QpidJMS Connection Executor: ID:5421cc60-76cc-4f28-b572-4b68f3e126e2:1] INFO  com.cx.common.utils.IotAmqpClient - onConnectionEstablished, remoteUri:amqps://1950696194510916.iot-amqp.cn-shanghai.aliyuncs.com?amqp.idleTimeout=80000
+2020-05-16 17:44:22.628 febs [RMI TCP Connection(8)-192.168.137.101] INFO  p6spy - 2020-05-16 17:44:22 | 耗时 6 ms | SQL 语句：
+select 1;
+2020-05-16 17:44:22.640 febs [RMI TCP Connection(9)-192.168.137.101] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-16 17:44:22.641 febs [RMI TCP Connection(9)-192.168.137.101] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-05-16 17:44:22.655 febs [RMI TCP Connection(9)-192.168.137.101] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 14 ms
+2020-05-16 17:44:25.344 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-05-16 17:44:25 | 耗时 23 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_feed_info;
+2020-05-16 17:44:25.358 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-05-16 17:44:25 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_feed_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:44:25.692 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-05-16 17:44:25 | 耗时 2 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_heart_info;
+2020-05-16 17:44:25.694 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-05-16 17:44:25 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, power, period_id, heart_state, heart_temperature, state, creator, create_date, modifier, mod_date FROM a_equipment_heart_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:44:26.220 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-05-16 17:44:26 | 耗时 2 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_energy_info;
+2020-05-16 17:44:26.222 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-05-16 17:44:26 | 耗时 3 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_roller_info;
+2020-05-16 17:44:26.222 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-05-16 17:44:26 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, period_id, current_a, current_b, current_c, voltage_b, voltage_a, voltage_c, power_a, power_b, power_c, state, creator, create_date, modifier, mod_date FROM a_equipment_energy_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:44:26.224 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-05-16 17:44:26 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_roller_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:44:26.770 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-05-16 17:44:26 | 耗时 5 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_roller_info;
+2020-05-16 17:44:27.267 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-05-16 17:44:27 | 耗时 3 ms | SQL 语句：
+SELECT id, sb_code, power, period_id, heart_state, heart_temperature, state, creator, create_date, modifier, mod_date FROM a_equipment_heart_info;
+2020-05-16 17:44:27.767 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-05-16 17:44:27 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_feed_info;
+2020-05-16 17:44:53.204 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-05-16 17:44:53 | 耗时 6 ms | SQL 语句：
+SELECT a.* FROM a_account a WHERE a.kh_account = 'fxp' AND a.kh_pwd = '123456';
+2020-05-16 17:44:53.208 febs [http-nio-8099-exec-8] INFO  c.c.c.a.s.HttpSessionCreatedEventListener - 新建session:1A52807F0DB4675F38C36B6A69138695
+2020-05-16 17:44:53.327 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-05-16 17:44:53 | 耗时 4 ms | SQL 语句：
+SELECT count(*) FROM a_account_equipment ae WHERE 1 = 1 AND ae.kh_id = '48';
+2020-05-16 17:44:53.354 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-05-16 17:44:53 | 耗时 13 ms | SQL 语句：
+SELECT e.*, period_no, p.is_period, p.period_no AS work_id, e.sb_status, a.* FROM a_account_equipment ae LEFT JOIN a_equipment e ON ae.sb_code = e.code LEFT JOIN a_account a ON ae.kh_id = a.id LEFT JOIN a_equipment_work_period p ON ae.sb_code = p.sb_code AND p.is_period = 1 WHERE 1 = 1 AND ae.kh_id = '48' ORDER BY p.is_period DESC, e.sb_status DESC, e.code LIMIT 0, 8;
+2020-05-16 17:44:56.056 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-05-16 17:44:56 | 耗时 0 ms | SQL 语句：
+SELECT count(*) FROM a_account_equipment ae WHERE 1 = 1 AND ae.kh_id = '48';
+2020-05-16 17:44:56.060 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-05-16 17:44:56 | 耗时 0 ms | SQL 语句：
+SELECT e.*, period_no, p.is_period, p.period_no AS work_id, e.sb_status, a.* FROM a_account_equipment ae LEFT JOIN a_equipment e ON ae.sb_code = e.code LEFT JOIN a_account a ON ae.kh_id = a.id LEFT JOIN a_equipment_work_period p ON ae.sb_code = p.sb_code AND p.is_period = 1 WHERE 1 = 1 AND ae.kh_id = '48' ORDER BY p.is_period DESC, e.sb_status DESC, e.code LIMIT 8, 16;
+2020-05-16 17:44:56.441 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-05-16 17:44:56 | 耗时 0 ms | SQL 语句：
+SELECT count(*) FROM a_account_equipment ae WHERE 1 = 1 AND ae.kh_id = '48';
+2020-05-16 17:44:56.444 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-05-16 17:44:56 | 耗时 0 ms | SQL 语句：
+SELECT e.*, period_no, p.is_period, p.period_no AS work_id, e.sb_status, a.* FROM a_account_equipment ae LEFT JOIN a_equipment e ON ae.sb_code = e.code LEFT JOIN a_account a ON ae.kh_id = a.id LEFT JOIN a_equipment_work_period p ON ae.sb_code = p.sb_code AND p.is_period = 1 WHERE 1 = 1 AND ae.kh_id = '48' ORDER BY p.is_period DESC, e.sb_status DESC, e.code LIMIT 16, 24;
+2020-05-16 17:45:07.347 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-05-16 17:45:07 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_feed_info;
+2020-05-16 17:45:07.348 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-05-16 17:45:07 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_feed_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:45:07.847 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-05-16 17:45:07 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_heart_info;
+2020-05-16 17:45:07.849 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-05-16 17:45:07 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, power, period_id, heart_state, heart_temperature, state, creator, create_date, modifier, mod_date FROM a_equipment_heart_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:45:08.347 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-05-16 17:45:08 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_roller_info;
+2020-05-16 17:45:08.348 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-05-16 17:45:08 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_energy_info;
+2020-05-16 17:45:08.349 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-05-16 17:45:08 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_roller_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:45:08.349 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-05-16 17:45:08 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, period_id, current_a, current_b, current_c, voltage_b, voltage_a, voltage_c, power_a, power_b, power_c, state, creator, create_date, modifier, mod_date FROM a_equipment_energy_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:45:08.917 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-05-16 17:45:08 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_roller_info;
+2020-05-16 17:45:09.416 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-05-16 17:45:09 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, power, period_id, heart_state, heart_temperature, state, creator, create_date, modifier, mod_date FROM a_equipment_heart_info;
+2020-05-16 17:45:09.929 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-05-16 17:45:09 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_feed_info;
+2020-05-16 17:45:18.358 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-05-16 17:45:18 | 耗时 1 ms | SQL 语句：
+SELECT count(*) FROM a_account_equipment ae WHERE 1 = 1 AND ae.kh_id = '48';
+2020-05-16 17:45:18.364 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-05-16 17:45:18 | 耗时 1 ms | SQL 语句：
+SELECT e.*, period_no, p.is_period, p.period_no AS work_id, e.sb_status, a.* FROM a_account_equipment ae LEFT JOIN a_equipment e ON ae.sb_code = e.code LEFT JOIN a_account a ON ae.kh_id = a.id LEFT JOIN a_equipment_work_period p ON ae.sb_code = p.sb_code AND p.is_period = 1 WHERE 1 = 1 AND ae.kh_id = '48' ORDER BY p.is_period DESC, e.sb_status DESC, e.code LIMIT 0, 8;
+2020-05-16 17:46:06.910 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-05-16 17:46:06 | 耗时 0 ms | SQL 语句：
+SELECT count(*) FROM a_account_equipment ae WHERE 1 = 1 AND ae.kh_id = '48';
+2020-05-16 17:46:06.916 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-05-16 17:46:06 | 耗时 1 ms | SQL 语句：
+SELECT e.*, period_no, p.is_period, p.period_no AS work_id, e.sb_status, a.* FROM a_account_equipment ae LEFT JOIN a_equipment e ON ae.sb_code = e.code LEFT JOIN a_account a ON ae.kh_id = a.id LEFT JOIN a_equipment_work_period p ON ae.sb_code = p.sb_code AND p.is_period = 1 WHERE 1 = 1 AND ae.kh_id = '48' ORDER BY p.is_period DESC, e.sb_status DESC, e.code LIMIT 0, 8;
+2020-05-16 17:46:29.732 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-05-16 17:46:29 | 耗时 10 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_feed_info;
+2020-05-16 17:46:29.734 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-05-16 17:46:29 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_feed_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:46:30.223 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-05-16 17:46:30 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_heart_info;
+2020-05-16 17:46:30.224 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-05-16 17:46:30 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, power, period_id, heart_state, heart_temperature, state, creator, create_date, modifier, mod_date FROM a_equipment_heart_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:46:30.724 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-05-16 17:46:30 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_roller_info;
+2020-05-16 17:46:30.724 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-05-16 17:46:30 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_energy_info;
+2020-05-16 17:46:30.725 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-05-16 17:46:30 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_roller_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:46:30.725 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-05-16 17:46:30 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, period_id, current_a, current_b, current_c, voltage_b, voltage_a, voltage_c, power_a, power_b, power_c, state, creator, create_date, modifier, mod_date FROM a_equipment_energy_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:46:31.287 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-05-16 17:46:31 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_roller_info;
+2020-05-16 17:46:31.787 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-05-16 17:46:31 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, power, period_id, heart_state, heart_temperature, state, creator, create_date, modifier, mod_date FROM a_equipment_heart_info;
+2020-05-16 17:46:32.286 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-05-16 17:46:32 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_feed_info;
+2020-05-16 17:47:05.209 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-05-16 17:47:05 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_feed_info;
+2020-05-16 17:47:05.210 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-05-16 17:47:05 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_feed_info ORDER BY id ASC LIMIT 15,15;
+2020-05-16 17:47:11.324 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-05-16 17:47:11 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_feed_info;
+2020-05-16 17:47:11.326 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-05-16 17:47:11 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_feed_info ORDER BY id ASC LIMIT 30,15;
+2020-05-16 17:47:15.358 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-05-16 17:47:15 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_feed_info;
+2020-05-16 17:47:15.359 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-05-16 17:47:15 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_feed_info ORDER BY id ASC LIMIT 45,15;
+2020-05-16 17:47:18.462 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-05-16 17:47:18 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_feed_info;
+2020-05-16 17:47:18.463 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-05-16 17:47:18 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_feed_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:47:18.963 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-05-16 17:47:18 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_heart_info;
+2020-05-16 17:47:18.965 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-05-16 17:47:18 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, power, period_id, heart_state, heart_temperature, state, creator, create_date, modifier, mod_date FROM a_equipment_heart_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:47:19.464 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-05-16 17:47:19 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_roller_info;
+2020-05-16 17:47:19.464 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-05-16 17:47:19 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_energy_info;
+2020-05-16 17:47:19.465 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-05-16 17:47:19 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_roller_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:47:19.466 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-05-16 17:47:19 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, period_id, current_a, current_b, current_c, voltage_b, voltage_a, voltage_c, power_a, power_b, power_c, state, creator, create_date, modifier, mod_date FROM a_equipment_energy_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:47:20.029 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-05-16 17:47:20 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_roller_info;
+2020-05-16 17:47:20.529 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-05-16 17:47:20 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, power, period_id, heart_state, heart_temperature, state, creator, create_date, modifier, mod_date FROM a_equipment_heart_info;
+2020-05-16 17:47:21.029 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-05-16 17:47:21 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_feed_info;
+2020-05-16 17:47:43.195 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-05-16 17:47:43 | 耗时 0 ms | SQL 语句：
+SELECT count(*) FROM a_account_equipment ae WHERE 1 = 1 AND ae.kh_id = '48';
+2020-05-16 17:47:43.202 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-05-16 17:47:43 | 耗时 2 ms | SQL 语句：
+SELECT e.*, period_no, p.is_period, p.period_no AS work_id, e.sb_status, a.* FROM a_account_equipment ae LEFT JOIN a_equipment e ON ae.sb_code = e.code LEFT JOIN a_account a ON ae.kh_id = a.id LEFT JOIN a_equipment_work_period p ON ae.sb_code = p.sb_code AND p.is_period = 1 WHERE 1 = 1 AND ae.kh_id = '48' ORDER BY p.is_period DESC, e.sb_status DESC, e.code LIMIT 0, 8;
+2020-05-16 17:47:45.041 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-05-16 17:47:45 | 耗时 2 ms | SQL 语句：
+SELECT count(*) FROM a_account_equipment ae WHERE 1 = 1 AND ae.kh_id = '48';
+2020-05-16 17:47:45.045 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-05-16 17:47:45 | 耗时 0 ms | SQL 语句：
+SELECT e.*, period_no, p.is_period, p.period_no AS work_id, e.sb_status, a.* FROM a_account_equipment ae LEFT JOIN a_equipment e ON ae.sb_code = e.code LEFT JOIN a_account a ON ae.kh_id = a.id LEFT JOIN a_equipment_work_period p ON ae.sb_code = p.sb_code AND p.is_period = 1 WHERE 1 = 1 AND ae.kh_id = '48' ORDER BY p.is_period DESC, e.sb_status DESC, e.code LIMIT 8, 16;
+2020-05-16 17:50:57.255 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-05-16 17:50:57 | 耗时 3 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_feed_info;
+2020-05-16 17:50:57.257 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-05-16 17:50:57 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_feed_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:50:57.729 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-05-16 17:50:57 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_heart_info;
+2020-05-16 17:50:57.730 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-05-16 17:50:57 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, power, period_id, heart_state, heart_temperature, state, creator, create_date, modifier, mod_date FROM a_equipment_heart_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:50:58.229 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-05-16 17:50:58 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_roller_info;
+2020-05-16 17:50:58.230 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-05-16 17:50:58 | 耗时 0 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_energy_info;
+2020-05-16 17:50:58.230 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-05-16 17:50:58 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_roller_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:50:58.231 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-05-16 17:50:58 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, period_id, current_a, current_b, current_c, voltage_b, voltage_a, voltage_c, power_a, power_b, power_c, state, creator, create_date, modifier, mod_date FROM a_equipment_energy_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:50:58.799 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-05-16 17:50:58 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_roller_info;
+2020-05-16 17:50:59.300 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-05-16 17:50:59 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, power, period_id, heart_state, heart_temperature, state, creator, create_date, modifier, mod_date FROM a_equipment_heart_info;
+2020-05-16 17:50:59.799 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-05-16 17:50:59 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_feed_info;
+2020-05-16 17:54:34.625 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-05-16 17:54:34 | 耗时 2 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_feed_info;
+2020-05-16 17:54:34.627 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-05-16 17:54:34 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_feed_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:54:35.101 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-05-16 17:54:35 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_heart_info;
+2020-05-16 17:54:35.103 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-05-16 17:54:35 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, power, period_id, heart_state, heart_temperature, state, creator, create_date, modifier, mod_date FROM a_equipment_heart_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:54:35.604 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-05-16 17:54:35 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_roller_info;
+2020-05-16 17:54:35.604 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-05-16 17:54:35 | 耗时 0 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_energy_info;
+2020-05-16 17:54:35.606 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-05-16 17:54:35 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_roller_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:54:35.606 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-05-16 17:54:35 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, period_id, current_a, current_b, current_c, voltage_b, voltage_a, voltage_c, power_a, power_b, power_c, state, creator, create_date, modifier, mod_date FROM a_equipment_energy_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:54:36.173 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-05-16 17:54:36 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_roller_info;
+2020-05-16 17:54:43.707 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-05-16 17:54:43 | 耗时 0 ms | SQL 语句：
+SELECT count(*) FROM a_account_equipment ae WHERE 1 = 1 AND ae.kh_id = '48';
+2020-05-16 17:54:43.711 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-05-16 17:54:43 | 耗时 1 ms | SQL 语句：
+SELECT e.*, period_no, p.is_period, p.period_no AS work_id, e.sb_status, a.* FROM a_account_equipment ae LEFT JOIN a_equipment e ON ae.sb_code = e.code LEFT JOIN a_account a ON ae.kh_id = a.id LEFT JOIN a_equipment_work_period p ON ae.sb_code = p.sb_code AND p.is_period = 1 WHERE 1 = 1 AND ae.kh_id = '48' ORDER BY p.is_period DESC, e.sb_status DESC, e.code LIMIT 8, 16;
+2020-05-16 17:54:44.022 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-05-16 17:54:44 | 耗时 0 ms | SQL 语句：
+SELECT count(*) FROM a_account_equipment ae WHERE 1 = 1 AND ae.kh_id = '48';
+2020-05-16 17:54:44.026 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-05-16 17:54:44 | 耗时 0 ms | SQL 语句：
+SELECT e.*, period_no, p.is_period, p.period_no AS work_id, e.sb_status, a.* FROM a_account_equipment ae LEFT JOIN a_equipment e ON ae.sb_code = e.code LEFT JOIN a_account a ON ae.kh_id = a.id LEFT JOIN a_equipment_work_period p ON ae.sb_code = p.sb_code AND p.is_period = 1 WHERE 1 = 1 AND ae.kh_id = '48' ORDER BY p.is_period DESC, e.sb_status DESC, e.code LIMIT 16, 24;
+2020-05-16 17:54:47.566 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-05-16 17:54:47 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_feed_info;
+2020-05-16 17:54:47.568 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-05-16 17:54:47 | 耗时 1 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_feed_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:54:48.066 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-05-16 17:54:48 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_heart_info;
+2020-05-16 17:54:48.068 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-05-16 17:54:48 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, power, period_id, heart_state, heart_temperature, state, creator, create_date, modifier, mod_date FROM a_equipment_heart_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:54:48.567 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-05-16 17:54:48 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_roller_info;
+2020-05-16 17:54:48.568 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-05-16 17:54:48 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_energy_info;
+2020-05-16 17:54:48.568 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-05-16 17:54:48 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_roller_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:54:48.570 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-05-16 17:54:48 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, period_id, current_a, current_b, current_c, voltage_b, voltage_a, voltage_c, power_a, power_b, power_c, state, creator, create_date, modifier, mod_date FROM a_equipment_energy_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:54:49.131 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-05-16 17:54:49 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_roller_info;
+2020-05-16 17:54:49.631 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-05-16 17:54:49 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, power, period_id, heart_state, heart_temperature, state, creator, create_date, modifier, mod_date FROM a_equipment_heart_info;
+2020-05-16 17:54:50.131 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-05-16 17:54:50 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_feed_info;
+2020-05-16 17:57:15.396 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-05-16 17:57:15 | 耗时 2 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_feed_info;
+2020-05-16 17:57:15.398 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-05-16 17:57:15 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_feed_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:57:15.881 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-05-16 17:57:15 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_heart_info;
+2020-05-16 17:57:15.882 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-05-16 17:57:15 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, power, period_id, heart_state, heart_temperature, state, creator, create_date, modifier, mod_date FROM a_equipment_heart_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:57:16.382 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-05-16 17:57:16 | 耗时 0 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_roller_info;
+2020-05-16 17:57:16.383 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-05-16 17:57:16 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_equipment_energy_info;
+2020-05-16 17:57:16.383 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-05-16 17:57:16 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_roller_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:57:16.385 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-05-16 17:57:16 | 耗时 0 ms | SQL 语句：
+SELECT id, sb_code, period_id, current_a, current_b, current_c, voltage_b, voltage_a, voltage_c, power_a, power_b, power_c, state, creator, create_date, modifier, mod_date FROM a_equipment_energy_info ORDER BY id ASC LIMIT 0,15;
+2020-05-16 17:57:16.949 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-05-16 17:57:16 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_roller_info;
+2020-05-16 17:57:17.448 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-05-16 17:57:17 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, power, period_id, heart_state, heart_temperature, state, creator, create_date, modifier, mod_date FROM a_equipment_heart_info;
+2020-05-16 17:57:17.947 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-05-16 17:57:17 | 耗时 2 ms | SQL 语句：
+SELECT id, sb_code, run_state, run_frequence, out_power, period_id, state, creator, create_date, modifier, mod_date FROM a_equipment_feed_info;

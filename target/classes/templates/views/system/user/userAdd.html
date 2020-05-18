@@ -1,0 +1,119 @@
+<style>
+    #user-add {
+        padding: 20px 25px 25px 0;
+    }
+
+    #user-add .layui-treeSelect .ztree li a, .ztree li span {
+        margin: 0 0 2px 3px !important;
+    }
+</style>
+<div class="layui-fluid" id="user-add">
+    <form action="" class="layui-form" lay-filter="user-add-form">
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">用户名：</label>
+            <div class="layui-input-block">
+                <input autocomplete="off" class="layui-input" lay-verify="range|username" maxlength="10" minlength="2"
+                       name="username" type="text">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">手机：</label>
+            <div class="layui-input-block">
+                <input autocomplete="off" class="layui-input" lay-verify="phone" name="mobile" type="tel">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">邮箱：</label>
+            <div class="layui-input-block">
+                <input autocomplete="off" class="layui-input" lay-verify="email" maxlength="50" name="email"
+                       type="text">
+            </div>
+        </div>
+        <div class="layui-form-item" sec:authorize="hasRole('role:update')">
+            <label class="layui-form-label febs-form-item-require">角色：</label>
+            <div id="roleId" class="xm-select-demo  layui-input-block">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">状态：</label>
+            <div class="layui-input-block">
+                <input checked="" name="status" title="有效" type="radio" value="1">
+                <input name="status" title="禁用" type="radio" value="0">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">性别：</label>
+            <div class="layui-input-block">
+                <input name="sex" title="男性" type="radio" value="0">
+                <input name="sex" title="女性" type="radio" value="1">
+                <input checked="" name="sex" title="保密" type="radio" value="2">
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">备注：</label>
+            <div class="layui-input-block">
+                <textarea class="layui-textarea" maxlength="100" name="description"></textarea>
+            </div>
+        </div>
+        <div class="layui-form-item febs-hide">
+            <button class="layui-btn" id="submit" lay-filter="user-add-form-submit" lay-submit=""></button>
+            <button class="layui-btn" id="reset" type="reset"></button>
+        </div>
+    </form>
+</div>
+
+<script>
+    layui.use(['febs', 'form', 'xmSelect', 'validate', 'treeSelect'], function () {
+        var $ = layui.$,
+            febs = layui.febs,
+            layer = layui.layer,
+            xmSelect = layui.xmSelect,
+            treeSelect = layui.treeSelect,
+            form = layui.form,
+            $view = $('#user-add'),
+            validate = layui.validate;
+
+        form.verify(validate);
+        form.render();
+
+        treeSelect.render({
+            elem: $view.find('#user-add-dept'),
+            type: 'get',
+            data: ctx + 'dept/select/treeone',
+            placeholder: '请选择',
+            search: false
+        });
+
+        let xsData = xmSelect.render({
+            el: '#roleId',
+            toolbar: {show: true},
+            data: []
+        });
+
+        febs.get(ctx + 'role', {}, function (result) {
+            var data = result.data;
+            var tranData = [];
+            for (var i = 0; i < data.length; i++) {
+                tranData.push({
+                    name: data[i].roleName,
+                    value: data[i].roleId
+                })
+            }
+            xsData.update({
+                data: tranData,
+                autoRow: true,
+            })
+        });
+
+
+        form.on('submit(user-add-form-submit)', function (data) {
+            data.field["roleId"] = xsData.getValue("valueStr");
+            febs.post(ctx + 'sysUser', data.field, function () {
+                layer.closeAll();
+                febs.alert.success('新增用户成功，初始密码为 1234');
+                $('#febs-user').find('#query').click();
+            });
+            return false;
+        });
+    });
+</script>

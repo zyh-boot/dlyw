@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cx.module.mobile.mapper.StepSettingServiceMapper">
+    <!--当前表名：a_step_setting_service-->
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.cx.module.mobile.entity.StepSettingService">
+                    <id column="id" property="id"/>
+                    <result column="sb_code" property="sbCode"/>
+                    <result column="period_id" property="periodId"/>
+                    <result column="over_temp_protect" property="overTempProtect"/>
+                    <result column="step_num" property="stepNum"/>
+                    <result column="state" property="state"/>
+                    <result column="creator" property="creator"/>
+                    <result column="create_date" property="createDate"/>
+                    <result column="modifier" property="modifier"/>
+                    <result column="mod_date" property="modDate"/>
+                    <result column="temp_thr1" property="tempThr1"/>
+                    <result column="heart_power1" property="heartPower1"/>
+                    <result column="temp_thr2" property="tempThr2"/>
+                    <result column="heart_powe2" property="heartPowe2"/>
+                    <result column="heart_powe3" property="heartPowe3"/>
+                    <result column="temp_thr3" property="tempThr3"/>
+                    <result column="heart_powe4" property="heartPowe4"/>
+                    <result column="temp_thr4" property="tempThr4"/>
+                    <result column="heart_powe5" property="heartPowe5"/>
+                    <result column="temp_thr5" property="tempThr5"/>
+                    <result column="temp_thr6" property="tempThr6"/>
+                    <result column="heart_power6" property="heartPower6"/>
+                    <result column="temp_thr7" property="tempThr7"/>
+                    <result column="heart_powe7" property="heartPowe7"/>
+                    <result column="heart_powe8" property="heartPowe8"/>
+                    <result column="temp_thr8" property="tempThr8"/>
+                    <result column="heart_powe9" property="heartPowe9"/>
+                    <result column="temp_thr9" property="tempThr9"/>
+                    <result column="heart_powe10" property="heartPowe10"/>
+                    <result column="temp_thr10" property="tempThr10"/>
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            id, sb_code, period_id, over_temp_protect, step_num, state, creator, create_date, modifier, mod_date, temp_thr1, heart_power1, temp_thr2, heart_powe2, heart_powe3, temp_thr3, heart_powe4, temp_thr4, heart_powe5, temp_thr5, temp_thr6, heart_power6, temp_thr7, heart_powe7, heart_powe8, temp_thr8, heart_powe9, temp_thr9, heart_powe10, temp_thr10
+        </sql>
+</mapper>

@@ -1,0 +1,136 @@
+<style>
+
+</style>
+<div class="layui-fluid layui-anim febs-anim" id="febs-equipment-update" lay-title="">
+    <form class="layui-form" action="" lay-filter="equipment-update-form">
+                <input type="text" name="id" id="id" class="layui-input febs-hide" readonly>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备名称：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="name" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备编号：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="code" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">种类（1.炒货设备）：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="type" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">运行状态(1.在线2.离线3.运行中)：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="sbStatus" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">经度：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="sbJd" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">维度：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="sbWd" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">位置信息：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="sbAddress" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备用途：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="sbUser" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">使用时间：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="sbUsedate" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">手机卡：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="sbInfo" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">二维码 ：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="sbEwm" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">备注：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="remark" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">状态(1:有效 0失效)：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="state" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+        <div class="layui-form-item febs-hide">
+            <button class="layui-btn" lay-submit="" lay-filter="equipment-update-form-submit"
+                    id="submit"></button>
+            <button type="reset" class="layui-btn" id="reset"></button>
+        </div>
+    </form>
+</div>
+
+<script data-th-inline="javascript" type="text/javascript">
+    layui.use(['jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            febs = layui.febs,
+            form = layui.form,
+            table = layui.table,
+            xmSelect = layui.xmSelect,
+            equipment =[[\$\{equipment\}]],
+            $view = $('#febs-equipment-update');
+
+        form.render();
+        initValue();
+
+
+        form.on('submit(equipment-update-form-submit)', function (data) {
+            febs.put(ctx + 'mobile/equipment', data.field, function () {
+                layer.closeAll();
+                $('#febs-equipment').find('#query').click();
+            });
+            return false;
+        });
+
+
+        function initValue() {
+            form.val("equipment-update-form", {
+                "id": equipment.id,
+                "name": equipment.name,
+                "code": equipment.code,
+                "type": equipment.type,
+                "sbStatus": equipment.sbStatus,
+                "sbJd": equipment.sbJd,
+                "sbWd": equipment.sbWd,
+                "sbAddress": equipment.sbAddress,
+                "sbUser": equipment.sbUser,
+                "sbUsedate": equipment.sbUsedate,
+                "sbInfo": equipment.sbInfo,
+                "sbEwm": equipment.sbEwm,
+                "remark": equipment.remark,
+                "state": equipment.state,
+            });
+        }
+    })
+</script>

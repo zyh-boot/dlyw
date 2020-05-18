@@ -1,0 +1,34 @@
+{
+  "groups": [
+    {
+      "name": "cx",
+      "type": "com.cx.common.properties.CommonProperties",
+      "sourceType": "com.cx.common.properties.CommonProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "cx.is-verify",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.cx.common.properties.CommonProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "cx.open-aop-log",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.cx.common.properties.CommonProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "cx.security",
+      "type": "com.cx.common.properties.SecurityProperties",
+      "sourceType": "com.cx.common.properties.CommonProperties"
+    },
+    {
+      "name": "cx.swagger",
+      "type": "com.cx.common.properties.SwaggerProperties",
+      "sourceType": "com.cx.common.properties.CommonProperties"
+    }
+  ],
+  "hints": []
+}

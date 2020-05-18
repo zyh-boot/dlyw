@@ -1,0 +1,254 @@
+<div class="layui-fluid layui-anim febs-anim" id="febs-account" lay-title="客户管理">
+    <div class="layui-row febs-container">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body febs-table-full">
+                    <form class="layui-form layui-table-form" lay-filter="account-table-form">
+                        <div class="layui-row">
+                            <div class="layui-col-md2 layui-col-sm12 layui-col-xs12 table-action-area">
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action"
+                                     id="addaccount"   sec:authorize="hasRole('account:add')">
+                                    <i class="layui-icon">&#xe891;</i>
+                                </div>
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="delete" sec:authorize="hasRole('account:del')">
+                                    <i class="layui-icon">&#xe7f9;</i>
+                                </div>
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="query">
+                                    <i class="layui-icon">&#xe848;</i>
+                                </div>
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="reset">
+                                    <i class="layui-icon">&#xe79b;</i>
+                                </div>
+                            </div>
+                            <div class="layui-col-md10   layui-col-sm12 layui-col-xs12 table-action-area">
+                                <div class="layui-form-item">
+
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label layui-form-label-sm">客户名称</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" name="khName" autocomplete="off" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label layui-form-label-sm">客户类型</label>
+                                        <div class="layui-input-inline">
+                                            <select name="khDegree" lay-filter="aihao">
+                                                <option value="">全部</option>
+                                                <option value="1">重要客户</option>
+                                                <option value="2">一般客户</option>
+                                                <option value="3">一次客户</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label layui-form-label-sm">客户状态</label>
+                                        <div class="layui-input-inline">
+                                            <select name="khStatus" lay-filter="aihao">
+                                                <option value="">全部</option>
+                                                <option value="1">启用</option>
+                                                <option value="2">失效</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <table lay-filter="accountTable"
+                           lay-data="{id: 'accountTable'}"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="kh-zt">
+    {{#
+    var status = {
+    1: {title: '正常', color: 'green'},
+    0: {title: '失效', color: 'volcano'}
+    }[d.khStatus];
+    }}
+    <span class="layui-badge febs-tag-{{status.color}}">{{ status.title }}</span>
+
+</script>
+<script type="text/html" id="kh-cd">
+    {{#
+    var cd = {
+    1: {title: '重要客户', color: 'orange'},
+    2: {title: '一般客户', color: 'green'},
+    3: {title: '一次客户', color: 'cyan'}
+    }[d.khDegree];
+    }}
+    <span class="layui-badge febs-tag-{{ cd.color}}">{{ cd.title }}</span>
+</script>
+
+<script type="text/html" id="account-option">
+
+    <a lay-event="kh_code"><i class="layui-icon febs-edit-area febs-green"  sec:authorize="hasRole('account:sb')">&#xe653;</i></a>
+    <a lay-event="edit"><i class="layui-icon febs-edit-area febs-blue"  sec:authorize="hasRole('account:mod')">&#xe7a4;</i></a>
+    <a lay-event="del"><i class="layui-icon febs-edit-area febs-red"  sec:authorize="hasRole('account:del')">&#xe7f9;</i></a>
+</script>
+
+<script data-th-inline="none" type="text/javascript">
+    layui.use([ 'jquery', 'layer', 'laydate', 'form','febs','table', 'util','xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            laydate = layui.laydate,
+            febs = layui.febs,
+            form = layui.form,
+            table=layui.table,
+            xmSelect = layui.xmSelect,
+            $view = $('#febs-account'),
+            $query = $view.find('#query'),
+            $reset = $view.find('#reset'),
+            $addaccount = $view.find('#addaccount'),
+            $delete = $view.find('#delete'),
+            $searchForm = $view.find('form'),
+            sortObject = {field: 'createDate', type: null},
+            tableIns;
+
+        form.render();
+
+        initTable();
+
+
+        laydate.render({
+            elem: '#createTime',
+            range: true,
+            trigger: 'click'
+        });
+
+
+        //监听单元格事件
+        table.on('tool(accountTable)', function (obj) {
+            var data = obj.data,
+                layEvent = obj.event;
+            console.log("data", data);
+            if (layEvent === 'del') {
+                febs.modal.confirm('删除', '确定删除该 ？', function () {
+                    deleteAccount(data.id);
+                });
+            }
+            if (layEvent === 'edit') {
+                febs.modal.open('修改', 'mobile/account/update/' + data.id, {
+                    area: $(window).width() <= 750 ? '90%' : '50%',
+                    btn: ['提交', '取消'],
+                    yes: function (index, layero) {
+                        $('#febs-account-update').find('#submit').trigger('click');
+                    },
+                    btn2: function () {
+                        layer.closeAll();
+                    }
+                });
+            }
+            if (layEvent === 'kh_code') {
+                febs.modal.open('绑定设备', 'mobile/account/kh_code/' + data.id, {
+                    area: $(window).width() <= 750 ? '90%' : '50%',
+                    btn: ['提交', '取消'],
+                    yes: function (index, layero) {
+                        $('#febs-kh-code').find('#submit').trigger('click');
+                    },
+                    btn2: function () {
+                        layer.closeAll();
+                    }
+                });
+            }
+        });
+
+        table.on('sort(accountTable)', function (obj) {
+            sortObject = obj;
+            tableIns.reload({
+                initSort: obj,
+                where: $.extend(getQueryParams(), {
+                    field: obj.field,
+                    order: obj.type
+                })
+            });
+        });
+
+        $query.on('click', function () {
+            var params = $.extend(getQueryParams(), {field: sortObject.field, order: sortObject.type});
+            tableIns.reload({where: params, page: {curr: 1}});
+        });
+
+        $reset.on('click', function () {
+            $searchForm[0].reset();
+            sortObject.type = 'null';
+            tableIns.reload({where: getQueryParams(), page: {curr: 1}, initSort: sortObject});
+        });
+
+
+        $addaccount.on('click', function () {
+            febs.modal.open('新增', 'mobile/account/add', {
+                btn: ['提交', '重置'],
+                area: $(window).width() <= 750 ? '95%' : '50%',
+                yes: function (index, layero) {
+                    $('#febs-account-add').find('#submit').trigger('click');
+                },
+                btn2: function () {
+                    $('#febs-account-add').find('#reset').trigger('click');
+                    return false;
+                }
+            });
+        });
+
+
+        $delete.on('click', function () {
+            var checkStatus = table.checkStatus('accountTable');
+            if (!checkStatus.data.length) {
+                febs.alert.warn('请选择需要删除的 ');
+            } else {
+                febs.modal.confirm('删除', '确定删除该 ？', function () {
+                    var userIds = [];
+                    layui.each(checkStatus.data, function (key, item) {
+                        userIds.push(item.id)
+                    });
+                    deleteAccount(userIds.join(','));
+                });
+            }
+        });
+
+        function initTable() {
+            tableIns = febs.table.init({
+                elem: $view.find('table'),
+                id: 'accountTable',
+                url: ctx + 'mobile/account/pageList',
+                cols: [[
+                    {type: 'checkbox'},
+                    {title: '序号',type:'numbers' },
+                    {field: 'khName', title: '客户名称'},
+                    {field: 'khPhone', title: '客户电话'},
+                    {field: 'orgName', title: '公司名称'},
+                    {title: '重要程度', templet: '#kh-cd'},
+                    {title: '客户状态', templet: '#kh-zt'},
+                    {field: 'khAccount', title: '登录账号'},
+                    {field: 'khPwd', title: '密码'},
+                    {field: 'orgObjective', title: '公司宗旨'},
+                    {field: 'orgAddress', title: '公司位置'},
+                    {field: 'createDate', title: '创建时间', minWidth: 180, sort: true},
+                    {field: 'remark', title: '备注'},
+                    {title: '操作', toolbar: '#account-option', minWidth: 140}
+                ]]
+            });
+        }
+
+        function getQueryParams() {
+            return {
+                khName: $searchForm.find('input[name="khName"]').val().trim(),
+                khDegree: $searchForm.find('select[name="khDegree"]').val().trim(),
+                khStatus: $searchForm.find('select[name="khStatus"]').val().trim(),
+                invalidate_ie_cache: new Date()
+            };
+        }
+
+
+        function deleteAccount(ids){
+            febs.delete(ctx + 'mobile/account', {"ids": ids}, function () {
+                febs.alert.success('删除成功');
+                $query.click();
+            });
+        }
+    })
+</script>

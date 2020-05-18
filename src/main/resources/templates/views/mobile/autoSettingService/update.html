@@ -1,0 +1,101 @@
+<style>
+
+</style>
+<div class="layui-fluid layui-anim febs-anim" id="febs-autoSettingService-update" lay-title="">
+    <form class="layui-form" action="" lay-filter="autoSettingService-update-form">
+                <input type="text" name="id" id="id" class="layui-input febs-hide" readonly>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备code：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="sbCode" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">加热停止后多长时间进料停止：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="heartStopFeedS" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">过温保护：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="overTempProtect" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">状态(1:有效 0失效)：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="state" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">提前进料温度点：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="preFeedTemp" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">PID   P常数：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="kp" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">PID   I常数：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="ki" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">PID   D常数：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="kd" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+        <div class="layui-form-item febs-hide">
+            <button class="layui-btn" lay-submit="" lay-filter="autoSettingService-update-form-submit"
+                    id="submit"></button>
+            <button type="reset" class="layui-btn" id="reset"></button>
+        </div>
+    </form>
+</div>
+
+<script data-th-inline="javascript" type="text/javascript">
+    layui.use(['jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            febs = layui.febs,
+            form = layui.form,
+            table = layui.table,
+            xmSelect = layui.xmSelect,
+            autoSettingService =[[\$\{autoSettingService\}]],
+            $view = $('#febs-autoSettingService-update');
+
+        form.render();
+        initValue();
+
+
+        form.on('submit(autoSettingService-update-form-submit)', function (data) {
+            febs.put(ctx + 'mobile/autoSettingService', data.field, function () {
+                layer.closeAll();
+                $('#febs-autoSettingService').find('#query').click();
+            });
+            return false;
+        });
+
+
+        function initValue() {
+            form.val("autoSettingService-update-form", {
+                "id": autoSettingService.id,
+                "sbCode": autoSettingService.sbCode,
+                "heartStopFeedS": autoSettingService.heartStopFeedS,
+                "overTempProtect": autoSettingService.overTempProtect,
+                "state": autoSettingService.state,
+                "preFeedTemp": autoSettingService.preFeedTemp,
+                "kp": autoSettingService.kp,
+                "ki": autoSettingService.ki,
+                "kd": autoSettingService.kd,
+            });
+        }
+    })
+</script>

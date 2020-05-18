@@ -1,0 +1,212 @@
+2020-05-08 16:21:49.460 febs [main] INFO  com.cx.AppApplication - Starting AppApplication on SKY-20190914UNV with PID 9636 (D:\fxp_xm\ZG_APP\target\classes started by Administrator in D:\fxp_xm\ZG_APP)
+2020-05-08 16:21:49.494 febs [main] INFO  com.cx.AppApplication - The following profiles are active: dev
+2020-05-08 16:21:49.839 febs [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-05-08 16:28:00.886 febs [main] INFO  com.cx.AppApplication - Starting AppApplication on SKY-20190914UNV with PID 7068 (D:\fxp_xm\ZG_APP\target\classes started by Administrator in D:\fxp_xm\ZG_APP)
+2020-05-08 16:28:00.936 febs [main] INFO  com.cx.AppApplication - The following profiles are active: dev
+2020-05-08 16:28:02.302 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-05-08 16:28:02.305 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-05-08 16:28:02.386 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 65ms. Found 0 repository interfaces.
+2020-05-08 16:28:02.828 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.datasource.dynamic-com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:28:02.911 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$d7c56d1b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:28:02.918 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dsProcessor' of type [com.baomidou.dynamic.datasource.processor.DsHeaderProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:28:02.921 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicDatasourceAnnotationAdvisor' of type [com.baomidou.dynamic.datasource.aop.DynamicDataSourceAnnotationAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:28:02.928 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$6e36fc4a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:28:02.950 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfigure' of type [com.cx.common.configure.RedisConfigure$$EnhancerBySpringCGLIB$$522f7379] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:28:02.983 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$6e4c484] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:28:02.988 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:28:02.989 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@40016ce1' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:28:02.992 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$2bb96736] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:28:02.998 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:28:03.428 febs [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-05-08 16:28:03.441 febs [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-05-08 16:28:03.447 febs [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-05-08 16:28:03.448 febs [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-05-08 16:28:03.453 febs [main] INFO  o.a.c.core.AprLifecycleListener - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-05-08 16:28:03.453 febs [main] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-05-08 16:28:03.453 febs [main] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-05-08 16:28:03.473 febs [main] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-05-08 16:28:03.580 febs [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-05-08 16:28:03.580 febs [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2557 ms
+2020-05-08 16:28:03.874 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 动态数据源-检测到并开启了p6spy
+2020-05-08 16:28:03.879 febs [main] INFO  com.zaxxer.hikari.HikariDataSource - base - Starting...
+2020-05-08 16:28:04.127 febs [main] INFO  com.zaxxer.hikari.HikariDataSource - base - Start completed.
+2020-05-08 16:28:04.127 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 初始共加载 1 个数据源
+2020-05-08 16:28:04.127 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 动态数据源-加载 base 成功
+2020-05-08 16:28:04.127 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 当前的默认数据源是单数据源，数据源名为 base
+2020-05-08 16:28:04.553 febs [main] INFO  com.cx.common.xss.XssFilter - ------------ xss filter init ------------
+2020-05-08 16:28:05.866 febs [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2020-05-08 16:28:05.879 febs [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-05-08 16:28:05.879 febs [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.0 created.
+2020-05-08 16:28:05.880 febs [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2020-05-08 16:28:05.881 febs [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-05-08 16:28:05.881 febs [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-05-08 16:28:05.881 febs [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.0
+2020-05-08 16:28:05.881 febs [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@483fe83a
+2020-05-08 16:28:06.889 febs [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-05-08 16:28:07.283 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/test/**'], []
+2020-05-08 16:28:07.284 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/common/**'], []
+2020-05-08 16:28:07.284 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/*.js'], []
+2020-05-08 16:28:07.284 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/*.css'], []
+2020-05-08 16:28:07.284 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/font/**'], []
+2020-05-08 16:28:07.284 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/images/**'], []
+2020-05-08 16:28:07.284 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/img/**'], []
+2020-05-08 16:28:07.284 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/lay/**'], []
+2020-05-08 16:28:07.284 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/layui/**'], []
+2020-05-08 16:28:07.284 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/json/**'], []
+2020-05-08 16:28:07.284 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/api/**'], []
+2020-05-08 16:28:07.284 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-ui.html'], []
+2020-05-08 16:28:07.284 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger/**'], []
+2020-05-08 16:28:07.284 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-resources/**'], []
+2020-05-08 16:28:07.284 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/webjars/**'], []
+2020-05-08 16:28:07.284 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/v2/api-docs'], []
+2020-05-08 16:28:07.284 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/views/403'], []
+2020-05-08 16:28:07.284 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/views/401'], []
+2020-05-08 16:28:07.284 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/views/404'], []
+2020-05-08 16:28:07.337 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@11ec2b2f, org.springframework.security.web.context.SecurityContextPersistenceFilter@7077ae9c, org.springframework.security.web.header.HeaderWriterFilter@755033c5, org.springframework.security.web.authentication.logout.LogoutFilter@43cf97a8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@20276412, org.springframework.security.web.session.ConcurrentSessionFilter@571903ff, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@22a1d77b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2b6ff016, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@37b44e8e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@a70daf4, org.springframework.security.web.session.SessionManagementFilter@5b49b1df, org.springframework.security.web.access.ExceptionTranslationFilter@248ba4fc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4144d4a]
+2020-05-08 16:28:07.373 febs [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-05-08 16:28:07.385 febs [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService
+2020-05-08 16:28:07.387 febs [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'apsAsyncThreadPool'
+2020-05-08 16:28:07.710 febs [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2020-05-08 16:28:08.219 febs [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2020-05-08 16:28:08.234 febs [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2020-05-08 16:28:08.281 febs [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2020-05-08 16:28:08.299 febs [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2020-05-08 16:28:08.300 febs [main] INFO  org.quartz.core.QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-05-08 16:28:08.310 febs [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-05-08 16:28:08.330 febs [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-08 16:28:08.332 febs [main] INFO  com.cx.AppApplication - Started AppApplication in 7.946 seconds (JVM running for 9.976)
+2020-05-08 16:28:08.357 febs [main] INFO  com.cx.common.runner.StartedUpRunner -  __    ___   _      ___   _     ____ _____  ____ 
+2020-05-08 16:28:08.357 febs [main] INFO  com.cx.common.runner.StartedUpRunner - / /`  / / \ | |\/| | |_) | |   | |_   | |  | |_  
+2020-05-08 16:28:08.357 febs [main] INFO  com.cx.common.runner.StartedUpRunner - \_\_, \_\_/ |_|  | |_|   |_|__ |_|__  |_|  |_|__ 
+2020-05-08 16:28:08.357 febs [main] INFO  com.cx.common.runner.StartedUpRunner -                                                       
+2020-05-08 16:28:08.358 febs [main] INFO  com.cx.common.runner.StartedUpRunner - aps 权限系统启动完毕，地址：http://192.168.137.101:8080/login
+2020-05-08 16:28:09.022 febs [AmqpProvider :(1):[amqps://1950696194510916.iot-amqp.cn-shanghai.aliyuncs.com:-1]] INFO  o.a.q.jms.sasl.SaslMechanismFinder - Best match for SASL auth was: SASL-PLAIN
+2020-05-08 16:28:09.236 febs [AmqpProvider :(1):[amqps://1950696194510916.iot-amqp.cn-shanghai.aliyuncs.com:-1]] INFO  org.apache.qpid.jms.JmsConnection - Connection ID:6a04d6bf-ca1c-4136-a140-e020603f0cfe:1 connected to remote Broker: amqps://1950696194510916.iot-amqp.cn-shanghai.aliyuncs.com
+2020-05-08 16:28:09.236 febs [QpidJMS Connection Executor: ID:6a04d6bf-ca1c-4136-a140-e020603f0cfe:1] INFO  com.cx.common.utils.IotAmqpClient - onConnectionEstablished, remoteUri:amqps://1950696194510916.iot-amqp.cn-shanghai.aliyuncs.com?amqp.idleTimeout=80000
+2020-05-08 16:28:09.867 febs [RMI TCP Connection(5)-192.168.137.101] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-08 16:28:09.867 febs [RMI TCP Connection(5)-192.168.137.101] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-05-08 16:28:09.877 febs [RMI TCP Connection(5)-192.168.137.101] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 10 ms
+2020-05-08 16:28:09.887 febs [RMI TCP Connection(6)-192.168.137.101] INFO  p6spy - 2020-05-08 16:28:09 | 耗时 4 ms | SQL 语句：
+select 1;
+2020-05-08 16:28:20.094 febs [Thread-21] INFO  org.quartz.core.QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-05-08 16:28:20.101 febs [Thread-21] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'apsAsyncThreadPool'
+2020-05-08 16:28:20.103 febs [Thread-21] INFO  o.s.s.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler
+2020-05-08 16:28:20.103 febs [Thread-21] INFO  org.quartz.core.QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2020-05-08 16:28:20.103 febs [Thread-21] INFO  org.quartz.core.QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-05-08 16:28:20.103 febs [Thread-21] INFO  org.quartz.core.QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2020-05-08 16:28:20.107 febs [Thread-21] INFO  c.b.d.d.DynamicRoutingDataSource - closing dynamicDatasource  ing....
+2020-05-08 16:28:20.107 febs [Thread-21] INFO  com.zaxxer.hikari.HikariDataSource - base - Shutdown initiated...
+2020-05-08 16:28:20.111 febs [Thread-21] INFO  com.zaxxer.hikari.HikariDataSource - base - Shutdown completed.
+2020-05-08 16:32:20.614 febs [main] INFO  com.cx.AppApplication - Starting AppApplication on SKY-20190914UNV with PID 9960 (D:\fxp_xm\ZG_APP\target\classes started by Administrator in D:\fxp_xm\ZG_APP)
+2020-05-08 16:32:20.616 febs [main] INFO  com.cx.AppApplication - The following profiles are active: dev
+2020-05-08 16:32:21.809 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-05-08 16:32:21.811 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-05-08 16:32:21.885 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 65ms. Found 0 repository interfaces.
+2020-05-08 16:32:22.336 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.datasource.dynamic-com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:32:22.465 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$9473f6f7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:32:22.472 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dsProcessor' of type [com.baomidou.dynamic.datasource.processor.DsHeaderProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:32:22.474 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicDatasourceAnnotationAdvisor' of type [com.baomidou.dynamic.datasource.aop.DynamicDataSourceAnnotationAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:32:22.482 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2ae58626] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:32:22.503 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfigure' of type [com.cx.common.configure.RedisConfigure$$EnhancerBySpringCGLIB$$eddfd55] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:32:22.534 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$c3934e60] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:32:22.540 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:32:22.542 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5b665a30' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:32:22.546 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$e867f112] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:32:22.551 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 16:32:22.860 febs [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2020-05-08 16:32:22.871 febs [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2020-05-08 16:32:22.877 febs [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-05-08 16:32:22.877 febs [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-05-08 16:32:22.882 febs [main] INFO  o.a.c.core.AprLifecycleListener - Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-05-08 16:32:22.882 febs [main] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-05-08 16:32:22.882 febs [main] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-05-08 16:32:22.885 febs [main] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-05-08 16:32:22.992 febs [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-05-08 16:32:22.992 febs [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2302 ms
+2020-05-08 16:32:23.276 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 动态数据源-检测到并开启了p6spy
+2020-05-08 16:32:23.282 febs [main] INFO  com.zaxxer.hikari.HikariDataSource - base - Starting...
+2020-05-08 16:32:23.555 febs [main] INFO  com.zaxxer.hikari.HikariDataSource - base - Start completed.
+2020-05-08 16:32:23.555 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 初始共加载 1 个数据源
+2020-05-08 16:32:23.555 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 动态数据源-加载 base 成功
+2020-05-08 16:32:23.555 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 当前的默认数据源是单数据源，数据源名为 base
+2020-05-08 16:32:23.937 febs [main] INFO  com.cx.common.xss.XssFilter - ------------ xss filter init ------------
+2020-05-08 16:32:25.119 febs [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2020-05-08 16:32:25.127 febs [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-05-08 16:32:25.127 febs [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.0 created.
+2020-05-08 16:32:25.127 febs [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2020-05-08 16:32:25.128 febs [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-05-08 16:32:25.128 febs [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-05-08 16:32:25.128 febs [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.0
+2020-05-08 16:32:25.128 febs [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@523f3c29
+2020-05-08 16:32:26.271 febs [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-05-08 16:32:26.452 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/test/**'], []
+2020-05-08 16:32:26.453 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/common/**'], []
+2020-05-08 16:32:26.453 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/*.js'], []
+2020-05-08 16:32:26.453 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/*.css'], []
+2020-05-08 16:32:26.453 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/font/**'], []
+2020-05-08 16:32:26.453 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/images/**'], []
+2020-05-08 16:32:26.453 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/img/**'], []
+2020-05-08 16:32:26.453 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/lay/**'], []
+2020-05-08 16:32:26.453 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/layui/**'], []
+2020-05-08 16:32:26.453 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/json/**'], []
+2020-05-08 16:32:26.453 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/api/**'], []
+2020-05-08 16:32:26.453 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-ui.html'], []
+2020-05-08 16:32:26.453 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger/**'], []
+2020-05-08 16:32:26.453 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-resources/**'], []
+2020-05-08 16:32:26.453 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/webjars/**'], []
+2020-05-08 16:32:26.453 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/v2/api-docs'], []
+2020-05-08 16:32:26.453 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/views/403'], []
+2020-05-08 16:32:26.453 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/views/401'], []
+2020-05-08 16:32:26.453 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/views/404'], []
+2020-05-08 16:32:26.505 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b625e82, org.springframework.security.web.context.SecurityContextPersistenceFilter@12c30824, org.springframework.security.web.header.HeaderWriterFilter@3751baf6, org.springframework.security.web.authentication.logout.LogoutFilter@4c89c98a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@610d0067, org.springframework.security.web.session.ConcurrentSessionFilter@38213efa, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@df04d12, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@29a1dab3, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@7a1878d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@22657db1, org.springframework.security.web.session.SessionManagementFilter@3cfab56d, org.springframework.security.web.access.ExceptionTranslationFilter@543c887, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@429dde4d]
+2020-05-08 16:32:26.546 febs [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-05-08 16:32:26.559 febs [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService
+2020-05-08 16:32:26.560 febs [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'apsAsyncThreadPool'
+2020-05-08 16:32:26.844 febs [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2020-05-08 16:32:27.310 febs [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2020-05-08 16:32:27.321 febs [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2020-05-08 16:32:27.362 febs [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2020-05-08 16:32:27.377 febs [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2020-05-08 16:32:27.377 febs [main] INFO  org.quartz.core.QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-05-08 16:32:27.387 febs [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+2020-05-08 16:32:27.405 febs [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+2020-05-08 16:32:27.408 febs [main] INFO  com.cx.AppApplication - Started AppApplication in 7.365 seconds (JVM running for 8.295)
+2020-05-08 16:32:27.424 febs [main] INFO  com.cx.common.runner.StartedUpRunner -  __    ___   _      ___   _     ____ _____  ____ 
+2020-05-08 16:32:27.425 febs [main] INFO  com.cx.common.runner.StartedUpRunner - / /`  / / \ | |\/| | |_) | |   | |_   | |  | |_  
+2020-05-08 16:32:27.425 febs [main] INFO  com.cx.common.runner.StartedUpRunner - \_\_, \_\_/ |_|  | |_|   |_|__ |_|__  |_|  |_|__ 
+2020-05-08 16:32:27.425 febs [main] INFO  com.cx.common.runner.StartedUpRunner -                                                       
+2020-05-08 16:32:27.425 febs [main] INFO  com.cx.common.runner.StartedUpRunner - 智工系统启动完毕，地址：http://192.168.137.101:8099/login
+2020-05-08 16:32:27.973 febs [AmqpProvider :(1):[amqps://1950696194510916.iot-amqp.cn-shanghai.aliyuncs.com:-1]] INFO  o.a.q.jms.sasl.SaslMechanismFinder - Best match for SASL auth was: SASL-PLAIN
+2020-05-08 16:32:28.184 febs [AmqpProvider :(1):[amqps://1950696194510916.iot-amqp.cn-shanghai.aliyuncs.com:-1]] INFO  org.apache.qpid.jms.JmsConnection - Connection ID:adfcd441-2fce-4dab-a8f4-6d4edb00f7ec:1 connected to remote Broker: amqps://1950696194510916.iot-amqp.cn-shanghai.aliyuncs.com
+2020-05-08 16:32:28.185 febs [QpidJMS Connection Executor: ID:adfcd441-2fce-4dab-a8f4-6d4edb00f7ec:1] INFO  com.cx.common.utils.IotAmqpClient - onConnectionEstablished, remoteUri:amqps://1950696194510916.iot-amqp.cn-shanghai.aliyuncs.com?amqp.idleTimeout=80000
+2020-05-08 16:32:28.780 febs [RMI TCP Connection(4)-192.168.137.101] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-08 16:32:28.781 febs [RMI TCP Connection(4)-192.168.137.101] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-05-08 16:32:28.792 febs [RMI TCP Connection(4)-192.168.137.101] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 11 ms
+2020-05-08 16:32:28.802 febs [RMI TCP Connection(3)-192.168.137.101] INFO  p6spy - 2020-05-08 16:32:28 | 耗时 5 ms | SQL 语句：
+select 1;
+2020-05-08 16:33:37.170 febs [JmsSession [ID:adfcd441-2fce-4dab-a8f4-6d4edb00f7ec:1:1] delivery dispatcher] INFO  com.cx.common.utils.IotAmqpClient - receive message, topic = /a1umzzYpOjO/2020040001/thing/event/roller_error/post, messageId = 1258676887253903872, content = {"deviceType":"CustomCategory","identifier":"roller_error","iotId":"3ThbY2DsTHuiFlb7pfps000100","requestId":"123","name":"滚筒错误","time":1588926929659,"type":"error","productKey":"a1umzzYpOjO","deviceName":"2020040001","value":{"error_code":0}}
+2020-05-08 17:27:44.020 febs [Thread-19] INFO  org.quartz.core.QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-05-08 17:27:44.026 febs [Thread-19] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'apsAsyncThreadPool'
+2020-05-08 17:27:44.028 febs [Thread-19] INFO  o.s.s.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler
+2020-05-08 17:27:44.028 febs [Thread-19] INFO  org.quartz.core.QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2020-05-08 17:27:44.028 febs [Thread-19] INFO  org.quartz.core.QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-05-08 17:27:44.029 febs [Thread-19] INFO  org.quartz.core.QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2020-05-08 17:27:44.031 febs [Thread-19] INFO  c.b.d.d.DynamicRoutingDataSource - closing dynamicDatasource  ing....
+2020-05-08 17:27:44.031 febs [Thread-19] INFO  com.zaxxer.hikari.HikariDataSource - base - Shutdown initiated...
+2020-05-08 17:27:44.037 febs [Thread-19] INFO  com.zaxxer.hikari.HikariDataSource - base - Shutdown completed.

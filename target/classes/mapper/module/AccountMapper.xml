@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cx.module.mobile.mapper.AccountMapper">
+    <!--当前表名：a_account-->
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.cx.module.mobile.entity.Account">
+                    <id column="id" property="id"/>
+                    <result column="org_name" property="orgName"/>
+                    <result column="org_objective" property="orgObjective"/>
+                    <result column="org_phone" property="orgPhone"/>
+                    <result column="org_address" property="orgAddress"/>
+                    <result column="org_people" property="orgPeople"/>
+                    <result column="kh_phone" property="khPhone"/>
+                    <result column="kh_name" property="khName"/>
+                    <result column="kh_account" property="khAccount"/>
+                    <result column="kh_degree" property="khDegree"/>
+                    <result column="kh_status" property="khStatus"/>
+                    <result column="kh_pwd" property="khPwd"/>
+                    <result column="remark" property="remark"/>
+                    <result column="state" property="state"/>
+                    <result column="creator" property="creator"/>
+                    <result column="create_date" property="createDate"/>
+                    <result column="modifier" property="modifier"/>
+                    <result column="mod_date" property="modDate"/>
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            id, org_name, org_objective, org_phone, org_address, org_people, kh_phone, kh_name, kh_account, kh_degree, kh_status, kh_pwd, remark, state, creator, create_date, modifier, mod_date
+        </sql>
+
+
+    <select id="findAccountByAccandPwd" resultType="com.cx.module.mobile.entity.Account" parameterType="com.cx.module.mobile.entity.Account">
+		SELECT
+		a.*
+		FROM
+		a_account a
+		WHERE
+		a.kh_account = #{khAccount} and a.kh_pwd = #{khPwd}
+	</select>
+
+</mapper>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="utf-8">
+    <title>许昌智工智能机械云平台</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta content="webkit" name="renderer">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"
+          name="viewport">
+
+    <link media="all" rel="stylesheet" th:href="@{layui/css/layui.css}">
+    <link media="all" rel="stylesheet" th:href="@{common/css/iconfontZdy.css}">
+    <link media="all" rel="stylesheet" th:href="@{common/css/febs.css}">
+    <link media="all" rel="stylesheet" th:href="@{common/css/eleTree.css}">
+    <link media="all" rel="stylesheet" th:href="@{common/css/cropper.css}">
+    <link media="all" rel="stylesheet" th:href="@{common/css/iconfontZdy.css}">
+    <link rel="icon" th:href="@{common/images/favicon.ico}" type="image/x-icon"/>
+</head>
+<body>
+<div id="febs"></div>
+<script th:src="@{layui/layui.js}"></script>
+<script th:src="@{common/lay/extends/pinying.js}"></script>
+<script th:inline="javascript">
+    var ctx = [[@{/}]];
+    var currentUser = [[${user}]];
+    currentUser.roleSet = [[${roles}]];
+    currentUser.permissionSet = [[${permissions}]];
+
+    layui.config({
+        base: './common/',
+        debug: true
+    }).extend({
+        xmSelect: 'lay/extends/xm-select',
+        treeSelect: 'lay/extends/treeSelect',
+        apexcharts: 'lay/extends/apexcharts.min',
+        selectN: 'lay/extends/selectN',
+        eleTree: 'lay/extends/eleTree',
+        tableSelect: 'lay/extends/tableSelect',
+        croppers: 'lay/extends/croppers',
+        tag: 'lay/extends/tag',
+        codeRule: 'lay/extends/codeRule',
+        calendar:'lay/extends/calendar'
+    }).use(['index']);
+</script>
+</body>
+</html>

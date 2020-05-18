@@ -1,0 +1,60 @@
+<style>
+
+</style>
+<div class="layui-fluid layui-anim febs-anim" id="febs-equipmentFeedSetService-add" lay-title="">
+    <form class="layui-form" action="" lay-filter="equipmentFeedSetService-add-form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备code：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="sbCode" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">状态 0 关  1 开：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="setState" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设置频率：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="setFrequence" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">状态(1:有效 0失效)：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="state" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+        <div class="layui-form-item febs-hide">
+            <button class="layui-btn" lay-submit="" lay-filter="equipmentFeedSetService-add-form-submit"
+                    id="submit"></button>
+            <button type="reset" class="layui-btn" id="reset"></button>
+        </div>
+    </form>
+</div>
+
+<script data-th-inline="javascript" type="text/javascript">
+    layui.use(['dropdown', 'jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            febs = layui.febs,
+            form = layui.form,
+            table = layui.table,
+            xmSelect = layui.xmSelect,
+            $view = $('#febs-equipmentFeedSetService-add');
+
+        form.render();
+
+
+        form.on('submit(equipmentFeedSetService-add-form-submit)', function (data) {
+            febs.post(ctx + 'mobile/equipmentFeedSetService', data.field, function () {
+                layer.closeAll();
+                $('#febs-equipmentFeedSetService').find('#query').click();
+            });
+            return false;
+        });
+
+    })
+</script>

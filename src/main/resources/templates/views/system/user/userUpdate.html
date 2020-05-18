@@ -1,0 +1,146 @@
+<style>
+    #user-update {
+        padding: 20px 25px 25px 0;
+    }
+
+    #user-update .layui-treeSelect .ztree li a, .ztree li span {
+        margin: 0 0 2px 3px !important;
+    }
+</style>
+<div class="layui-fluid" id="user-update">
+    <form action="" class="layui-form" lay-filter="user-update-form">
+        <div class="layui-form-item febs-hide">
+            <label class="layui-form-label febs-form-item-require">用户id：</label>
+            <div class="layui-input-block">
+                <input data-th-value="${user.userId}" name="userId" type="text">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">用户名：</label>
+            <div class="layui-input-block">
+                <input autocomplete="off" class="layui-input" data-th-id="${user.userId}" lay-verify="range|username" maxlength="10"
+                       minlength="4" name="username" readonly type="text">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">手机：</label>
+            <div class="layui-input-block">
+                <input autocomplete="off" class="layui-input" lay-verify="phone" name="mobile" type="tel">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">邮箱：</label>
+            <div class="layui-input-block">
+                <input autocomplete="off" class="layui-input" lay-verify="email" maxlength="50" name="email"
+                       type="text">
+            </div>
+        </div>
+        <div class="layui-form-item" sec:authorize="hasRole('role:update')">
+            <label class="layui-form-label ">角色：</label>
+            <div  id="roleId" class="xm-select-demo  layui-input-block"></div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">状态：</label>
+            <div class="layui-input-block">
+                <input name="status" title="有效" type="radio" value="1">
+                <input name="status" title="禁用" type="radio" value="0">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">性别：</label>
+            <div class="layui-input-block">
+                <input name="sex" title="男性" type="radio" value="0">
+                <input name="sex" title="女性" type="radio" value="1">
+                <input name="sex" title="保密" type="radio" value="2">
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">备注：</label>
+            <div class="layui-input-block">
+                <textarea class="layui-textarea" maxlength="100" name="description">
+                </textarea>
+            </div>
+        </div>
+        <div class="layui-form-item febs-hide">
+            <button class="layui-btn" id="submit" lay-filter="user-update-form-submit" lay-submit=""></button>
+        </div>
+    </form>
+</div>
+
+<script data-th-inline="javascript">
+    layui.use(['febs', 'form', 'xmSelect', 'validate', 'treeSelect'], function () {
+        var $ = layui.$,
+            febs = layui.febs,
+            layer = layui.layer,
+            xmSelect = layui.xmSelect,
+            treeSelect = layui.treeSelect,
+            form = layui.form,
+            user = [[${user}]],
+            $view = $('#user-update'),
+            validate = layui.validate;
+
+        form.verify(validate);
+        form.render();
+
+        initUserValue();
+
+        treeSelect.render({
+            elem: $view.find('#user-update-dept'),
+            type: 'get',
+            data: ctx + 'dept/select/treeone',
+            placeholder: '请选择',
+            search: false,
+            success: function () {
+                treeSelect.checkNode('user-update-dept', user.deptId);
+            }
+        });
+
+        let xsData=xmSelect.render({
+            el: '#roleId',
+            toolbar: {show: true},
+            data:[]
+        })
+
+        febs.get(ctx + 'role',{}, function (result) {
+            var data = result.data;
+            var tranData = [];
+            for (var i = 0; i < data.length; i++) {
+                tranData.push({
+                    name: data[i].roleName,
+                    value: data[i].roleId
+                })
+            }
+            xsData.update({
+                data: tranData,
+                autoRow: true,
+            })
+
+            xsData.setValue( user.roleId.split(','))
+        });
+
+        function initUserValue() {
+            form.val("user-update-form", {
+                "username": user.username,
+                "mobile": user.mobile,
+                "email": user.email,
+                "status": user.status,
+                "sex": user.sex,
+                "description": user.description
+            });
+        }
+
+        form.on('submit(user-update-form-submit)', function (data) {
+            if (febs.nativeEqual(data.field, user)) {
+                febs.alert.warn('数据未作任何修改！');
+                return false;
+            }
+            data.field["roleId"]=xsData.getValue("valueStr");
+            febs.post(ctx + 'sysUser/update', data.field, function () {
+                layer.closeAll();
+                febs.alert.success(user.username + ' 用户数据修改成功');
+                $('#febs-user').find('#query').click();
+            });
+            return false;
+        });
+    });
+</script>

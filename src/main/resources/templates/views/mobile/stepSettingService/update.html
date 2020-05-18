@@ -1,0 +1,214 @@
+<style>
+
+</style>
+<div class="layui-fluid layui-anim febs-anim" id="febs-stepSettingService-update" lay-title="">
+    <form class="layui-form" action="" lay-filter="stepSettingService-update-form">
+                <input type="text" name="id" id="id" class="layui-input febs-hide" readonly>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备code：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="sbCode" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">过温保护点：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="overTempProtect" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段个数：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="stepNum" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">状态(1:有效 0失效)：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="state" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段温度阀值1：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tempThr1" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段功率1：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="heartPower1" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段温度阀值2：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tempThr2" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段功率2：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="heartPowe2" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段功率3：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="heartPowe3" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段温度阀值3：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tempThr3" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段功率4：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="heartPowe4" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段温度阀值4：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tempThr4" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段功率5：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="heartPowe5" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段温度阀值5：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tempThr5" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段温度阀值6：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tempThr6" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段功率6：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="heartPower6" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段温度阀值7：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tempThr7" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段功率7：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="heartPowe7" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段功率8：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="heartPowe8" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段温度阀值8：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tempThr8" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段功率9：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="heartPowe9" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段温度阀值9：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tempThr9" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段功率10：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="heartPowe10" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">阶段温度阀值10：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="tempThr10" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+        <div class="layui-form-item febs-hide">
+            <button class="layui-btn" lay-submit="" lay-filter="stepSettingService-update-form-submit"
+                    id="submit"></button>
+            <button type="reset" class="layui-btn" id="reset"></button>
+        </div>
+    </form>
+</div>
+
+<script data-th-inline="javascript" type="text/javascript">
+    layui.use(['jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            febs = layui.febs,
+            form = layui.form,
+            table = layui.table,
+            xmSelect = layui.xmSelect,
+            stepSettingService =[[\$\{stepSettingService\}]],
+            $view = $('#febs-stepSettingService-update');
+
+        form.render();
+        initValue();
+
+
+        form.on('submit(stepSettingService-update-form-submit)', function (data) {
+            febs.put(ctx + 'mobile/stepSettingService', data.field, function () {
+                layer.closeAll();
+                $('#febs-stepSettingService').find('#query').click();
+            });
+            return false;
+        });
+
+
+        function initValue() {
+            form.val("stepSettingService-update-form", {
+                "id": stepSettingService.id,
+                "sbCode": stepSettingService.sbCode,
+                "periodId": stepSettingService.periodId,
+                "overTempProtect": stepSettingService.overTempProtect,
+                "stepNum": stepSettingService.stepNum,
+                "state": stepSettingService.state,
+                "tempThr1": stepSettingService.tempThr1,
+                "heartPower1": stepSettingService.heartPower1,
+                "tempThr2": stepSettingService.tempThr2,
+                "heartPowe2": stepSettingService.heartPowe2,
+                "heartPowe3": stepSettingService.heartPowe3,
+                "tempThr3": stepSettingService.tempThr3,
+                "heartPowe4": stepSettingService.heartPowe4,
+                "tempThr4": stepSettingService.tempThr4,
+                "heartPowe5": stepSettingService.heartPowe5,
+                "tempThr5": stepSettingService.tempThr5,
+                "tempThr6": stepSettingService.tempThr6,
+                "heartPower6": stepSettingService.heartPower6,
+                "tempThr7": stepSettingService.tempThr7,
+                "heartPowe7": stepSettingService.heartPowe7,
+                "heartPowe8": stepSettingService.heartPowe8,
+                "tempThr8": stepSettingService.tempThr8,
+                "heartPowe9": stepSettingService.heartPowe9,
+                "tempThr9": stepSettingService.tempThr9,
+                "heartPowe10": stepSettingService.heartPowe10,
+                "tempThr10": stepSettingService.tempThr10,
+            });
+        }
+    })
+</script>

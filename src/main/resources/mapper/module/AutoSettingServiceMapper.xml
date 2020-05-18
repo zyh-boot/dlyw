@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cx.module.mobile.mapper.AutoSettingServiceMapper">
+    <!--当前表名：a_auto_setting_service-->
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.cx.module.mobile.entity.AutoSettingService">
+                    <id column="id" property="id"/>
+                    <result column="sb_code" property="sbCode"/>
+                    <result column="heart_stop_feed_s" property="heartStopFeedS"/>
+                    <result column="over_temp_protect" property="overTempProtect"/>
+                    <result column="state" property="state"/>
+                    <result column="creator" property="creator"/>
+                    <result column="create_date" property="createDate"/>
+                    <result column="modifier" property="modifier"/>
+                    <result column="mod_date" property="modDate"/>
+                    <result column="pre_feed_temp" property="preFeedTemp"/>
+                    <result column="kp" property="kp"/>
+                    <result column="ki" property="ki"/>
+                    <result column="kd" property="kd"/>
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            id, sb_code, heart_stop_feed_s, over_temp_protect, state, creator, create_date, modifier, mod_date, pre_feed_temp, kp, ki, kd
+        </sql>
+</mapper>

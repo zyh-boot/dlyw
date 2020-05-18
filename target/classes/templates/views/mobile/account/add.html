@@ -1,0 +1,133 @@
+<style>
+
+</style>
+<div class="layui-fluid layui-anim febs-anim" id="febs-account-add" lay-title="新增客户">
+    <form class="layui-form" action="" lay-filter="account-add-form">
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">客户名称：</label>
+            <div class="layui-input-block">
+                <input type="text" name="khName" lay-verify="khName" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">客户电话：</label>
+            <div class="layui-input-block">
+                <input type="text" name="khPhone" lay-verify="khPhone" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">公司名称：</label>
+            <div class="layui-input-block">
+                <input type="text"  name="orgName" lay-verify="orgName" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label ">公司宗旨：</label>
+            <div class="layui-input-block">
+                <input type="text" name="orgObjective" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">公司位置：</label>
+            <div class="layui-input-block">
+                <input type="text" name="orgAddress" lay-verify="orgAddress" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">重要程度：</label>
+                <div class="layui-input-block">
+                    <select name="khDegree" lay-filter="aihao">
+                        <option value="1">重要客户</option>
+                        <option value="2" selected="">一般客户</option>
+                        <option value="3">一次客户</option>
+                    </select>
+                </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">客户状态：</label>
+            <div class="layui-input-block">
+
+                <select name="khStatus" lay-filter="aihao">
+                    <option value="1">启用</option>
+                    <option value="2">失效</option>
+
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">账号：</label>
+            <div class="layui-input-block">
+                <input type="text" name="khAccount"  lay-verify="khAccount" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">密码：</label>
+            <div class="layui-input-block">
+                <input type="text" name="khPwd" autocomplete="off" class="layui-input" value="123456">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">备注：</label>
+            <div class="layui-input-block">
+                <input type="text" name="remark" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item febs-hide">
+            <button class="layui-btn" lay-submit="" lay-filter="account-add-form-submit"
+                    id="submit"></button>
+            <button type="reset" class="layui-btn" id="reset"></button>
+        </div>
+    </form>
+</div>
+
+<script data-th-inline="javascript" type="text/javascript">
+    layui.use(['dropdown', 'jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            febs = layui.febs,
+            form = layui.form,
+            table = layui.table,
+            xmSelect = layui.xmSelect,
+            $view = $('#febs-account-add');
+
+        form.render();
+
+        form.verify({
+            orgName: function(value){
+                if(value==null || value==''){
+                    return '公司名称不能为空';
+                }
+            },orgAddress: function(value){
+                if(value==null || value==''){
+                    return '公司位置不能为空';
+                }
+            },khName: function(value){
+                if(value==null || value==''){
+                    return '客户名称不能为空';
+                }
+            },khPhone: function(value){
+                if(value==null || value==''){
+                    return '客户电话不能为空';
+                }
+            },khAccount: function(value){
+                if(value==null || value==''){
+                    return '登陆账户不能为空';
+                }
+            },
+        });
+
+        form.on('submit(account-add-form-submit)', function (data) {
+            febs.post(ctx + 'mobile/account', data.field, function () {
+                layer.closeAll();
+                $('#febs-account').find('#query').click();
+            });
+            return false;
+        });
+
+    })
+</script>

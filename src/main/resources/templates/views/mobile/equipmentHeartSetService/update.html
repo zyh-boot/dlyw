@@ -1,0 +1,74 @@
+<style>
+
+</style>
+<div class="layui-fluid layui-anim febs-anim" id="febs-equipmentHeartSetService-update" lay-title="">
+    <form class="layui-form" action="" lay-filter="equipmentHeartSetService-update-form">
+                <input type="text" name="id" id="id" class="layui-input febs-hide" readonly>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备code：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="sbCode" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">状态 0 关  1 开：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="setState" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设置频率：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="setFrequence" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">状态(1:有效 0失效)：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="state" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+        <div class="layui-form-item febs-hide">
+            <button class="layui-btn" lay-submit="" lay-filter="equipmentHeartSetService-update-form-submit"
+                    id="submit"></button>
+            <button type="reset" class="layui-btn" id="reset"></button>
+        </div>
+    </form>
+</div>
+
+<script data-th-inline="javascript" type="text/javascript">
+    layui.use(['jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            febs = layui.febs,
+            form = layui.form,
+            table = layui.table,
+            xmSelect = layui.xmSelect,
+            equipmentHeartSetService =[[\$\{equipmentHeartSetService\}]],
+            $view = $('#febs-equipmentHeartSetService-update');
+
+        form.render();
+        initValue();
+
+
+        form.on('submit(equipmentHeartSetService-update-form-submit)', function (data) {
+            febs.put(ctx + 'mobile/equipmentHeartSetService', data.field, function () {
+                layer.closeAll();
+                $('#febs-equipmentHeartSetService').find('#query').click();
+            });
+            return false;
+        });
+
+
+        function initValue() {
+            form.val("equipmentHeartSetService-update-form", {
+                "id": equipmentHeartSetService.id,
+                "sbCode": equipmentHeartSetService.sbCode,
+                "periodId": equipmentHeartSetService.periodId,
+                "setState": equipmentHeartSetService.setState,
+                "setFrequence": equipmentHeartSetService.setFrequence,
+                "state": equipmentHeartSetService.state,
+            });
+        }
+    })
+</script>

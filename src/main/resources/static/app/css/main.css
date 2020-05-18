@@ -1,0 +1,106 @@
+/*0.5边框*/
+.scale-1px{
+    position: relative;
+    border:none;
+ } 
+.scale-1px:after{
+    content: '';
+    position: absolute; 
+    bottom: 0; 
+    left: 0;
+    background: #2c4389; 
+    width: 100%; 
+    height: 1px;
+    -webkit-transform: scaleY(0.5); 
+    transform: scaleY(0.5); 
+    -webkit-transform-origin: 0 0; 
+    transform-origin: 0 0; 
+}
+.weui-tab__bd .weui-tab__bd-item {
+	height: calc(100% - 53px);
+}
+
+#box {
+	background: #071449;
+	width: 100%;
+	height: 165px;
+}
+
+#box img {
+	display: block;
+	width: 100%;
+	height: 165px
+}
+
+#swiperBox {
+	line-height: 40px;
+	width: 100%;
+	height: 40px;
+}
+
+#swiperBox .swiper-slide {
+	width: calc(100vw - 50px);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.notice {
+	line-height: 40px;
+	text-align: center;
+	width: 40px;
+	height: 40px;
+	font-size: 25px;
+}
+.iconSize {
+	font-size: 35px;
+	color: #01b5ff;
+	text-shadow: 0 0 25px #01b5ff;
+}
+.title-head {
+	background: url(../images/title2.png) #071449 no-repeat;
+	width: 100%;
+	height: 50px;
+	background-size: 100% 40px;
+	text-align: center;
+	line-height: 40px;
+	color: #01b5ff;
+	font-weight: 700;
+	font-size: 18px;
+	text-shadow: 0 0 25px #01b5ff;
+}
+.btnIcon {
+	width: 50px;
+	font-weight: 700;
+	color: #01b5ff;
+	text-shadow: 0 0 25px #01b5ff;
+}
+.lisSty {
+	background: url(../images/set-bj.png) no-repeat;
+	background-size: 100% 220px;
+	padding: 10px;
+	margin: 10px 10px 0 10px;
+}
+
+.xz_title {
+	font-size: 16px;
+	height: 30px;
+	line-height: 30px;
+	padding: 10px 15px;
+	color: #fff;
+}
+.xz_title:before {
+	content: '';
+    border-left: 3px solid #01b5ff;
+    padding-right: 10px;
+}
+
+.echarts {
+	width: 93vw;
+	height: 200px;
+}
+
+.btnsize {
+	width: 300px;
+	margin-top: 50px;
+}

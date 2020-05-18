@@ -1,0 +1,177 @@
+{
+  "id": "1762542",
+  "name": "智工",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5330692",
+      "name": "用户",
+      "font_class": "yonghu",
+      "unicode": "e7bd",
+      "unicode_decimal": 59325
+    },
+    {
+      "icon_id": "8765228",
+      "name": "密码",
+      "font_class": "mima",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
+      "icon_id": "2261468",
+      "name": "我的设备 1",
+      "font_class": "wodeshebei",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "7173944",
+      "name": "更多",
+      "font_class": "gengduo",
+      "unicode": "e6f3",
+      "unicode_decimal": 59123
+    },
+    {
+      "icon_id": "9809630",
+      "name": "我的客户",
+      "font_class": "wodekehu",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "11121501",
+      "name": "修改密码",
+      "font_class": "xiugaimima",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "700789",
+      "name": "本月",
+      "font_class": "benyue",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "435938",
+      "name": "曲线",
+      "font_class": "quxian",
+      "unicode": "e7c1",
+      "unicode_decimal": 59329
+    },
+    {
+      "icon_id": "14229975",
+      "name": "反",
+      "font_class": "fan",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "14229976",
+      "name": "正",
+      "font_class": "zheng",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "5829502",
+      "name": "开关",
+      "font_class": "kaiguan",
+      "unicode": "e7ea",
+      "unicode_decimal": 59370
+    },
+    {
+      "icon_id": "2177572",
+      "name": "仪表盘",
+      "font_class": "yibiaopan",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "14217383",
+      "name": "提升机",
+      "font_class": "tishengji",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "2678593",
+      "name": "电压表",
+      "font_class": "dianyabiao",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "3207730",
+      "name": "电流",
+      "font_class": "icon-current",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "5207202",
+      "name": "卷发筒（单色）",
+      "font_class": "juanfatongdanse",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "11261652",
+      "name": "供热质量",
+      "font_class": "gongrezhiliang",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "2036612",
+      "name": "喇叭",
+      "font_class": "laba",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "8159861",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "7872212",
+      "name": "工作台",
+      "font_class": "gongzuotai",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "1305401",
+      "name": "历史",
+      "font_class": "lishi",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "2958959",
+      "name": "事件管理",
+      "font_class": "shijianguanli",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "6303595",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "11569718",
+      "name": "我的",
+      "font_class": "wode",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}

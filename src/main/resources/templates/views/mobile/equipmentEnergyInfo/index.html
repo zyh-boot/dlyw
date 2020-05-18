@@ -1,0 +1,220 @@
+<div class="layui-fluid layui-anim febs-anim" id="febs-equipmentEnergyInfo" lay-title="">
+    <div class="layui-row febs-container">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body febs-table-full">
+                    <form class="layui-form layui-table-form" lay-filter="equipmentEnergyInfo-table-form">
+                        <div class="layui-row">
+                            <div class="layui-col-md2 layui-col-sm12 layui-col-xs12 table-action-area">
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action"
+                                     id="addequipmentEnergyInfo"   sec:authorize="hasRole('equipmentEnergyInfo:add')">
+                                    <i class="layui-icon">&#xe891;</i>
+                                </div>
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="delete" sec:authorize="hasRole('equipmentEnergyInfo:del')">
+                                    <i class="layui-icon">&#xe7f9;</i>
+                                </div>
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="query">
+                                    <i class="layui-icon">&#xe848;</i>
+                                </div>
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="reset">
+                                    <i class="layui-icon">&#xe79b;</i>
+                                </div>
+                            </div>
+                            <div class="layui-col-md10   layui-col-sm12 layui-col-xs12 table-action-area">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label layui-form-label-sm">名称</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" name="name" autocomplete="off" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label layui-form-label-sm">创建时间</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" name="createDate" id="createTime" class="layui-input">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <table lay-filter="equipmentEnergyInfoTable"
+                           lay-data="{id: 'equipmentEnergyInfoTable'}"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="equipmentEnergyInfo-status">
+    {{#
+    var status = {
+    1: {title: '有效', color: 'green'},
+    0: {title: '失效', color: 'volcano'}
+    }[d.state];
+    }}
+    <span class="layui-badge febs-tag-{{status.color}}">{{ status.title }}</span>
+</script>
+
+<script type="text/html" id="equipmentEnergyInfo-option">
+    <a lay-event="edit"><i class="layui-icon febs-edit-area febs-blue"  sec:authorize="hasRole('equipmentEnergyInfo:mod')">&#xe7a4;</i></a>
+    <a lay-event="del"><i class="layui-icon febs-edit-area febs-red"  sec:authorize="hasRole('equipmentEnergyInfo:del')">&#xe7f9;</i></a>
+</script>
+
+<script data-th-inline="none" type="text/javascript">
+    layui.use([ 'jquery', 'layer', 'laydate', 'form','febs','table', 'util','xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            laydate = layui.laydate,
+            febs = layui.febs,
+            form = layui.form,
+            table=layui.table,
+            xmSelect = layui.xmSelect,
+            $view = $('#febs-equipmentEnergyInfo'),
+            $query = $view.find('#query'),
+            $reset = $view.find('#reset'),
+            $addequipmentEnergyInfo = $view.find('#addequipmentEnergyInfo'),
+            $delete = $view.find('#delete'),
+            $searchForm = $view.find('form'),
+            sortObject = {field: 'createDate', type: null},
+            tableIns;
+
+        form.render();
+
+        initTable();
+
+
+        laydate.render({
+            elem: '#createTime',
+            range: true,
+            trigger: 'click'
+        });
+
+
+        //监听单元格事件
+        table.on('tool(equipmentEnergyInfoTable)', function (obj) {
+            var data = obj.data,
+                layEvent = obj.event;
+            console.log("data", data);
+            if (layEvent === 'del') {
+                febs.modal.confirm('删除', '确定删除该 ？', function () {
+                    deleteEquipmentEnergyInfo(data.id);
+                });
+            }
+            if (layEvent === 'edit') {
+                febs.modal.open('修改', 'mobile/equipmentEnergyInfo/update/' + data.id, {
+                    area: $(window).width() <= 750 ? '90%' : '50%',
+                    btn: ['提交', '取消'],
+                    yes: function (index, layero) {
+                        $('#febs-equipmentEnergyInfo-update').find('#submit').trigger('click');
+                    },
+                    btn2: function () {
+                        layer.closeAll();
+                    }
+                });
+            }
+        });
+
+        table.on('sort(equipmentEnergyInfoTable)', function (obj) {
+            sortObject = obj;
+            tableIns.reload({
+                initSort: obj,
+                where: $.extend(getQueryParams(), {
+                    field: obj.field,
+                    order: obj.type
+                })
+            });
+        });
+
+        $query.on('click', function () {
+            var params = $.extend(getQueryParams(), {field: sortObject.field, order: sortObject.type});
+            tableIns.reload({where: params, page: {curr: 1}});
+        });
+
+        $reset.on('click', function () {
+            $searchForm[0].reset();
+            sortObject.type = 'null';
+            tableIns.reload({where: getQueryParams(), page: {curr: 1}, initSort: sortObject});
+        });
+
+
+        $addequipmentEnergyInfo.on('click', function () {
+            febs.modal.open('新增', 'mobile/equipmentEnergyInfo/add', {
+                btn: ['提交', '重置'],
+                area: $(window).width() <= 750 ? '95%' : '50%',
+                yes: function (index, layero) {
+                    $('#febs-equipmentEnergyInfo-add').find('#submit').trigger('click');
+                },
+                btn2: function () {
+                    $('#febs-equipmentEnergyInfo-add').find('#reset').trigger('click');
+                    return false;
+                }
+            });
+        });
+
+
+        $delete.on('click', function () {
+            var checkStatus = table.checkStatus('equipmentEnergyInfoTable');
+            if (!checkStatus.data.length) {
+                febs.alert.warn('请选择需要删除的 ');
+            } else {
+                febs.modal.confirm('删除', '确定删除该 ？', function () {
+                    var userIds = [];
+                    layui.each(checkStatus.data, function (key, item) {
+                        userIds.push(item.id)
+                    });
+                    deleteEquipmentEnergyInfo(userIds.join(','));
+                });
+            }
+        });
+
+        function initTable() {
+            tableIns = febs.table.init({
+                elem: $view.find('table'),
+                id: 'equipmentEnergyInfoTable',
+                url: ctx + 'mobile/equipmentEnergyInfo/pageList',
+                cols: [[
+                    {type: 'checkbox'},
+                    {field: 'sbCode', title: '设备code'},
+                    {field: 'periodId', title: '炒货周期'},
+                    {field: 'currentA', title: 'A相电流'},
+                    {field: 'currentB', title: 'B相电流'},
+                    {field: 'currentC', title: 'C相电流'},
+                    {field: 'voltageB', title: 'B相电压'},
+                    {field: 'voltageA', title: 'A相电压'},
+                    {field: 'voltageC', title: 'C相电压'},
+                    {field: 'powerA', title: 'A相功率'},
+                    {field: 'powerB', title: 'B相功率'},
+                    {field: 'powerC', title: 'C相功率'},
+                    {title: '状态', templet: '#equipmentEnergyInfo-status'},
+                    {field: 'createDate', title: '创建时间', minWidth: 180, sort: true},
+                    {title: '操作', toolbar: '#equipmentEnergyInfo-option', minWidth: 140}
+                ]]
+            });
+        }
+
+        function getQueryParams() {
+            var createTimeFrom = "",
+                createTimeTo = "",
+                createTime = $searchForm.find('input[name="createDate"]').val();
+            if (createTime) {
+                createTimeFrom = createTime.split(' - ')[0];
+                createTimeTo = createTime.split(' - ')[1];
+            }
+            return {
+                startDate: createTimeFrom,
+                endDate: createTimeTo,
+                name: $searchForm.find('input[name="name"]').val().trim(),
+                invalidate_ie_cache: new Date()
+            };
+        }
+
+
+        function deleteEquipmentEnergyInfo(ids){
+            febs.delete(ctx + 'mobile/equipmentEnergyInfo', {"ids": ids}, function () {
+                febs.alert.success('删除成功');
+                $query.click();
+            });
+        }
+    })
+</script>

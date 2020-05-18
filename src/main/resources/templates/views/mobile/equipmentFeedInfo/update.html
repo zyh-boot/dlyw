@@ -1,0 +1,81 @@
+<style>
+
+</style>
+<div class="layui-fluid layui-anim febs-anim" id="febs-equipmentFeedInfo-update" lay-title="">
+    <form class="layui-form" action="" lay-filter="equipmentFeedInfo-update-form">
+                <input type="text" name="id" id="id" class="layui-input febs-hide" readonly>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备code：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="sbCode" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">进料状态 0 未上电 1 运行 2 停止：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="runState" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">运行频率：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="runFrequence" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">输出功率：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="outPower" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">状态(1:有效 0失效)：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="state" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+        <div class="layui-form-item febs-hide">
+            <button class="layui-btn" lay-submit="" lay-filter="equipmentFeedInfo-update-form-submit"
+                    id="submit"></button>
+            <button type="reset" class="layui-btn" id="reset"></button>
+        </div>
+    </form>
+</div>
+
+<script data-th-inline="javascript" type="text/javascript">
+    layui.use(['jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            febs = layui.febs,
+            form = layui.form,
+            table = layui.table,
+            xmSelect = layui.xmSelect,
+            equipmentFeedInfo =[[\$\{equipmentFeedInfo\}]],
+            $view = $('#febs-equipmentFeedInfo-update');
+
+        form.render();
+        initValue();
+
+
+        form.on('submit(equipmentFeedInfo-update-form-submit)', function (data) {
+            febs.put(ctx + 'mobile/equipmentFeedInfo', data.field, function () {
+                layer.closeAll();
+                $('#febs-equipmentFeedInfo').find('#query').click();
+            });
+            return false;
+        });
+
+
+        function initValue() {
+            form.val("equipmentFeedInfo-update-form", {
+                "id": equipmentFeedInfo.id,
+                "sbCode": equipmentFeedInfo.sbCode,
+                "runState": equipmentFeedInfo.runState,
+                "runFrequence": equipmentFeedInfo.runFrequence,
+                "outPower": equipmentFeedInfo.outPower,
+                "periodId": equipmentFeedInfo.periodId,
+                "state": equipmentFeedInfo.state,
+            });
+        }
+    })
+</script>

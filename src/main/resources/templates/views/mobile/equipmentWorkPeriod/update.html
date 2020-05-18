@@ -1,0 +1,142 @@
+<style>
+
+</style>
+<div class="layui-fluid layui-anim febs-anim" id="febs-equipmentWorkPeriod-update" lay-title="">
+    <form class="layui-form" action="" lay-filter="equipmentWorkPeriod-update-form">
+                <input type="text" name="id" id="id" class="layui-input febs-hide" readonly>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备code：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="sbCode" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">开始时间：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="startTime" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">结束时间：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="endTime" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">炒制时长：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="workSc" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">状态(1:有效 0失效)：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="state" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">品种：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="workType" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">品种湿度：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="workSd" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">1.中度炒焦  2 轻微炒焦 3 正常  4 轻微湿  5中度湿：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="colour
+level" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">1.很难吃  2 难吃 3 好吃  4 很好吃  5超级好吃：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="good
+level" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">是否结束（0结束 1开始）：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="isPeriod" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">是否评价（1未评价 2已评价）：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="isPj" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">评价内容：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="pjContent" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">炒制编号：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="periodNo" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+        <div class="layui-form-item febs-hide">
+            <button class="layui-btn" lay-submit="" lay-filter="equipmentWorkPeriod-update-form-submit"
+                    id="submit"></button>
+            <button type="reset" class="layui-btn" id="reset"></button>
+        </div>
+    </form>
+</div>
+
+<script data-th-inline="javascript" type="text/javascript">
+    layui.use(['jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            febs = layui.febs,
+            form = layui.form,
+            table = layui.table,
+            xmSelect = layui.xmSelect,
+            equipmentWorkPeriod =[[\$\{equipmentWorkPeriod\}]],
+            $view = $('#febs-equipmentWorkPeriod-update');
+
+        form.render();
+        initValue();
+
+
+        form.on('submit(equipmentWorkPeriod-update-form-submit)', function (data) {
+            febs.put(ctx + 'mobile/equipmentWorkPeriod', data.field, function () {
+                layer.closeAll();
+                $('#febs-equipmentWorkPeriod').find('#query').click();
+            });
+            return false;
+        });
+
+
+        function initValue() {
+            form.val("equipmentWorkPeriod-update-form", {
+                "id": equipmentWorkPeriod.id,
+                "sbCode": equipmentWorkPeriod.sbCode,
+                "startTime": equipmentWorkPeriod.startTime,
+                "endTime": equipmentWorkPeriod.endTime,
+                "workSc": equipmentWorkPeriod.workSc,
+                "state": equipmentWorkPeriod.state,
+                "workType": equipmentWorkPeriod.workType,
+                "workSd": equipmentWorkPeriod.workSd,
+                "colour
+level": equipmentWorkPeriod.colour
+level,
+                "good
+level": equipmentWorkPeriod.good
+level,
+                "isPeriod": equipmentWorkPeriod.isPeriod,
+                "isPj": equipmentWorkPeriod.isPj,
+                "pjContent": equipmentWorkPeriod.pjContent,
+                "periodNo": equipmentWorkPeriod.periodNo,
+            });
+        }
+    })
+</script>

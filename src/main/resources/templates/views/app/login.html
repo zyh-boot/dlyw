@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<title>首页</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!-- head 中 -->
+
+		<link rel="stylesheet" type="text/css" th:href="@{app/css/weui.min.css}" />
+		<link rel="stylesheet" type="text/css" th:href="@{app/css/jquery-weui.min.css}" />
+
+		<link rel="stylesheet" type="text/css" th:href="@{app/font/iconfont.css}" />
+		<style type="text/css">
+			.logo {
+				width: 100%;
+				height: 220px;
+				text-align: center;
+			}
+			
+			.logo img {
+				width: 100%;
+				height: 200px;
+			}
+		</style>
+	</head>
+
+	<body style="background: #E3E3E3;height: 100%;">
+		<div >
+			<div class="logo">
+				<img th:src="@{app/images/zg.jpg}" />
+			</div>
+		    <!--<h3 align="center">智工机械智控平台</h3>-->
+			<div class="weui-cells weui-cells_form" style="margin: 30px 10px;border-radius: 27px;">
+				<div class="weui-cell">
+					<div class="weui-cell__hd">
+						<label class="weui-label">
+							<i class="iconfont icon-yonghu" style="margin-left: 10px;margin-right: 5px;"></i>
+							用户
+						</label>
+					</div>
+					<div class="weui-cell__bd weui-cell_primary">
+						<input id="username" type="text" class="weui-input" placeholder="请输入用户账号" />
+					</div>
+				</div>
+			</div>
+			
+			<div class="weui-cells weui-cells_form" style="margin: 30px 10px;border-radius: 27px;">
+				<div class="weui-cell">
+					<div class="weui-cell__hd">
+						<label class="weui-label">
+							<i  class="iconfont icon-mima" style="margin-left: 10px;margin-right: 5px;"></i>
+							密码
+						</label>
+					</div>
+					<div class="weui-cell__bd weui-cell_primary">
+						<input id="pwd" type="password" class="weui-input" placeholder="请输入密码" />
+					</div>
+				</div>
+			</div>
+			<div class="weui-cells__tips"></div>
+			<div class="weui-btn-area">
+				<a id="btn_login"  class="weui-btn weui-btn_primary">登录</a>
+			</div>
+		</div>
+	</body>
+	<!-- body 最后 -->
+	<script th:src="@{app/js/jquery-3.4.1.min.js}" type="text/javascript" charset="utf-8"></script>
+	<script th:src="@{app/js/jquery-weui.min.js}" type="text/javascript" charset="utf-8"></script>
+	<script th:src="@{app/js/fastclick.js}" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		//去掉ios点击事件300毫秒延迟
+		$(function() {
+			FastClick.attach(document.body);
+		});
+	</script>
+
+	<script type="text/javascript">
+		$("#btn_login").click(function(){
+			var name= $("#username").val();
+			if(name==null || name==""){
+				$.toast("登录账号不能空", "text");
+				return null;
+			}
+			var pw=$("#pwd").val();
+			if(pw==null || pw==""){
+				$.toast("登录密码不能空", "text");
+				return null;
+			}
+			$.showLoading("正在加载...");
+			 var data ={
+					 "khAccount" :name,
+					 "khPwd"	:pw
+			 };
+
+
+				 $.getJSON("app/login_sub",data, function (res) {
+
+					 var code=res.code;
+					 if(code==1){
+						    localStorage.setItem("khId",res.data.id);
+							window.location.href="app/index";
+					 }else{
+
+						 $.toast("登陆失败,账号或者密码错误", "text",20000);
+					 }
+					 $.hideLoading();
+				 });
+
+		});
+
+	</script>
+
+</html>
