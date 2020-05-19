@@ -79,7 +79,7 @@
 
 <body>
 <div class="title-head">
-    实时数据
+    历史数据
 </div>
 <div class="weui-tab box">
     <div class="weui-tab">
@@ -149,7 +149,7 @@
                     <div class="lisSty">
                         <div class="echarts" id="Contrast11"></div>
                     </div>
-                    <div class="lisSty" style="display: none">
+                    <div class="lisSty">
                         <div class="echarts" id="Contrast1"></div>
                     </div>
                     <div class="weui-panel__hd" style="display: none">进料信息走势图</div>
@@ -296,7 +296,6 @@
                 $("#jlbox").append(html);
             },
             success: function (res) {
-                console.log(res)
                 var data = res.data.rows;
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
@@ -312,15 +311,39 @@
                             + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
                             + ' <label class="weui-form-preview__label">运行状态:</label>'
                             + '<span class="weui-form-preview__value">' + str + '</span></div></div>'
+                            + '<div class="weui-form-preview__bd">' +
+                                '<div class="weui-form-preview__item weui-row"> '
+                                + '<div class="weui-col-33"></div>\n'
+                                + '<div class="weui-col-33">温度(℃)</div>\n'
+                                + '<div class="weui-col-33">湿度(%)</div>'
+                                + '<div class="weui-col-33">上棚</div>\n'
+                                + '<div class="weui-col-33">' + entity.upTemperature/10 + '</div>\n'
+                                + '<div class="weui-col-33">' + entity.upHumidity/10 + '</div>'
+                                + '<div class="weui-col-33">下棚</div>\n'
+                                + '<div class="weui-col-33">' + entity.downTemperature/10 + '</div>\n'
+                                + '<div class="weui-col-33">' + entity.downHumidity/10 + '</div>' +
+                                '</div>'
+                            + '</div>'
                             + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">输出功率(W):</label>'
-                            + '<span class="weui-form-preview__value">' + entity.outPower + '</span></div></div>'
-                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">运行频率(Hz):</label>'
-                            + '<span class="weui-form-preview__value">' + entity.runFrequence + '</span></div></div>'
+                            + ' <label class="weui-form-preview__label">风机电流(A):</label>'
+                            + ' <span class="weui-form-preview__value">' + entity.fanCurrent/10 + '</span></div></div>'
+                            + '<div class="weui-form-preview__bd">'
+                                + '<div class="weui-form-preview__item weui-row"> '
+                                + '<div class="weui-col-33"></div>\n'
+                                + '<div class="weui-col-33">第一</div>\n'
+                                + '<div class="weui-col-33">第二</div>'
+                                + '<div class="weui-col-33">管温(℃)</div>\n'
+                                + '<div class="weui-col-33">' + entity.pipelineTemperatureOne/10 + '</div>\n'
+                                + '<div class="weui-col-33">' + entity.pipelineTemperatureTwo/10 + '</div>'
+                                + '<div class="weui-col-33">压缩机(A)</div>\n'
+                                + '<div class="weui-col-33">' + entity.compressorCurrentOne/10 + '</div>\n'
+                                + '<div class="weui-col-33">' + entity.compressorCurrentOTwo/10 + '</div>'
+                                + '</div>'
+                            + '</div>'
                             + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
                             + ' <label class="weui-form-preview__label">采集时间:</label>'
-                            + ' <span class="weui-form-preview__value">' + entity.createDate + '</span></div></div></div>'
+                            + ' <span class="weui-form-preview__value">' + entity.createDate + '</span></div></div>' +
+                            '</div>';
                         $("#jlbox").append(html);
                     }
                 } else {
@@ -511,33 +534,33 @@
     var myChart11 = null;
     var option = null;
     var baroption1 = null;
-    var myChart2 = null;
-    var myChart21 = null;
-    var option2 = null;
-    var baroption21 = null;
-    var myChart3 = null;
-    var myChart31 = null;
-    var option3 = null;
-    var baroption31 = null;
+    // var myChart2 = null;
+    // var myChart21 = null;
+    // var option2 = null;
+    // var baroption21 = null;
+    // var myChart3 = null;
+    // var myChart31 = null;
+    // var option3 = null;
+    // var baroption31 = null;
 
     $(function () {
-
         window.onresize = function () {
             myChart.resize();
-            myChart2.resize();
-            myChart3.resize();
+            // myChart2.resize();
+            // myChart3.resize();
             myChart11.resize();
-            myChart21.resize();
-            myChart31.resize();
+            // myChart21.resize();
+            // myChart31.resize();
         }
-        //曲线一
+
+        // 曲线一
         myChart = echarts.init(document.getElementById("Contrast1"));
         option = {
             tooltip: {
                 trigger: 'axis',
             },
             legend: {
-                data: ['输出功率'],
+                data: ['上棚湿度','下棚湿度'],
                 icon: "circle",
                 textStyle: { //图例文字的样式
                     color: '#fff',
@@ -587,12 +610,15 @@
             ],
             series: [
                 {
-                    name: '输出功率',
+                    name: '上棚湿度',
                     type: 'line',
-
+                    data: []
+                },
+                {
+                    name: '下棚湿度',
+                    type: 'line',
                     data: []
                 }
-
             ]
         };
         myChart.setOption(option);
@@ -615,7 +641,7 @@
                 }
             },
             legend: {
-                data: ['温度趋势'],
+                data: ['上棚温度','下棚温度'],
                 icon: "circle",
                 textStyle: { //图例文字的样式
                     color: '#fff',
@@ -662,9 +688,13 @@
             ],
             series: [
                 {
-                    name: '温度趋势',
+                    name: '上棚温度',
                     type: 'line',
-
+                    data: []
+                },
+                {
+                    name: '下棚温度',
+                    type: 'line',
                     data: []
                 }
 
@@ -672,7 +702,7 @@
         };
         myChart11.setOption(baroption1);
 
-        //曲线二
+/*        //曲线二
         myChart2 = echarts.init(document.getElementById("Contrast2"));
         option2 = {
             tooltip: {
@@ -971,22 +1001,22 @@
 
             ]
         };
-        myChart31.setOption(baroption31);
+        myChart31.setOption(baroption31);*/
 
         setTimeout(function () {
             initJrEcharts();
         }, 2000);
-        setTimeout(function () {
-            initJlEcharts();
-        }, 2500);
-        setTimeout(function () {
-            initGtEcharts();
-        }, 1500);
+        // setTimeout(function () {
+        //     initJlEcharts();
+        // }, 2500);
+        // setTimeout(function () {
+        //     initGtEcharts();
+        // }, 1500);
 
 
     });
 
-    function initGtEcharts() {
+    /*function initGtEcharts() {
         $.ajax({
             type: "POST",
             url: "tj_roller_data",
@@ -1001,9 +1031,9 @@
                 myChart21.setOption(baroption21);
             }
         });
-    }
+    }*/
 
-    function initJlEcharts() {
+/*    function initJlEcharts() {
         $.ajax({
             type: "POST",
             url: "tj_free_data",
@@ -1018,21 +1048,22 @@
                 myChart31.setOption(baroption31);
             }
         });
-    }
+    }*/
 
     function initJrEcharts() {
         $.ajax({
             type: "POST",
-            url: "tj_heart_data",
+            url: "getHumitureAllList",
             data: {'code': code, 'period': period},
             dataType: "json",
             success: function (res) {
-                option.xAxis.data = res.time;
-                option.series[0].data = res.power;
-                myChart.setOption(option);
                 baroption1.xAxis.data = res.time;
-                baroption1.series[0].data = res.wd;
+                baroption1.series[0].data = res.upTem;
+                baroption1.series[1].data = res.downTem;
+                option.series[0].data = res.upHumi;
+                option.series[1].data = res.downHumi;
                 myChart11.setOption(baroption1);
+                myChart.setOption(option);
             }
         });
     }

@@ -64,7 +64,12 @@ public class EquipmentTobaccoHistroyServiceImpl extends ServiceImpl<EquipmentTob
 
         User user = CommonUtil.getCurrentUser();
         LambdaQueryWrapper<EquipmentTobaccoHistroy> queryWrapper = new LambdaQueryWrapper<>();
-
+        if(StringUtils.isNotBlank(obj.getPeriodNo())){
+            queryWrapper.eq(EquipmentTobaccoHistroy::getPeriodNo,obj.getPeriodNo());
+        }
+        if(StringUtils.isNotBlank(obj.getCode())){
+            queryWrapper.eq(EquipmentTobaccoHistroy::getCode,obj.getCode());
+        }
         return this.baseMapper.selectList(queryWrapper);
     }
 
