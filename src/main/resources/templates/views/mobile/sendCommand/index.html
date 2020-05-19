@@ -1,16 +1,16 @@
-<div class="layui-fluid layui-anim febs-anim" id="febs-equipment" lay-title="设备台账">
+<div class="layui-fluid layui-anim febs-anim" id="febs-sendCommand" lay-title="通信协议">
     <div class="layui-row febs-container">
         <div class="layui-col-md12">
             <div class="layui-card">
                 <div class="layui-card-body febs-table-full">
-                    <form class="layui-form layui-table-form" lay-filter="equipment-table-form">
+                    <form class="layui-form layui-table-form" lay-filter="sendCommand-table-form">
                         <div class="layui-row">
                             <div class="layui-col-md2 layui-col-sm12 layui-col-xs12 table-action-area">
                                 <div class="layui-btn layui-btn-sm layui-btn-primary table-action"
-                                     id="addequipment"   sec:authorize="hasRole('equipment:add')">
+                                     id="addsendCommand"   sec:authorize="hasRole('sendCommand:add')">
                                     <i class="layui-icon">&#xe891;</i>
                                 </div>
-                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="delete" sec:authorize="hasRole('equipment:del')">
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="delete" sec:authorize="hasRole('sendCommand:del')">
                                     <i class="layui-icon">&#xe7f9;</i>
                                 </div>
                                 <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="query">
@@ -38,41 +38,31 @@
                             </div>
                         </div>
                     </form>
-                    <table lay-filter="equipmentTable"
-                           lay-data="{id: 'equipmentTable'}"></table>
+                    <table lay-filter="sendCommandTable"
+                           lay-data="{id: 'sendCommandTable'}"></table>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<script type="text/html" id="equipment-type">
+<script type="text/html" id="sendCommand-status">
     {{#
     var status = {
-    1: {title: '炒货设备', color: 'green'},
-    2: {title: '炕烟设备', color: 'volcano'}
-    }[d.type];
-    }}
-    <span class="layui-badge febs-tag-{{status.color}}">{{ status.title }}</span>
-</script>
-<script type="text/html" id="equipment-sbStatus">
-    {{#
-    var status = {
-    1: {title: '离线', color: '#B0C4DE'},
-    2: {title: '在线', color: 'green'},
-    3: {title: '运行中', color: '#FF00FF'}
-    }[d.sbStatus];
+    1: {title: '有效', color: 'green'},
+    0: {title: '失效', color: 'volcano'}
+    }[d.state];
     }}
     <span class="layui-badge febs-tag-{{status.color}}">{{ status.title }}</span>
 </script>
 
-<script type="text/html" id="equipment-option">
-   <!-- <a lay-event="edit"><i class="layui-icon febs-edit-area febs-blue"  sec:authorize="hasRole('equipment:mod')">&#xe7a4;</i></a>-->
-    <a lay-event="del"><i class="layui-icon febs-edit-area febs-red"  sec:authorize="hasRole('equipment:del')">&#xe7f9;</i></a>
+<script type="text/html" id="sendCommand-option">
+    <a lay-event="edit"><i class="layui-icon febs-edit-area febs-blue"  sec:authorize="hasRole('sendCommand:mod')">&#xe7a4;</i></a>
+    <a lay-event="del"><i class="layui-icon febs-edit-area febs-red"  sec:authorize="hasRole('sendCommand:del')">&#xe7f9;</i></a>
 </script>
 
 <script data-th-inline="none" type="text/javascript">
-    layui.use([ 'jquery', 'layer', 'laydate','form','febs','table', 'util','xmSelect'], function () {
+    layui.use([ 'jquery', 'layer', 'laydate', 'form','febs','table', 'util','xmSelect'], function () {
         var $ = layui.jquery,
             layer = layui.layer,
             laydate = layui.laydate,
@@ -80,10 +70,10 @@
             form = layui.form,
             table=layui.table,
             xmSelect = layui.xmSelect,
-            $view = $('#febs-equipment'),
+            $view = $('#febs-sendCommand'),
             $query = $view.find('#query'),
             $reset = $view.find('#reset'),
-            $addequipment = $view.find('#addequipment'),
+            $addsendCommand = $view.find('#addsendCommand'),
             $delete = $view.find('#delete'),
             $searchForm = $view.find('form'),
             sortObject = {field: 'createDate', type: null},
@@ -102,21 +92,21 @@
 
 
         //监听单元格事件
-        table.on('tool(equipmentTable)', function (obj) {
+        table.on('tool(sendCommandTable)', function (obj) {
             var data = obj.data,
                 layEvent = obj.event;
             console.log("data", data);
             if (layEvent === 'del') {
                 febs.modal.confirm('删除', '确定删除该 ？', function () {
-                    deleteEquipment(data.id);
+                    deleteSendCommand(data.id);
                 });
             }
             if (layEvent === 'edit') {
-                febs.modal.open('修改', 'mobile/equipment/update/' + data.id, {
+                febs.modal.open('修改', 'mobile/sendCommand/update/' + data.id, {
                     area: $(window).width() <= 750 ? '90%' : '50%',
                     btn: ['提交', '取消'],
                     yes: function (index, layero) {
-                        $('#febs-equipment-update').find('#submit').trigger('click');
+                        $('#febs-sendCommand-update').find('#submit').trigger('click');
                     },
                     btn2: function () {
                         layer.closeAll();
@@ -125,7 +115,7 @@
             }
         });
 
-        table.on('sort(equipmentTable)', function (obj) {
+        table.on('sort(sendCommandTable)', function (obj) {
             sortObject = obj;
             tableIns.reload({
                 initSort: obj,
@@ -148,15 +138,15 @@
         });
 
 
-        $addequipment.on('click', function () {
-            febs.modal.open('新增', 'mobile/equipment/add', {
+        $addsendCommand.on('click', function () {
+            febs.modal.open('新增', 'mobile/sendCommand/add', {
                 btn: ['提交', '重置'],
                 area: $(window).width() <= 750 ? '95%' : '50%',
                 yes: function (index, layero) {
-                    $('#febs-equipment-add').find('#submit').trigger('click');
+                    $('#febs-sendCommand-add').find('#submit').trigger('click');
                 },
                 btn2: function () {
-                    $('#febs-equipment-add').find('#reset').trigger('click');
+                    $('#febs-sendCommand-add').find('#reset').trigger('click');
                     return false;
                 }
             });
@@ -164,7 +154,7 @@
 
 
         $delete.on('click', function () {
-            var checkStatus = table.checkStatus('equipmentTable');
+            var checkStatus = table.checkStatus('sendCommandTable');
             if (!checkStatus.data.length) {
                 febs.alert.warn('请选择需要删除的 ');
             } else {
@@ -173,7 +163,7 @@
                     layui.each(checkStatus.data, function (key, item) {
                         userIds.push(item.id)
                     });
-                    deleteEquipment(userIds.join(','));
+                    deleteSendCommand(userIds.join(','));
                 });
             }
         });
@@ -181,22 +171,22 @@
         function initTable() {
             tableIns = febs.table.init({
                 elem: $view.find('table'),
-                id: 'equipmentTable',
-                url: ctx + 'mobile/equipment/pageList',
+                id: 'sendCommandTable',
+                url: ctx + 'mobile/sendCommand/pageList',
                 cols: [[
                     {type: 'checkbox'},
-                    {field: 'name', title: '设备名称'},
-                    {field: 'code', title: '设备编号'},
-
-                    {title: '设备', templet: '#equipment-type'},
-                    {title: '运行状态', templet: '#equipment-sbStatus'},
-
-                    {field: 'sbAddress', title: '位置信息'},
-                    {field: 'sbUsedate', title: '使用时间'},
-                    {field: 'sbInfo', title: '手机卡'},
-                    {field: 'sbUser', title: '设备用途'},
+                    {field: 'sbCode', title: '设备编号'},
+                    {field: 'plcAddress', title:'PLC地址'},
+                    {field: 'functionCode', title:'功能码'},
+                    {field: 'qsAddress', title: '起始地址'},
+                    {field: 'jcqnum', title: '寄存器数量'},
+                    {field: 'unitType', title: '数据类型'},
+                    {field: 'gs', title: '计算公式'},
+                    {field: 'command', title: '发送内容'},
+                    {field: 'remark', title: '备注'},
+                    {title: '状态', templet: '#sendCommand-status'},
                     {field: 'createDate', title: '创建时间', minWidth: 180, sort: true},
-                    {title: '操作', toolbar: '#equipment-option', minWidth: 140}
+                    {title: '操作', toolbar: '#sendCommand-option', minWidth: 140}
                 ]]
             });
         }
@@ -218,8 +208,8 @@
         }
 
 
-        function deleteEquipment(ids){
-            febs.delete(ctx + 'mobile/equipment', {"ids": ids}, function () {
+        function deleteSendCommand(ids){
+            febs.delete(ctx + 'mobile/sendCommand', {"ids": ids}, function () {
                 febs.alert.success('删除成功');
                 $query.click();
             });

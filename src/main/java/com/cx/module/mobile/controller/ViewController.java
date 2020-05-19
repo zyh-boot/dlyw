@@ -678,4 +678,37 @@ public class ViewController extends BaseController {
         model.addAttribute("equipmentTobaccoHistroy",obj);
         return  CommonUtil.view("mobile/equipmentTobaccoHistroy/update");
     }
+    @Autowired
+    ISendCommandService iSendCommandService;
+
+    /**
+     * 跳转列表页面
+     * @param request
+     * @param model com.cx.module.mobile.entity
+     * @return
+     */
+    @GetMapping("sendCommand/index")
+    public String sendCommandIndex(HttpServletRequest request,ModelMap model){
+        return CommonUtil.view("mobile/sendCommand/index");
+    }
+
+    /**
+     * 新增页面
+     */
+    @GetMapping("sendCommand/add")
+    @PreAuthorize("hasRole('sendCommand:add')")
+    public String sendCommandAdd(HttpServletRequest request,ModelMap model){
+        return  CommonUtil.view("mobile/sendCommand/add");
+    }
+
+    /**
+     * 修改页面
+     */
+    @GetMapping("sendCommand/update/{id}")
+    @PreAuthorize("hasRole('sendCommand:mod')")
+    public String sendCommandUpdate(HttpServletRequest request,ModelMap model, @PathVariable Long id){
+        SendCommand obj=iSendCommandService.selectOne(id);
+        model.addAttribute("sendCommand",obj);
+        return  CommonUtil.view("mobile/sendCommand/update");
+    }
 }

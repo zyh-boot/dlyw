@@ -20,6 +20,7 @@
 </head>
 <body>
 <div id="febs"></div>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=msNBUOlncn5yvFycxTWWDmQxlh86P4Uc"></script>
 <script th:src="@{layui/layui.js}"></script>
 <script th:src="@{common/lay/extends/pinying.js}"></script>
 <script th:inline="javascript">
@@ -32,6 +33,7 @@
         base: './common/',
         debug: true
     }).extend({
+        bMap: 'lay/extends/bMap',
         xmSelect: 'lay/extends/xm-select',
         treeSelect: 'lay/extends/treeSelect',
         apexcharts: 'lay/extends/apexcharts.min',

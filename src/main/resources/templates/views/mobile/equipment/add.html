@@ -1,86 +1,56 @@
 <style>
 
 </style>
-<div class="layui-fluid layui-anim febs-anim" id="febs-equipment-add" lay-title="">
+<div class="layui-fluid layui-anim febs-anim" id="febs-equipment-add" lay-title="新增设备">
     <form class="layui-form" action="" lay-filter="equipment-add-form">
+        <input type="hidden" name="sbJd"  id="sbJd">
+        <input type="hidden" name="sbWd"  id="sbWd">
                 <div class="layui-form-item">
                     <label class="layui-form-label febs-form-item-require">设备名称：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="name" autocomplete="off" class="layui-input">
+                        <input type="text" name="name" lay-verify="required"  autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label febs-form-item-require">设备编号：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="code" autocomplete="off" class="layui-input">
+                        <input type="text" name="code" autocomplete="off"  lay-verify="code"  class="layui-input" placeholder="炕烟机最好是4位数字（1000-8000）">
                     </div>
                 </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label febs-form-item-require">种类（1.炒货设备）：</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="type" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label febs-form-item-require">运行状态(1.在线2.离线3.运行中)：</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="sbStatus" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label febs-form-item-require">经度：</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="sbJd" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label febs-form-item-require">维度：</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="sbWd" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">设备种类：</label>
+            <div class="layui-input-block">
+                <select name="type" id="type">
+                    <option value="1">炒货设备</option>
+                    <option value="2">炕烟设备</option>
+                </select>
+            </div>
+        </div>
+
                 <div class="layui-form-item">
                     <label class="layui-form-label febs-form-item-require">位置信息：</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="sbAddress" autocomplete="off" class="layui-input">
+                    <div class="layui-input-block" >
+                        <input type="text" id="sbAddress" lay-verify="required" name="sbAddress" autocomplete="off"  class="layui-input"    >
+                        <button type="button"    id="qr"    class="layui-btn layui-btn-normal layui-btn-radius" style="position: absolute;right:0px;top:0px;">确认</button>
                     </div>
+
                 </div>
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">地理位置：</label>
+            <div class="layui-input-block">
+                <div  id="allmap1"  style="width:100%;height:300px"></div>
+            </div>
+        </div>
                 <div class="layui-form-item">
-                    <label class="layui-form-label febs-form-item-require">设备用途：</label>
+                    <label class="layui-form-label">设备用途：</label>
                     <div class="layui-input-block">
                         <input type="text" name="sbUser" autocomplete="off" class="layui-input">
                     </div>
                 </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label febs-form-item-require">使用时间：</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="sbUsedate" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label febs-form-item-require">手机卡：</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="sbInfo" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label febs-form-item-require">二维码 ：</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="sbEwm" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label febs-form-item-require">备注：</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="remark" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label febs-form-item-require">状态(1:有效 0失效)：</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="state" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
+
+
         <div class="layui-form-item febs-hide">
             <button class="layui-btn" lay-submit="" lay-filter="equipment-add-form-submit"
                     id="submit"></button>
@@ -89,18 +59,98 @@
     </form>
 </div>
 
+
+
 <script data-th-inline="javascript" type="text/javascript">
-    layui.use(['dropdown', 'jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect'], function () {
+    layui.use(['dropdown', 'jquery', 'layer','bMap', 'form', 'table', 'febs', 'util', 'xmSelect'], function () {
         var $ = layui.jquery,
             layer = layui.layer,
             febs = layui.febs,
             form = layui.form,
+            map,
+            bMap = layui.bMap;
             table = layui.table,
             xmSelect = layui.xmSelect,
             $view = $('#febs-equipment-add');
 
         form.render();
 
+        map = new BMap.Map("allmap1");
+        var geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function(r){
+            if(this.getStatus() == BMAP_STATUS_SUCCESS){
+                var mk = new BMap.Marker(r.point);
+                map.addOverlay(mk);
+                map.centerAndZoom(new BMap.Point(r.point.lng,r.point.lat),15);
+            }
+            else {
+                map.centerAndZoom(new BMap.Point(113.83531246,34.02673959),15);
+            }
+        },{enableHighAccuracy: true})
+
+        map.addControl(new BMap.MapTypeControl({
+            mapTypes: [
+                BMAP_NORMAL_MAP,
+                BMAP_HYBRID_MAP
+            ]
+        }));
+        addControl();
+        //添加地图比例
+        function addControl() {
+            // 左上角，添加比例尺
+            var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});
+            //左上角，添加默认缩放平移控件
+            var top_left_navigation = new BMap.NavigationControl();
+            map.addControl(top_left_control);
+            map.addControl(top_left_navigation);
+            // 设置地图显示的城市 此项是必须设置的
+            map.enableScrollWheelZoom(true);
+        }
+
+
+          //创建地图遮盖物
+        $("#qr").click(function(){
+            var address =$('#sbAddress').val();
+            var lng, lat;
+            if (address != "") {
+                var localSearch = new BMap.LocalSearch(map);
+                map.clearOverlays();//清空原来的标注
+                localSearch.setSearchCompleteCallback(function (searchResult) {
+                    var poi = searchResult.getPoi(0);
+                    if(poi === undefined){
+                        layer.msg('无法获取信息！！');
+                    }else{
+                        lng = poi.point.lng;
+                        lat = poi.point.lat;
+                        $("#sbJd").val(lng);
+                        $("#sbWd").val(lat);
+                        map.centerAndZoom(poi.point, 15);
+                        var mk = new BMap.Marker(poi.point);
+                        map.addOverlay(mk);
+
+                        $("#sbAddress").val(address);
+                    }
+                });
+                localSearch.search(address);
+            }
+        })
+
+
+        form.verify({
+            code: function(value){
+                if(value==null || value==''){
+                    return '设备编号不能为空';
+                }else{
+                     var type1=$("#type").val();
+                     if(type1==2){
+                         if(value.length>4){
+                             return '编号长度不能超过4位数';
+                         }
+                     }
+
+                }
+            }
+        });
 
         form.on('submit(equipment-add-form-submit)', function (data) {
             febs.post(ctx + 'mobile/equipment', data.field, function () {
@@ -111,4 +161,5 @@
         });
 
     })
+
 </script>
