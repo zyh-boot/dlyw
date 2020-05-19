@@ -149,9 +149,8 @@
 
 		function getData(jsonData){
 			$.get("acc_sb",jsonData,function(res){
-
+				console.log(res);
 				if (res.code ==1) {
-
 					records =res.data.list;
 					count = res.data.count; // 数据总条数
 					if(records.length == 0 && !havaData){
@@ -181,9 +180,12 @@
 			var length = records.length;
 			for(var i = 0; i < length; i++){
 				var entity=records[i];
+
 				var ss=entity.sb_status;
 				var is=entity.is_period;
-
+				var periodId=entity.work_id;
+				console.log(entity.work_id);
+				console.log(periodId);
 				var str='';
                 if(is==null || is==0){
                    if(ss==1){
@@ -196,7 +198,7 @@
 				}
 
 				var div = document.getElementById("list");
-				var str='<div class="weui-form-preview" id="'+entity+'" onclick="go_realtime_page('+entity.work_id+','+is+','+entity.code+')" style="background-color: #071449;color: white;">'
+				var str='<div class="weui-form-preview" id="'+entity.id+'" onclick="go_realtime('+periodId+','+is+','+entity.code+')" style="background-color: #071449;color: white;">'
 						+'<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
 						+' <label class="weui-form-preview__label">设备名称:</label>'
 						+'<span class="weui-form-preview__value">'+entity.code+'</span></div></div>'
@@ -247,11 +249,14 @@
 			},50);   //模拟延迟
 		});
 
-		function go_realtime_page(org,zt,zj) {
+		function go_realtime(periodId,zt,zj) {
+			console.log(zj);//设备编号
+			console.log(zt);
+			console.log(periodId);//时间段id
 			if(zt==null || zt==''){
                $.toast("暂无生产中的数据","text");
 			}else{
-				window.location.href="go_realtime_page?period="+org+"&code="+zj;
+				window.location.href="tobaccoDetail?period="+periodId+"&code="+zj;
 			}
 
 		}

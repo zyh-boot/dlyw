@@ -2,31 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cx.module.mobile.mapper.EquipmentTobaccoHistroyMapper">
     <!--当前表名：a_equipment_tobacco_histroy-->
-        <!-- 通用查询映射结果 -->
-        <resultMap id="BaseResultMap" type="com.cx.module.mobile.entity.EquipmentTobaccoHistroy">
-                    <id column="id" property="id"/>
-                    <result column="equ_id" property="equId"/>
-                    <result column="code" property="code"/>
-                    <result column="fan_current" property="fanCurrent"/>
-                    <result column="compressor_current_one" property="compressorCurrentOne"/>
-                    <result column="compressor_current_two" property="compressorCurrentTwo"/>
-                    <result column="system_voltage" property="systemVoltage"/>
-                    <result column="up_temperature" property="upTemperature"/>
-                    <result column="up_humidity" property="upHumidity"/>
-                    <result column="down_temperature" property="downTemperature"/>
-                    <result column="down_humidity" property="downHumidity"/>
-                    <result column="pipeline_temperature_one" property="pipelineTemperatureOne"/>
-                    <result column="pipeline_temperature_two" property="pipelineTemperatureTwo"/>
-                    <result column="work_period_id" property="workPeriodId"/>
-                    <result column="state" property="state"/>
-                    <result column="creator" property="creator"/>
-                    <result column="create_date" property="createDate"/>
-                    <result column="modifier" property="modifier"/>
-                    <result column="mod_date" property="modDate"/>
-        </resultMap>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cx.module.mobile.entity.EquipmentTobaccoHistroy">
+        <id column="id" property="id"/>
+        <result column="equ_id" property="equId"/>
+        <result column="code" property="code"/>
+        <result column="period_no" property="periodNo"/>
+        <result column="fan_current" property="fanCurrent"/>
+        <result column="compressor_current_one" property="compressorCurrentOne"/>
+        <result column="compressor_current_two" property="compressorCurrentTwo"/>
+        <result column="system_voltage" property="systemVoltage"/>
+        <result column="up_temperature" property="upTemperature"/>
+        <result column="up_humidity" property="upHumidity"/>
+        <result column="down_temperature" property="downTemperature"/>
+        <result column="down_humidity" property="downHumidity"/>
+        <result column="pipeline_temperature_one" property="pipelineTemperatureOne"/>
+        <result column="pipeline_temperature_two" property="pipelineTemperatureTwo"/>
+        <result column="work_period_id" property="workPeriodId"/>
+        <result column="state" property="state"/>
+        <result column="creator" property="creator"/>
+        <result column="create_date" property="createDate"/>
+        <result column="modifier" property="modifier"/>
+        <result column="mod_date" property="modDate"/>
+    </resultMap>
 
-        <!-- 通用查询结果列 -->
-        <sql id="Base_Column_List">
-            id, equ_id, code, fan_current, compressor_current_one, compressor_current_two, system_voltage, up_temperature, up_humidity, down_temperature, down_humidity, pipeline_temperature_one, pipeline_temperature_two, work_period_id, state, creator, create_date, modifier, mod_date
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+            id, equ_id, code, period_no, fan_current, compressor_current_one, compressor_current_two, system_voltage, up_temperature, up_humidity, down_temperature, down_humidity, pipeline_temperature_one, pipeline_temperature_two, work_period_id, state, creator, create_date, modifier, mod_date
         </sql>
 </mapper>

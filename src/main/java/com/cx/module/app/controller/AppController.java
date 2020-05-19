@@ -127,7 +127,6 @@ public class AppController extends BaseController {
         query.setPageNum(pageNum);
         query.setPageSize(pageSize);
         IPage<EquipmentFeedInfo> page = iEquipmentFeedInfoService.page(obj, query);
-
         return  getTableData(page);
     }
 
@@ -274,6 +273,28 @@ public class AppController extends BaseController {
         }
         mav.setViewName(CommonUtil.view("app/tobaccoDetail"));
         return mav;
+    }
+
+    /**
+     * 获取温湿度列表
+     * @param request
+     * @param code
+     * @param pageSize
+     * @param pageNum
+     * @param period
+     * @return
+     */
+    @RequestMapping(value = "/getHumitureList")
+    @ResponseBody
+    public CommonResponse getHumitureList(HttpServletRequest request,String code,int pageSize,int pageNum,String period) {
+        EquipmentTobaccoHistroy obj =new EquipmentTobaccoHistroy();
+        obj.setPeriodNo(period);
+        obj.setCode(code);
+        QueryRequest query =new QueryRequest();
+        query.setPageNum(pageNum);
+        query.setPageSize(pageSize);
+        IPage<EquipmentTobaccoHistroy> page = iEquipmentTobaccoHistroyService.page(obj, query);
+        return  getTableData(page);
     }
 
 }

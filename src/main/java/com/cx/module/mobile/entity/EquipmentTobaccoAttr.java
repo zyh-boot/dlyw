@@ -35,6 +35,9 @@ public class EquipmentTobaccoAttr extends BaseEnity implements Serializable {
     @ApiModelProperty(value = "设备编号")
     @TableField("code")
     private String code;
+    @ApiModelProperty(value = "炒制编号")
+    @TableField("period_no")
+    private String periodNo;
     @ApiModelProperty(value = "风机电流")
     @TableField("fan_current")
     private Integer fanCurrent;

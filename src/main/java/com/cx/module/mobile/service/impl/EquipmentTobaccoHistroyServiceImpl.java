@@ -80,6 +80,13 @@ public class EquipmentTobaccoHistroyServiceImpl extends ServiceImpl<EquipmentTob
             queryWrapper.between(EquipmentTobaccoHistroy::getCreateDate, obj.getStartDate(), obj.getEndDate());
         }
 
+        if(StringUtils.isNotBlank(obj.getPeriodNo())){
+            queryWrapper.eq(EquipmentTobaccoHistroy::getPeriodNo,obj.getPeriodNo());
+        }
+        if(StringUtils.isNotBlank(obj.getCode())){
+            queryWrapper.eq(EquipmentTobaccoHistroy::getCode,obj.getCode());
+        }
+
         Page<EquipmentTobaccoHistroy> page = new Page<>(query.getPageNum(), query.getPageSize());
         SortUtil.handlePageSort(query, page, "id", Constant.ORDER_ASC, true);
         return this.baseMapper.selectPage(page, queryWrapper);
