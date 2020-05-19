@@ -66,7 +66,7 @@
 		<div class="spList"  id="spBox">
 			<div class="spBox">
 				<div class="weui-cells__title" style="">设备列表</div>
-				<div id="list">
+				<div id="kylist">
 
 
 				</div>
@@ -184,8 +184,7 @@
 				var ss=entity.sb_status;
 				var is=entity.is_period;
 				var periodId=entity.work_id;
-				console.log(entity.work_id);
-				console.log(periodId);
+
 				var str='';
                 if(is==null || is==0){
                    if(ss==1){
@@ -197,8 +196,8 @@
 					str='<span  style="color:greenyellow">工作中</span>';
 				}
 
-				var div = document.getElementById("list");
-				var str='<div class="weui-form-preview" id="'+entity.id+'" onclick="go_realtime('+periodId+','+is+','+entity.code+')" style="background-color: #071449;color: white;">'
+				var div = document.getElementById("kylist");
+				var str='<div class="weui-form-preview" id="'+entity.work_id+'" onclick="go_ky_realtime(this,'+is+','+entity.code+')" style="background-color: #071449;color: white;">'
 						+'<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
 						+' <label class="weui-form-preview__label">设备名称:</label>'
 						+'<span class="weui-form-preview__value">'+entity.code+'</span></div></div>'
@@ -249,14 +248,11 @@
 			},50);   //模拟延迟
 		});
 
-		function go_realtime(periodId,zt,zj) {
-			console.log(zj);//设备编号
-			console.log(zt);
-			console.log(periodId);//时间段id
-			if(zt==null || zt==''){
+		function go_ky_realtime(org,zt,zj) {
+		if(zt==null || zt==''){
                $.toast("暂无生产中的数据","text");
 			}else{
-				window.location.href="tobaccoDetail?period="+periodId+"&code="+zj;
+				window.location.href="tobaccoDetail?period="+org.id+"&code="+zj;
 			}
 
 		}
