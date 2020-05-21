@@ -34,6 +34,6 @@ public class DeptTask {
 
     public void test() throws IOException {
         System.out.println("--------------------------------------------------------");
-        WebSocketServer.sendInfoEver("10s发一次");
+
     }
 }

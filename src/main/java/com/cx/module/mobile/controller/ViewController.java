@@ -698,7 +698,10 @@ public class ViewController extends BaseController {
     @GetMapping("sendCommand/add")
     @PreAuthorize("hasRole('sendCommand:add')")
     public String sendCommandAdd(HttpServletRequest request,ModelMap model){
-        return  CommonUtil.view("mobile/sendCommand/add");
+          Equipment entrity=new Equipment();
+          entrity.setType(2);
+          model.addAttribute("codes",iEquipmentService.list(entrity));
+          return  CommonUtil.view("mobile/sendCommand/add");
     }
 
     /**

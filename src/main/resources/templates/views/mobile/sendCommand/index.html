@@ -46,18 +46,25 @@
     </div>
 </div>
 
-<script type="text/html" id="sendCommand-status">
+
+<script type="text/html" id="unit-type">
     {{#
     var status = {
-    1: {title: '有效', color: 'green'},
-    0: {title: '失效', color: 'volcano'}
-    }[d.state];
+    2: {title: 'unit16', color: 'green'},
+    3: {title: 'int16', color: 'green'},
+    4: {title: 'unit32', color: 'green'},
+    5: {title: 'int32', color: 'green'},
+    8: {title: 'float1234', color: 'green'},
+    9: {title: 'float3412', color: 'green'},
+    14: {title: 'double', color: 'green'}
+    }[d.unitType];
     }}
     <span class="layui-badge febs-tag-{{status.color}}">{{ status.title }}</span>
 </script>
 
+
 <script type="text/html" id="sendCommand-option">
-    <a lay-event="edit"><i class="layui-icon febs-edit-area febs-blue"  sec:authorize="hasRole('sendCommand:mod')">&#xe7a4;</i></a>
+    <!--<a lay-event="edit"><i class="layui-icon febs-edit-area febs-blue"  sec:authorize="hasRole('sendCommand:mod')">&#xe7a4;</i></a>-->
     <a lay-event="del"><i class="layui-icon febs-edit-area febs-red"  sec:authorize="hasRole('sendCommand:del')">&#xe7f9;</i></a>
 </script>
 
@@ -180,11 +187,10 @@
                     {field: 'functionCode', title:'功能码'},
                     {field: 'qsAddress', title: '起始地址'},
                     {field: 'jcqnum', title: '寄存器数量'},
-                    {field: 'unitType', title: '数据类型'},
+                    {title: '数据类型',templet: '#unit-type'},
                     {field: 'gs', title: '计算公式'},
-                    {field: 'command', title: '发送内容'},
+                    {field: 'command', title: '发送内容',minWidth:230},
                     {field: 'remark', title: '备注'},
-                    {title: '状态', templet: '#sendCommand-status'},
                     {field: 'createDate', title: '创建时间', minWidth: 180, sort: true},
                     {title: '操作', toolbar: '#sendCommand-option', minWidth: 140}
                 ]]

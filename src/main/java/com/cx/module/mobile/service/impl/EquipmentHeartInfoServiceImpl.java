@@ -80,7 +80,7 @@ public class EquipmentHeartInfoServiceImpl extends ServiceImpl<EquipmentHeartInf
         }
 
         Page<EquipmentHeartInfo> page = new Page<>(query.getPageNum(), query.getPageSize());
-        SortUtil.handlePageSort(query, page, "id", Constant.ORDER_ASC, true);
+        SortUtil.handlePageSort(query, page, "id", Constant.ORDER_DESC, true);
         return this.baseMapper.selectPage(page, queryWrapper);
     }
 

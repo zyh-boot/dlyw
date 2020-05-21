@@ -188,7 +188,7 @@ public class EquipmentTobaccoAttrServiceImpl extends ServiceImpl<EquipmentTobacc
         LambdaQueryWrapper<EquipmentTobaccoAttr> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(EquipmentTobaccoAttr::getCode, obj.getCode());
         EquipmentTobaccoAttr attr = this.baseMapper.selectOne(queryWrapper);
-        if (attr != null & attr.getId() != null) {
+        if (attr != null ) {
             obj.setId(attr.getId());
             this.baseMapper.updateById(obj);
         } else {
@@ -207,6 +207,9 @@ public class EquipmentTobaccoAttrServiceImpl extends ServiceImpl<EquipmentTobacc
         history.setPipelineTemperatureOne(obj.getPipelineTemperatureOne());
         history.setPipelineTemperatureTwo(obj.getPipelineTemperatureTwo());
         history.setWorkPeriodId(obj.getWorkPeriodId());
+        history.setResCommon(obj.getResCommon());
+        history.setCreateTime(obj.getCreateTime());
+        history.setPeriodNo(obj.getPeriodNo());
         iEquipmentTobaccoHistroyService.add(history);
         return Constant.STATE_1;
     }

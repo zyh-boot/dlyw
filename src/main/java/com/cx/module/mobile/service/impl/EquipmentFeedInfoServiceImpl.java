@@ -80,7 +80,7 @@ public class EquipmentFeedInfoServiceImpl extends ServiceImpl<EquipmentFeedInfoM
         }
 
         Page<EquipmentFeedInfo> page = new Page<>(query.getPageNum(), query.getPageSize());
-        SortUtil.handlePageSort(query, page, "id", Constant.ORDER_ASC, true);
+        SortUtil.handlePageSort(query, page, "id", Constant.ORDER_DESC, true);
         return this.baseMapper.selectPage(page, queryWrapper);
     }
 

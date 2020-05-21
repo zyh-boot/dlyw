@@ -1,5 +1,8 @@
 package com.cx.module.mobile.controller;
+import java.math.BigInteger;
 import java.util.List;
+
+import com.cx.common.utils.CRC16;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.cx.module.mobile.entity.SendCommand;
@@ -15,7 +18,7 @@ import com.cx.common.entity.CommonResponse;
 import com.cx.common.entity.QueryRequest;
 import com.cx.common.exception.CommonException;
 import lombok.extern.slf4j.Slf4j;
-    import com.cx.common.controller.BaseController;
+import com.cx.common.controller.BaseController;
 
 /**
 *   控制器
@@ -27,6 +30,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequestMapping("mobile/sendCommand")
         public class SendCommandController extends BaseController{
+
     @Autowired
     ISendCommandService iSendCommandService;
 
@@ -79,6 +83,30 @@ import lombok.extern.slf4j.Slf4j;
     @PreAuthorize("hasRole('sendCommand:add')")
     public CommonResponse add(SendCommand obj) throws CommonException{
         try {
+            /***封装发送内容***/
+            StringBuffer sb = new StringBuffer();
+            //仪表地址
+            String address=obj.getPlcAddress();
+            BigInteger target1 = new BigInteger(address);
+            String ad = init16_2(target1.toString(16));
+            sb.append(ad.toUpperCase());
+            //功能码
+            sb.append(obj.getFunctionCode());
+            //起始地址
+            String qsAddress = obj.getQsAddress();
+            BigInteger target = new BigInteger(qsAddress);
+            String qs = init16_4(target.toString(16));
+            sb.append(qs.toUpperCase());
+            //寄存器数量
+            int num = obj.getJcqnum();
+            BigInteger target3 = new BigInteger(num+"");
+            String jcNum = init16_4(target3.toString(16));
+            sb.append(jcNum.toUpperCase());
+            //CRC校验
+            String CRC = CRC16.checkCRC(sb.toString());
+            sb.append(CRC.toUpperCase());
+            obj.setCommand(sb.toString());
+            /***封装采集通道ID***/
             return getCommonResponse(iSendCommandService.add(obj));
         } catch (Exception e) {
             String message = "新增失败";
@@ -86,7 +114,30 @@ import lombok.extern.slf4j.Slf4j;
             throw new CommonException(message);
         }
     }
-
+    public static String init16_4(String date){
+        String res=null;
+        int length = date.length();
+        if(length==1){
+            res="000"+date;
+        }else if(length==2){
+            res="00"+date;
+        }else if(length==3){
+            res="0"+date;
+        }else{
+            res=date;
+        }
+        return res;
+    }
+    public static String init16_2(String date){
+        String res=null;
+        int length = date.length();
+        if(length==1){
+            res="0"+date;
+        }else{
+            res=date;
+        }
+        return res;
+    }
 
     /**
     * 修改

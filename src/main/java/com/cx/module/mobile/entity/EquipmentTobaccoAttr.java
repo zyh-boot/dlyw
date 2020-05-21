@@ -12,6 +12,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 烟炕设备属性 实体类
@@ -71,6 +72,14 @@ public class EquipmentTobaccoAttr extends BaseEnity implements Serializable {
     @ApiModelProperty(value = "周期id")
     @TableField("work_period_id")
     private Long workPeriodId;
+
+    @ApiModelProperty(value = "时间")
+    @TableField("create_time")
+    private Date createTime;
+
+    @TableField(exist = false)
+    private String resCommon;
+
 
     @TableField(exist = false)
     private String startDate;

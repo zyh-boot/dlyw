@@ -12,6 +12,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 烟炕设备历史数据 实体类
@@ -71,6 +72,14 @@ public class EquipmentTobaccoHistroy extends BaseEnity implements Serializable {
     @ApiModelProperty(value = "周期id")
     @TableField("work_period_id")
     private Long workPeriodId;
+
+    @ApiModelProperty(value = "返回的数据")
+    @TableField("res_common")
+    private String resCommon;
+
+    @ApiModelProperty(value = "时间")
+    @TableField("create_time")
+    private Date createTime;
 
     @TableField(exist = false)
     private String startDate;

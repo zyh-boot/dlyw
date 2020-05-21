@@ -1,34 +1,61 @@
-<div class="layui-fluid layui-anim febs-anim" id="febs-job" lay-title="定时任务">
+<style>
+    .layui-table-cell {
+        height: 32px;
+
+    }
+
+</style>
+
+<div class="layui-fluid layui-anim febs-anim" id="febs-job" lay-title="采集周期">
     <div class="layui-row febs-container">
         <div class="layui-col-md12">
             <div class="layui-card">
                 <div class="layui-card-body febs-table-full">
                     <form class="layui-form layui-table-form" lay-filter="job-table-form">
                         <div class="layui-row">
-                            <div class="layui-col-md2 layui-col-sm12 layui-col-xs12 table-action-area">
-                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="query">
+                            <div class="layui-col-md3 layui-col-sm12 layui-col-xs12 table-action-area">
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action febs-hide" id="query">
                                     <i class="layui-icon">&#xe848;</i>
                                 </div>
-                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="reset">
+                                <div class="layui-btn layui-btn-sm layui-btn-info table-action" id="reset">
                                     <i class="layui-icon">&#xe79b;</i>
+                                   刷 新
                                 </div>
-                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action action-more"
-                                     sec:authorize="hasRole('job:add,job:delete,job:pause,job:resume,job:run,job:export')">
-                                    <i class="layui-icon">&#xe875;</i>
+                                <div class="layui-btn layui-btn-sm layui-btn-danger table-action" id="run"
+                                     sec:authorize="hasRole('job:run')">
+                                    <!--job:add,job:delete,job:pause,job:resume,job:run,job:export-->
+                                    <i class="layui-icon">&#xe7fa;</i>
+                                    一 次
+                                </div>
+                                <div class="layui-btn layui-btn-sm layui-btn-success table-action" id="pause"
+                                     sec:authorize="hasRole('job:pause')">
+                                    <i class="layui-icon">&#xe78b;</i>
+                                   开 始
+                                </div>
+                                <div class="layui-btn layui-btn-sm layui-btn-warm table-action" id="resume"
+                                     sec:authorize="hasRole('job:resume')">
+                                    <i class="layui-icon">&#xe792;</i>
+                                    暂 停
                                 </div>
                             </div>
-                            <div class="layui-col-md10">
+                            <div class="layui-col-md9 febs-hide" >
                                 <div class="layui-form-item">
-                                    <div class="layui-inline">
+                                    <div class="layui-inline febs-hide">
                                         <label class="layui-form-label layui-form-label-sm">Bean名称</label>
                                         <div class="layui-input-inline">
                                             <input autocomplete="off" class="layui-input" name="beanName" type="text">
                                         </div>
                                     </div>
-                                    <div class="layui-inline">
+                                    <div class="layui-inline febs-hide">
                                         <label class="layui-form-label layui-form-label-sm">方法名称</label>
                                         <div class="layui-input-inline">
                                             <input class="layui-input" id="createTime" name="methodName" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label layui-form-label-sm">备注：</label>
+                                        <div class="layui-input-inline">
+                                            <input class="layui-input" id="remark" name="remark" type="text">
                                         </div>
                                     </div>
                                     <div class="layui-inline">
@@ -61,11 +88,12 @@
     <span class="layui-badge febs-tag-{{status.color}}">{{ status.title }}</span>
 </script>
 <script id="job-option" type="text/html">
-    <span sec:authorize="hasAnyRole('job:update','job:delete')">
+    <span sec:authorize="hasAnyRole('job:update','job:delete')" class="febs-hide">
         <span class="layui-badge-dot febs-bg-orange"></span> 无权限
     </span>
-    <a lay-event="edit" sec:authorize="hasRole('job:update')"><i class="layui-icon febs-edit-area febs-blue">&#xe7a4;</i></a>
-    <a lay-event="del" sec:authorize="hasRole('job:delete')"><i class="layui-icon febs-edit-area febs-red">&#xe7f9;</i></a>
+    <a lay-event="edit" class="layui-btn layui-btn-sm layui-btn-info" sec:authorize="hasRole('job:update')"><i
+            class="layui-icon">&#xe7a4;</i>修 改</a>
+    <a lay-event="del" class="febs-hide" sec:authorize="hasRole('job:delete')"><i class="layui-icon">&#xe7f9;</i></a>
 </script>
 <script data-th-inline="none" type="text/javascript">
     layui.use(['dropdown', 'jquery', 'laydate', 'form', 'table', 'febs'], function () {
@@ -78,6 +106,9 @@
             $view = $('#febs-job'),
             $query = $view.find('#query'),
             $reset = $view.find('#reset'),
+            $run = $view.find('#run'),
+            $pause = $view.find('#pause'),
+            $resume = $view.find('#resume'),
             $searchForm = $view.find('form'),
             sortObject = {field: 'createTime', type: null},
             tableIns;
@@ -95,6 +126,57 @@
             sortObject.type = 'null';
             tableIns.reload({where: getQueryParams(), page: {curr: 1}, initSort: sortObject});
         });
+        //执行一次
+        $run.on('click', function () {
+            let ids = getCheck();
+            if (ids !== undefined && ids.length > 0) {
+                febs.get(ctx + 'job/run/' + ids, {}, function () {
+                    febs.alert.warn('仅执行一次 ');
+                    var params = $.extend(getQueryParams(), {field: sortObject.field, order: sortObject.type});
+                    tableIns.reload({where: params, page: {curr: 1}});
+                });
+            }
+        });
+        //任务恢复
+        $pause.on('click', function () {
+            let ids = getCheck();
+            if (ids !== undefined && ids.length > 0) {
+                febs.get(ctx + 'job/resume/' + ids, {}, function () {
+                    febs.alert.warn('任务开始 ');
+                    var params = $.extend(getQueryParams(), {field: sortObject.field, order: sortObject.type});
+                    tableIns.reload({where: params, page: {curr: 1}});
+                });
+            }
+        });
+        //任务暂停
+        $resume.on('click', function () {
+            let ids = getCheck();
+            if (ids !== undefined && ids.length > 0) {
+                febs.get(ctx + 'job/pause/' + ids, {}, function () {
+                    febs.alert.warn('任务暂停 ');
+                    var params = $.extend(getQueryParams(), {field: sortObject.field, order: sortObject.type});
+                    tableIns.reload({where: params, page: {curr: 1}});
+                });
+            }
+        });
+
+        //获取选中数据
+        function getCheck() {
+            let checkStatus = table.checkStatus('jobTable');
+            let ids = "";
+            if (!checkStatus.data.length) {
+                febs.alert.warn('至少选中一条数据 ');
+            } else {
+                for (let i = 0; i < checkStatus.data.length; i++) {
+                    if (i === checkStatus.data.length - 1) {
+                        ids += checkStatus.data[i].jobId;
+                    } else {
+                        ids += checkStatus.data[i].jobId + ",";
+                    }
+                }
+            }
+            return ids;
+        }
 
         dropdown.render({
             elem: $view.find('.action-more'),
@@ -248,13 +330,14 @@
                 url: ctx + 'job',
                 cols: [[
                     {type: 'checkbox'},
-                    {field: 'jobId', title: '任务ID', width: 80},
+                    {field: 'jobId', title: '方法ID', width: 80,hide:true},
                     {field: 'beanName', title: 'Bean名称'},
                     {field: 'methodName', title: '方法名称', maxWidth: 200},
                     {field: 'params', title: '方法参数', maxWidth: 180},
-                    {field: 'cronExpression', title: 'cron表达式', maxWidth: 180},
+                    {field: 'cronChinese', title: 'cron表达式', maxWidth: 180,hide:true},
+                    {field: 'cronExpression', title: '周期表达式', maxWidth: 180},
                     {field: 'remark', title: '备注', maxWidth: 200},
-                    {field: 'createTime', title: '创建时间', minWidth: 180, sort: true},
+                    {field: 'createTime', title: '创建时间', minWidth: 180, sort: true,hide:true},
                     {title: '状态', templet: '#job-status'},
                     {title: '操作', toolbar: '#job-option', minWidth: 140}
                 ]]
@@ -273,6 +356,7 @@
                 status: $searchForm.find("select[name='status']").val(),
                 beanName: $searchForm.find("input[name='beanName']").val().trim(),
                 methodName: $searchForm.find("input[name='methodName']").val().trim(),
+                remark: $searchForm.find("input[name='remark']").val().trim(),
                 invalidate_ie_cache: new Date()
             };
         }

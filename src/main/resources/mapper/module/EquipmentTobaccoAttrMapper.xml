@@ -24,10 +24,13 @@
         <result column="create_date" property="createDate"/>
         <result column="modifier" property="modifier"/>
         <result column="mod_date" property="modDate"/>
+
+        <result column="create_time" property="createTime"/>
+
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-            id, equ_id, code, period_no, fan_current, compressor_current_one, compressor_current_two, system_voltage, up_temperature, up_humidity, down_temperature, down_humidity, pipeline_temperature_one, pipeline_temperature_two, work_period_id, state, creator, create_date, modifier, mod_date
+            id, equ_id,create_time, code, period_no, fan_current, compressor_current_one, compressor_current_two, system_voltage, up_temperature, up_humidity, down_temperature, down_humidity, pipeline_temperature_one, pipeline_temperature_two, work_period_id, state, creator, create_date, modifier, mod_date
         </sql>
 </mapper>

@@ -5,64 +5,59 @@
     <form class="layui-form" action="" lay-filter="sendCommand-add-form">
                 <div class="layui-form-item">
                     <label class="layui-form-label febs-form-item-require">设备编号：</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="sbCode" autocomplete="off" class="layui-input">
+                    <div class="layui-input-block" id="code">
+                        <input type="text" name="sbCode" autocomplete="off" class="layui-input febs-hide">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label febs-form-item-require">PLC地址：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="plcAddress" autocomplete="off" class="layui-input">
+                        <input type="text" name="plcAddress" autocomplete="off" class="layui-input" placeholder="请用十进制表示">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label febs-form-item-require">功能码：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="functionCode" autocomplete="off" class="layui-input">
+                        <select name="functionCode" id="functionCode">
+                            <option value="03">读寄存器</option>
+                        </select>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label febs-form-item-require">起始地址：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="qsAddress" autocomplete="off" class="layui-input">
+                        <input type="text" name="qsAddress" autocomplete="off" class="layui-input" placeholder="请用十进制表示">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label febs-form-item-require">寄存器数量：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="jcqnum" autocomplete="off" class="layui-input">
+                        <input type="text" name="jcqnum" autocomplete="off" class="layui-input" placeholder="请用十进制表示">
                     </div>
                 </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">数据类型：</label>
+            <div class="layui-input-block">
+                <select name="unitType" lay-filter="unit_type" >
+                    <option value="2">unit16</option>
+                    <option value="3">int16</option>
+                    <option value="4" selected="">unit32</option>
+                    <option value="5">int32</option>
+                    <option value="8">float1234</option>
+                    <option value="9">float3412</option>
+                    <option value="14">double</option>
+                </select>
+            </div>
+        </div>
                 <div class="layui-form-item">
-                    <label class="layui-form-label febs-form-item-require">数据类型：</label>
+                    <label class="layui-form-label febs-form-item-require">计算规则：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="unitType" autocomplete="off" class="layui-input">
+                        <input type="text" name="gs" autocomplete="off" class="layui-input" placeholder="默认是相除，除数默认是1" >
                     </div>
                 </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label febs-form-item-require">计算公式：</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="gs" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label febs-form-item-require">发送内容：</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="command" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label febs-form-item-require">备注：</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="remark" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label febs-form-item-require">状态(1:有效 0失效)：</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="state" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
+
+
         <div class="layui-form-item febs-hide">
             <button class="layui-btn" lay-submit="" lay-filter="sendCommand-add-form-submit"
                     id="submit"></button>
@@ -79,7 +74,24 @@
             form = layui.form,
             table = layui.table,
             xmSelect = layui.xmSelect,
+            params = [[${codes}]],
             $view = $('#febs-sendCommand-add');
+        xmSelect.render({
+            el: '#code',
+            radio: true,
+            clickClose: true,
+            prop: {
+                name: 'code',
+                value: 'code',
+            },
+            layVerify: 'required',
+            data: params,
+            on: function (data) {
+                var change = data.change;
+                $view.find('input[name="sbCode"]').val(change[0].code);
+            },
+        });
+
 
         form.render();
 

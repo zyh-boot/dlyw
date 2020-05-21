@@ -87,18 +87,7 @@
             <a class="weui-navbar__item weui-bar__item--on" href="#tab11">
                 温湿度
             </a>
-            <a class="weui-navbar__item" style="display: none" href="#tab12">
-                加热
-            </a>
-            <a class="weui-navbar__item" style="display: none" href="#tab13">
-                滚筒
-            </a>
-            <a class="weui-navbar__item " style="display: none" href="#tab14">
-                电力
-            </a>
-            <!--<a class="weui-navbar__item" href="#tab15">
-                冷却床
-            </a>-->
+
             <a class="weui-navbar__item" href="#tab15">
                 走势图
             </a>
@@ -115,33 +104,7 @@
                     <span class="weui-loadmore__tips">正在加载</span>
                 </div>
             </div>
-            <div id="tab12" class="weui-tab__bd-item " style="height:100%; overflow:auto;display: none">
-                <div id="jrbox" style="margin-top:50px;">
-                    <div class="weui-panel__hd">设备加热信息</div>
-                </div>
-                <div class="weui-loadmore" style="padding-bottom:30px;height:20px">
-                    <i class="weui-loading"></i>
-                    <span class="weui-loadmore__tips">正在加载</span>
-                </div>
-            </div>
-            <div id="tab13" class="weui-tab__bd-item " style="height:100%; overflow:auto;display: none">
-                <div id="gtbox" style="margin-top:50px;">
-                    <div class="weui-panel__hd">设备滚筒信息</div>
-                </div>
-                <div class="weui-loadmore" style="padding-bottom:30px;height:20px">
-                    <i class="weui-loading"></i>
-                    <span class="weui-loadmore__tips">正在加载</span>
-                </div>
-            </div>
-            <div id="tab14" class="weui-tab__bd-item " style="height:100%; overflow:auto;display: none">
-                <div id="dlbox" style="margin-top:50px;">
-                    <div class="weui-panel__hd">设备电力信息</div>
-                </div>
-                <div class="weui-loadmore" style="padding-bottom:30px;height:20px">
-                    <i class="weui-loading"></i>
-                    <span class="weui-loadmore__tips">正在加载</span>
-                </div>
-            </div>
+
 
             <div id="tab15" class="weui-tab__bd-item" style="height:100%; overflow:auto;">
                 <div style="margin-top:50px;">
@@ -152,20 +115,7 @@
                     <div class="lisSty">
                         <div class="echarts" id="Contrast1"></div>
                     </div>
-                    <div class="weui-panel__hd" style="display: none">进料信息走势图</div>
-                    <div class="lisSty" style="margin-bottom: 20px;display: none">
-                        <div class="echarts" id="Contrast3"></div>
-                    </div>
-                    <div class="lisSty" style="margin-bottom: 20px;display: none">
-                        <div class="echarts" id="Contrast31"></div>
-                    </div>
-                    <div class="weui-panel__hd"  style="display: none">滚筒信息走势图</div>
-                    <div class="lisSty" style="display: none">
-                        <div class="echarts" id="Contrast2"></div>
-                    </div>
-                    <div class="lisSty" style="display: none">
-                        <div class="echarts" id="Contrast21"></div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -173,32 +123,17 @@
 </div>
 
 <div class="weui-tabbar">
-    <a href="index" class="weui-tabbar__item">
+    <a href="index" class="weui-tabbar__item weui-bar__item--on">
         <div class="weui-tabbar__icon">
             <i class="weui-tabbar__label iconfont icon-shouye"></i>
         </div>
-        <p class="weui-tabbar__label">首页</p>
+        <p class="weui-tabbar__label">炒货机</p>
     </a>
     <a href="tobaccoIndex" class="weui-tabbar__item">
         <div class="weui-tabbar__icon">
             <i class="weui-tabbar__label iconfont icon-shijianguanli"></i>
         </div>
-        <p class="weui-tabbar__label">事件</p>
-    </a>
-    <a href="workbench.html" class="weui-tabbar__item">
-        <i class="weui-tabbar__label iconfont icon-gongzuotai" style="font-size: 27px;"></i>
-    </a>
-    <a href="historyData.html" class="weui-tabbar__item weui-bar__item--on">
-        <div class="weui-tabbar__icon">
-            <i class="weui-tabbar__label iconfont icon-lishi"></i>
-        </div>
-        <p class="weui-tabbar__label">历史</p>
-    </a>
-    <a href="mine.html" class="weui-tabbar__item">
-        <div class="weui-tabbar__icon">
-            <i class="weui-tabbar__label iconfont icon-wode"></i>
-        </div>
-        <p class="weui-tabbar__label">我的</p>
+        <p class="weui-tabbar__label">炕烟机</p>
     </a>
 </div>
 </body>
@@ -217,9 +152,6 @@
     var period = $("#period").val();
     var pages = 1;
     var sizes = 15;
-    var pages1 = 1;
-    var pages2 = 1;
-    var pages3 = 1;
 
 
     var loading = false;  //状态标记
@@ -227,16 +159,6 @@
 
         jlloadlist();
 
-
-        // setTimeout(function () {
-        //     gtloadlist();
-        // }, 1000);
-        // setTimeout(function () {
-        //     dlloadlist();
-        // }, 1000);
-        // setTimeout(function () {
-        //     jrloadlist();
-        // }, 500);
 
     });
     //============================滚动加载
@@ -250,36 +172,7 @@
             loading = false;
         }, 500);   //模拟延迟
     });
-    $("#tab12").infinite(150).on("infinite", function () {
-        if (loading) return;
-        loading = true;
-        pages1++; //页数
-        $('#jrbox .weui-loadmore').show();
-        setTimeout(function () {
-            jrloadlist();
-            loading = false;
-        }, 500);   //模拟延迟
-    });
-    $("#tab13").infinite(150).on("infinite", function () {
-        if (loading) return;
-        loading = true;
-        pages2++; //页数
-        $('#gtbox .weui-loadmore').show();
-        setTimeout(function () {
-            gtloadlist();
-            loading = false;
-        }, 500);   //模拟延迟
-    });
-    $("#tab14").infinite(150).on("infinite", function () {
-        if (loading) return;
-        loading = true;
-        pages3++; //页数
-        $('#dlbox .weui-loadmore').show();
-        setTimeout(function () {
-            dlloadlist();
-            loading = false;
-        }, 500);   //模拟延迟
-    });
+
 
     // =======加载数据loadlist();
     function jlloadlist() {
@@ -292,7 +185,7 @@
             dataType: "json",
             error: function (request) {
                 $("#jlbox .weui-loadmore").hide();
-                html += "<div class=\"weui-cells__title\" >已无更多数据</div>";
+                html += '<div class="weui-cells__title" >已无更多数据</div>';
                 $("#jlbox").append(html);
             },
             success: function (res) {
@@ -300,46 +193,29 @@
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
                         var entity = data[i];
-                        var str = "停止";
-                        var rs = entity.runState;
-                        if (rs == 0) {
-                            str = "未上电";
-                        } else if (rs == 1) {
-                            str = "运行";
-                        }
+
                         var html = '<div class="weui-form-preview" style="background-color: #071449;">'
+
                             + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">运行状态:</label>'
-                            + '<span class="weui-form-preview__value">' + str + '</span></div></div>'
-                            + '<div class="weui-form-preview__bd">' +
-                                '<div class="weui-form-preview__item weui-row"> '
-                                + '<div class="weui-col-33"></div>\n'
-                                + '<div class="weui-col-33">温度(℃)</div>\n'
-                                + '<div class="weui-col-33">湿度(%)</div>'
-                                + '<div class="weui-col-33">上棚</div>\n'
-                                + '<div class="weui-col-33">' + entity.upTemperature/10 + '</div>\n'
-                                + '<div class="weui-col-33">' + entity.upHumidity/10 + '</div>'
-                                + '<div class="weui-col-33">下棚</div>\n'
-                                + '<div class="weui-col-33">' + entity.downTemperature/10 + '</div>\n'
-                                + '<div class="weui-col-33">' + entity.downHumidity/10 + '</div>' +
-                                '</div>'
-                            + '</div>'
+                            + ' <label class="weui-form-preview__label">上棚温度(℃):</label>'
+                            + '<span class="weui-form-preview__value">' + entity.upTemperature/10 + '</span></div></div>'
                             + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">风机电流(A):</label>'
-                            + ' <span class="weui-form-preview__value">' + entity.fanCurrent/10 + '</span></div></div>'
-                            + '<div class="weui-form-preview__bd">'
-                                + '<div class="weui-form-preview__item weui-row"> '
-                                + '<div class="weui-col-33"></div>\n'
-                                + '<div class="weui-col-33">第一</div>\n'
-                                + '<div class="weui-col-33">第二</div>'
-                                + '<div class="weui-col-33">管温(℃)</div>\n'
-                                + '<div class="weui-col-33">' + entity.pipelineTemperatureOne/10 + '</div>\n'
-                                + '<div class="weui-col-33">' + entity.pipelineTemperatureTwo/10 + '</div>'
-                                + '<div class="weui-col-33">压缩机(A)</div>\n'
-                                + '<div class="weui-col-33">' + entity.compressorCurrentOne/10 + '</div>\n'
-                                + '<div class="weui-col-33">' + entity.compressorCurrentOTwo/10 + '</div>'
-                                + '</div>'
-                            + '</div>'
+                            + ' <label class="weui-form-preview__label">上棚湿度(%):</label>'
+                            + '<span class="weui-form-preview__value">' + entity.upHumidity/10 + '</span></div></div>'
+                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
+                            + ' <label class="weui-form-preview__label">下棚温度(℃):</label>'
+                            + '<span class="weui-form-preview__value">' + entity.downTemperature/10 + '</span></div></div>'
+                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
+                            + ' <label class="weui-form-preview__label">下棚湿度(%):</label>'
+                            + '<span class="weui-form-preview__value">' + entity.downHumidity/10 + '</span></div></div>'
+
+                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
+                            + ' <label class="weui-form-preview__label">第一管温(℃):</label>'
+                            + ' <span class="weui-form-preview__value">' + entity.pipelineTemperatureOne/10 + '</span></div></div>'
+                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
+                            + ' <label class="weui-form-preview__label">第二管温(℃):</label>'
+                            + ' <span class="weui-form-preview__value">' + entity.pipelineTemperatureTwo/10 + '</span></div></div>'
+
                             + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
                             + ' <label class="weui-form-preview__label">采集时间:</label>'
                             + ' <span class="weui-form-preview__value">' + entity.createDate + '</span></div></div>' +
@@ -347,9 +223,10 @@
                         $("#jlbox").append(html);
                     }
                 } else {
-                    html += "<div class=\"weui-cells__title\" >已无更多数据</div>";
+                    var html = '<div class="weui-cells__title" >已无更多数据</div>';
                     $("#jlbox").append(html);
                     loading = true;
+                    $("#jlbox .weui-loadmore").hide();
                 }
                 $("#jlbox .weui-loadmore").hide();
                 $.hideLoading();
@@ -357,179 +234,7 @@
         });
     }
 
-   /* function jrloadlist() {
-        var html1 = "";
-        $.ajax({
-            type: "POST",
-            url: "heart_data",
-            data: {'code': code, 'period': period, 'pageNum': pages1, 'pageSize': sizes},
-            dataType: "json",
-            error: function (request) {
-                $("#jrbox .weui-loadmore").hide();
-                html1 += "<div class=\"weui-cells__title\" >已无更多数据</div>";
-                $("#jrbox").append(html1);
-            },
-            success: function (res) {
-                var data1 = res.data.rows;
 
-                if (data1.length > 0) {
-                    for (var i = 0; i < data1.length; i++) {
-                        var entity1 = data1[i];
-                        var str1 = "停止";
-                        var rs1 = entity1.heartState;
-
-                        if (rs1 == 1) {
-                            str1 = "运行";
-                        }
-
-
-                        var html1 = '<div class="weui-form-preview" style="background-color: #071449;">'
-                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">运行状态:</label>'
-                            + '<span class="weui-form-preview__value">' + str1 + '</span></div></div>'
-                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">输出功率(W):</label>'
-                            + '<span class="weui-form-preview__value">' + entity1.power + '</span></div></div>'
-                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">加热(℃):</label>'
-                            + '<span class="weui-form-preview__value">' + entity1.heartTemperature + '</span></div></div>'
-                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-
-                            + ' <label class="weui-form-preview__label">采集时间:</label>'
-                            + ' <span class="weui-form-preview__value">' + entity1.createDate + '</span></div></div></div>'
-                        $("#jrbox").append(html1);
-                    }
-
-                } else {
-                    html1 += "<div class=\"weui-cells__title\" >已无更多数据</div>";
-                    $("#jrbox").append(html1);
-                    loading = true;
-                }
-                $("#jrbox .weui-loadmore").hide();
-            }
-        });
-    }*/
-
-   /* function gtloadlist() {
-        var html2 = "";
-        $.ajax({
-            type: "POST",
-            url: "roller_data",
-            data: {'code': code, 'period': period, 'pageNum': pages2, 'pageSize': sizes},
-            dataType: "json",
-            error: function (request) {
-                $("#gtbox .weui-loadmore").hide();
-                html2 += "<div class=\"weui-cells__title\" >已无更多数据</div>";
-                $("#gtbox").append(html2);
-            },
-            success: function (res) {
-                var data2 = res.data.rows;
-                if (data2.length > 0) {
-                    for (var i = 0; i < data2.length; i++) {
-                        var entity2 = data2[i];
-                        var str = "停止";
-                        var rs = entity2.runState;
-                        if (rs == 1) {
-                            str = "运行";
-                        }
-                        var html2 = '<div class="weui-form-preview" style="background-color: #071449;">'
-                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">运行状态:</label>'
-                            + '<span class="weui-form-preview__value">' + str + '</span></div></div>'
-                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">输出功率(W):</label>'
-                            + '<span class="weui-form-preview__value">' + entity2.outPower + '</span></div></div>'
-                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">运行频率(Hz):</label>'
-                            + '<span class="weui-form-preview__value">' + entity2.runFrequence + '</span></div></div>'
-                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-
-                            + ' <label class="weui-form-preview__label">采集时间:</label>'
-                            + ' <span class="weui-form-preview__value">' + entity2.createDate + '</span></div></div></div>'
-                        $("#gtbox").append(html2);
-                    }
-
-                } else {
-                    html2 += "<div class=\"weui-cells__title\" >已无更多数据</div>";
-                    $("#gtbox").append(html2);
-                    loading = true;
-                }
-                $("#gtbox .weui-loadmore").hide();
-            }
-        });
-    }*/
-
-   /* function dlloadlist() {
-        var html = "";
-        $.ajax({
-            type: "POST",
-            url: "dl_data",
-            data: {'code': code, 'period': period, 'pageNum': pages3, 'pageSize': sizes},
-            dataType: "json",
-            error: function (request) {
-                $("#dlbox .weui-loadmore").hide();
-                html += "<div class=\"weui-cells__title\" >已无更多数据</div>";
-                $("#dlbox").append(html);
-            },
-            success: function (res) {
-                var data = res.data.rows;
-                if (data.length > 0) {
-                    for (var i = 0; i < data.length; i++) {
-                        var entity = data[i];
-                        var html = '<div class="weui-form-preview" style="background-color: #071449;">'
-                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">A相电流:</label>'
-                            + '<span class="weui-form-preview__value">' + entity.currentA + '</span></div></div>'
-                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">B相电流:</label>'
-                            + '<span class="weui-form-preview__value">' + entity.currentB + '</span></div></div>'
-                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">C相电流:</label>'
-                            + '<span class="weui-form-preview__value">' + entity.currentC + '</span></div></div>'
-                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">A相电压:</label>'
-                            + '<span class="weui-form-preview__value">' + entity.voltageA + '</span></div></div>'
-                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">B相电压:</label>'
-                            + '<span class="weui-form-preview__value">' + entity.voltageB + '</span></div></div>'
-                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">C相电压:</label>'
-                            + '<span class="weui-form-preview__value">' + entity.voltageC + '</span></div></div>'
-                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">A相功率:</label>'
-                            + '<span class="weui-form-preview__value">' + entity.powerA + '</span></div></div>'
-                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">B相功率:</label>'
-                            + '<span class="weui-form-preview__value">' + entity.powerB + '</span></div></div>'
-                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">C相功率:</label>'
-                            + '<span class="weui-form-preview__value">' + entity.powerC + '</span></div></div>'
-                            + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                            + ' <label class="weui-form-preview__label">采集时间:</label>'
-                            + ' <span class="weui-form-preview__value">' + entity.createDate + '</span></div></div></div>'
-                        $("#dlbox").append(html);
-                    }
-
-                } else {
-                    html += "<div class=\"weui-cells__title\" >已无更多数据</div>";
-                    $("#dlbox").append(html);
-                    loading = true;
-                }
-                $("#dlbox .weui-loadmore").hide();
-            }
-        });
-    }*/
-
-    /*	function changeTab(obj){
-          if(obj==1){
-            $("#tab1").addClass("weui-tab__bd-item--active");
-              $("#tab2").removeClass("weui-tab__bd-item--active");
-              initDataList();
-          }else if(obj==2){
-              $("#tab1").removeClass("weui-tab__bd-item--active");
-              $("#tab2").addClass("weui-tab__bd-item--active");
-          }
-        }*/
     var myChart = null;
     var myChart11 = null;
     var option = null;
