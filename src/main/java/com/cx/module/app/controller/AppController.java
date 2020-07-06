@@ -1,5 +1,6 @@
 package com.cx.module.app.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.cx.common.controller.BaseController;
 import com.cx.common.entity.CommonResponse;
@@ -324,10 +325,20 @@ public class AppController extends BaseController {
         for (EquipmentTobaccoHistroy his : list) {
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
             time.add(dtf.format(his.getCreateDate()));
-            upTem.add(Math.round(his.getUpTemperature()/10));//上棚温度
-            upHumi.add(Math.round(his.getUpHumidity()/10));//上棚湿度
-            downTem.add(Math.round(his.getDownTemperature()/10));//下棚温度
-            downHumi.add(Math.round(his.getDownHumidity()/10));//下棚湿度
+             if((his.getUpTemperature()/10)<150){
+                 upTem.add(Math.round(his.getUpTemperature()/10));//上棚温度
+            }
+            if((his.getUpHumidity()/10)<150){
+                upHumi.add(Math.round(his.getUpHumidity()/10));//上棚湿度
+            }
+            if((his.getDownTemperature()/10)<150){
+                downTem.add(Math.round(his.getDownTemperature()/10));//下棚温度
+            }
+            if((his.getDownHumidity()/10)<150){
+                downHumi.add(Math.round(his.getDownHumidity()/10));//下棚湿度
+            }
+
+
         }
         res.put("time", time);
         res.put("upTem", upTem);
@@ -335,5 +346,30 @@ public class AppController extends BaseController {
         res.put("downTem", downTem);
         res.put("downHumi", downHumi);
         return res;
+    }
+
+
+    @RequestMapping("/workbench")
+    public Object workbench(HttpServletRequest request,String khId,Model model) throws Exception {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName(CommonUtil.view("app/workbench"));
+        Map<String,Object> res=new HashMap<>();
+        res.put("khId",khId);
+        res.put("type",1);
+        List< Map<String,Object>>  list= equipmentService.querySbList(res);
+        List<String> sbCodes=new ArrayList<>();
+        if(list!=null&&list.size()>0){
+            for (Map<String,Object> map:list) {
+              String code= (String) map.get("code");
+              if(StringUtils.isNotBlank(code)){
+                  sbCodes.add(code);
+              }
+                
+            }
+            model.addAttribute("code",sbCodes.get(0));
+        }
+        model.addAttribute("codelist",sbCodes);
+
+        return mav;
     }
 }

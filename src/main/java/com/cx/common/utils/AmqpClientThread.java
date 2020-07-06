@@ -2,6 +2,8 @@ package com.cx.common.utils;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.cx.common.entity.Constant;
 import com.cx.common.webSocket.WebSocketServer;
 import com.cx.module.mobile.entity.*;
@@ -194,28 +196,27 @@ public class AmqpClientThread implements CommandLineRunner {
                             //"lastTime":"2019-12-09 16:11:36.275"
                             String lastTime = json.getString("lastTime");
                             if (lastTime == null) {
-//                                lastTime = ToolsUtil.date2Str(new Date());
+                                lastTime =LocalDateTime.now().toString() ;
                             }
+
                             //设备关闭
                             if ("offline".equals(status)) {
-//                                MOnlineLog online = onlinelogService.selectByCode(deviceName);
-//                                online.setOffdate(lastTime);
-//                                onlinelogService.update(online);
+                                UpdateWrapper<Equipment> updateWrapper = new UpdateWrapper<>();
+                                updateWrapper.eq("code",deviceName);//设备Id
+                                Equipment t = new Equipment();
+                                t.setLastTime(lastTime);
+                                t.setSbStatus(1);
+                                equipmentService.updateByWrapper(t,updateWrapper);
+                                redisService.del(deviceName);
                             }
                             //设备开启
                             if ("online".equals(status)) {
-//                                MOnlineLog online1 = onlinelogService.selectByCode(deviceName);
-//                                if (online1 == null) {
-//                                    MOnlineLog online = new MOnlineLog();
-//                                    online.setCode(deviceName);
-//                                    online.setOndate(lastTime);
-//                                    onlinelogService.insert(online);
-//                                    MSb sb = new MSb();
-//                                    sb.setCode(deviceName);
-//                                    sb.setLastonlinedate(lastTime);
-//                                    sb.setStatus(1);
-//                                    sbService.updateLastDate(sb);
-//                                }
+                                UpdateWrapper<Equipment> updateWrapper = new UpdateWrapper<>();
+                                updateWrapper.eq("code",deviceName);//设备Id
+                                Equipment t = new Equipment();
+                                t.setCreateDate(LocalDateTime.now());
+                                t.setSbStatus(2);
+                                equipmentService.updateByWrapper(t,updateWrapper);
                             }
                         } else {
                             //为空的话判断是有属性更改或事件发生
@@ -239,17 +240,40 @@ public class AmqpClientThread implements CommandLineRunner {
                                     workPeriodService.update(entity);
                                     redisService.del(deviceName);
                                 }else{//周期开始
-                                    EquipmentWorkPeriod  wp=new EquipmentWorkPeriod();
-                                    wp.setSbCode(deviceName);
-                                    wp.setWorkType(variety);
-                                    wp.setWorkSd(humidity);
-                                    wp.setIsPeriod(1);
-                                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS");
-                                    String period_no = LocalDateTime.now(ZoneOffset.of("+8")).format(formatter);
-                                    wp.setPeriodNo(period_no);
-                                    wp.setStartTime(LocalDateTime.now());
-                                    workPeriodService.add(wp);
-                                    redisService.set(deviceName,period_no);
+                                    QueryWrapper<EquipmentWorkPeriod> qw=new QueryWrapper<>();
+                                    qw.eq("sb_code",deviceName);
+                                    qw.eq("is_period",1);
+                                    EquipmentWorkPeriod ewp=  workPeriodService.selectOne(qw);
+                                    if(ewp!=null){
+                                        ewp.setEndTime(LocalDateTime.now());
+                                        ewp.setIsPeriod(0);
+                                        workPeriodService.update(ewp);
+                                        redisService.del(deviceName);
+                                        EquipmentWorkPeriod  wp=new EquipmentWorkPeriod();
+                                        wp.setSbCode(deviceName);
+                                        wp.setWorkType(variety);
+                                        wp.setWorkSd(humidity);
+                                        wp.setIsPeriod(1);
+                                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS");
+                                        String period_no = LocalDateTime.now(ZoneOffset.of("+8")).format(formatter);
+                                        wp.setPeriodNo(period_no);
+                                        wp.setStartTime(LocalDateTime.now());
+                                        workPeriodService.add(wp);
+                                        redisService.set(deviceName,period_no);
+                                    }else{
+                                        EquipmentWorkPeriod  wp=new EquipmentWorkPeriod();
+                                        wp.setSbCode(deviceName);
+                                        wp.setWorkType(variety);
+                                        wp.setWorkSd(humidity);
+                                        wp.setIsPeriod(1);
+                                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS");
+                                        String period_no = LocalDateTime.now(ZoneOffset.of("+8")).format(formatter);
+                                        wp.setPeriodNo(period_no);
+                                        wp.setStartTime(LocalDateTime.now());
+                                        workPeriodService.add(wp);
+                                        redisService.set(deviceName,period_no);
+                                    }
+
                                 }
                                 //滚筒错误
                                 } else if ("roller_error".equals(identifier)) {

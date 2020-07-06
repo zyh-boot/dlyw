@@ -63,6 +63,12 @@ public class EquipmentWorkPeriodServiceImpl extends ServiceImpl<EquipmentWorkPer
 
         User user = CommonUtil.getCurrentUser();
         LambdaQueryWrapper<EquipmentWorkPeriod> queryWrapper = new LambdaQueryWrapper<>();
+        if(obj.getSbCode()!=null){
+            queryWrapper.eq(EquipmentWorkPeriod::getSbCode,obj.getSbCode());
+        }
+        if(obj.getPeriodNo()!=null){
+            queryWrapper.eq(EquipmentWorkPeriod::getPeriodNo,obj.getPeriodNo());
+        }
 
         return this.baseMapper.selectList(queryWrapper);
     }

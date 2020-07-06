@@ -80,4 +80,9 @@ public class Equipment extends BaseEnity implements Serializable {
 
     @TableField(exist = false)
     private String endDate;
+
+
+    @ApiModelProperty(value = "最后一次上线时间")
+    @TableField("last_time")
+    private String lastTime;
 }

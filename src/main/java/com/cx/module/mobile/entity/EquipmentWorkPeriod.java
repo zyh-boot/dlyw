@@ -47,11 +47,11 @@ public class EquipmentWorkPeriod extends BaseEnity implements Serializable {
     @TableField("work_sd")
     private Float workSd;
     @ApiModelProperty(value = "1.中度炒焦  2 轻微炒焦 3 正常  4 轻微湿  5中度湿")
-    @TableField("colour_ level")
-    private Integer colourLevel;
+    @TableField("sc")
+    private Integer sc;
     @ApiModelProperty(value = "1.很难吃  2 难吃 3 好吃  4 很好吃  5超级好吃")
-    @TableField("good_level")
-    private Integer goodLevel;
+    @TableField("kg")
+    private Integer kg;
 
     @ApiModelProperty(value = "是否结束（0结束 1开始）")
     @TableField("is_period")

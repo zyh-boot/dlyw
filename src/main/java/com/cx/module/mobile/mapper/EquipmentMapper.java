@@ -19,4 +19,6 @@ import java.util.Map;
        List<Map<String,Object>> queryList(Map<String,Object> map);
 
        int selectCount(Map<String,Object> map);
+
+    List<Map<String,Object>>  querySbList(Map<String,Object> map);
     }

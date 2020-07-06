@@ -128,4 +128,6 @@ public interface IEquipmentService {
 
     int selectCount(Map<String,Object> map);
 
+    List<Map<String,Object>>  querySbList(Map<String,Object> map);
+
 }

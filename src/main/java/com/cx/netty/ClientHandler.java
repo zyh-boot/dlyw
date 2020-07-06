@@ -143,23 +143,42 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
 
                     if(values!=null&&values.size()>0) {
                         IRedisService redisService= (IRedisService) Client.getMessageMap().get("server2");
-                       /* String period_no= redisService.get(clientPort+"");
+                        IEquipmentWorkPeriodService equipmentWorkPeriodService= (IEquipmentWorkPeriodService) Client.getMessageMap().get("server3");
+                        String period_no= redisService.get(clientPort+"");
+                        String period_no1=null;
                         if(period_no==null){
                             EquipmentWorkPeriod wp=new EquipmentWorkPeriod();
                             wp.setSbCode(clientPort+"");
                             wp.setIsPeriod(1);
                             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS");
-                            String period_no1 = LocalDateTime.now(ZoneOffset.of("+8")).format(formatter);
+                            period_no1 = LocalDateTime.now(ZoneOffset.of("+8")).format(formatter);
                             wp.setPeriodNo(period_no1);
                             wp.setStartTime(LocalDateTime.now());
-                            IEquipmentWorkPeriodService equipmentWorkPeriodService= (IEquipmentWorkPeriodService) Client.getMessageMap().get("server3");
                             equipmentWorkPeriodService.add(wp);
                             redisService.set(clientPort+"",period_no1);
-                        }else{*/
+                        }else{
+                            EquipmentWorkPeriod wp1=new EquipmentWorkPeriod();
+                            wp1.setSbCode(clientPort+"");
+                            wp1.setPeriodNo(period_no);
+                           List<EquipmentWorkPeriod> list1= equipmentWorkPeriodService.list(wp1);
+                           if(list1!=null&&list1.size()>0){
+                               period_no1=list1.get(0).getPeriodNo();
+                           }else{
+                               EquipmentWorkPeriod wp2=new EquipmentWorkPeriod();
+                               wp2.setSbCode(clientPort+"");
+                               wp2.setIsPeriod(1);
+                               DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS");
+                               period_no1 = LocalDateTime.now(ZoneOffset.of("+8")).format(formatter);
+                               wp2.setPeriodNo(period_no1);
+                               wp2.setStartTime(LocalDateTime.now());
+                               equipmentWorkPeriodService.add(wp2);
+                               redisService.set(clientPort+"",period_no1);
+                           }
+                        }
                             EquipmentTobaccoAttr attr=new EquipmentTobaccoAttr();
                             attr.setCode(clientPort+"");
-                        attr.setCreateTime(new Date());
-                            attr.setPeriodNo("20200520114120211");
+                            attr.setCreateTime(new Date());
+                            attr.setPeriodNo(period_no1);
                             attr.setFanCurrent(0);
                             attr.setCompressorCurrentOne(0);
                             attr.setCompressorCurrentTwo(0);
@@ -173,7 +192,7 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
                             attr.setResCommon(body);
                             IEquipmentTobaccoAttrService iEquipmentTobaccoAttrService= (IEquipmentTobaccoAttrService) Client.getMessageMap().get("server4");
                             iEquipmentTobaccoAttrService.addOrUpdate(attr);
-                       // }
+
                     }
                     Client.getMessageMap().remove(clientPort+"");
                 }

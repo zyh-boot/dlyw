@@ -194,5 +194,10 @@ public class EquipmentServiceImpl extends ServiceImpl<EquipmentMapper, Equipment
     public int selectCount(Map<String, Object> map) {
         return this.baseMapper.selectCount(map);
     }
+
+    public  List<Map<String,Object>>  querySbList(Map<String,Object> map){
+        return this.baseMapper.querySbList(map);
+    };
+
 }
 

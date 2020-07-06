@@ -73,21 +73,20 @@
         <span class="weui-loadmore__tips">正在加载</span>
     </div>
 </div>
-
 <div class="weui-tabbar">
-    <a href="index" class="weui-tabbar__item weui-bar__item--on">
+    <a href="index" class="weui-tabbar__item">
         <div class="weui-tabbar__icon">
             <i class="weui-tabbar__label iconfont icon-shouye"></i>
         </div>
         <p class="weui-tabbar__label">炒货机</p>
     </a>
-    <a href="tobaccoIndex" class="weui-tabbar__item">
+    <a href="Event.html" class="weui-tabbar__item">
         <div class="weui-tabbar__icon">
             <i class="weui-tabbar__label iconfont icon-shijianguanli"></i>
         </div>
-        <p class="weui-tabbar__label">炕烟机</p>
+        <p class="weui-tabbar__label">事件</p>
     </a>
-   <!-- <a href="workbench.html" class="weui-tabbar__item">
+    <a  id="jk"  class="weui-tabbar__item weui-bar__item--on">
         <i class="weui-tabbar__label iconfont icon-gongzuotai" style="font-size: 27px;"></i>
     </a>
     <a href="historyData.html" class="weui-tabbar__item">
@@ -101,8 +100,37 @@
             <i class="weui-tabbar__label iconfont icon-wode"></i>
         </div>
         <p class="weui-tabbar__label">我的</p>
-    </a>-->
+    </a>
 </div>
+<!--<div class="weui-tabbar">
+    <a href="index" class="weui-tabbar__item weui-bar__item&#45;&#45;on">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-shouye"></i>
+        </div>
+        <p class="weui-tabbar__label">炒货机</p>
+    </a>
+  &lt;!&ndash;  <a href="tobaccoIndex" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-shijianguanli"></i>
+        </div>
+        <p class="weui-tabbar__label">炕烟机</p>
+    </a>&ndash;&gt;
+    <a href="workbench.html" class="weui-tabbar__item">
+        <i class="weui-tabbar__label iconfont icon-gongzuotai" style="font-size: 27px;"></i>
+    </a>
+    <a href="historyData.html" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-lishi"></i>
+        </div>
+        <p class="weui-tabbar__label">历史</p>
+    </a>
+    <a href="mine.html" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-wode"></i>
+        </div>
+        <p class="weui-tabbar__label">我的</p>
+    </a>
+</div>-->
 
 </body>
 <script th:src="@{../app/js/jquery-3.4.1.min.js}" type="text/javascript" charset="utf-8"></script>
@@ -126,6 +154,9 @@
         autoplay: 3000,
         direction: 'vertical'
     });
+
+
+
 </script>
 <!--搜索点击效果-->
 <script>
@@ -143,6 +174,11 @@
             "type": type
         };
 
+    //进入监控平台
+    $("#jk").on("click",function(){
+     let url="workbench?khId="+kh_id;
+     window.location.href=url;
+    })
 
     function getData(jsonData) {
         $.get("acc_sb", jsonData, function (res) {

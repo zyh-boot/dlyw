@@ -24,11 +24,13 @@
                     <result column="create_date" property="createDate"/>
                     <result column="modifier" property="modifier"/>
                     <result column="mod_date" property="modDate"/>
+
+            <result column="last_time" property="lastTime"/>
         </resultMap>
 
         <!-- 通用查询结果列 -->
         <sql id="Base_Column_List">
-            id, name, code, type, sb_status, sb_jd, sb_wd, sb_address, sb_user, sb_usedate, sb_info, sb_ewm, remark, state, creator, create_date, modifier, mod_date,signal1
+            id, name, last_time,code, type, sb_status, sb_jd, sb_wd, sb_address, sb_user, sb_usedate, sb_info, sb_ewm, remark, state, creator, create_date, modifier, mod_date,signal1
         </sql>
 
     <select id="findSbByCode" resultType="com.cx.module.mobile.entity.Equipment" parameterType="string">
@@ -77,6 +79,29 @@
             </if>
         </where>
 	</select>
+
+
+
+    <select id="querySbList" resultType="java.util.Map" parameterType="java.util.Map">
+        SELECT
+        e.code,e.sb_status as sbStatus,e.type as sbType,a.kh_name,a.id as khId,e.id as sbId
+        FROM
+        a_account_equipment ae
+        left join a_equipment e  on ae.sb_code=e.code
+        left join a_account a  on ae.kh_id=a.id
+
+        <where>
+            <if test="khId != null and khId!=''" >
+                and  ae.kh_id =#{khId}
+            </if>
+            <if test="type != null and type != ''">
+                and e.type=#{type}
+            </if>
+        </where>
+
+      order by  e.sb_status desc,e.code
+
+    </select>
 
 
 </mapper>

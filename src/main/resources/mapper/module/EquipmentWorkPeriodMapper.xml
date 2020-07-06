@@ -16,16 +16,18 @@
                     <result column="mod_date" property="modDate"/>
                     <result column="work_type" property="workType"/>
                     <result column="work_sd" property="workSd"/>
-                    <result column="colour_level" property="colourLevel"/>
-                    <result column="good_level" property="goodLevel"/>
+                    <result column="sc" property="sc"/>
+                    <result column="kg" property="kg"/>
                     <result column="is_period" property="isPeriod"/>
                     <result column="is_pj" property="isPj"/>
                     <result column="pj_content" property="pjContent"/>
                     <result column="period_no" property="periodNo"/>
+
+
         </resultMap>
 
         <!-- 通用查询结果列 -->
         <sql id="Base_Column_List">
-            id, sb_code, start_time, end_time, work_sc, state, creator, create_date, modifier, mod_date, work_type, work_sd, colour_level, good_level, is_period, is_pj, pj_content, period_no
+            id, sb_code, start_time, end_time, work_sc, state, creator, create_date, modifier, mod_date, work_type, work_sd,sc, kg, is_period, is_pj, pj_content, period_no
         </sql>
 </mapper>
