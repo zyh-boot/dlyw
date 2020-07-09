@@ -67,8 +67,9 @@
 </div>
 
 <script data-th-inline="javascript">
-    layui.use(['jquery', 'febs', 'form', 'validate'], function () {
+    layui.use(['jquery', 'febs', 'form', 'layer', 'validate'], function () {
         var $ = layui.jquery,
+            layer = layui.layer,
             febs = layui.febs,
             form = layui.form,
             job = [[${job}]],

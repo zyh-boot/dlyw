@@ -1,260 +1,304 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-		<title>首页</title>
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<link rel="stylesheet" type="text/css" th:href="@{../app/css/weui.min.css}" />
-		<link rel="stylesheet" type="text/css" th:href="@{../app/css/jquery-weui.min.css}" />
-		<link rel="stylesheet" type="text/css" th:href="@{../app/font/iconfont.css}" />
-		<link rel="stylesheet" type="text/css" th:href="@{../app/css/content.css}"/>
-		<link rel="stylesheet" type="text/css" th:href="@{../app/css/main.css}"/>
-		<style type="text/css">
-			.weui-flex {
-				background: #071449;
-				color: #aaa;
-			}
-			.weui-cells__title{
-				color: white;
-				font-size: 20px;
-				font-weight: bolder;
-				margin-top: 2px;
-			}
-		</style>
-	</head>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <title>首页</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" type="text/css" th:href="@{../app/css/weui.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{../app/css/jquery-weui.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{../app/font/iconfont.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{../app/css/content.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{../app/css/main.css}"/>
+    <style type="text/css">
+        .weui-flex {
+            background: #071449;
+            color: #aaa;
+        }
 
-	<body ontouchstart>
-		<div class="swiper-container" id="box">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide">
-					<img th:src="@{images/zg1.jpg}" />
-				</div>
-				<div class="swiper-slide">
-					<img th:src="@{images/zg2.jpg}" />
-				</div>
-				<div class="swiper-slide">
-					<img th:src="@{images/zg3.jpg}" />
-				</div>
-			</div>
-		</div>
+        .weui-cells__title {
+            color: white;
+            font-size: 20px;
+            font-weight: bolder;
+            margin-top: 2px;
+        }
+    </style>
+</head>
 
-		<div class="weui-flex">
-			<div>
-				<div class="iconfont icon-laba notice"></div>
-			</div>
-			<div class="weui-flex__item">
-				<div class="swiper-container" id="swiperBox">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							niahoad
-						</div>
-						<div class="swiper-slide">
-							nihao
-						</div>
-						<div class="swiper-slide">
-							nihaio
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="spList"  id="spBox">
-			<div class="spBox">
-				<div class="weui-cells__title" style="">设备列表</div>
-				<div id="list">
+<body ontouchstart>
+<div class="swiper-container" id="box">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img th:src="@{images/zg1.jpg}"/>
+        </div>
+        <div class="swiper-slide">
+            <img th:src="@{images/zg2.jpg}"/>
+        </div>
+        <div class="swiper-slide">
+            <img th:src="@{images/zg3.jpg}"/>
+        </div>
+    </div>
+</div>
+
+<div class="weui-flex">
+    <div>
+        <div class="iconfont icon-laba notice"></div>
+    </div>
+    <div class="weui-flex__item">
+        <div class="swiper-container" id="swiperBox">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    1001炒货机正在工作 10时之前
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="spList" id="spBox">
+    <div class="spBox">
+        <div class="weui-cells__title" style="">设备列表</div>
+        <div id="list">
 
 
-				</div>
+        </div>
 
-			</div>
-			<div class="weui-loadmore" style="padding-bottom:30px;height:20px;color: white" id="scroll">
-				<i class="weui-loading"></i>
-				<span class="weui-loadmore__tips">正在加载</span>
-			</div>
-		</div>
+    </div>
+    <div class="weui-loadmore" style="padding-bottom:30px;height:20px;color: white" id="scroll">
+        <i class="weui-loading"></i>
+        <span class="weui-loadmore__tips">正在加载</span>
+    </div>
+</div>
+<div class="weui-tabbar">
+    <a href="index" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-shouye"></i>
+        </div>
+        <p class="weui-tabbar__label">炒货机</p>
+    </a>
+    <a id="sj"  class="weui-tabbar__item">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-shijianguanli"></i>
+        </div>
+        <p class="weui-tabbar__label">事件</p>
+    </a>
+    <a  id="jk"  class="weui-tabbar__item weui-bar__item--on">
+        <i class="weui-tabbar__label iconfont icon-gongzuotai" style="font-size: 27px;"></i>
+    </a>
+    <a href="historyData.html" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-lishi"></i>
+        </div>
+        <p class="weui-tabbar__label">历史</p>
+    </a>
+    <a href="mine" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-wode"></i>
+        </div>
+        <p class="weui-tabbar__label">我的</p>
+    </a>
+</div>
+<!--<div class="weui-tabbar">
+    <a href="index" class="weui-tabbar__item weui-bar__item&#45;&#45;on">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-shouye"></i>
+        </div>
+        <p class="weui-tabbar__label">炒货机</p>
+    </a>
+  &lt;!&ndash;  <a href="tobaccoIndex" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-shijianguanli"></i>
+        </div>
+        <p class="weui-tabbar__label">炕烟机</p>
+    </a>&ndash;&gt;
+    <a href="workbench.html" class="weui-tabbar__item">
+        <i class="weui-tabbar__label iconfont icon-gongzuotai" style="font-size: 27px;"></i>
+    </a>
+    <a href="historyData.html" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-lishi"></i>
+        </div>
+        <p class="weui-tabbar__label">历史</p>
+    </a>
+    <a href="mine.html" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-wode"></i>
+        </div>
+        <p class="weui-tabbar__label">我的</p>
+    </a>
+</div>-->
 
-		<div class="weui-tabbar">
-			<a href="index" class="weui-tabbar__item weui-bar__item--on">
-				<div class="weui-tabbar__icon">
-					<i class="weui-tabbar__label iconfont icon-shouye" ></i>
-				</div>
-				<p class="weui-tabbar__label">首页</p>
-			</a>
-			<a href="Event.html" class="weui-tabbar__item">
-				<div class="weui-tabbar__icon">
-					<i class="weui-tabbar__label iconfont icon-shijianguanli" ></i>
-				</div>
-				<p class="weui-tabbar__label">事件</p>
-			</a>
-			<a href="workbench.html" class="weui-tabbar__item">
-				<i class="weui-tabbar__label iconfont icon-gongzuotai" style="font-size: 27px;"></i>
-			</a>
-			<a href="historyData.html" class="weui-tabbar__item">
-				<div class="weui-tabbar__icon">
-					<i class="weui-tabbar__label iconfont icon-lishi"></i>
-				</div>
-				<p class="weui-tabbar__label">历史</p>
-			</a>
-			<a href="mine.html" class="weui-tabbar__item">
-				<div class="weui-tabbar__icon">
-					<i class="weui-tabbar__label iconfont icon-wode"></i>
-				</div>
-				<p class="weui-tabbar__label">我的</p>
-			</a>
-		</div>
+</body>
+<script th:src="@{../app/js/jquery-3.4.1.min.js}" type="text/javascript" charset="utf-8"></script>
+<script th:src="@{../app/js/jquery-weui.min.js}" type="text/javascript" charset="utf-8"></script>
+<script th:src="@{../app/js/fastclick.js}" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    //去掉ios点击事件300毫秒延迟
+    $(function () {
+        FastClick.attach(document.body);
+    });
+</script>
 
-	</body>
-	<script th:src="@{../app/js/jquery-3.4.1.min.js}" type="text/javascript" charset="utf-8"></script>
-	<script th:src="@{../app/js/jquery-weui.min.js}" type="text/javascript" charset="utf-8"></script>
-	<script th:src="@{../app/js/fastclick.js}" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript">
-		//去掉ios点击事件300毫秒延迟
-		$(function() {
-			FastClick.attach(document.body);
-		});
-	</script>
-
-	<script th:src="@{../app/js/swiper.min.js}" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript">
-		$("#box").swiper({
-			loop: true,
-			autoplay: 3000
-		});
-		$("#swiperBox").swiper({
-			loop: true,
-			autoplay: 3000,
-			direction: 'vertical'
-		});
-	</script>
-	<!--搜索点击效果-->
-	<script >
-		var kh_id=localStorage.getItem("khId")
-		var records = [];
-		var havaData = false;
-		var start = 0;
-		var end =8;
-		var count = -1;
-		var jsonData = {
-			"start":start,
-			"end":end,
-			"kh_id":kh_id
-		};
+<script th:src="@{../app/js/swiper.min.js}" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $("#box").swiper({
+        loop: true,
+        autoplay: 3000
+    });
+    $("#swiperBox").swiper({
+        loop: true,
+        autoplay: 3000,
+        direction: 'vertical'
+    });
 
 
-		function getData(jsonData){
-			$.get("acc_sb",jsonData,function(res){
 
-				if (res.code ==1) {
+</script>
+<!--搜索点击效果-->
+<script>
+    var kh_id = localStorage.getItem("khId"),
+        records = [],
+        havaData = false,
+        start = 0,
+        end = 8,
+        type = 1,
+        count = -1,
+        jsonData = {
+            "start": start,
+            "end": end,
+            "kh_id": kh_id,
+            "type": type
+        };
 
-					records =res.data.list;
-					count = res.data.count; // 数据总条数
-					if(records.length == 0 && !havaData){
-						$("#scroll").hide();
-						var div = document.getElementById("list");
-						var str='<h3 align="center" style="color: white" >暂无数据</h3>';
-						div.innerHTML =div.innerHTML+str;
-					}else{
-						if(count<=8){
-							$("#scroll").hide();
-						}else{
-							havaData = true;
-						}
-					}
-					// 显示数据
-					showData(records);
-				} else {
-					$.toast("加载数据失败!","text");
-					$("#spBox").destroyInfinite();
-					$("#scroll").hide();
-				}
-			},"json");
-		}
-		// 页面一进来就获取数据
-		getData(jsonData);
-		function showData(records){
-			var length = records.length;
-			for(var i = 0; i < length; i++){
-				var entity=records[i];
-				var ss=entity.sb_status;
-				var is=entity.is_period;
+    //进入监控平台
+    $("#jk").on("click",function(){
+     let url="workbench?khId="+kh_id;
+     window.location.href=url;
+    })
 
-				var str='';
-                if(is==null || is==0){
-                   if(ss==1){
-					   str='<span  style="color: white">在线</span>';
- 				   }else{
-					   str='<span  style="color:yellow">离线</span>';
-				   }
-				}else{
-					str='<span  style="color:greenyellow">工作中</span>';
-				}
+    //进入事件页面
+    $("#sj").on("click",function(){
+        console.log("sj")
+        let url="event?khId="+kh_id;
+        window.location.href=url;
+    })
 
-				var div = document.getElementById("list");
-				var str='<div class="weui-form-preview" id="'+entity+'" onclick="go_realtime_page('+entity.work_id+','+is+','+entity.code+')" style="background-color: #071449;color: white;">'
-						+'<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-						+' <label class="weui-form-preview__label">设备名称:</label>'
-						+'<span class="weui-form-preview__value">'+entity.code+'</span></div></div>'
-						+'<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-						+' <label class="weui-form-preview__label">设备状态:</label>'
-						+'<em class="weui-form-preview__value">'+str+'</em></div></div>'
-						+'<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-						+' <label class="weui-form-preview__label">客户名称:</label>'
-						+'<span class="weui-form-preview__value">'+entity.kh_name+'</span></div></div>'
-						+'<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-						+'<label class="weui-form-preview__label">客户电话:</label>'
-						+'<span class="weui-form-preview__value">'+entity.kh_phone+'</span></div></div>'
-						+'<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-						+' <label class="weui-form-preview__label">客户地址:</label>'
-						+'<span class="weui-form-preview__value">'+entity.org_address+'</span></div></div></div>'
-			        	div.innerHTML =div.innerHTML+str;
-			}
-			if(length == 0){
-				$("#scroll").hide();
-			}
-		}
-		// 滚动条滑动到离底部100，多显示一条数据。 显示后不会消失。
-		//$("#spBox").infinite(150);
-		var loading = false;  //状态标记 否则一直循环刷新
-		$("#spBox").infinite(150).on("infinite", function() {
-			if(loading) return;
-			loading = true;
-			setTimeout(function() {
-				var length = records.length;
-				if(length > 0 && havaData){
-					// 还有数据，继续加载
-					start = start +8;
-					end=start+8;
-					var jsonData = {
-						"start":start,
-						"end":end,
-						"kh_id":kh_id
-					};
-					getData(jsonData);
-				}else{
-					havaData = false;
-					$.toast("全部数据已经加载完成！","text");
-					$("#spBox").destroyInfinite();
-					$("#scroll").hide();
-					return;
-				}
-				loading = false;
-			},50);   //模拟延迟
-		});
+    function getData(jsonData) {
+        $.get("acc_sb", jsonData, function (res) {
 
-		function go_realtime_page(org,zt,zj) {
-			if(zt==null || zt==''){
-               $.toast("暂无生产中的数据","text");
-			}else{
-				window.location.href="go_realtime_page?period="+org+"&code="+zj;
-			}
+            if (res.code == 1) {
+                console.log(res)
+                records = res.data.list;
+                count = res.data.count; // 数据总条数
+                if (records.length == 0 && !havaData) {
+                    $("#scroll").hide();
+                    var div = document.getElementById("list");
+                    var str = '<h3 align="center" style="color: white" >暂无数据</h3>';
+                    div.innerHTML = div.innerHTML + str;
+                } else {
+                    if (count <= 8) {
+                        $("#scroll").hide();
+                    } else {
+                        havaData = true;
+                    }
+                }
+                // 显示数据
+                showData(records);
+            } else {
+                $.toast("加载数据失败!", "text");
+                $("#spBox").destroyInfinite();
+                $("#scroll").hide();
+            }
+        }, "json");
+    }
 
-		}
+    // 页面一进来就获取数据
+    getData(jsonData);
 
-	</script>
+    function showData(records) {
+        var length = records.length;
+        for (var i = 0; i < length; i++) {
+            var entity = records[i];
+            var ss = entity.sb_status;
+            var is = entity.is_period;
+
+            var str = '';
+            if (is == null || is == 0) {
+                if (ss == 1) {
+                    str = '<span  style="color: white">在线</span>';
+                } else {
+                    str = '<span  style="color:yellow">离线</span>';
+                }
+            } else {
+                str = '<span  style="color:greenyellow">工作中</span>';
+            }
+
+            var div = document.getElementById("list");
+            var str = '<div class="weui-form-preview" id="' + entity.id + '" onclick="go_realtime_page(' + entity.work_id + ',' + is + ',' + entity.code + ')" style="background-color: #071449;color: white;">'
+                + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
+                + ' <label class="weui-form-preview__label">设备名称:</label>'
+                + '<span class="weui-form-preview__value">' + entity.code + '</span></div></div>'
+                + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
+                + ' <label class="weui-form-preview__label">设备状态:</label>'
+                + '<em class="weui-form-preview__value">' + str + '</em></div></div>'
+                + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
+                + ' <label class="weui-form-preview__label">客户名称:</label>'
+                + '<span class="weui-form-preview__value">' + entity.kh_name + '</span></div></div>'
+                + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
+                + '<label class="weui-form-preview__label">客户电话:</label>'
+                + '<span class="weui-form-preview__value">' + entity.kh_phone + '</span></div></div>'
+                + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
+                + ' <label class="weui-form-preview__label">客户地址:</label>'
+                + '<span class="weui-form-preview__value">' + entity.org_address + '</span></div></div></div>'
+            div.innerHTML = div.innerHTML + str;
+        }
+        if (length == 0) {
+            $("#scroll").hide();
+        }
+    }
+
+    // 滚动条滑动到离底部100，多显示一条数据。 显示后不会消失。
+    //$("#spBox").infinite(150);
+    var loading = false;  //状态标记 否则一直循环刷新
+    $("#spBox").infinite(150).on("infinite", function () {
+        if (loading) return;
+        loading = true;
+        setTimeout(function () {
+            var length = records.length;
+            if (length > 0 && havaData) {
+                // 还有数据，继续加载
+                start = start + 8;
+                end = start + 8;
+                var jsonData = {
+                    "start": start,
+                    "end": end,
+                    "kh_id": kh_id
+                };
+                getData(jsonData);
+            } else {
+                havaData = false;
+                $.toast("全部数据已经加载完成！", "text");
+                $("#spBox").destroyInfinite();
+                $("#scroll").hide();
+                return;
+            }
+            loading = false;
+        }, 50);   //模拟延迟
+    });
+
+    function go_realtime_page(org, zt, zj) {
+        if (zt == null || zt == '') {
+            $.toast("暂无生产中的数据", "text");
+        } else {
+            window.location.href = "go_realtime_page?period=" + org + "&code=" + zj;
+        }
+
+    }
+
+</script>
 
 </html>

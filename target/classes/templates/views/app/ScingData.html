@@ -66,7 +66,7 @@
 
 		</style>
 	</head>
-		
+
 	<body>
 		<div class="title-head">
 			实时数据
@@ -185,32 +185,17 @@
 		</div>
 
 		<div class="weui-tabbar">
-			<a href="index" class="weui-tabbar__item">
+			<a href="index" class="weui-tabbar__item weui-bar__item--on">
 				<div class="weui-tabbar__icon">
 					<i class="weui-tabbar__label iconfont icon-shouye"></i>
 				</div>
-				<p class="weui-tabbar__label">首页</p>
+				<p class="weui-tabbar__label">炒货机</p>
 			</a>
-			<a href="Event.html" class="weui-tabbar__item">
+			<a href="tobaccoIndex" class="weui-tabbar__item">
 				<div class="weui-tabbar__icon">
 					<i class="weui-tabbar__label iconfont icon-shijianguanli"></i>
 				</div>
-				<p class="weui-tabbar__label">事件</p>
-			</a>
-			<a href="workbench.html" class="weui-tabbar__item">
-				<i class="weui-tabbar__label iconfont icon-gongzuotai" style="font-size: 27px;"></i>
-			</a>
-			<a href="historyData.html" class="weui-tabbar__item weui-bar__item--on">
-				<div class="weui-tabbar__icon">
-					<i class="weui-tabbar__label iconfont icon-lishi"></i>
-				</div>
-				<p class="weui-tabbar__label">历史</p>
-			</a>
-			<a href="mine.html" class="weui-tabbar__item">
-				<div class="weui-tabbar__icon">
-					<i class="weui-tabbar__label iconfont icon-wode"></i>
-				</div>
-				<p class="weui-tabbar__label">我的</p>
+				<p class="weui-tabbar__label">炕烟机</p>
 			</a>
 		</div>
 	</body>
@@ -307,7 +292,7 @@
 					$("#jlbox").append(html);
 				},
 				success: function (res) {
-					console.log(res);
+
 					var data=res.data.rows;
 					if (data.length > 0) {
 

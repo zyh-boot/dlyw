@@ -1,4 +1,4 @@
-<div class="layui-fluid layui-anim febs-anim" id="febs-equipment" lay-title="">
+<div class="layui-fluid layui-anim febs-anim" id="febs-equipment" lay-title="设备台账">
     <div class="layui-row febs-container">
         <div class="layui-col-md12">
             <div class="layui-card">
@@ -46,23 +46,33 @@
     </div>
 </div>
 
-<script type="text/html" id="equipment-status">
+<script type="text/html" id="equipment-type">
     {{#
     var status = {
-    1: {title: '有效', color: 'green'},
-    0: {title: '失效', color: 'volcano'}
-    }[d.state];
+    1: {title: '炒货设备', color: 'green'},
+    2: {title: '炕烟设备', color: 'volcano'}
+    }[d.type];
+    }}
+    <span class="layui-badge febs-tag-{{status.color}}">{{ status.title }}</span>
+</script>
+<script type="text/html" id="equipment-sbStatus">
+    {{#
+    var status = {
+    1: {title: '离线', color: '#B0C4DE'},
+    2: {title: '在线', color: 'green'},
+    3: {title: '运行中', color: '#FF00FF'}
+    }[d.sbStatus];
     }}
     <span class="layui-badge febs-tag-{{status.color}}">{{ status.title }}</span>
 </script>
 
 <script type="text/html" id="equipment-option">
-    <a lay-event="edit"><i class="layui-icon febs-edit-area febs-blue"  sec:authorize="hasRole('equipment:mod')">&#xe7a4;</i></a>
+   <!-- <a lay-event="edit"><i class="layui-icon febs-edit-area febs-blue"  sec:authorize="hasRole('equipment:mod')">&#xe7a4;</i></a>-->
     <a lay-event="del"><i class="layui-icon febs-edit-area febs-red"  sec:authorize="hasRole('equipment:del')">&#xe7f9;</i></a>
 </script>
 
 <script data-th-inline="none" type="text/javascript">
-    layui.use([ 'jquery', 'layer', 'laydate', 'form','febs','table', 'util','xmSelect'], function () {
+    layui.use([ 'jquery', 'layer', 'laydate','form','febs','table', 'util','xmSelect'], function () {
         var $ = layui.jquery,
             layer = layui.layer,
             laydate = layui.laydate,
@@ -177,17 +187,14 @@
                     {type: 'checkbox'},
                     {field: 'name', title: '设备名称'},
                     {field: 'code', title: '设备编号'},
-                    {field: 'type', title: '种类（1.炒货设备）'},
-                    {field: 'sbStatus', title: '运行状态(1.在线2.离线3.运行中)'},
-                    {field: 'sbJd', title: '经度'},
-                    {field: 'sbWd', title: '维度'},
+
+                    {title: '设备', templet: '#equipment-type'},
+                    {title: '运行状态', templet: '#equipment-sbStatus'},
+
                     {field: 'sbAddress', title: '位置信息'},
-                    {field: 'sbUser', title: '设备用途'},
                     {field: 'sbUsedate', title: '使用时间'},
                     {field: 'sbInfo', title: '手机卡'},
-                    {field: 'sbEwm', title: '二维码 '},
-                    {field: 'remark', title: '备注'},
-                    {title: '状态', templet: '#equipment-status'},
+                    {field: 'sbUser', title: '设备用途'},
                     {field: 'createDate', title: '创建时间', minWidth: 180, sort: true},
                     {title: '操作', toolbar: '#equipment-option', minWidth: 140}
                 ]]

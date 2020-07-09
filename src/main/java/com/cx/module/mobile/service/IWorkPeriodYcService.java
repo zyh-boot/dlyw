@@ -41,6 +41,13 @@ public interface IWorkPeriodYcService {
     List<WorkPeriodYc> list(WorkPeriodYc obj);
 
     /**
+     * 自定义查询条件
+     *
+     * @param wrapper
+     * @return
+     */
+    List<WorkPeriodYc> queryYcList(Wrapper wrapper);
+    /**
      * 分页查询
      *
      * @param obj

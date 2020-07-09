@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cx.module.mobile.mapper.SendCommandMapper">
+    <!--当前表名：a_send_command-->
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.cx.module.mobile.entity.SendCommand">
+                    <id column="id" property="id"/>
+                    <result column="sb_code" property="sbCode"/>
+                    <result column="plc_address" property="plcAddress"/>
+                    <result column="function_code" property="functionCode"/>
+                    <result column="qs_address" property="qsAddress"/>
+                    <result column="jcqnum" property="jcqnum"/>
+                    <result column="unit_type" property="unitType"/>
+                    <result column="gs" property="gs"/>
+                    <result column="command" property="command"/>
+                    <result column="remark" property="remark"/>
+                    <result column="state" property="state"/>
+                    <result column="creator" property="creator"/>
+                    <result column="create_date" property="createDate"/>
+                    <result column="modifier" property="modifier"/>
+                    <result column="mod_date" property="modDate"/>
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            id, sb_code, plc_address, function_code, qs_address, jcqnum, unit_type, gs, command, remark, state, creator, create_date, modifier, mod_date
+        </sql>
+</mapper>

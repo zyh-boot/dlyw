@@ -16,15 +16,16 @@ spring:
         # 数据源-1，名称为 base
         base:
           username: root
-          password: cxzn2020
+          #password: cxzn2020
+          password: root
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://49.232.145.171:3306/dlyw?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
+          url: jdbc:mysql://127.0.0.1:3306/cxzn_zg?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
         # 数据源-2，名称为 quartz
-        quartz:
-          username: root
-          password: cxzn2020
-          driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://49.232.145.171:3306/dlyw?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
+          #        quartz:
+          #          username: root
+          #          password: cxzn2020
+          #          driver-class-name: com.mysql.cj.jdbc.Driver
+        #          url: jdbc:mysql://49.232.145.171:3306/dlyw?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
         # 数据源-3，名称为 CAD
 #        CAD:
 #          username: root
@@ -32,7 +33,7 @@ spring:
 #          driver-class-name: com.mysql.cj.jdbc.Driver
 #          url: jdbc:mysql://49.232.145.171:3306/dlyw?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
   #是否启用定时任务
-  quartzFlag: false
+  quartzFlag: true
   redis:
     redisFlag: true
     # Redis数据库索引（默认为 0）

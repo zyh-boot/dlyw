@@ -71,4 +71,5 @@ public class EquipmentWorkPeriod extends BaseEnity implements Serializable {
 
     @TableField(exist = false)
     private String endDate;
+
 }

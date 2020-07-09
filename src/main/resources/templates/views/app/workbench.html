@@ -274,7 +274,7 @@
 				</div>
 				<p class="weui-tabbar__label">首页</p>
 			</a>
-			<a href="Event.html" class="weui-tabbar__item">
+			<a id="sj" class="weui-tabbar__item">
 				<div class="weui-tabbar__icon">
 					<i class="weui-tabbar__label iconfont icon-shijianguanli"></i>
 				</div>
@@ -289,7 +289,7 @@
 				</div>
 				<p class="weui-tabbar__label">历史</p>
 			</a>
-			<a href="mine.html" class="weui-tabbar__item">
+			<a href="mine" class="weui-tabbar__item">
 				<div class="weui-tabbar__icon">
 					<i class="weui-tabbar__label iconfont icon-wode"></i>
 				</div>
@@ -332,7 +332,11 @@
 				console.log("close");
 			}
 		});
-
+		//进入事件模块
+		$("#sj").on("click",function(){
+			let url="event?khId="+kh_id;
+			window.location.href=url;
+		})
 	</script>
 
 </html>

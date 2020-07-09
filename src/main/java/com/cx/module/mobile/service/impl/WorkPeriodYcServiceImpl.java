@@ -55,12 +55,22 @@ public class WorkPeriodYcServiceImpl extends ServiceImpl<WorkPeriodYcMapper, Wor
         return this.baseMapper.selectOne(wrapper);
     }
 
+
+    /**
+     * 查询列表
+     *
+     * @param wrapper
+     * @return
+     */
+    public List<WorkPeriodYc> queryYcList(Wrapper wrapper){
+      return this.baseMapper.selectList(wrapper);
+    }
+
     /**
      * 查询列表
      */
     @Override
     public List<WorkPeriodYc> list(WorkPeriodYc obj) {
-
         User user = CommonUtil.getCurrentUser();
         LambdaQueryWrapper<WorkPeriodYc> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.orderByDesc(WorkPeriodYc::getStartDate);

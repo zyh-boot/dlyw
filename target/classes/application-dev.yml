@@ -16,11 +16,11 @@ spring:
         # 数据源-1，名称为 base
         base:
           username: root
-          password: cxzn2020
+          password: cx2020ZN@323
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://127.0.0.1:3306/cxzn_zg?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
+          url: jdbc:mysql://rm-m5esfmb7i42uvlx63so.mysql.rds.aliyuncs.com:3306/cxzn_zg?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
   #是否启用定时任务
-  quartzFlag: false
+  quartzFlag: true
   redis:
     redisFlag: true
     # Redis数据库索引（默认为 0）

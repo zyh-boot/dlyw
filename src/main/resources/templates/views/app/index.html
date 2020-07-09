@@ -80,7 +80,7 @@
         </div>
         <p class="weui-tabbar__label">炒货机</p>
     </a>
-    <a href="Event.html" class="weui-tabbar__item">
+    <a id="sj"  class="weui-tabbar__item">
         <div class="weui-tabbar__icon">
             <i class="weui-tabbar__label iconfont icon-shijianguanli"></i>
         </div>
@@ -95,7 +95,7 @@
         </div>
         <p class="weui-tabbar__label">历史</p>
     </a>
-    <a href="mine.html" class="weui-tabbar__item">
+    <a href="mine" class="weui-tabbar__item">
         <div class="weui-tabbar__icon">
             <i class="weui-tabbar__label iconfont icon-wode"></i>
         </div>
@@ -180,11 +180,18 @@
      window.location.href=url;
     })
 
+    //进入事件页面
+    $("#sj").on("click",function(){
+        console.log("sj")
+        let url="event?khId="+kh_id;
+        window.location.href=url;
+    })
+
     function getData(jsonData) {
         $.get("acc_sb", jsonData, function (res) {
 
             if (res.code == 1) {
-
+                console.log(res)
                 records = res.data.list;
                 count = res.data.count; // 数据总条数
                 if (records.length == 0 && !havaData) {
