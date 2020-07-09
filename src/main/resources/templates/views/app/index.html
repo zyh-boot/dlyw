@@ -191,7 +191,6 @@
         $.get("acc_sb", jsonData, function (res) {
 
             if (res.code == 1) {
-                console.log(res)
                 records = res.data.list;
                 count = res.data.count; // 数据总条数
                 if (records.length == 0 && !havaData) {

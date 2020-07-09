@@ -32,16 +32,17 @@
 		<div class="title-head">
 			设备列表
 		</div>
-		<div class="weui-tab box">
+		<div class="weui-tab box spList" id="spBox">
 			<div class="xz_title">设备列表</div>
-			<div class="weui-cells" style="margin-top: 0;">
-				<a class="weui-cell weui-cell_access" href="modifyshebeiInfo.html">
-					<div class="weui-cell__bd">
-						<p>设备1</p>
-					</div>
-					<div class="weui-cell__ft"></div>
-				</a>
-				
+			<div class="weui-cells" style="margin-top: 0;" id="list">
+<!--				<a class="weui-cell weui-cell_access" href="javaScript:void(0)">-->
+<!--					<div class="weui-cell__bd">-->
+<!--						<span style="color: white">设备1</span>-->
+<!--						<span  style="color: white ; float : right">在线</span>-->
+<!--					</div>-->
+<!--					<div class="weui-cell__ft"></div>-->
+<!--				</a>-->
+
 			</div>
 
 		</div>
@@ -78,6 +79,9 @@
 	</body>
 	<script src="js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-weui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		//ios系统点击事件的200毫秒延迟
 		$(function() {
@@ -108,10 +112,110 @@
 			let url="event?khId="+kh_id;
 			window.location.href=url;
 		})
+
+
+		function getData(jsonData) {
+			$.get("acc_sb", jsonData, function (res) {
+				if (res.code == 1) {
+					records = res.data.list;
+					count = res.data.count; // 数据总条数
+					if (records.length == 0 && !havaData) {
+						$("#scroll").hide();
+						var div = document.getElementById("list");
+						var str = '<h3 align="center" style="color: white" >暂无数据</h3>';
+						div.innerHTML = div.innerHTML + str;
+					} else {
+						if (count <= 8) {
+							$("#scroll").hide();
+						} else {
+							havaData = true;
+						}
+					}
+					// 显示数据
+					showData(records);
+				} else {
+					$.toast("加载数据失败!", "text");
+					$("#spBox").destroyInfinite();
+					$("#scroll").hide();
+				}
+			}, "json");
+		}
+
+		// 页面一进来就获取数据
+		getData(jsonData);
+
+		function showData(records) {
+			var length = records.length;
+			for (var i = 0; i < length; i++) {
+				var entity = records[i];
+				var ss = entity.sb_status;
+				var is = entity.is_period;
+
+				var str = '';
+				if (is == null || is == 0) {
+					if (ss == 1) {
+						str = '<span  style="color: white; float : right">在线</span>';
+					} else {
+						str = '<span  style="color:yellow; float : right">离线</span>';
+					}
+				} else {
+					str = '<span  style="color:greenyellow; float : right">工作中</span>';
+				}
+
+				var div = document.getElementById("list");
+				var str = '<div class="weui-form-preview" id="' + entity.id + '" onclick="go_realtime_page(' + entity.work_id + ',' + is + ',' + entity.code + ')" style="background-color: #071449;color: white;">'
+
+						+ '<a class="weui-cell weui-cell_access" href="javaScript:void(0)"><div class="weui-cell__bd">'
+						// + '<p>设备'+ entity.name + '</p>'
+						+ '<span>设备ID:'+ entity.code + '</span>'
+						+ str
+						+ '</div><div class="weui-cell__ft"></div></a></div>'
+				div.innerHTML = div.innerHTML + str;
+			}
+			if (length == 0) {
+				$("#scroll").hide();
+			}
+		}
+
+		// 滚动条滑动到离底部100，多显示一条数据。 显示后不会消失。
+		//$("#spBox").infinite(150);
+		var loading = false;  //状态标记 否则一直循环刷新
+		$("#spBox").infinite(150).on("infinite", function () {
+			if (loading) return;
+			loading = true;
+			setTimeout(function () {
+				var length = records.length;
+				if (length > 0 && havaData) {
+					// 还有数据，继续加载
+					start = start + 8;
+					end = start + 8;
+					var jsonData = {
+						"start": start,
+						"end": end,
+						"kh_id": kh_id
+					};
+					getData(jsonData);
+				} else {
+					havaData = false;
+					$.toast("全部数据已经加载完成！", "text");
+					$("#spBox").destroyInfinite();
+					$("#scroll").hide();
+					return;
+				}
+				loading = false;
+			}, 50);   //模拟延迟
+		});
+
+		function go_realtime_page(org, zt, zj) {
+			if (zt == null || zt == '') {
+				$.toast("暂无生产中的数据", "text");
+			} else {
+				window.location.href = "go_realtime_page?period=" + org + "&code=" + zj;
+			}
+
+		}
 	</script>
-	<script src="js/jquery-weui.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+
 	<script type="text/javascript">
 	</script>
 
