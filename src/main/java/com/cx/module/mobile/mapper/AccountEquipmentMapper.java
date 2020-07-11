@@ -3,6 +3,9 @@ package com.cx.module.mobile.mapper;
 import com.cx.module.mobile.entity.AccountEquipment;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
+import java.util.List;
+import java.util.Map;
+
 /**
 *  Mapper接口
 *
@@ -11,5 +14,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 */
     public interface AccountEquipmentMapper extends BaseMapper<AccountEquipment> {
         void     delectByKh(String khId);
+        List<AccountEquipment> queryList(Map<String,Object> map);
 
     }

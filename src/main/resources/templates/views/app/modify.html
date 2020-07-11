@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html>
 
 <head>
@@ -33,8 +34,18 @@
 
 <body>
 <div class="modifyBox">
-    <div class="head">
-        <img src="images/1.jpg" alt=""/>
+    <div class="swiper-container" id="box">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img th:src="@{images/zg1.jpg}"/>
+            </div>
+            <div class="swiper-slide">
+                <img th:src="@{images/zg2.jpg}"/>
+            </div>
+            <div class="swiper-slide">
+                <img th:src="@{images/zg3.jpg}"/>
+            </div>
+        </div>
     </div>
     <div class="weui-cells weui-cells_form" style="margin-top: 0;">
         <div class="weui-cell">
@@ -84,7 +95,7 @@
     <a id="jk" class="weui-tabbar__item">
         <i class="weui-tabbar__label iconfont icon-gongzuotai" style="font-size: 27px;"></i>
     </a>
-    <a href="historyData.html" class="weui-tabbar__item">
+    <a id="history" class="weui-tabbar__item">
         <div class="weui-tabbar__icon">
             <i class="weui-tabbar__label iconfont icon-lishi"></i>
         </div>
@@ -130,6 +141,12 @@
     $("#sj").on("click", function () {
         let url = "event?khId=" + kh_id;
         window.location.href = url;
+    })
+
+    //进入历史模块
+    $("#history").on("click",function(){
+        let url="history?khId="+kh_id;
+        window.location.href=url;
     })
 
     function getFocus(event) {

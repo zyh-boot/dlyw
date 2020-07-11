@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <title>评分页面</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" type="text/css" href="css/jquery-weui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/weui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/content.css"/>
+    <link rel="stylesheet" type="text/css" href="font/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/pingfen.css"/>
+    <style type="text/css">
+        .niu {
+            float: left;
+            color: #fff;
+        }
+
+        .weui-cells {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+<div class="title-head">评分</div>
+<div class="scoreBox">
+    <div class="xz_title">口感评分</div>
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div id="startone" class="block clearfix">
+                <div class="star_score"></div>
+                <p class="niu">
+                    您的评分：
+                    <span class="fenshu" id="kg"></span> 分
+                </p>
+                <div class="attitude"></div>
+            </div>
+        </div>
+    </div>
+    <div class="xz_title">炒制程度</div>
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div id="startone1" class="block clearfix">
+                <div class="star_score"></div>
+                <p class="niu">
+                    您的评分：
+                    <span class="fenshu" id="cz"></span> 分
+                </p>
+                <div class="attitude"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="xz_title">评价:</div>
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <textarea class="weui-textarea" rows="5" style="background: #2c4389; color:white;"></textarea>
+        </div>
+    </div>
+    <a id="submit" class="weui-btn weui-btn_primary btnsize">提交按钮</a>
+</div>
+
+<div class="weui-tabbar">
+    <a href="index" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-shouye"></i>
+        </div>
+        <p class="weui-tabbar__label">首页</p>
+    </a>
+    <a id="sj" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-shijianguanli"></i>
+        </div>
+        <p class="weui-tabbar__label">事件</p>
+    </a>
+    <a id="jk" class="weui-tabbar__item weui-bar__item--on" >
+        <i class="weui-tabbar__label iconfont icon-gongzuotai" style="font-size: 27px;"></i>
+    </a>
+    <a id="history" class="weui-tabbar__item ">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-lishi"></i>
+        </div>
+        <p class="weui-tabbar__label">历史</p>
+    </a>
+    <a href="mine" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-wode"></i>
+        </div>
+        <p class="weui-tabbar__label">我的</p>
+    </a>
+</div>
+</body>
+<script src="js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    //去掉ios点击事件300毫秒延迟
+    $(function () {
+        FastClick.attach(document.body);
+    });
+</script>
+<script src="js/jquery-weui.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/starScore.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    scoreFun($("#startone"))
+    scoreFun($("#startone1"))
+
+    $(function () {
+		var kh_id = localStorage.getItem("khId");
+        var sbCode = localStorage.getItem("sb_code");
+        var period = localStorage.getItem("period");
+
+        console.log(sbCode)
+        console.log(period)
+        console.log(kh_id)
+
+        $("textarea").on("change keyup paste",function () {
+            var str = $("textarea").val();
+            var rows =$("textarea").attr("rows");
+
+            var rowscount = str.split("\n").length;
+
+            if(rows < rowscount){
+                if (rows < 7){
+                    $("textarea").attr("rows",rowscount);
+                }
+            }
+        })
+        //进入监控平台
+        $("#jk").on("click",function(){
+            let url="workbench?khId="+kh_id;
+            window.location.href=url;
+        })
+		//进入事件模块
+		$("#sj").on("click",function(){
+			let url="event?khId="+kh_id;
+			window.location.href=url;
+		})
+
+        //进入历史模块
+        $("#history").on("click",function(){
+            let url="history?khId="+kh_id;
+            window.location.href=url;
+        })
+
+        $("#submit").on("click", function () {
+            const json = {"sc": $("#cz").text(), "kg": $("#kg").text(), "remark": $("textarea").val()}
+            console.log(json)
+            $.post("remark",
+                {
+                    sc: $("#cz").text(),
+                    kg: $("#kg").text(),
+                    sbCode : sbCode,
+                    periodNo : period,
+                    pjContent: $("textarea").val()
+                },
+                function (res) {
+                console.log(res)
+                    var lines = res.data.lines;
+            	    if (res.code == 200){
+            	        if (lines == 1){
+                            $.alert("","感谢您的使用!", function () {
+                                window.location.href = "/app/history";
+                            });
+                        }
+                    }
+
+                })
+        })
+    })
+</script>
+
+</html>

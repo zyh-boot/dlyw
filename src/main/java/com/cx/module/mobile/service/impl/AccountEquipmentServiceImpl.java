@@ -22,6 +22,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.transaction.annotation.Propagation;
@@ -67,6 +68,11 @@ public class AccountEquipmentServiceImpl extends ServiceImpl<AccountEquipmentMap
         LambdaQueryWrapper<AccountEquipment> queryWrapper = new LambdaQueryWrapper<>();
 
         return this.baseMapper.selectList(queryWrapper);
+    }
+
+    @Override
+    public List<AccountEquipment> queryList(Map<String, Object> map) {
+        return this.baseMapper.queryList(map);
     }
 
     /**

@@ -5,6 +5,7 @@ import com.cx.common.entity.QueryRequest;
 import com.cx.common.utils.CommonUtil;
 import com.cx.common.utils.SortUtil;
 import com.cx.module.mobile.entity.Account;
+import com.cx.module.mobile.entity.AccountEquipment;
 import com.cx.module.mobile.service.IAccountService;
 import com.cx.module.mobile.mapper.AccountMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -186,6 +187,11 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
         Account obj = new Account();
         obj.setState(Constant.STATE_0);
         return this.baseMapper.update(obj, updateWrapper);
+    }
+
+    @Override
+    public List<Account> pageList(Map<String, Object> map) {
+        return this.baseMapper.pageList(map);
     }
 
     public   Account  findAccountByAccandPwd(Account map) {

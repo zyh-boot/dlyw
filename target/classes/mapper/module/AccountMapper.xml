@@ -38,5 +38,18 @@
 		WHERE
 		a.kh_account = #{khAccount} and a.kh_pwd = #{khPwd}
 	</select>
-
+    <select id="pageList" resultType="com.cx.module.mobile.entity.Account" parameterType="java.util.Map">
+        SELECT
+        ae.*
+        FROM
+        a_account ae
+        <where>
+            <if test="orgName != null and orgName!=''" >
+                and  ae.org_name =#{orgName}
+            </if>
+        </where>
+        <if test="start != null and limit != null and limit !=''">
+            limit ${start},${limit}
+        </if>
+    </select>
 </mapper>

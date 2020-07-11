@@ -5,6 +5,7 @@ import com.cx.module.mobile.entity.AccountEquipment;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
+import java.util.Map;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
@@ -41,6 +42,15 @@ public interface IAccountEquipmentService {
      * @return
      */
     List<AccountEquipment> list(AccountEquipment obj);
+
+
+    /**
+     * 自定义分页查询周期列表
+     * @param map
+     * @return
+     */
+
+    List<AccountEquipment>  queryList(Map<String,Object> map);
 
     /**
      * 分页查询

@@ -29,7 +29,7 @@
 </head>
 
 <body ontouchstart>
-<div class="swiper-container" id="box">
+<div class="swiper-container" id="box" style="height: 168px">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <img th:src="@{images/zg1.jpg}"/>
@@ -89,13 +89,13 @@
     <a  id="jk"  class="weui-tabbar__item weui-bar__item--on">
         <i class="weui-tabbar__label iconfont icon-gongzuotai" style="font-size: 27px;"></i>
     </a>
-    <a href="historyData.html" class="weui-tabbar__item">
+    <a id="history" class="weui-tabbar__item">
         <div class="weui-tabbar__icon">
             <i class="weui-tabbar__label iconfont icon-lishi"></i>
         </div>
         <p class="weui-tabbar__label">历史</p>
     </a>
-    <a href="mine" class="weui-tabbar__item">
+    <a id="mine" class="weui-tabbar__item">
         <div class="weui-tabbar__icon">
             <i class="weui-tabbar__label iconfont icon-wode"></i>
         </div>
@@ -187,6 +187,18 @@
         window.location.href=url;
     })
 
+    //进入历史模块
+    $("#history").on("click",function(){
+        let url="history?khId="+kh_id;
+        window.location.href=url;
+    })
+
+    //进入历史模块
+    $("#mine").on("click",function(){
+        let url="mine?khId="+kh_id;
+        localStorage.setItem("khId",kh_id);
+        window.location.href=url;
+    })
     function getData(jsonData) {
         $.get("acc_sb", jsonData, function (res) {
 

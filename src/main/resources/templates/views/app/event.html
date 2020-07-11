@@ -44,26 +44,25 @@
 </div>
 
 <div class="weui-flex">
-    <div>
-        <div class="iconfont icon-laba notice"></div>
-    </div>
-    <div class="weui-flex__item">
-        <div class="swiper-container" id="swiperBox">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    1001炒货机正在工作 10时之前
-                </div>
+<!--    <div>-->
+<!--        <div class="iconfont icon-laba notice"></div>-->
+<!--    </div>-->
+<!--    <div class="weui-flex__item">-->
+<!--        <div class="swiper-container" id="swiperBox">-->
+<!--            <div class="swiper-wrapper">-->
+<!--                <div class="swiper-slide">-->
+<!--                    1001炒货机正在工作 10时之前-->
+<!--                </div>-->
 
-            </div>
-        </div>
-    </div>
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
 
-<div class="spList" id="spBox">
+<div class="spList" id="spBox" style="height: calc(100% - 239px)">
     <div class="spBox">
-        <div class="weui-cells__title" style="">设备列表</div>
+        <div class="weui-cells__title" style="">事件列表</div>
         <div id="list">
-
 
         </div>
 
@@ -89,7 +88,7 @@
     <a  id="jk"  class="weui-tabbar__item weui-bar__item--on">
         <i class="weui-tabbar__label iconfont icon-gongzuotai" style="font-size: 27px;"></i>
     </a>
-    <a href="historyData.html" class="weui-tabbar__item">
+    <a  id="history" class="weui-tabbar__item">
         <div class="weui-tabbar__icon">
             <i class="weui-tabbar__label iconfont icon-lishi"></i>
         </div>
@@ -186,8 +185,15 @@
         window.location.href=url;
     })
 
+    //进入历史模块
+    $("#history").on("click",function(){
+        let url="history?khId="+kh_id;
+        window.location.href=url;
+    })
+
     function getData(jsonData) {
         $.get("event_sb", jsonData, function (res) {
+            console.log(res)
             if (res.code == 1) {
                 records = res.data.list;
                 count = res.data.count; // 数据总条数
@@ -218,6 +224,7 @@
 
     function showData(records) {
         var length = records.length;
+        var flag = false;
         for (var i = 0; i < length; i++) {
             var obj = records[i];
             //是否结束
@@ -231,7 +238,12 @@
 
             //嵌套数据(故障数据)
             var entitys = obj.list;
+            if(entitys == "" || entitys == null || entitys == undefined){
+                flag &= flag ;
+            }
+
             for(var j=0; j < entitys.length; j++){
+                flag = true
                 var entity = entitys[j];
                 var ycType = entity.ycType;
                 var ycStr = '';
@@ -254,14 +266,21 @@
                     + '<em class="weui-form-preview__value">' + exitStr + '</em></div></div>'
                     + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
                     + ' <label class="weui-form-preview__label">炒制周期:</label>'
-                    + '<span class="weui-form-preview__value">' + entity.periodId + '</span></div></div>'
+                    // 使用异常炒制周期
+                    // + '<span class="weui-form-preview__value">' + (entity.periodId == null ? "周期无数据" : entity.periodId) + '</span></div></div>'
+                    + '<span class="weui-form-preview__value">' + (obj.periodNo == null ? "周期无数据" : obj.periodNo) + '</span></div></div>'
                     + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
                     + '<label class="weui-form-preview__label">故障类型:</label>'
                     + '<span class="weui-form-preview__value">' + ycStr + '</span></div></div></div>'
                     div.innerHTML = div.innerHTML + str;
             }
+        }
 
-
+        if(!flag){
+            var div = document.getElementById("list");
+            str = '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
+                + ' <label class="weui-form-preview__label" style="text-align: center; color: greenyellow">设备正常, 当前无异常!</label></div></div>';
+            div.innerHTML = div.innerHTML + str;
         }
         if (length == 0) {
             $("#scroll").hide();

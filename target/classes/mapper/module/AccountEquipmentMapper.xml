@@ -24,4 +24,19 @@
 
 
     </delete>
+
+    <select id="queryList" resultType="com.cx.module.mobile.entity.AccountEquipment" parameterType="java.util.Map">
+        SELECT
+        ae.*
+        FROM
+        a_account_equipment ae
+        <where>
+            <if test="khId != null and khId!=''" >
+                and  ae.kh_id =#{khId}
+            </if>
+        </where>
+        <if test="start != null and limit != null and limit !=''">
+            limit ${start},${limit}
+        </if>
+    </select>
 </mapper>

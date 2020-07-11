@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -43,6 +44,8 @@ public class AppController extends BaseController {
     private IAccountService accountService;
     @Autowired
     private IEquipmentService equipmentService;
+    @Autowired
+    private IAccountEquipmentService accountEquipmentService;
     @Autowired
     IEquipmentFeedInfoService iEquipmentFeedInfoService;
     @Autowired
@@ -75,7 +78,11 @@ public class AppController extends BaseController {
         return mav;
     }
 
-    //跳转修改密码页面
+    /**
+     * 跳转修改密码页面
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/modify")
     public Object modify() throws Exception {
         ModelAndView mv = new ModelAndView();
@@ -83,11 +90,60 @@ public class AppController extends BaseController {
         return mv;
     }
 
-    //跳转我的设备页面
+    /**
+     * 跳转我的设备页面
+     * @return
+     * @throws Exception
+     */
+
     @RequestMapping("/shibeiList")
     public Object shibeiList() throws Exception {
         ModelAndView mv = new ModelAndView();
         mv.setViewName(CommonUtil.view("app/shibeiList"));
+        return mv;
+    }
+
+    /**
+     * 跳转历史模块
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/history")
+    public Object score() throws Exception {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName(CommonUtil.view("app/history"));
+        return mv;
+    }
+
+    /**
+     * 评价页面
+     * @return
+     */
+    @RequestMapping("comment")
+    public Object comment(String sbCode,String period) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName(CommonUtil.view("app/score"));
+        mv.addObject("sb_code",sbCode);
+        mv.addObject("period",period);
+        return mv;
+    }
+
+
+    /**
+     * 历史模块查看详情
+     * @param period
+     * @param code
+     * @param model
+     * @return
+     */
+    @RequestMapping("/detail")
+    public Object detail1(String period, String code, Model model){
+        ModelAndView mv = new ModelAndView();
+        if (StringUtils.isNotBlank(period)){
+           model.addAttribute("work_id", period);
+           model.addAttribute("code", code);
+        }
+        mv.setViewName(CommonUtil.view("app/detail"));
         return mv;
     }
 
@@ -208,6 +264,7 @@ public class AppController extends BaseController {
 
     /**
      * 修改用户密码
+     *
      * @param oldPwd
      * @param newPwd
      * @param kh_id
@@ -223,10 +280,10 @@ public class AppController extends BaseController {
         if (oldPwd.equals(account.getKhPwd())) {
             account.setKhPwd(newPwd);
             int lines = accountService.update(account);
-            if (lines == 0){
+            if (lines == 0) {
                 status = "error";
                 message = "插入失败!";
-            }else if (lines == 1){
+            } else if (lines == 1) {
                 message = "修改成功,请重新登陆!";
                 status = "OK";
             }
@@ -237,10 +294,51 @@ public class AppController extends BaseController {
         }
 
         model.addAttribute("status", status);
-        model.addAttribute("msg",message);
-        model.addAttribute("newPwd",account.getKhPwd());
+        model.addAttribute("msg", message);
+        model.addAttribute("newPwd", account.getKhPwd());
         return new CommonResponse().code(HttpStatus.OK).data(model);
     }
+
+    /**
+     * 返回设备周期详细信息
+     *
+     * @param start
+     * @param end
+     * @param kh_id
+     * @param map
+     * @return
+     */
+
+    @RequestMapping("/history_sb")
+    @ResponseBody
+    public Object history_sb(int start, int end, String kh_id, ModelMap map) {
+
+        LambdaQueryWrapper<AccountEquipment> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(AccountEquipment::getKhId, kh_id);
+
+        HashMap<String, Object> res = new HashMap<>();
+        res.put("start", start);
+        res.put("limit", end);
+        res.put("khId", kh_id);
+
+
+        List<AccountEquipment> accountEquipments = accountEquipmentService.queryList(res);
+
+        ArrayList<Object> result = new ArrayList<>();
+
+        for (AccountEquipment accountEquipment : accountEquipments) {
+            LambdaQueryWrapper<EquipmentWorkPeriod> wrapper_period = new LambdaQueryWrapper<>();
+            wrapper_period.eq(EquipmentWorkPeriod::getSbCode, accountEquipment.getSbCode());
+            EquipmentWorkPeriod equipmentWorkPeriod = equipmentWorkPeriodService.selectOne(wrapper_period);
+            if (equipmentWorkPeriod != null) {
+                result.add(equipmentWorkPeriod);
+            }
+        }
+
+        map.addAttribute("list", result);
+        return new CommonResponse().code(HttpStatus.OK).data(map);
+    }
+
 
     //获取进料数据
     @RequestMapping(value = "/free_data")
@@ -509,8 +607,7 @@ public class AppController extends BaseController {
      */
     @RequestMapping("/event")
     public Object event(HttpServletRequest request, String khId, Model model) {
-        System.out.println("接口联通");
-        System.out.println("khId" + khId);
+
         ModelAndView mav = new ModelAndView();
         mav.setViewName(CommonUtil.view("app/event"));
         Map<String, Object> res = new HashMap<>();
@@ -518,7 +615,7 @@ public class AppController extends BaseController {
         res.put("type", 1);
 
         Account account = accountService.selectOne(Long.parseLong(khId));
-        System.out.println("用户id" + account.getId());
+
 
         List<Map<String, Object>> list = equipmentService.querySbList(res);
         List<String> sbCodes = new ArrayList<>();
@@ -537,11 +634,80 @@ public class AppController extends BaseController {
         return mav;
     }
 
+    /**
+     * 跳转'我的'页面
+     * @return
+     */
     @RequestMapping("/mine")
     public ModelAndView main() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName(CommonUtil.view("app/mine"));
         return mv;
+    }
+
+    /**
+     * 保存用户评价信息
+     * @param equipmentWorkPeriod
+     * @return
+     */
+    @RequestMapping("/remark")
+    @ResponseBody
+    public Object remark(EquipmentWorkPeriod equipmentWorkPeriod) {
+
+//        追加一条新数据
+//        int lines = equipmentWorkPeriodService.add(equipmentWorkPeriod);
+
+        LambdaQueryWrapper<EquipmentWorkPeriod> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(EquipmentWorkPeriod::getSbCode, equipmentWorkPeriod.getSbCode())
+                .eq(EquipmentWorkPeriod::getPeriodNo, equipmentWorkPeriod.getPeriodNo());
+        int lines = equipmentWorkPeriodService.updateByWrapper(equipmentWorkPeriod, wrapper);
+
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("lines",1);
+        return new CommonResponse().code(HttpStatus.OK).data(map);
+    }
+
+    @RequestMapping("/kh")
+    public Object kh(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName(CommonUtil.view("app/khList"));
+        return modelAndView;
+    }
+
+    @RequestMapping("/kh_list")
+    @ResponseBody
+    public Object kh_list(HttpServletRequest request,String kh_id , String start,String end,ModelMap map){
+
+        //根据公司名称查询客户数据
+        Account account = accountService.selectOne(Long.parseLong(kh_id));
+
+        LambdaQueryWrapper<AccountEquipment> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(AccountEquipment::getKhId, kh_id);
+
+        HashMap<String, Object> res = new HashMap<>();
+        res.put("start", start);
+        res.put("limit", end);
+        res.put("orgName", account.getOrgName());
+
+
+        List<Account> list = accountService.pageList(res);
+
+        map.addAttribute("list" , list);
+
+
+
+//        根据ID查询一个
+//        Account account = accountService.selectOne(Long.parseLong(id));
+//        HashMap<String, Object> hashMap = new HashMap<>();
+//        hashMap.put("id",id);
+//        hashMap.put("khName",account.getKhName());
+//        hashMap.put("khPhone",account.getKhPhone());
+//        hashMap.put("orgAddress",account.getOrgAddress());
+//        ArrayList<Object> objects = new ArrayList<>();
+//        objects.add(hashMap);
+//        map.addAttribute("list",objects);
+
+        return new CommonResponse().code(HttpStatus.OK).data(map);
     }
 
 }

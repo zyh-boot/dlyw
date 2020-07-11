@@ -5,7 +5,7 @@
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-		<title>设备列表</title>
+		<title>客户列表</title>
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<link rel="stylesheet" type="text/css" href="css/jquery-weui.min.css" />
@@ -30,10 +30,10 @@
 
 	<body>
 		<div class="title-head">
-			设备列表
+			客户列表
 		</div>
 		<div class="weui-tab box spList" id="spBox">
-			<div class="xz_title">设备列表</div>
+			<div class="xz_title">客户列表</div>
 			<div class="weui-cells" style="margin-top: 0;" id="list">
 <!--				<a class="weui-cell weui-cell_access" href="javaScript:void(0)">-->
 <!--					<div class="weui-cell__bd">-->
@@ -60,7 +60,7 @@
 				</div>
 				<p class="weui-tabbar__label">事件</p>
 			</a>
-			<a id="jk" class="weui-tabbar__item">
+			<a id="jk" class="weui-tabbar__item weui-bar__item--on">
 				<i class="weui-tabbar__label iconfont icon-gongzuotai" style="font-size: 27px;"></i>
 			</a>
 			<a id="history" class="weui-tabbar__item">
@@ -119,8 +119,8 @@
 		})
 
 		function getData(jsonData) {
-			$.get("acc_sb", jsonData, function (res) {
-				if (res.code == 1) {
+			$.get("kh_list", jsonData, function (res) {
+				if (res.code == 200) {
 					records = res.data.list;
 					count = res.data.count; // 数据总条数
 					if (records.length == 0 && !havaData) {
@@ -145,35 +145,28 @@
 			}, "json");
 		}
 
-		// 页面一进来就获取数据
-		getData(jsonData);
+
+		$(function () {
+			// 页面一进来就获取数据
+			getData(jsonData);
+		})
 
 		function showData(records) {
 			var length = records.length;
 			for (var i = 0; i < length; i++) {
 				var entity = records[i];
-				var ss = entity.sb_status;
-				var is = entity.is_period;
-
-				var str = '';
-				if (is == null || is == 0) {
-					if (ss == 1) {
-						str = '<span  style="color: white; float : right">在线</span>';
-					} else {
-						str = '<span  style="color:yellow; float : right">离线</span>';
-					}
-				} else {
-					str = '<span  style="color:greenyellow; float : right">工作中</span>';
-				}
-
 				var div = document.getElementById("list");
-				var str = '<div class="weui-form-preview" id="' + entity.id + '" onclick="go_realtime_page(' + entity.work_id + ',' + is + ',' + entity.code + ')" style="background-color: #071449;color: white;">'
+				var str = '<div class="weui-form-preview" id="' + entity.id + '" style="background-color: #071449;color: white;">'
 
-						+ '<a class="weui-cell weui-cell_access" href="javaScript:void(0)"><div class="weui-cell__bd">'
-						// + '<p>设备'+ entity.name + '</p>'
-						+ '<span>设备ID:'+ entity.code + '</span>'
-						+ str
-						+ '</div><div class="weui-cell__ft"></div></a></div>'
+						+ '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
+						+ ' <label class="weui-form-preview__label">客户名称:</label>'
+						+ '<span class="weui-form-preview__value">' + entity.khName + '</span></div></div>'
+						+ '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
+						+ '<label class="weui-form-preview__label">客户电话:</label>'
+						+ '<span class="weui-form-preview__value">' + (entity.khPhone == null ? "未登记" : entity.khPhone) + '</span></div></div>'
+						+ '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
+						+ ' <label class="weui-form-preview__label">客户地址:</label>'
+						+ '<span class="weui-form-preview__value">' + (entity.orgAddress == null ? "未登记" : entity.orgAddress) + '</span></div></div></div>'
 				div.innerHTML = div.innerHTML + str;
 			}
 			if (length == 0) {

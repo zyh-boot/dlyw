@@ -283,7 +283,7 @@
 			<a href="workbench" class="weui-tabbar__item weui-bar__item--on">
 				<i class="weui-tabbar__label iconfont icon-gongzuotai" style="font-size: 27px;"></i>
 			</a>
-			<a href="historyData.html" class="weui-tabbar__item">
+			<a id="history" class="weui-tabbar__item">
 				<div class="weui-tabbar__icon">
 					<i class="weui-tabbar__label iconfont icon-lishi"></i>
 				</div>
@@ -335,6 +335,12 @@
 		//进入事件模块
 		$("#sj").on("click",function(){
 			let url="event?khId="+kh_id;
+			window.location.href=url;
+		})
+
+		//进入历史模块
+		$("#history").on("click",function(){
+			let url="history?khId="+kh_id;
 			window.location.href=url;
 		})
 	</script>

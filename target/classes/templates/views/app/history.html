@@ -61,8 +61,10 @@
 
 <div class="spList" id="spBox" style="height: calc(100% - 239px)">
     <div class="spBox">
-        <div class="weui-cells__title" style="">事件列表</div>
+        <div class="weui-cells__title" style="">设备历史列表</div>
         <div id="list">
+
+            <div></div>
 
         </div>
 
@@ -79,16 +81,16 @@
         </div>
         <p class="weui-tabbar__label">炒货机</p>
     </a>
-    <a id="sj"  class="weui-tabbar__item">
+    <a id="sj" class="weui-tabbar__item">
         <div class="weui-tabbar__icon">
             <i class="weui-tabbar__label iconfont icon-shijianguanli"></i>
         </div>
         <p class="weui-tabbar__label">事件</p>
     </a>
-    <a  id="jk"  class="weui-tabbar__item weui-bar__item--on">
+    <a id="jk" class="weui-tabbar__item weui-bar__item--on">
         <i class="weui-tabbar__label iconfont icon-gongzuotai" style="font-size: 27px;"></i>
     </a>
-    <a  id="history" class="weui-tabbar__item">
+    <a id="history" class="weui-tabbar__item">
         <div class="weui-tabbar__icon">
             <i class="weui-tabbar__label iconfont icon-lishi"></i>
         </div>
@@ -155,7 +157,6 @@
     });
 
 
-
 </script>
 <!--搜索点击效果-->
 <script>
@@ -174,15 +175,15 @@
         };
 
     //进入监控平台
-    $("#jk").on("click",function(){
-     let url="workbench?khId="+kh_id;
-     window.location.href=url;
+    $("#jk").on("click", function () {
+        let url = "workbench?khId=" + kh_id;
+        window.location.href = url;
     })
 
     //进入事件模块
-    $("#sj").on("click",function(){
-        let url="event?khId="+kh_id;
-        window.location.href=url;
+    $("#sj").on("click", function () {
+        let url = "event?khId=" + kh_id;
+        window.location.href = url;
     })
 
     //进入历史模块
@@ -190,11 +191,10 @@
         let url="history?khId="+kh_id;
         window.location.href=url;
     })
-
     function getData(jsonData) {
-        $.get("event_sb", jsonData, function (res) {
-            console.log(res)
-            if (res.code == 1) {
+        $.get("history_sb", jsonData, function (res) {
+
+            if (res.code == 200) {
                 records = res.data.list;
                 count = res.data.count; // 数据总条数
                 if (records.length == 0 && !havaData) {
@@ -223,70 +223,82 @@
     getData(jsonData);
 
     function showData(records) {
+
         var length = records.length;
-        var flag = false;
+        console.log(length)
+        var str = "";
+
+
         for (var i = 0; i < length; i++) {
+            str = "";
             var obj = records[i];
+
             //是否结束
-            var is = obj.isExit;
-            var exitStr = '';
-            if (is == null || is == 0) {
+            let isPeriod = obj.isPeriod;
+            let exitStr = '';
+            if (isPeriod == null || isPeriod == 0) {
                 exitStr = '<span  style="color:yellow">结束</span>';
             } else {
                 exitStr = '<span  style="color:greenyellow">未结束</span>';
             }
 
-            //嵌套数据(故障数据)
-            var entitys = obj.list;
-            if(entitys == "" || entitys == null || entitys == undefined){
-                flag &= flag ;
-            }
+            const btnStrDouble = '<span><a onclick="gotoComment(' + obj.sbCode+','+ i +')"  class="weui-btn weui-btn_primary weui-form-preview__label" style="width: 30%; font-size: 16px" >评价</a></span>'
+                + '<span style="float: right;"><a onclick="gotoDetail('+obj.sbCode+','+i+')"  class="weui-btn weui-btn_primary weui-form-preview__label" style="  font-size: 16px">周期详情</a></span>'
+            // console.log("no-->" , test)
+            // console.log(btnStrDouble)
+            const btnStrOne = '<span><a onclick="gotoDetail('+obj.sbCode+','+i+')" class="weui-btn weui-btn_primary " style="font-size: 16px; color:#888;">周期详情</a></span>'
+            // console.log(btnStrOne)
 
-            for(var j=0; j < entitys.length; j++){
-                flag = true
-                var entity = entitys[j];
-                var ycType = entity.ycType;
-                var ycStr = '';
-                if (ycType == "1"){
-                    ycStr = '<span  style="color:yellow">滚筒错误</span>';
-                }else if(ycType == "2"){
-                    ycStr = '<span  style="color:yellow">加热错误</span>';
-                }else if(ycType == "3"){
-                    ycStr = '<span  style="color:yellow">进料错误</span>';
-                }else{
-                    ycStr = '<span >工作正常</span>';
-                }
-                var div = document.getElementById("list");
-                var str = '<div class="weui-form-preview" id="' + obj.sbid + '"  style="background-color: #071449;color: white;">'
-                    + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                    + ' <label class="weui-form-preview__label">设备名称:</label>'
-                    + '<span class="weui-form-preview__value">' + entity.sbCode + '</span></div></div>'
-                    + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                    + ' <label class="weui-form-preview__label">是否结束:</label>'
-                    + '<em class="weui-form-preview__value">' + exitStr + '</em></div></div>'
-                    + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                    + ' <label class="weui-form-preview__label">炒制周期:</label>'
-                    // 使用异常炒制周期
-                    // + '<span class="weui-form-preview__value">' + (entity.periodId == null ? "周期无数据" : entity.periodId) + '</span></div></div>'
-                    + '<span class="weui-form-preview__value">' + (obj.periodNo == null ? "周期无数据" : obj.periodNo) + '</span></div></div>'
-                    + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                    + '<label class="weui-form-preview__label">故障类型:</label>'
-                    + '<span class="weui-form-preview__value">' + ycStr + '</span></div></div></div>'
-                    div.innerHTML = div.innerHTML + str;
-            }
-        }
-
-        if(!flag){
             var div = document.getElementById("list");
-            str = '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
-                + ' <label class="weui-form-preview__label" style="text-align: center; color: greenyellow">设备正常, 当前无异常!</label></div></div>';
+            str =   '<div class="weui-form-preview" id="' + obj.sbCode + '"  style="background-color: #071449;color: white;">'
+
+                + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
+                + ' <label class="weui-form-preview__label">设备名称:</label>'
+                + '<span class="weui-form-preview__value">' + obj.sbCode + '</span></div></div>'
+
+                + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
+                + ' <label class="weui-form-preview__label">炒制周期:</label>'
+                // 使用异常炒制周期
+                // + '<span class="weui-form-preview__value">' + (entity.periodId == null ? "周期无数据" : entity.periodId) + '</span></div></div>'
+                + '<span class="weui-form-preview__value" id="z'+i+'">' + (obj.periodNo == null ? "周期无数据" : obj.periodNo) + '</span></div></div>'
+
+
+                + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
+                + '<label class="weui-form-preview__label">炒制时长:</label>'
+                + '<span class="weui-form-preview__value">' + (obj.workSc == null ? "缺失数据" : obj.workSc)+ '</span></div></div>'
+
+                + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
+                + ' <label class="weui-form-preview__label">是否结束:</label>'
+                + '<em class="weui-form-preview__value">' + exitStr + '</em></div></div>'
+
+                + '<div class="weui-form-preview__bd"><div class="weui-form-preview__item">'
+                + (isPeriod == 1 ? btnStrOne : btnStrDouble)
+                + '</div></div>'
             div.innerHTML = div.innerHTML + str;
+            // console.log(div.innerHTML)
+
         }
+
+
+
         if (length == 0) {
             $("#scroll").hide();
         }
     }
 
+    function gotoComment(sbcode,index) {
+        let period = $("#z" + index).text()
+        let url = "comment?&khId=" + kh_id + "&sbCode=" + sbcode + "&period=" + period;
+        localStorage.setItem("khId",kh_id);
+        localStorage.setItem("sb_code",sbcode);
+        localStorage.setItem("period",period);
+        window.location.href = url;
+    }
+
+    function gotoDetail(sbcode,index){
+        let url = "detail?period=" + index + "&code=" + sbcode
+        window.location.href = url;
+    }
     // 滚动条滑动到离底部100，多显示一条数据。 显示后不会消失。
     //$("#spBox").infinite(150);
     var loading = false;  //状态标记 否则一直循环刷新
@@ -316,14 +328,7 @@
         }, 50);   //模拟延迟
     });
 
-    function go_realtime_page(org, zt, zj) {
-        if (zt == null || zt == '') {
-            $.toast("暂无生产中的数据", "text");
-        } else {
-            window.location.href = "go_realtime_page?period=" + org + "&code=" + zj;
-        }
 
-    }
 
 </script>
 

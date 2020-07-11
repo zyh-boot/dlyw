@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.cx.module.mobile.entity.AccountEquipment;
 
 /**
  * Service接口
@@ -50,6 +51,14 @@ public interface IAccountService {
      */
     IPage<Account> page(Account obj, QueryRequest query);
 
+
+    /**
+     * 自定义分页查询列表
+     * @param map
+     * @return
+     */
+
+    List<Account>  pageList(Map<String,Object> map);
     /**
      * 新增
      *

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <title>生产数据</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" type="text/css" th:href="@{../app/css/weui.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{../app/css/jquery-weui.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{../app/font/iconfont.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{../app/css/content.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{../app/css/main.css}"/>
+    <style type="text/css">
+        .box{
+            height: calc(100% - 106px);
+            background: #071449;
+        }
+        /*.weui-cell {
+            background-color: #2e4289;
+        }*/
+        .iconMargin {
+            margin-right: 5px;
+        }
+        #tab1 {
+            height: 100%;
+        }
+        #tab2 {
+            height: 100%;
+        }
+        .textColor {
+            font-weight: 700;
+            color: #fff;
+        }
+        .weui-panel__hd{
+            color: white;
+            font-size: 16px;
+        }
+        .weui-cell__bd{
+            color: #9ed99d;
+            font-size: 12px;
+        }
+        .weui-loadmore__tips{
+            color: #3cc51f;
+        }
+        .weui-loading{
+            color:#3cc51f;
+        }
+        .weui-form-preview__bd {
+            padding: 10px 15px;
+            font-size: .9em;
+            text-align: right;
+            color:white;
+            line-height: 2;
+        }
+        .weui-form-preview__label {
+            float: left;
+            margin-right: 1em;
+            min-width: 4em;
+            color:white;
+            text-align: justify;
+            text-align-last: justify;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="title-head">
+    实时数据
+</div>
+<div class="weui-tab box">
+    <div class="weui-tab">
+
+        <a class="weui-navbar__item" href="#tab15" id="tb5" >
+            <input type="hidden" id="code" th:value="${code}">
+            <input type="hidden" id="period" th:value="${work_id}">
+        </a>
+
+        <div class="weui-tab__bd">
+            <div id="tab15"  class="weui-tab__bd-item" style="height:100%; overflow:auto;">
+                <div >
+                    <div class="weui-panel__hd" >加热信息走势图</div>
+                    <div class="lisSty">
+
+                        <div class="echarts"   id="Contrast11"></div>
+                    </div>
+                    <div class="lisSty">
+
+                        <div class="echarts"  id="Contrast1"></div>
+                    </div>
+
+                    <div class="weui-panel__hd" >进料信息走势图</div>
+
+                    <div class="lisSty"style="margin-bottom: 20px;">
+                        <div class="echarts" id="Contrast3"></div>
+
+                    </div>
+                    <div class="lisSty"style="margin-bottom: 20px;">
+
+                        <div class="echarts" id="Contrast31"></div>
+                    </div>
+
+                    <div class="weui-panel__hd" >滚筒信息走势图</div>
+
+                    <div class="lisSty">
+                        <div class="echarts" id="Contrast2"></div>
+                    </div>
+                    <div class="lisSty">
+                        <div class="echarts" id="Contrast21"></div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+<div class="weui-tabbar">
+    <a href="index" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-shouye"></i>
+        </div>
+        <p class="weui-tabbar__label">首页</p>
+    </a>
+    <a id="sj" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-shijianguanli"></i>
+        </div>
+        <p class="weui-tabbar__label">事件</p>
+    </a>
+    <a id="jk" class="weui-tabbar__item weui-bar__item--on" >
+        <i class="weui-tabbar__label iconfont icon-gongzuotai" style="font-size: 27px;"></i>
+    </a>
+    <a id="history" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-lishi"></i>
+        </div>
+        <p class="weui-tabbar__label">历史</p>
+    </a>
+    <a href="mine" class="weui-tabbar__item">
+        <div class="weui-tabbar__icon">
+            <i class="weui-tabbar__label iconfont icon-wode"></i>
+        </div>
+        <p class="weui-tabbar__label">我的</p>
+    </a>
+</div>
+</body>
+<script th:src="@{../app/js/jquery-3.4.1.min.js}" type="text/javascript" charset="utf-8"></script>
+<script th:src="@{../app/js/jquery-weui.min.js}" type="text/javascript" charset="utf-8"></script>
+<script th:src="@{../app/js/fastclick.js}" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    //ios系统点击事件的200毫秒延迟
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script th:src="@{../app/js/echarts.min.js}" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    var code=$("#code").val();
+    var period=$("#period").val();
+    var pages = 1;
+    var sizes =15;
+    var kh_id = localStorage.getItem("khId");
+    var loading = false;  //状态标记
+
+    var myChart=null;var myChart11=null;
+    var option=null;var baroption1=null;
+    var myChart2=null;var myChart21=null;
+    var option2=null;var baroption21=null;
+    var myChart3=null;var myChart31=null;
+    var option3=null;var baroption31=null;
+    //进入监控平台
+    $("#jk").on("click",function(){
+        let url="workbench?khId="+kh_id;
+        window.location.href=url;
+    })
+    //进入事件模块
+    $("#sj").on("click",function(){
+        let url="event?khId="+kh_id;
+        window.location.href=url;
+    })
+
+    //进入历史模块
+    $("#history").on("click",function(){
+        let url="history?khId="+kh_id;
+        window.location.href=url;
+    })
+    $(function() {
+        $("#tb5").click().hide()
+
+        window.onresize = function() {
+            myChart.resize();
+            myChart2.resize();
+            myChart3.resize();
+            myChart11.resize();
+            myChart21.resize();
+            myChart31.resize();
+        }
+        //曲线一
+        myChart = echarts.init(document.getElementById("Contrast1"));
+        option = {
+            tooltip: {
+                trigger: 'axis',
+            },
+            legend: {
+                data: ['输出功率'],
+                icon: "circle",
+                textStyle: { //图例文字的样式
+                    color: '#fff',
+                    fontSize: 14
+                }
+            },
+            color: ['#1BEF06'],
+            grid: {
+                top: '15%',
+                left: '3%',
+                right: '8%',
+                bottom: '8%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    boundaryGap: false,
+                    splitLine: {
+                        show: false
+                    },
+                    data: [],
+                    axisLine:{
+                        lineStyle:{
+                            color:'#fff',
+                            width:2,//这里是为了突出显示加上的
+                        }
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    name: '功率(W)',
+                    type: 'value',
+                    splitLine: {
+                        show: false
+                    },
+                    axisLine:{
+                        lineStyle:{
+                            color:'#fff',
+                            width:2,//这里是为了突出显示加上的
+                        }
+                    },
+                    nameGap:5,
+
+                }
+            ],
+            series: [
+                {
+                    name: '输出功率',
+                    type: 'line',
+
+                    data: []
+                }
+
+            ]
+        };
+        myChart.setOption(option);
+        myChart11 = echarts.init(document.getElementById("Contrast11"));
+        baroption1 = {
+            tooltip: {
+                trigger: 'axis',
+                formatter:function(params) {
+                    var relVal = params[0].name;
+                    for (var i = 0, l = params.length; i < l; i++) {
+                        relVal += '<br/>' + params[i].marker + params[i].seriesName + ' : ' + params[i].value+"℃";
+                    }
+                    return relVal;
+                },
+                axisPointer: {
+                    type: 'cross',
+                    label: {
+                        backgroundColor: '#6a7985'
+                    }
+                }
+            },
+            legend: {
+                data: ['温度趋势'],
+                icon: "circle",
+                textStyle: { //图例文字的样式
+                    color: '#fff',
+                    fontSize: 14
+                }
+            },
+            color: ['#EF101F'],
+            grid: {
+                top: '15%',
+                left: '3%',
+                right: '8%',
+                bottom: '8%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: [],
+                    axisLine:{
+                        lineStyle:{
+                            color:'#fff',
+                            width:2,//这里是为了突出显示加上的
+                        }
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    name: '温度(℃)',
+                    type: 'value',
+                    axisLine:{
+                        lineStyle:{
+                            color:'#fff',
+                            width:2,//这里是为了突出显示加上的
+                        }
+                    },
+                    nameGap:5,
+                    splitLine: {
+                        show: false
+                    }
+
+                }
+            ],
+            series: [
+                {
+                    name: '温度趋势',
+                    type: 'line',
+
+                    data: []
+                }
+
+            ]
+        };
+        myChart11.setOption(baroption1);
+
+        //曲线二
+        myChart2 = echarts.init(document.getElementById("Contrast2"));
+        option2 = {
+            tooltip: {
+                trigger: 'axis',
+                formatter:function(params) {
+                    var relVal = params[0].name;
+                    for (var i = 0, l = params.length; i < l; i++) {
+                        relVal += '<br/>' + params[i].marker + params[i].seriesName + ' : ' + params[i].value+"Hz";
+                    }
+                    return relVal;
+                },
+                axisPointer: {
+                    type: 'cross',
+                    label: {
+                        backgroundColor: '#6a7985'
+                    }
+                }
+            },
+            legend: {
+                data: ['运行频率'],
+                icon: "circle",
+                textStyle: { //图例文字的样式
+                    color: '#fff',
+                    fontSize: 14
+                }
+            },
+            color: ['#FAFA1F'],
+            grid: {
+                top: '15%',
+                left: '3%',
+                right: '8%',
+                bottom: '8%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: [],
+                    axisLine:{
+                        lineStyle:{
+                            color:'#fff',
+                            width:2,//这里是为了突出显示加上的
+                        }
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    name: '频率(Hz)',
+                    type: 'value',
+                    axisLine:{
+                        lineStyle:{
+                            color:'#fff',
+                            width:2,//这里是为了突出显示加上的
+                        }
+                    },
+                    nameGap:5,
+                    splitLine: {
+                        show: false
+                    }
+
+                }
+            ],
+            series: [
+                {
+                    name: '运行频率',
+                    type: 'line',
+                    smooth: false,
+                    data: []
+                }
+
+            ]
+        };
+        myChart2.setOption(option2);
+
+        myChart21 = echarts.init(document.getElementById("Contrast21"));
+        baroption21 = {
+            tooltip: {
+                trigger: 'axis',
+                formatter:function(params) {
+                    var relVal = params[0].name;
+                    for (var i = 0, l = params.length; i < l; i++) {
+                        relVal += '<br/>' + params[i].marker + params[i].seriesName + ' : ' + params[i].value+"W";
+                    }
+                    return relVal;
+                },
+                axisPointer: {
+                    type: 'cross',
+                    label: {
+                        backgroundColor: '#6a7985'
+                    }
+                }
+            },
+            legend: {
+                data: ['输出功率'],
+                icon: "circle",
+                textStyle: { //图例文字的样式
+                    color: '#fff',
+                    fontSize: 14
+                }
+            },
+            color: ['#1BEF06'],
+            grid: {
+                top: '15%',
+                left: '3%',
+                right: '8%',
+                bottom: '8%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: [],
+                    axisLine:{
+                        lineStyle:{
+                            color:'#fff',
+                            width:2,//这里是为了突出显示加上的
+                        }
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    name: '功率(W)',
+                    type: 'value',
+                    axisLine:{
+                        lineStyle:{
+                            color:'#fff',
+                            width:2,//这里是为了突出显示加上的
+                        }
+                    },
+                    nameGap:5,
+                    splitLine: {
+                        show: false
+                    }
+
+                }
+            ],
+            series: [
+                {
+                    name: '输出功率',
+                    type: 'line',
+                    smooth: false,
+                    data: []
+                }
+
+            ]
+        };
+        myChart21.setOption(baroption21);
+
+
+        //曲线三
+        myChart3 = echarts.init(document.getElementById("Contrast3"));
+        option3 = {
+            tooltip: {
+                trigger: 'axis',
+                formatter:function(params) {
+                    var relVal = params[0].name;
+                    for (var i = 0, l = params.length; i < l; i++) {
+                        relVal += '<br/>' + params[i].marker + params[i].seriesName + ' : ' + params[i].value+"Hz";
+                    }
+                    return relVal;
+                },
+                axisPointer: {
+                    type: 'cross',
+                    label: {
+                        backgroundColor: '#6a7985'
+                    }
+                }
+            },
+            legend: {
+                data: ['运行频率'],
+                icon: "circle",
+                textStyle: { //图例文字的样式
+                    color: '#fff',
+                    fontSize: 14
+                }
+            },
+            color: ['#F5FA1F'],
+            grid: {
+                top: '15%',
+                left: '3%',
+                right: '8%',
+                bottom: '8%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: [],
+                    axisLine:{
+                        lineStyle:{
+                            color:'#fff',
+                            width:2,//这里是为了突出显示加上的
+                        }
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    name: '频率(Hz)',
+                    type: 'value',
+                    axisLine:{
+                        lineStyle:{
+                            color:'#fff',
+                            width:2,//这里是为了突出显示加上的
+                        }
+                    },
+                    nameGap:5,
+                    splitLine: {
+                        show: false
+                    }
+
+                }
+            ],
+            series: [
+                {
+                    name: '运行频率',
+                    type: 'line',
+                    smooth: false,
+                    data: []
+                }
+
+            ]
+        };
+        myChart3.setOption(option3);
+
+        myChart31 = echarts.init(document.getElementById("Contrast31"));
+        baroption31 = {
+            tooltip: {
+                trigger: 'axis',
+                formatter:function(params) {
+                    var relVal = params[0].name;
+                    for (var i = 0, l = params.length; i < l; i++) {
+                        relVal += '<br/>' + params[i].marker + params[i].seriesName + ' : ' + params[i].value+"W";
+                    }
+                    return relVal;
+                }
+            },
+            legend: {
+                data: ['输出功率'],
+                icon: "circle",
+                textStyle: { //图例文字的样式
+                    color: '#fff',
+                    fontSize: 14
+                }
+            },
+            color: ['#1BEF06'],
+            grid: {
+                top: '15%',
+                left: '3%',
+                right: '8%',
+                bottom: '8%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: [],
+                    axisLine:{
+                        lineStyle:{
+                            color:'#fff',
+                            width:2,//这里是为了突出显示加上的
+                        }
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    name: '功率(W)',
+                    type: 'value',
+                    axisLine:{
+                        lineStyle:{
+                            color:'#fff',
+                            width:2,//这里是为了突出显示加上的
+                        }
+                    },
+                    nameGap:5,
+                    splitLine: {
+                        show: false
+                    }
+
+                }
+            ],
+            series: [
+                {
+                    name: '输出功率',
+                    type: 'line',
+                    smooth: false,
+                    data: []
+                }
+
+            ]
+        };
+        myChart31.setOption(baroption31);
+
+        setTimeout(function(){
+            initJrEcharts();
+        },2000);
+        setTimeout(function(){
+            initJlEcharts();
+        },2500);
+        setTimeout(function(){
+            initGtEcharts();
+        },1500);
+
+
+    });
+    function initGtEcharts(){
+        $.ajax({
+            type: "POST",
+            url: "tj_roller_data",
+            data: {'code':code,'period':period},
+            dataType: "json",
+            success: function (res) {
+                option2.xAxis.data = res.time;
+                option2.series[0].data = res.pl;
+                myChart2.setOption(option2);
+                baroption21.xAxis.data = res.time;
+                baroption21.series[0].data = res.power;
+                myChart21.setOption(baroption21);
+
+            }
+        });
+    }
+    function initJlEcharts(){
+        $.ajax({
+            type: "POST",
+            url: "tj_free_data",
+            data: {'code':code,'period':period},
+            dataType: "json",
+            success: function (res) {
+
+                option3.xAxis.data = res.time;
+                option3.series[0].data = res.pl;
+                myChart3.setOption(option3);
+                baroption31.xAxis.data = res.time;
+                baroption31.series[0].data = res.power;
+                myChart31.setOption(baroption31);
+            }
+        });
+    }
+    function initJrEcharts(){
+        $.ajax({
+            type: "POST",
+            url: "tj_heart_data",
+            data: {'code':code,'period':period},
+            dataType: "json",
+            success: function (res) {
+
+                option.xAxis.data = res.time;
+                option.series[0].data = res.power;
+                myChart.setOption(option);
+                baroption1.xAxis.data = res.time;
+                baroption1.series[0].data = res.wd;
+                myChart11.setOption(baroption1);
+            }
+        });
+    }
+
+</script>
+
+</html>
