@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cx.module.amyequipment.mapper.MyequipmentMapper">
+    <!--当前表名：a_myequipment-->
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.cx.module.amyequipment.entity.Myequipment">
+                    <id column="id" property="id"/>
+                    <result column="eq_name" property="eqName"/>
+                    <result column="eq_code" property="eqCode"/>
+                    <result column="eq_type" property="eqType"/>
+                    <result column="eq_ledger" property="eqLedger"/>
+                    <result column="eq_pm2.5" property="eqPm2.5"/>
+                    <result column="eq_pm10" property="eqPm10"/>
+                    <result column="eq_co" property="eqCo"/>
+                    <result column="eq_so2" property="eqSo2"/>
+                    <result column="sq_no2" property="sqNo2"/>
+                    <result column="sq_o3" property="sqO3"/>
+                    <result column="eq_address" property="eqAddress"/>
+                    <result column="eq_add_time" property="eqAddTime"/>
+                    <result column="eq_supplier" property="eqSupplier"/>
+                    <result column="eq_overhaul" property="eqOverhaul"/>
+                    <result column="state" property="state"/>
+                    <result column="creator" property="creator"/>
+                    <result column="create_date" property="createDate"/>
+                    <result column="modifier" property="modifier"/>
+                    <result column="mod_date" property="modDate"/>
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            id, eq_name, eq_code, eq_type, eq_ledger, eq_pm2.5, eq_pm10, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date
+        </sql>
+</mapper>

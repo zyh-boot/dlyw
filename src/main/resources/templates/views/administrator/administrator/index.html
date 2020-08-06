@@ -1,0 +1,221 @@
+<div class="layui-fluid layui-anim febs-anim" id="febs-administrator" lay-title="用户管理">
+    <div class="layui-row febs-container">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body febs-table-full">
+                    <form class="layui-form layui-table-form" lay-filter="administrator-table-form">
+                        <div class="layui-row">
+                            <div class="layui-col-md2 layui-col-sm12 layui-col-xs12 table-action-area">
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action"
+                                     id="addadministrator"   sec:authorize="hasRole('administrator:add')">
+                                    <i class="layui-icon">&#xe891;</i>
+                                </div>
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="delete" sec:authorize="hasRole('administrator:del')">
+                                    <i class="layui-icon">&#xe7f9;</i>
+                                </div>
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="query">
+                                    <i class="layui-icon">&#xe848;</i>
+                                </div>
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="reset">
+                                    <i class="layui-icon">&#xe79b;</i>
+                                </div>
+                            </div>
+                            <div class="layui-col-md10   layui-col-sm12 layui-col-xs12 table-action-area">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label layui-form-label-sm">名称</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" name="name" autocomplete="off" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label layui-form-label-sm">创建时间</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" name="createDate" id="createTime" class="layui-input">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <table lay-filter="administratorTable"
+                           lay-data="{id: 'administratorTable'}"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="administrator-status">
+    {{#
+    var status = {
+    1: {title: '有效', color: 'green'},
+    0: {title: '失效', color: 'volcano'}
+    }[d.state];
+    }}
+    <span class="layui-badge febs-tag-{{status.color}}">{{ status.title }}</span>
+</script>
+
+<script type="text/html" id="administrator-option">
+    <a lay-event="kh_code"><i class="layui-icon febs-edit-area febs-green"  sec:authorize="hasRole('account:sb')">&#xe653;</i></a>
+    <a lay-event="edit"><i class="layui-icon febs-edit-area febs-blue"  sec:authorize="hasRole('administrator:mod')">&#xe7a4;</i></a>
+    <a lay-event="del"><i class="layui-icon febs-edit-area febs-red"  sec:authorize="hasRole('administrator:del')">&#xe7f9;</i></a>
+</script>
+
+<script data-th-inline="none" type="text/javascript">
+    layui.use([ 'jquery', 'layer', 'laydate', 'form','febs','table', 'util','xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            laydate = layui.laydate,
+            febs = layui.febs,
+            form = layui.form,
+            table=layui.table,
+            xmSelect = layui.xmSelect,
+            $view = $('#febs-administrator'),
+            $query = $view.find('#query'),
+            $reset = $view.find('#reset'),
+            $addadministrator = $view.find('#addadministrator'),
+            $delete = $view.find('#delete'),
+            $searchForm = $view.find('form'),
+            sortObject = {field: 'createDate', type: null},
+            tableIns;
+
+        form.render();
+
+        initTable();
+
+
+        laydate.render({
+            elem: '#createTime',
+            range: true,
+            trigger: 'click'
+        });
+
+
+        //监听单元格事件
+        table.on('tool(administratorTable)', function (obj) {
+            var data = obj.data,
+                layEvent = obj.event;
+            console.log("data", data);
+            if (layEvent === 'del') {
+                febs.modal.confirm('删除', '确定删除该 ？', function () {
+                    deleteAdministrator(data.id);
+                });
+            }
+            if (layEvent === 'edit') {
+                febs.modal.open('修改', 'administrator/administrator/update/' + data.id, {
+                    area: $(window).width() <= 750 ? '90%' : '50%',
+                    btn: ['提交', '取消'],
+                    yes: function (index, layero) {
+                        $('#febs-administrator-update').find('#submit').trigger('click');
+                    },
+                    btn2: function () {
+                        layer.closeAll();
+                    }
+                });
+            }
+        });
+
+        table.on('sort(administratorTable)', function (obj) {
+            sortObject = obj;
+            tableIns.reload({
+                initSort: obj,
+                where: $.extend(getQueryParams(), {
+                    field: obj.field,
+                    order: obj.type
+                })
+            });
+        });
+
+        $query.on('click', function () {
+            var params = $.extend(getQueryParams(), {field: sortObject.field, order: sortObject.type});
+            tableIns.reload({where: params, page: {curr: 1}});
+        });
+
+        $reset.on('click', function () {
+            $searchForm[0].reset();
+            sortObject.type = 'null';
+            tableIns.reload({where: getQueryParams(), page: {curr: 1}, initSort: sortObject});
+        });
+
+
+        $addadministrator.on('click', function () {
+            febs.modal.open('新增', 'administrator/administrator/add', {
+                btn: ['提交', '重置'],
+                area: $(window).width() <= 750 ? '95%' : '50%',
+                yes: function (index, layero) {
+                    $('#febs-administrator-add').find('#submit').trigger('click');
+                },
+                btn2: function () {
+                    $('#febs-administrator-add').find('#reset').trigger('click');
+                    return false;
+                }
+            });
+        });
+
+
+        $delete.on('click', function () {
+            var checkStatus = table.checkStatus('administratorTable');
+            if (!checkStatus.data.length) {
+                febs.alert.warn('请选择需要删除的 ');
+            } else {
+                febs.modal.confirm('删除', '确定删除该 ？', function () {
+                    var userIds = [];
+                    layui.each(checkStatus.data, function (key, item) {
+                        userIds.push(item.id)
+                    });
+                    deleteAdministrator(userIds.join(','));
+                });
+            }
+        });
+
+        function initTable() {
+            tableIns = febs.table.init({
+                elem: $view.find('table'),
+                id: 'administratorTable',
+                url: ctx + 'administrator/administrator/pageList',
+                cols: [[
+                    {type: 'checkbox'},
+                    {field: 'adminName', title: '管理员姓名'},
+                    {field: 'deptId', title: '所属机构ID',hide:true},
+                    {field: 'deptName', title: '所属机构名'},
+                    {field: 'idcardNum', title: '身份证号',hide:true},
+                    {field: 'accountNum', title: '登录账号',hide:true},
+                    {field: 'accountPwd', title: '登录密码',hide:true},
+                    {field: 'phoneNum', title: '电话'},
+                    {field: 'wechartNum', title: '微信号',hide:true},
+                    {title: '状态', templet: '#administrator-status',hide:true},
+                    {field: 'createDate', title: '创建时间', minWidth: 180, sort: true,hide:true},
+                    {field: 'modDate', title: '修改时间',hide:true},
+                    {field: 'createTime', title: '账户开通时间'},
+                    {field: 'remaingTime', title: '账户剩余时间'},
+                    {title: '操作', toolbar: '#administrator-option', minWidth: 140}
+                ]]
+            });
+        }
+
+        function getQueryParams() {
+            var createTimeFrom = "",
+                createTimeTo = "",
+                createTime = $searchForm.find('input[name="createDate"]').val();
+            if (createTime) {
+                createTimeFrom = createTime.split(' - ')[0];
+                createTimeTo = createTime.split(' - ')[1];
+            }
+            return {
+                startDate: createTimeFrom,
+                endDate: createTimeTo,
+                name: $searchForm.find('input[name="name"]').val().trim(),
+                invalidate_ie_cache: new Date()
+            };
+        }
+
+
+        function deleteAdministrator(ids){
+            febs.delete(ctx + 'administrator/administrator', {"ids": ids}, function () {
+                febs.alert.success('删除成功');
+                $query.click();
+            });
+        }
+    })
+</script>

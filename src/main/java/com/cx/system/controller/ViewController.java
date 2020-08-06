@@ -115,6 +115,7 @@ public class ViewController extends BaseController {
         return CommonUtil.view("system/role/role");
     }
 
+
     @GetMapping(Constant.VIEW_PREFIX + "system/menu")
     @PreAuthorize("hasRole('menu:view')")
     public String systemMenu() {

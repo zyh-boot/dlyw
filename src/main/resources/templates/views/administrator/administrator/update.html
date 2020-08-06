@@ -1,0 +1,117 @@
+<style>
+
+</style>
+<div class="layui-fluid layui-anim febs-anim" id="febs-administrator-update" lay-title="">
+    <form class="layui-form" action="" lay-filter="administrator-update-form">
+                <input type="text" name="id" id="id" class="layui-input febs-hide" readonly>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">管理员姓名：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="adminName" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">所属机构名：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="deptName" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">登录账号：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="accountNum" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">登录密码：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="accountPwd" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">电话：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="phoneNum" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">微信号：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="wechartNum" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">状态 1:有效 0:失效：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="state" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">修改时间：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="modDate" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">账户剩余时间：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="remaingTime" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">账户开通时间：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="createTime" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+        <div class="layui-form-item febs-hide">
+            <button class="layui-btn" lay-submit="" lay-filter="administrator-update-form-submit"
+                    id="submit"></button>
+            <button type="reset" class="layui-btn" id="reset"></button>
+        </div>
+    </form>
+</div>
+
+<script data-th-inline="javascript" type="text/javascript">
+    layui.use(['jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            febs = layui.febs,
+            form = layui.form,
+            table = layui.table,
+            xmSelect = layui.xmSelect,
+            administrator =[[\$\{administrator\}]],
+            $view = $('#febs-administrator-update');
+
+        form.render();
+        initValue();
+
+
+        form.on('submit(administrator-update-form-submit)', function (data) {
+            febs.put(ctx + 'administrator/administrator', data.field, function () {
+                layer.closeAll();
+                $('#febs-administrator').find('#query').click();
+            });
+            return false;
+        });
+
+
+        function initValue() {
+            form.val("administrator-update-form", {
+                "id": administrator.id,
+                "adminName": administrator.adminName,
+                "deptId": administrator.deptId,
+                "deptName": administrator.deptName,
+                "idcardNum": administrator.idcardNum,
+                "accountNum": administrator.accountNum,
+                "accountPwd": administrator.accountPwd,
+                "phoneNum": administrator.phoneNum,
+                "wechartNum": administrator.wechartNum,
+                "state": administrator.state,
+                "modDate": administrator.modDate,
+                "remaingTime": administrator.remaingTime,
+                "createTime": administrator.createTime,
+            });
+        }
+    })
+</script>

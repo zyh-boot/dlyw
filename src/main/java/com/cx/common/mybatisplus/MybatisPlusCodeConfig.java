@@ -86,7 +86,7 @@ public class MybatisPlusCodeConfig {
         dsc.setUrl("jdbc:mysql://localhost:3306/cxzn_zg?characterEncoding=utf8&serverTimezone=GMT%2b8");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("cxzn2020");
+        dsc.setPassword("123");
         mpg.setDataSource(dsc);
 
         // 包配置

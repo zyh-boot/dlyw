@@ -16,10 +16,12 @@
                                 </div>
                             </div>
                             <div class="layui-col-md4 layui-col-sm12 layui-col-xs12 table-action-area">
-                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="add"  sec:authorize="hasRole('menu:add')">
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="add"
+                                     sec:authorize="hasRole('menu:add')">
                                     <i class="layui-icon">&#xe891;</i>
                                 </div>
-                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="delete"  sec:authorize="hasRole('menu:delete')">
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="delete"
+                                     sec:authorize="hasRole('menu:delete')">
                                     <i class="layui-icon">&#xe7f9;</i>
                                 </div>
                                 <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="query">
@@ -55,7 +57,8 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label febs-form-item-require">名称：</label>
                             <div class="layui-input-block">
-                                <input autocomplete="off" class="layui-input" lay-verify="range" maxlength="10" minlength="2"
+                                <input autocomplete="off" class="layui-input" lay-verify="range" maxlength="10"
+                                       minlength="2"
                                        name="menuName" type="text">
                             </div>
                         </div>
@@ -69,21 +72,24 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label">图标：</label>
                             <div class="layui-input-block">
-                                <input autocomplete="off" class="layui-input" lay-verify="range" maxlength="50" name="icon"
+                                <input autocomplete="off" class="layui-input" lay-verify="range" maxlength="50"
+                                       name="icon"
                                        type="text">
                             </div>
                         </div>
                         <div class="layui-form-item">
                             <label class="layui-form-label">URL：</label>
                             <div class="layui-input-block">
-                                <input autocomplete="off" class="layui-input" lay-verify="range" maxlength="100" name="url"
+                                <input autocomplete="off" class="layui-input" lay-verify="range" maxlength="100"
+                                       name="url"
                                        type="text">
                             </div>
                         </div>
                         <div class="layui-form-item">
                             <label class="layui-form-label">权限：</label>
                             <div class="layui-input-block">
-                                <input autocomplete="off" class="layui-input" lay-verify="range" maxlength="50" name="perms"
+                                <input autocomplete="off" class="layui-input" lay-verify="range" maxlength="50"
+                                       name="perms"
                                        type="text">
                             </div>
                         </div>

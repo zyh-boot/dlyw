@@ -1,0 +1,1039 @@
+2020-07-31 08:38:51.323 febs [main] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:38:55.902 febs [main] ERROR c.c.m.service.impl.RedisServiceImpl - {}
+com.cx.common.exception.RedisConnectException: 连接失败
+	at com.cx.monitor.service.impl.RedisServiceImpl.excuteByJedis(RedisServiceImpl.java:43)
+	at com.cx.monitor.service.impl.RedisServiceImpl.exists(RedisServiceImpl.java:181)
+	at com.cx.common.runner.StartedUpRunner.run(StartedUpRunner.java:44)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:804)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:794)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:324)
+	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:139)
+	at com.cx.AppApplication.main(AppApplication.java:24)
+2020-07-31 08:39:00.050 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:39:10.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:39:20.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:39:40.013 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:39:50.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:40:00.013 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:40:10.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:40:20.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:40:36.159 febs [http-nio-8099-exec-9] ERROR o.s.s.w.a.UsernamePasswordAuthenticationFilter - An internal error occurred while trying to authenticate the user.
+org.springframework.security.authentication.InternalAuthenticationServiceException: 帐号不存在，请重新输入！
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:123)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:144)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:175)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:200)
+	at org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.attemptAuthentication(UsernamePasswordAuthenticationFilter.java:94)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.springframework.security.authentication.BadCredentialsException: 帐号不存在，请重新输入！
+	at com.cx.common.authentication.SecurityUserDetailsService.loadUserByUsername(SecurityUserDetailsService.java:40)
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:108)
+	... 59 common frames omitted
+2020-07-31 08:40:40.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:40:50.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:40:57.830 febs [http-nio-8099-exec-10] ERROR o.s.s.w.a.UsernamePasswordAuthenticationFilter - An internal error occurred while trying to authenticate the user.
+org.springframework.security.authentication.InternalAuthenticationServiceException: 帐号不存在，请重新输入！
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:123)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:144)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:175)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:200)
+	at org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.attemptAuthentication(UsernamePasswordAuthenticationFilter.java:94)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.springframework.security.authentication.BadCredentialsException: 帐号不存在，请重新输入！
+	at com.cx.common.authentication.SecurityUserDetailsService.loadUserByUsername(SecurityUserDetailsService.java:40)
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:108)
+	... 59 common frames omitted
+2020-07-31 08:41:00.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:41:10.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:41:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:41:22.224 febs [http-nio-8099-exec-9] ERROR o.s.s.w.a.UsernamePasswordAuthenticationFilter - An internal error occurred while trying to authenticate the user.
+org.springframework.security.authentication.InternalAuthenticationServiceException: 帐号不存在，请重新输入！
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:123)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:144)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:175)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:200)
+	at org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.attemptAuthentication(UsernamePasswordAuthenticationFilter.java:94)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.springframework.security.authentication.BadCredentialsException: 帐号不存在，请重新输入！
+	at com.cx.common.authentication.SecurityUserDetailsService.loadUserByUsername(SecurityUserDetailsService.java:40)
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:108)
+	... 59 common frames omitted
+2020-07-31 08:41:40.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:41:50.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:42:00.028 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:42:10.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:42:20.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:42:40.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:42:50.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:43:00.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:43:10.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:43:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:43:40.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:43:50.013 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:44:00.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:44:10.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:44:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:44:40.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:44:50.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:45:00.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:45:10.013 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:45:20.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:45:40.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:45:50.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:46:00.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:46:10.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:46:20.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:46:40.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:46:50.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:47:00.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:47:10.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:47:20.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:47:40.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:47:50.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:48:00.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:48:10.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:48:20.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:48:40.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:48:50.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:49:00.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:49:10.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:49:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:49:40.013 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:49:50.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:50:00.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:50:10.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:50:20.013 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:50:40.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:50:50.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:51:00.013 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:51:10.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:51:20.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:51:40.007 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:51:50.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:52:00.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:52:10.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:52:20.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:52:40.007 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:52:50.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:53:00.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:53:10.007 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:53:20.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:53:40.016 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:53:50.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:54:00.037 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:54:10.006 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:54:20.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:54:40.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:54:50.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:55:00.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:55:10.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:55:20.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:55:40.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:55:50.016 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:56:00.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:56:10.007 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:56:20.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:56:40.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:56:50.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:57:00.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:57:10.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:57:20.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:57:40.015 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:57:50.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:58:00.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:58:10.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:58:20.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:58:40.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:58:50.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:59:00.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:59:10.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:59:20.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:59:40.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 08:59:50.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:00:00.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:00:10.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:00:20.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:00:40.040 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:00:50.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:01:00.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:01:10.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:01:20.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:01:40.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:01:50.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:02:00.024 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:02:10.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:02:20.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:02:40.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:02:50.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:03:00.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:03:10.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:03:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:03:40.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:03:50.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:04:00.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:04:10.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:04:20.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:04:40.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:04:50.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:05:00.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:05:10.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:05:20.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:05:40.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:05:50.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:06:00.013 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:06:10.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:06:20.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:06:40.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:06:50.007 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:07:00.013 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:07:10.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:07:20.007 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:07:40.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:07:50.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:08:00.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:08:10.028 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:08:20.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:08:40.045 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:08:50.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:09:00.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:09:10.044 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:09:20.007 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:09:40.016 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:09:50.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:10:00.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:10:10.043 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:10:20.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:10:40.046 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:10:50.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:11:00.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:11:10.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:11:20.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:11:40.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:11:50.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:12:00.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:12:10.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:12:20.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:12:40.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:12:50.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:13:00.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:13:10.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:13:20.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:13:40.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:13:50.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:14:00.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:14:10.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:14:20.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:14:40.045 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:14:50.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:15:00.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:15:10.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:15:20.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:15:40.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:15:50.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:16:00.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:16:10.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:16:20.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:16:40.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:16:50.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:17:00.024 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:17:10.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:17:20.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:17:40.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:17:48.160 febs [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.cx.AppApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'accountController' for bean class [com.cx.module.mobile.controller.AccountController] conflicts with existing, non-compatible bean definition of same name and class [com.cx.module.acount.controller.AccountController]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:181)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:315)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:232)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:275)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:95)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:705)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:531)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:139)
+	at com.cx.AppApplication.main(AppApplication.java:24)
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'accountController' for bean class [com.cx.module.mobile.controller.AccountController] conflicts with existing, non-compatible bean definition of same name and class [com.cx.module.acount.controller.AccountController]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:348)
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:286)
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:132)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:287)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:242)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:199)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:167)
+	... 12 common frames omitted
+2020-07-31 09:24:06.664 febs [main] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:24:20.033 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:24:30.025 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:24:40.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:24:50.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:25:00.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:25:05.205 febs [http-nio-8099-exec-7] ERROR c.c.c.handler.GlobalExceptionHandler - 系统内部异常，异常信息
+org.springframework.web.bind.MissingPathVariableException: Missing URI template variable 'id' for method parameter of type Long
+	at org.springframework.web.servlet.mvc.method.annotation.PathVariableMethodArgumentResolver.handleMissingValue(PathVariableMethodArgumentResolver.java:101)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.handleMissingValue(AbstractNamedValueMethodArgumentResolver.java:221)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:113)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:126)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:166)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.cx.common.xss.XssFilter.doFilter(XssFilter.java:56)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-07-31 09:25:20.024 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:25:30.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:25:52.654 febs [main] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:26:00.046 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:26:10.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:26:15.935 febs [http-nio-8099-exec-6] ERROR c.c.c.handler.GlobalExceptionHandler - 系统内部异常，异常信息
+org.springframework.web.bind.MissingPathVariableException: Missing URI template variable 'id' for method parameter of type Long
+	at org.springframework.web.servlet.mvc.method.annotation.PathVariableMethodArgumentResolver.handleMissingValue(PathVariableMethodArgumentResolver.java:101)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.handleMissingValue(AbstractNamedValueMethodArgumentResolver.java:221)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:113)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:126)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:166)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.cx.common.xss.XssFilter.doFilter(XssFilter.java:56)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-07-31 09:26:30.025 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:26:40.025 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:26:50.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:27:00.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:27:10.025 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:27:30.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:27:40.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:27:50.246 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:28:07.000 febs [main] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:28:20.034 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:28:30.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:28:40.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:28:50.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:29:09.581 febs [main] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:29:20.035 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:29:30.024 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:29:40.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:29:50.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:30:10.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:30:20.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:30:30.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:30:40.024 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:30:50.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:31:10.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:31:20.014 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:31:30.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:31:46.737 febs [main] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:32:00.040 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:32:10.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:32:20.013 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:32:30.014 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:32:40.015 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:33:00.014 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:33:10.013 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:33:20.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:33:30.049 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:33:40.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:34:00.047 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:34:10.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:34:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:34:30.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:34:40.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:35:00.025 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:35:10.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:35:20.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:35:30.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:35:40.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:36:00.024 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:36:10.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:36:20.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:36:30.046 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:36:40.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:37:00.044 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:37:10.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:37:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:37:30.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:37:40.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:38:00.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:38:10.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:38:20.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:38:30.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:38:40.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:39:00.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:39:10.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:39:20.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:39:30.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:39:40.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:40:00.013 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:40:10.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:40:20.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:40:30.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:40:40.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:41:00.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:41:10.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:41:20.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:41:30.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:41:40.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:42:00.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:42:10.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:42:20.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:42:30.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:42:40.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:43:00.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:43:10.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:43:20.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:43:30.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:43:40.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:44:00.014 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:44:10.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:44:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:44:30.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:44:40.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:45:00.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:45:10.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:45:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:45:30.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:45:40.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:46:00.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:46:10.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:46:20.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:46:30.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:46:40.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:47:00.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:47:10.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:47:20.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:47:30.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:47:40.007 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:48:00.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:48:10.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:48:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:48:30.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:48:40.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:49:00.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:49:10.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:49:20.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:49:30.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:49:40.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:50:00.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:50:10.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:50:20.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:50:30.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:50:40.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:51:00.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:51:10.007 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:51:20.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:51:30.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:51:40.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:52:00.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:52:10.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:52:20.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:52:30.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:52:40.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:53:00.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:53:10.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:53:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:53:30.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:53:40.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:54:00.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:54:10.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:54:20.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:54:30.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:54:40.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:55:00.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:55:10.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:55:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:55:30.037 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:55:40.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:56:00.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:56:10.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:56:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:56:30.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:56:40.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:57:00.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:57:10.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:57:20.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:57:30.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:57:40.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:58:00.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:58:10.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:58:20.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:58:30.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:58:40.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:59:00.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:59:10.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:59:20.014 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:59:30.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 09:59:40.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:00:00.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:00:10.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:00:20.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:00:30.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:00:40.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:01:00.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:01:10.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:01:20.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:01:30.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:01:40.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:02:00.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:02:10.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:02:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:02:30.046 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:02:40.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:03:00.042 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:03:10.040 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:03:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:03:30.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:03:40.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:04:00.024 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:04:10.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:04:20.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:04:30.043 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:04:40.016 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:05:00.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:05:10.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:05:20.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:05:30.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:05:40.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:06:00.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:06:10.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:06:20.007 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:06:30.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:06:40.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:07:00.045 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:07:10.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:07:20.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:07:30.042 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:07:40.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:08:00.047 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:08:10.013 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:08:20.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:08:30.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:08:40.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:09:00.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:09:10.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:09:20.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:09:30.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:09:40.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:10:00.014 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:10:10.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:10:20.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:10:30.013 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:10:40.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:11:00.014 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:11:10.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:11:20.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:11:30.043 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:11:40.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:12:00.014 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:12:10.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:12:20.016 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:12:30.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:12:40.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:13:00.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:13:10.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:13:20.013 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:13:30.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:13:40.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:14:00.014 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:14:10.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:14:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:14:30.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:14:40.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:15:00.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:15:10.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:15:20.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:15:30.026 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:15:40.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:16:00.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:16:10.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:16:20.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:16:30.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:16:40.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:17:00.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:17:10.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:17:20.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:17:30.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:17:40.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:18:00.048 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:18:10.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:18:20.045 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:18:30.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:18:40.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:19:00.045 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:19:10.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:19:20.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:19:30.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:19:40.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:20:00.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:20:10.046 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:20:20.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:20:30.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:20:40.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:21:00.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:21:10.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:21:20.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:21:30.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:21:40.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:22:00.045 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:22:10.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:22:20.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:22:30.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:22:40.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:23:00.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:23:10.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:23:20.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:23:30.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:23:40.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:24:00.058 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:24:10.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:24:20.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:24:30.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:24:40.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:25:00.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:25:10.110 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:25:20.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:25:30.213 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:25:40.114 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:26:00.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:26:10.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:26:20.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:26:30.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:26:40.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:27:00.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:27:10.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:27:20.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:27:30.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:27:40.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:28:00.180 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:28:10.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:28:20.016 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:28:30.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:28:40.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:29:00.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:29:10.016 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:29:20.137 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:29:30.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:29:40.075 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:30:00.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:30:10.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:30:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:30:30.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:30:40.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:31:00.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:31:10.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:31:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:31:30.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:31:40.064 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:32:00.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:32:10.160 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:32:20.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:32:30.015 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:32:40.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:33:00.013 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:33:10.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:33:20.010 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:33:30.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:33:40.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:34:00.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:34:10.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:34:20.008 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:34:30.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:34:40.025 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:35:00.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:35:10.074 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:35:20.023 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:35:30.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:35:40.036 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:36:00.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:36:10.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:36:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:36:30.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:36:40.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:37:00.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:37:10.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:37:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:37:30.046 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:37:40.017 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:38:00.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:38:10.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:38:20.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:38:30.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:38:40.007 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:39:00.020 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:39:10.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:39:20.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:39:30.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:39:40.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:40:00.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:40:10.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:40:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:40:30.011 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:40:40.022 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:41:00.013 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:41:10.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:41:20.013 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:41:30.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:41:40.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:42:00.012 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:42:10.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:42:20.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:42:30.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:42:40.016 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:43:00.013 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:43:10.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:43:20.021 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:43:30.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:43:40.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:44:00.018 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:44:10.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:44:20.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:44:30.009 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:44:40.016 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-07-31 10:45:00.019 febs [example-schedule-pool-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空

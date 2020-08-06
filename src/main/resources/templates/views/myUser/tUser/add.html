@@ -1,0 +1,219 @@
+<style>
+
+</style>
+<div class="layui-fluid layui-anim febs-anim" id="febs-tUser-add" lay-title="用户表">
+    <form class="layui-form" action="" lay-filter="tUser-add-form">
+        <!--                <div class="layui-form-item">-->
+        <!--                    <label class="layui-form-label febs-form-item-require">用户ID：</label>-->
+        <!--                    <div class="layui-input-block">-->
+        <!--                        <input type="text" name="userId" autocomplete="off" class="layui-input">-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">登录账户名：</label>
+            <div class="layui-input-block">
+                <input type="text" name="username" autocomplete="off" class="layui-input" lay-verify="required">
+            </div>
+        </div>
+
+        <!--                <div class="layui-form-item">-->
+        <!--                    <label class="layui-form-label febs-form-item-require">部门ID：</label>-->
+        <!--                    <div class="layui-input-block">-->
+        <!--                        <input type="text" name="deptId" autocomplete="off" class="layui-input">-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">机构名称：</label>
+            <div class="layui-input-block">
+                <input type="text" name="deptName" autocomplete="off" class="layui-input" lay-verify="required">
+            </div>
+        </div>
+        <!--                <div class="layui-form-item">-->
+        <!--                    <label class="layui-form-label febs-form-item-require">邮箱：</label>-->
+        <!--                    <div class="layui-input-block">-->
+        <!--                        <input type="text" name="email" autocomplete="off" class="layui-input">-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">联系电话：</label>
+            <div class="layui-input-block">
+                <input type="text" name="mobile" autocomplete="off" id="phone" class="layui-input" lay-verify="required|phone">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">登录密码：</label>
+            <div class="layui-input-block">
+                <input type="text" name="password" autocomplete="off" lay-verify="required" placeholder="默认值为手机前3位加后三位"
+                       id="pwd" class="layui-input  layui-disabled" disabled>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">微信号：</label>
+            <div class="layui-input-block">
+                <input type="text" name="wechart" autocomplete="off" class="layui-input" lay-verify="required">
+            </div>
+        </div>
+
+        <!--                <div class="layui-form-item">-->
+        <!--                    <label class="layui-form-label febs-form-item-require">账户剩余时间：</label>-->
+        <!--                    <div class="layui-input-block">-->
+        <!--                        <input type="text" name="remaing" autocomplete="off" class="layui-input">-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">管理员姓名：</label>
+            <div class="layui-input-block">
+                <input type="text" name="accountName" autocomplete="off" class="layui-input" lay-verify="required">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">身份证号：</label>
+            <div class="layui-input-block">
+                <input type="text" name="idcardNum" autocomplete="off" class="layui-input" lay-verify="required|idcard">
+            </div>
+        </div>
+        <!--                <div class="layui-form-item">-->
+        <!--                    <label class="layui-form-label febs-form-item-require">状态 0锁定 1有效：</label>-->
+        <!--                    <div class="layui-input-block">-->
+        <!--                        <input type="text" name="status" autocomplete="off" class="layui-input">-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--        <div class="layui-form-item">-->
+        <!--            <label class="layui-form-label febs-form-item-require">创建时间：</label>-->
+        <!--            <div class="layui-input-block">-->
+        <!--                <input type="text" name="createTime" autocomplete="off" class="layui-input">-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">角色权限：</label>
+            <div class="layui-input-block">
+                <!--                <input type="text" name="time" id="open" autocomplete="off" class="layui-input">-->
+                <select name="myRole" lay-filter="myselect" id="selectID">
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">账户开通时间：</label>
+            <div class="layui-input-block">
+                <input type="text" name="time" id="open" autocomplete="off" class="layui-input" lay-verify="required">
+            </div>
+        </div>
+        <!--                <div class="layui-form-item">-->
+        <!--                    <label class="layui-form-label febs-form-item-require">修改时间：</label>-->
+        <!--                    <div class="layui-input-block">-->
+        <!--                        <input type="text" name="modifyTime" autocomplete="off" class="layui-input">-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--                <div class="layui-form-item">-->
+        <!--                    <label class="layui-form-label febs-form-item-require">最近访问时间：</label>-->
+        <!--                    <div class="layui-input-block">-->
+        <!--                        <input type="text" name="lastLoginTime" autocomplete="off" class="layui-input">-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--                <div class="layui-form-item">-->
+        <!--                    <label class="layui-form-label febs-form-item-require">性别 0男 1女 2保密：</label>-->
+        <!--                    <div class="layui-input-block">-->
+        <!--                        <input type="text" name="ssex" autocomplete="off" class="layui-input">-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--                <div class="layui-form-item">-->
+        <!--                    <label class="layui-form-label febs-form-item-require">是否开启tab，0关闭 1开启：</label>-->
+        <!--                    <div class="layui-input-block">-->
+        <!--                        <input type="text" name="isTab" autocomplete="off" class="layui-input">-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--                <div class="layui-form-item">-->
+        <!--                    <label class="layui-form-label febs-form-item-require">主题：</label>-->
+        <!--                    <div class="layui-input-block">-->
+        <!--                        <input type="text" name="theme" autocomplete="off" class="layui-input">-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--                <div class="layui-form-item">-->
+        <!--                    <label class="layui-form-label febs-form-item-require">头像：</label>-->
+        <!--                    <div class="layui-input-block">-->
+        <!--                        <input type="text" name="avatar" autocomplete="off" class="layui-input">-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--                <div class="layui-form-item">-->
+        <!--                    <label class="layui-form-label febs-form-item-require">描述：</label>-->
+        <!--                    <div class="layui-input-block">-->
+        <!--                        <input type="text" name="description" autocomplete="off" class="layui-input">-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <div class="layui-form-item febs-hide">
+            <button class="layui-btn" lay-submit="" lay-filter="tUser-add-form-submit"
+                    id="submit"></button>
+            <button type="reset" class="layui-btn" id="reset"></button>
+        </div>
+    </form>
+</div>
+
+
+<script data-th-inline="javascript" type="text/javascript">
+    layui.use(['dropdown', 'jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect', 'laydate'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            febs = layui.febs,
+            form = layui.form,
+            table = layui.table,
+            xmSelect = layui.xmSelect,
+            $view = $('#febs-tUser-add'),
+            laydate = layui.laydate;
+
+        form.render();
+
+        laydate.render({
+            elem: '#open'
+        });
+        form.on('submit(tUser-add-form-submit)', function (data) {
+            febs.post(ctx + 'myUser/tUser', data.field, function () {
+                layer.closeAll();
+                $('#febs-tUser').find('#query').click();
+            });
+            return false;
+        });
+        $("#phone").blur(function (da) {
+            let phoneNum = $("#phone").val();
+            $("#pwd").val(phoneNum.substring(0, 3) + phoneNum.substring(8, 12))
+        })
+
+        //自定义验证规则
+        form.verify({
+            title: function (value) {
+                if (value.length <= 0) {
+                    return '数值不为空';
+                }
+            },
+            phone: [
+                /^1(3|4|5|7|8)\d{9}$/
+                , '手机号码错误,请检查!'
+            ],
+            idcard: [
+                /^[1-9][0-9]{5}([1][9][0-9]{2}|[2][0][0|1][0-9])([0][1-9]|[1][0|1|2])([0][1-9]|[1|2][0-9]|[3][0|1])[0-9]{3}([0-9]|[X])$/,
+                '身份证格式错误,请检查!'
+            ]
+        });
+
+
+
+        $.ajax({
+            url: "myUser/tUser/qx",
+            data: "",
+            datatype: 'json',
+            success: function (res) {
+                console.log(res)
+                $.each(res.data, function (index, item) {
+                    console.log(item);
+                    //option 第一个参数是页面显示的值，第二个参数是传递到后台的值
+                    $('#selectID').append(new Option(item.roleName, item.roleId));//往下拉菜单里添加元素
+                    //设置value（这个值就可以是在更新的时候后台传递到前台的值）为2的值为默认选中
+                    // $('#selectID').val(2);
+                    form.render(); //更新全部表单内容
+                    //form.render('select'); //刷新表单select选择框渲染
+
+                })
+            }
+        })
+
+    })
+</script>

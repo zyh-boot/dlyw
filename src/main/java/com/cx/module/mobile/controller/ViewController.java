@@ -1,26 +1,22 @@
 package com.cx.module.mobile.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.cx.common.controller.BaseController;
+import com.cx.common.entity.Constant;
+import com.cx.common.utils.CommonUtil;
 import com.cx.module.mobile.entity.*;
 import com.cx.module.mobile.service.*;
-import org.apache.commons.lang3.StringUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import org.springframework.stereotype.Controller;
-
 import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.web.bind.annotation.*;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.ui.ModelMap;
-import com.cx.common.entity.Constant;
-import com.cx.common.utils.CommonUtil;
-import lombok.extern.slf4j.Slf4j;
-import com.cx.common.controller.BaseController;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 前端控制器
@@ -71,6 +67,20 @@ public class ViewController extends BaseController {
     }
 
     /**
+     * 修改页面
+     */
+    @GetMapping("account/map")
+//    @PreAuthorize("hasRole('account:mod')")
+    public String accountMap(HttpServletRequest request, ModelMap model) {
+
+
+        return CommonUtil.view("mobile/account/chooseAddress");
+    }
+
+
+
+
+    /**
      * 绑定客户设备页面（这里不做，一台设备只能一个客户绑定的逻辑，等客户需要再做处理）
      */
     @GetMapping("account/kh_code/{id}")
@@ -91,7 +101,8 @@ public class ViewController extends BaseController {
             }
         }
         //获取设备列表
-        List<Equipment>  list=   iEquipmentService.list(null);
+        Equipment sb=new Equipment();
+        List<Equipment>  list=   iEquipmentService.list(sb);
         List<CodeBean> codeList=new ArrayList<>();
         if(list!=null&&list.size()>0){
             int num=list.size();
@@ -152,6 +163,17 @@ public class ViewController extends BaseController {
     @GetMapping("equipment/index")
     public String equipmentIndex(HttpServletRequest request,ModelMap model){
         return CommonUtil.view("mobile/equipment/index");
+    }
+
+    /**
+     * 跳转实时数据页面
+     * @param request
+     * @param model com.cx.module.mobile.entity
+     * @return
+     */
+    @GetMapping("equipment/data")
+    public String equipment(HttpServletRequest request,ModelMap model){
+        return CommonUtil.view("mobile/equipment/data");
     }
 
     /**
@@ -607,6 +629,8 @@ public class ViewController extends BaseController {
         model.addAttribute("manualSettingService",obj);
         return  CommonUtil.view("mobile/manualSettingService/update");
     }
+
+
 
     /************************烟炕设备属性***********************/
     @Autowired

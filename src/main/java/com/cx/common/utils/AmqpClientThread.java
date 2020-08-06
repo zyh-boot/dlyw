@@ -1,17 +1,13 @@
 package com.cx.common.utils;
 
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.cx.common.entity.Constant;
-import com.cx.common.webSocket.WebSocketServer;
 import com.cx.module.mobile.entity.*;
 import com.cx.module.mobile.service.*;
 import com.cx.monitor.service.IRedisService;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.poi.util.StringUtil;
 import org.apache.qpid.jms.JmsConnection;
 import org.apache.qpid.jms.JmsConnectionListener;
 import org.apache.qpid.jms.message.JmsInboundMessageDispatch;
@@ -19,21 +15,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import javax.jms.*;
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import java.io.IOException;
-import java.math.BigDecimal;
 import java.net.URI;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Hashtable;
 import java.util.List;
 
@@ -43,8 +34,8 @@ import java.util.List;
  *
  * @author Administrator
  */
-@Component
-public class AmqpClientThread implements CommandLineRunner {
+//@Component
+class AmqpClientThread implements CommandLineRunner {
     private final static Logger logger = LoggerFactory.getLogger(IotAmqpClient.class);
     private final static String pk = IOTConfigUtil.IOT_ProductKey;
     @Autowired

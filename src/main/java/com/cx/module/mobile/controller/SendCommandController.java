@@ -1,24 +1,27 @@
 package com.cx.module.mobile.controller;
-import java.math.BigInteger;
-import java.util.List;
-
-import com.cx.common.utils.CRC16;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.RequestMapping;
-import com.cx.module.mobile.entity.SendCommand;
-import com.cx.module.mobile.service.ISendCommandService;
-
-import java.util.Map;
-import javax.servlet.http.HttpServletRequest;
+import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.cx.common.controller.BaseController;
 import com.cx.common.entity.CommonResponse;
 import com.cx.common.entity.QueryRequest;
 import com.cx.common.exception.CommonException;
+import com.cx.common.utils.CRC16;
+import com.cx.module.mobile.entity.Equipment;
+import com.cx.module.mobile.entity.SendCommand;
+import com.cx.module.mobile.service.IEquipmentService;
+import com.cx.module.mobile.service.ISendCommandService;
 import lombok.extern.slf4j.Slf4j;
-import com.cx.common.controller.BaseController;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
 *   控制器
@@ -33,7 +36,8 @@ import com.cx.common.controller.BaseController;
 
     @Autowired
     ISendCommandService iSendCommandService;
-
+    @Autowired
+    IEquipmentService equipmentService;
     /**
     * 查询详情
     */
@@ -54,7 +58,21 @@ import com.cx.common.controller.BaseController;
     @GetMapping("pageList")
     public CommonResponse pageList(SendCommand obj,QueryRequest query)  throws CommonException{
         try {
-            return  getTableData(iSendCommandService.page(obj,query));
+            List<SendCommand> records = iSendCommandService.page(obj, query).getRecords();
+            ArrayList<Object> list = new ArrayList<>();
+            for(SendCommand sendCommand : records){
+                LambdaQueryWrapper<Equipment> wrapper = new LambdaQueryWrapper<>();
+                wrapper.eq(Equipment::getCode,sendCommand.getSbCode());
+                Equipment equipment = equipmentService.selectOne(wrapper);
+
+                Map map = JSON.parseObject(JSON.toJSONString(sendCommand), Map.class);
+                map.put("code",equipment.getSbStatus());
+                list.add(map);
+            }
+            Page<Object> page = new Page<>();
+            page.setRecords(list);
+            return getTableData(page);
+//            return  getTableData(iSendCommandService.page(obj,query));
         } catch (Exception e) {
             String message = "分页查询失败";
             log.error(message, e);

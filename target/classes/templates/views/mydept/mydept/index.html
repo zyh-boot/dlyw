@@ -1,0 +1,292 @@
+<div class="layui-fluid layui-anim febs-anim" id="febs-mydept" lay-title="机构列表"
+     xmlns:sec="http://www.w3.org/1999/xhtml">
+    <div class="layui-row febs-container">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body febs-table-full">
+                    <form class="layui-form layui-table-form" lay-filter="mydept-table-form">
+                        <div class="layui-row">
+                            <div class="layui-col-md2 layui-col-sm12 layui-col-xs12 table-action-area">
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action"
+                                     id="addmydept" sec:authorize="hasRole('mydept:add')">
+                                    <i class="layui-icon">&#xe891;</i>
+                                </div>
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="delete"
+                                     sec:authorize="hasRole('mydept:del')">
+                                    <i class="layui-icon">&#xe7f9;</i>
+                                </div>
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="query">
+                                    <i class="layui-icon">&#xe848;</i>
+                                </div>
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="reset">
+                                    <i class="layui-icon">&#xe79b;</i>
+                                </div>
+                            </div>
+                            <div class="layui-col-md10   layui-col-sm12 layui-col-xs12 table-action-area">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label ">查询条件:</label>
+                                        <div class="layui-input-inline">
+                                            <select name="interest" lay-filter="myselect">
+                                                <option value="0" selected="">机构名称</option>
+                                                <option value="1">机构负责人</option>
+                                                <option value="2">机构类别</option>
+                                                <option value="3">机构所在地</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <div class="layui-input-inline">
+                                            <input type="text" name="name" autocomplete="off" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <!--                                    <div class="layui-inline">-->
+                                    <!--                                        <label class="layui-form-label layui-form-label-sm">创建时间</label>-->
+                                    <!--                                        <div class="layui-input-inline">-->
+                                    <!--                                            <input type="text" name="createDate" id="createTime" class="layui-input">-->
+                                    <!--                                        </div>-->
+                                    <!--                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <table lay-filter="mydeptTable"
+                           lay-data="{id: 'mydeptTable'}"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="mydept-status">
+    {{#
+    var status = {
+    1: {title: '有效', color: 'green'},
+    0: {title: '失效', color: 'volcano'}
+    }[d.state];
+    }}
+    <span class="layui-badge febs-tag-{{status.color}}">{{ status.title }}</span>
+</script>
+<script type="text/html" id="mydept-category">
+    {{#
+    var status = {
+    1: {title: '市', color: 'green'},
+    2: {title: '县', color: 'green'},
+    3: {title: '乡', color: 'green'},
+    4: {title: '村', color: 'green'},
+    }[d.category];
+    }}
+    <span class="layui-badge febs-tag-{{status.color}}">{{ status.title }}</span>
+</script>
+
+<script type="text/html" id="mydept-option">
+    <a lay-event="edit"><i class="layui-icon febs-edit-area febs-blue"
+                           sec:authorize="hasRole('mydept:mod')">&#xe7a4;</i></a>
+    <a lay-event="del"><i class="layui-icon febs-edit-area febs-red" sec:authorize="hasRole('mydept:del')">&#xe7f9;</i></a>
+</script>
+
+<script data-th-inline="none" type="text/javascript">
+    layui.use(['jquery', 'layer', 'laydate', 'form', 'febs', 'table', 'util', 'xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            laydate = layui.laydate,
+            febs = layui.febs,
+            form = layui.form,
+            table = layui.table,
+            xmSelect = layui.xmSelect,
+            $view = $('#febs-mydept'),
+            $query = $view.find('#query'),
+            $reset = $view.find('#reset'),
+            $addmydept = $view.find('#addmydept'),
+            $delete = $view.find('#delete'),
+            $searchForm = $view.find('form'),
+            sortObject = {field: 'createDate', type: null},
+            tableIns;
+
+        form.render();
+
+        initTable();
+
+
+        laydate.render({
+            elem: '#createTime',
+            range: true,
+            trigger: 'click'
+        });
+
+
+        //监听单元格事件
+        table.on('tool(mydeptTable)', function (obj) {
+            var data = obj.data,
+                layEvent = obj.event;
+            console.log("data", data);
+            if (layEvent === 'del') {
+                febs.modal.confirm('删除', '确定删除该 ？', function () {
+                    deleteMydept(data.id);
+                });
+            }
+            if (layEvent === 'edit') {
+                febs.modal.open('修改', 'mydept/mydept/update/' + data.id, {
+                    area: $(window).width() <= 750 ? '90%' : '50%',
+                    btn: ['提交', '取消'],
+                    yes: function (index, layero) {
+                        $('#febs-mydept-update').find('#submit').trigger('click');
+                    },
+                    btn2: function () {
+                        layer.closeAll();
+                    }
+                });
+            }
+        });
+
+        table.on('sort(mydeptTable)', function (obj) {
+            sortObject = obj;
+            tableIns.reload({
+                initSort: obj,
+                where: $.extend(getQueryParams(), {
+                    field: obj.field,
+                    order: obj.type
+                })
+            });
+        });
+
+        layui.form.on('select(myselect)', function (data) {
+            console.log(data.value);
+        })
+
+        $query.on('click', function () {
+
+            let index = $searchForm.find('select[name="interest"]').val().trim();
+            let queryParams = ''
+            queryParams = getQueryParams(index);
+            tableIns.reload({where: queryParams, page: {curr: 1}});
+        });
+
+        $reset.on('click', function () {
+            $searchForm[0].reset();
+            sortObject.type = 'null';
+            tableIns.reload({where: getQueryParams(), page: {curr: 1}, initSort: sortObject});
+        });
+
+
+        $addmydept.on('click', function () {
+            febs.modal.open('新增', 'mydept/mydept/add', {
+                btn: ['提交', '重置'],
+                area: $(window).width() <= 750 ? '95%' : '50%',
+                yes: function (index, layero) {
+                    $('#febs-mydept-add').find('#submit').trigger('click');
+                },
+                btn2: function () {
+                    $('#febs-mydept-add').find('#reset').trigger('click');
+                    return false;
+                }
+            });
+        });
+
+
+        $delete.on('click', function () {
+            var checkStatus = table.checkStatus('mydeptTable');
+            if (!checkStatus.data.length) {
+                febs.alert.warn('请选择需要删除的 ');
+            } else {
+                febs.modal.confirm('删除', '确定删除该 ？', function () {
+                    var userIds = [];
+                    layui.each(checkStatus.data, function (key, item) {
+                        userIds.push(item.id)
+                    });
+                    deleteMydept(userIds.join(','));
+                });
+            }
+        });
+
+        function initTable() {
+            tableIns = febs.table.init({
+                elem: $view.find('table'),
+                id: 'mydeptTable',
+                url: ctx + 'mydept/mydept/pageList',
+                cols: [[
+                    {type: 'checkbox'},
+                    {field: 'name', title: '机构名称'},
+                    {field: 'head', title: '机构负责人'},
+                    {field: 'address', title: '机构地址'},
+                    {title: '机构类别', templet: '#mydept-category'},
+                    {title: '状态', templet: '#mydept-status', hide: true},
+                    {field: 'createDate', title: '创建时间', minWidth: 180, sort: true, hide: true},
+                    {title: '操作', toolbar: '#mydept-option', minWidth: 140}
+                ]]
+            });
+        }
+
+        function getQueryParams(params) {
+            // var createTimeFrom = "",
+            //     createTimeTo = "",
+            //     createTime = $searchForm.find('input[name="createDate"]').val();
+            // if (createTime) {
+            //     createTimeFrom = createTime.split(' - ')[0];
+            //     createTimeTo = createTime.split(' - ')[1];
+            // }
+            // return {
+            //     startDate: createTimeFrom,
+            //     endDate: createTimeTo,
+            //     name: $searchForm.find('input[name="name"]').val().trim(),
+            //     invalidate_ie_cache: new Date()
+            // };
+            switch (params) {
+                case '0' :
+                    return {
+                        name: $searchForm.find('input[name="name"]').val().trim(),
+                        head: '',
+                        category: '',
+                        address: ''
+                    }
+                case '1' :
+                    return {
+                        name: '',
+                        head: $searchForm.find('input[name="name"]').val().trim(),
+                        category: '',
+                        address: ''
+                    }
+                case '2' :
+                    let trim = $searchForm.find('input[name="name"]').val().trim();
+                    let cat = ''
+                    switch (trim) {
+                        case "市":
+                            cat = 1;
+                            break;
+                        case "县":
+                            cat = 2;
+                            break;
+                        case "乡":
+                            cat = 3;
+                            break;
+                        case "村":
+                            cat = 4;
+                            break;
+                    }
+                    return {name: '', head: '', category: cat, address: ''}
+                case '3' :
+                    return {
+                        name: '',
+                        head: '',
+                        category: '',
+                        address: $searchForm.find('input[name="name"]').val().trim()
+                    }
+                default:
+                    return {
+                        name: $searchForm.find('input[name="name"]').val().trim(),
+                        head: '',
+                        category: '',
+                        address: ''
+                    }
+            }
+        }
+
+
+        function deleteMydept(ids) {
+            febs.delete(ctx + 'mydept/mydept', {"ids": ids}, function () {
+                febs.alert.success('删除成功');
+                $query.click();
+            });
+        }
+    })
+</script>

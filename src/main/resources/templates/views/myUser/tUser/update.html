@@ -1,0 +1,183 @@
+<style>
+
+</style>
+<div class="layui-fluid layui-anim febs-anim" id="febs-tUser-update" lay-title="用户表">
+    <form class="layui-form" action="" lay-filter="tUser-update-form">
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">用户ID：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="userId" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">用户名：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="username" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">密码：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="password" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">部门ID：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="deptId" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">部门名称：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="deptName" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">邮箱：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="email" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">联系电话：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="mobile" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">微信号：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="wechart" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">密码：</label>
+            <div class="layui-input-block">
+                <input type="text" name="password" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">账户剩余时间：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="remaing" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">用户姓名：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="accountName" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">状态 0锁定 1有效：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="status" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">创建时间：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="createTime" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">修改时间：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="modifyTime" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">最近访问时间：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="lastLoginTime" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">性别 0男 1女 2保密：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="ssex" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">是否开启tab，0关闭 1开启：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="isTab" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">主题：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="theme" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">头像：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="avatar" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">描述：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="description" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+        <div class="layui-form-item febs-hide">
+            <button class="layui-btn" lay-submit="" lay-filter="tUser-update-form-submit"
+                    id="submit"></button>
+            <button type="reset" class="layui-btn" id="reset"></button>
+        </div>
+    </form>
+</div>
+
+<script data-th-inline="javascript" type="text/javascript">
+    layui.use(['jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            febs = layui.febs,
+            form = layui.form,
+            table = layui.table,
+            xmSelect = layui.xmSelect,
+            tUser =[[\$\{tUser\}]],
+            $view = $('#febs-tUser-update');
+
+        form.render();
+        initValue();
+
+
+        form.on('submit(tUser-update-form-submit)', function (data) {
+            febs.put(ctx + 'myUser/tUser', data.field, function () {
+                layer.closeAll();
+                $('#febs-tUser').find('#query').click();
+            });
+            return false;
+        });
+
+
+        function initValue() {
+            form.val("tUser-update-form", {
+                "userId": tUser.userId,
+                "username": tUser.username,
+                "password": tUser.password,
+                "deptId": tUser.deptId,
+                "deptName": tUser.deptName,
+                "email": tUser.email,
+                "mobile": tUser.mobile,
+                "idcardNum": tUser.idcardNum,
+                "wechart": tUser.wechart,
+                "remaing": tUser.remaing,
+                "accountName": tUser.accountName,
+                "status": tUser.status,
+                "createTime": tUser.createTime,
+                "modifyTime": tUser.modifyTime,
+                "lastLoginTime": tUser.lastLoginTime,
+                "ssex": tUser.ssex,
+                "isTab": tUser.isTab,
+                "theme": tUser.theme,
+                "avatar": tUser.avatar,
+                "description": tUser.description,
+            });
+        }
+    })
+</script>

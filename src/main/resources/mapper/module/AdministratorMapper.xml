@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cx.module.administrator.mapper.AdministratorMapper">
+    <!--当前表名：a_administrator-->
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.cx.module.administrator.entity.Administrator">
+                    <id column="id" property="id"/>
+                    <result column="admin_name" property="adminName"/>
+                    <result column="dept_id" property="deptId"/>
+                    <result column="dept_name" property="deptName"/>
+                    <result column="idcard_num" property="idcardNum"/>
+                    <result column="account_num" property="accountNum"/>
+                    <result column="account_pwd" property="accountPwd"/>
+                    <result column="phone_num" property="phoneNum"/>
+                    <result column="wechart_num" property="wechartNum"/>
+                    <result column="state" property="state"/>
+                    <result column="creator" property="creator"/>
+                    <result column="create_date" property="createDate"/>
+                    <result column="modifier" property="modifier"/>
+                    <result column="modDate" property="modDate"/>
+                    <result column="remaing_time" property="remaingTime"/>
+                    <result column="create_time" property="createTime"/>
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            id, admin_name, dept_id, dept_name, idcard_num, account_num, account_pwd, phone_num, wechart_num, state, creator, create_date, modifier, modDate, remaing_time, create_time
+        </sql>
+</mapper>

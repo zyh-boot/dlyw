@@ -16,10 +16,12 @@
                                 </div>
                             </div>
                             <div class="layui-col-md3 layui-col-sm12 layui-col-xs12 table-action-area">
-                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="add"  sec:authorize="hasRole('role:add')">
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="add"
+                                     sec:authorize="hasRole('role:add')">
                                     <i class="layui-icon">&#xe891;</i>
                                 </div>
-                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="delete"  sec:authorize="hasRole('role:delete')">
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="delete"
+                                     sec:authorize="hasRole('role:delete')">
                                     <i class="layui-icon">&#xe7f9;</i>
                                 </div>
                                 <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="query">
@@ -49,7 +51,8 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label febs-form-item-require">角色名称：</label>
                             <div class="layui-input-block">
-                                <input autocomplete="off" class="layui-input" lay-verify="range" maxlength="10" minlength="2"
+                                <input autocomplete="off" class="layui-input" lay-verify="range" maxlength="10"
+                                       minlength="2"
                                        name="roleName" type="text">
                             </div>
                         </div>

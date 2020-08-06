@@ -1,0 +1,218 @@
+<div class="layui-fluid layui-anim febs-anim" id="febs-choose-address" lay-title="电子地图">
+    <div class="layui-row febs-container">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body febs-table-full">
+                    <!--<div id="container" style="width: 500px;height: 500px;"></div>-->
+                    <!--<div id="container1" style="width: 500px;height: 500px;"></div>-->
+                    <div id="allmap1" style="width: 1300px;height: 600px"></div>
+                    <input type="text" name="address" class="layui-input febs-hide">
+                    <input type="text" name="jd" class="layui-input febs-hide">
+                    <input type="text" name="wd" class="layui-input febs-hide">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-th-inline="javascript">
+    var addressLimit = [[${addressLimit}]];
+</script>
+<script data-th-inline="none" type="text/javascript">
+    layui.use(['jquery', 'layer', 'laydate', 'form', 'febs', 'table', 'util', 'xmSelect', 'bMap'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            form = layui.form,
+            febs = layui.febs,
+            $view = $('#febs-choose-address'),
+            map,
+            point,
+            bMap = layui.bMap;
+        map = new BMap.Map("allmap1");
+        addressLimit = ""
+        _this = this
+
+        var addressList = "";
+        $.ajax({
+            url: "pcAccount/map",
+            datatype: "json",
+            success: function (res) {
+                addressList = res.data;
+                if (res.code == 200) {
+                    for (i = 0; i < addressList.length; i++) {
+                        mapInit(addressList[i]);
+                    }
+                } else {
+                    localhost()
+                }
+            }
+        })
+
+        function mapInit(addressStr) {
+
+            // 创建地址解析器实例
+            var myGeo = new BMap.Geocoder();
+            // 将地址解析结果显示在地图上，并调整地图视野
+            const addressTmp = addressStr.orgAddress + addressStr.orgName
+            myGeo.getPoint(addressTmp, function (point) {
+                point = new BMap.Point(point.lng, point.lat);
+                assignment(point);
+                inverseAddressResolution(point);//经纬度解析成文字
+                map.centerAndZoom(point, 14);  // 初始化地图,
+                var mk = new BMap.Marker(point);
+                // mk.addEventListener("click", function () {  //添加标注点击事件监听
+                //     console.log(addressStr)
+                //     location.href = "/index#/mobile/equipment/index/id=1 "
+                // })
+                var label = new BMap.Label(addressStr.orgName,{offset:new BMap.Size(20,-10)});
+                mk.setLabel(label);
+                map.addOverlay(mk);
+            });
+        }
+
+
+        //添加地图类型控件
+        map.addControl(new BMap.MapTypeControl({
+            mapTypes: [
+                BMAP_NORMAL_MAP,
+                BMAP_HYBRID_MAP
+            ]
+        }));
+
+
+        // setLocation();
+
+        setClick();
+
+        addControl();
+
+        //添加地图比例
+        function addControl() {
+            // 左上角，添加比例尺
+            var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});
+            //左上角，添加默认缩放平移控件
+            var top_left_navigation = new BMap.NavigationControl();
+            //右上角，仅包含平移和缩放按钮
+            var top_right_navigation = new BMap.NavigationControl({
+                anchor: BMAP_ANCHOR_TOP_RIGHT,
+                type: BMAP_NAVIGATION_CONTROL_SMALL
+            });
+            map.addControl(top_left_control);
+            map.addControl(top_left_navigation);
+            map.addControl(top_right_navigation);
+            // 设置地图显示的城市 此项是必须设置的
+            map.enableScrollWheelZoom(true);
+        }
+
+
+        function localhost() {
+            var geolocation = new BMap.Geolocation();
+            geolocation.getCurrentPosition(function (r) {
+                if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+                    var mk = new BMap.Marker(r.point);
+                    map.addOverlay(mk);
+                    map.panTo(r.point);
+
+                    point = new BMap.Point(r.point.lng, r.point.lat);
+                    assignment(point);
+                    inverseAddressResolution(point);//经纬度解析成文字
+                    map.centerAndZoom(point, 11);  // 初始化地图,
+
+                    // alert('您的位置：' + r.point.lng + ',' + r.point.lat);
+                } else {
+                    alert('failed' + this.getStatus());
+                }
+            }, {enableHighAccuracy: true})
+        }
+
+
+        //地图选点
+        function mapChoosing() {
+            let opts = {
+                width: 250,     // 信息窗口宽度
+                height: 80,     // 信息窗口高度
+                title: "信息窗口", // 信息窗口标题
+                enableMessage: true//设置允许信息窗发送短息
+            };
+            for (var i = 0; i < data_info.length; i++) {
+                let marker = new BMap.Marker(new BMap.Point(data_info[i][0], data_info[i][1]));  // 创建标注
+                let content = data_info[i][2];
+                map.addOverlay(marker);               // 将标注添加到地图中
+                addClickHandler(content, marker);
+            }
+
+            function addClickHandler(content, marker) {
+                marker.addEventListener("click", function (e) {
+                        openInfo(content, e)
+                        console.log(e)
+                    }
+                );
+            }
+
+            function openInfo(content, e) {
+                let p = e.target;
+                let point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+                let infoWindow = new BMap.InfoWindow(content, opts);  // 创建信息窗口对象
+                map.openInfoWindow(infoWindow, point); //开启信息窗口
+            }
+        }
+
+        // 添加定位控件
+        function setLocation() {
+            let geolocationControl = new BMap.GeolocationControl();
+            geolocationControl.addEventListener("locationSuccess", function (e) {
+                // 定位成功事件
+                let address = '';
+                address += e.addressComponent.province;
+                address += e.addressComponent.city;
+                address += e.addressComponent.district;
+                address += e.addressComponent.street;
+                address += e.addressComponent.streetNumber;
+                alert("当前定位地址为：" + address);
+            });
+            geolocationControl.addEventListener("locationError", function (e) {
+                // 定位失败事件
+                alert(e.message);
+            });
+            map.addControl(geolocationControl);
+        }
+
+        function setClick() {
+            map.addEventListener("click", function (e) {
+                // console.log(">>>", e)
+                map.addOverlay(new BMap.Marker(e.point));    //添加标注
+                inverseAddressResolution(e.point);
+                assignment(e.point.lng, e.point.lat);
+                deletePoint();
+            });
+        }
+
+        //为input赋值
+        function assignment(jd, wd) {
+            $view.find("input[name='jd']").val(jd);
+            $view.find("input[name='wd']").val(wd);
+        }
+
+        //逆地址解析   将坐标解析为文字
+        function inverseAddressResolution(data) {
+            var geoc = new BMap.Geocoder();
+            let address = "";
+            geoc.getLocation(data, function (rs) {
+                var addComp = rs.addressComponents;
+                address = addComp.province + ", " + addComp.city + ", " + addComp.district + ", " +
+                    addComp.street + ", " + addComp.streetNumber;
+                $view.find("input[name='address']").val(address);
+            });
+        }
+
+        //删除坐标点
+        function deletePoint() {
+            var allOverlay = map.getOverlays();
+            for (var i = 0; i < allOverlay.length - 1; i++) {
+                map.removeOverlay(allOverlay[i]);
+            }
+        }
+
+    })
+
+</script>
+

@@ -1,42 +1,27 @@
 package com.cx.netty;
 
-import com.cx.common.utils.DateUtil;
-import com.cx.common.utils.Hex2Float;
-import com.cx.common.utils.HexToDec;
 import com.cx.module.mobile.entity.Equipment;
-import com.cx.module.mobile.entity.EquipmentTobaccoAttr;
-import com.cx.module.mobile.entity.EquipmentWorkPeriod;
-import com.cx.module.mobile.entity.SendCommand;
 import com.cx.module.mobile.service.IEquipmentService;
 import com.cx.module.mobile.service.IEquipmentTobaccoAttrService;
 import com.cx.module.mobile.service.IEquipmentWorkPeriodService;
 import com.cx.monitor.service.IRedisService;
 import io.netty.bootstrap.Bootstrap;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.timeout.IdleStateHandler;
 import io.netty.util.CharsetUtil;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
-import java.io.File;
-import java.net.InetSocketAddress;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
-import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
-@Component
+//@Component
 public class Client {
     @Autowired
     private  IEquipmentService equipmentService;

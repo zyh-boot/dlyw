@@ -1,0 +1,126 @@
+<style>
+
+</style>
+<div class="layui-fluid layui-anim febs-anim" id="febs-myequipment-add" lay-title="添加设备">
+    <form class="layui-form" action="" lay-filter="myequipment-add-form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备名：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="eqName" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备编号：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="eqCode" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备类型：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="eqType" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备台账：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="eqLedger" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">PM2.5：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="eqPm2.5" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">PM10：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="eqPm10" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">CO(一氧化碳)：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="eqCo" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">SO2(二氧化硫)：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="eqSo2" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">NO2(二氧化氮)：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="sqNo2" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">O3(臭氧)：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="sqO3" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备地址：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="eqAddress" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备添加时间：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="eqAddTime" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备供应商：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="eqSupplier" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">是否检修(1:正常 0:修理)：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="eqOverhaul" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">状态(1:有效 0失效)：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="state" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+        <div class="layui-form-item febs-hide">
+            <button class="layui-btn" lay-submit="" lay-filter="myequipment-add-form-submit"
+                    id="submit"></button>
+            <button type="reset" class="layui-btn" id="reset"></button>
+        </div>
+    </form>
+</div>
+
+<script data-th-inline="javascript" type="text/javascript">
+    layui.use(['dropdown', 'jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            febs = layui.febs,
+            form = layui.form,
+            table = layui.table,
+            xmSelect = layui.xmSelect,
+            $view = $('#febs-myequipment-add');
+
+        form.render();
+
+
+        form.on('submit(myequipment-add-form-submit)', function (data) {
+            febs.post(ctx + 'amyequipment/myequipment', data.field, function () {
+                layer.closeAll();
+                $('#febs-myequipment').find('#query').click();
+            });
+            return false;
+        });
+
+    })
+</script>

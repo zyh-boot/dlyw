@@ -1,0 +1,78 @@
+<style>
+
+</style>
+<div class="layui-fluid layui-anim febs-anim" id="febs-mydept-add" lay-title="">
+    <form class="layui-form" action="" lay-filter="mydept-add-form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">机构名称：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="name" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">机构负责人：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="head" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">机构地址：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="address" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">机构类别：</label>
+                    <div class="layui-input-block myselect">
+                        <select name="category" lay-filter="myselect" class="layui-form-select">
+                            <option value="1" selected="">市</option>
+                            <option value="2">县</option>
+                            <option value="3">乡</option>
+                            <option value="4">村</option>
+                        </select>
+<!--                        <input type="text" name="category" autocomplete="off" class="layui-input">-->
+                    </div>
+                </div>
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">状态(1:有效 0失效)：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="state" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+        <div class="layui-form-item febs-hide">
+            <button class="layui-btn" lay-submit="" lay-filter="mydept-add-form-submit"
+                    id="submit"></button>
+            <button type="reset" class="layui-btn" id="reset"></button>
+        </div>
+    </form>
+</div>
+<style>
+    .myselect .layui-form-select dl{
+        top: auto;
+        bottom: 36px;
+        /*background: #00FF00;*/
+    }
+</style>
+<script data-th-inline="javascript" type="text/javascript">
+    layui.use(['dropdown', 'jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            febs = layui.febs,
+            form = layui.form,
+            table = layui.table,
+            xmSelect = layui.xmSelect,
+            $view = $('#febs-mydept-add');
+
+        form.render();
+
+
+        form.on('submit(mydept-add-form-submit)', function (data) {
+            febs.post(ctx + 'mydept/mydept', data.field, function () {
+                layer.closeAll();
+                $('#febs-mydept').find('#query').click();
+            });
+            return false;
+        });
+
+    })
+</script>

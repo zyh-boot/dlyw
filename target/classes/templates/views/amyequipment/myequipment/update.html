@@ -1,0 +1,150 @@
+<style>
+
+</style>
+<div class="layui-fluid layui-anim febs-anim" id="febs-myequipment-update" lay-title="更新数据">
+    <form class="layui-form" action="" lay-filter="myequipment-update-form">
+                <input type="text" name="id" id="id" class="layui-input febs-hide" readonly>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备名：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="eqName" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备编号：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="eqCode" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备类型：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="eqType" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备台账：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="eqLedger" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">PM2.5：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="eqPmTwo" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">PM10：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="eqPmTen" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">CO(一氧化碳)：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="eqCo" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">SO2(二氧化硫)：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="eqSo2" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">NO2(二氧化氮)：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="sqNo2" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="layui-form-item">-->
+<!--                    <label class="layui-form-label febs-form-item-require">O3(臭氧)：</label>-->
+<!--                    <div class="layui-input-block">-->
+<!--                        <input type="text" name="sqO3" autocomplete="off" class="layui-input">-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备地址：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="eqAddress" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备添加时间：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="eqAddTime" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备供应商：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="eqSupplier" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">是否检修(1:正常 0:修理)：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="eqOverhaul" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">状态(1:有效 0失效)：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="state" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+        <div class="layui-form-item febs-hide">
+            <button class="layui-btn" lay-submit="" lay-filter="myequipment-update-form-submit"
+                    id="submit"></button>
+            <button type="reset" class="layui-btn" id="reset"></button>
+        </div>
+    </form>
+</div>
+
+<script data-th-inline="javascript" type="text/javascript">
+    layui.use(['jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            febs = layui.febs,
+            form = layui.form,
+            table = layui.table,
+            xmSelect = layui.xmSelect,
+            myequipment =[[\$\{myequipment\}]],
+            $view = $('#febs-myequipment-update');
+
+        form.render();
+        initValue();
+
+
+        form.on('submit(myequipment-update-form-submit)', function (data) {
+            febs.put(ctx + 'amyequipment/myequipment', data.field, function () {
+                layer.closeAll();
+                $('#febs-myequipment').find('#query').click();
+            });
+            return false;
+        });
+
+
+        function initValue() {
+            form.val("myequipment-update-form", {
+                "id": myequipment.id,
+                "eqName": myequipment.eqName,
+                "eqCode": myequipment.eqCode,
+                "eqType": myequipment.eqType,
+                "eqLedger": myequipment.eqLedger,
+                // "eqPmTwo": myequipment.eqPm2.5,
+                // "eqPmTen": myequipment.eqPm10,
+                // "eqCo": myequipment.eqCo,
+                // "eqSo2": myequipment.eqSo2,
+                // "sqNo2": myequipment.sqNo2,
+                // "sqO3": myequipment.sqO3,
+                "eqAddress": myequipment.eqAddress,
+                "eqAddTime": myequipment.eqAddTime,
+                "eqSupplier": myequipment.eqSupplier,
+                "eqOverhaul": myequipment.eqOverhaul,
+                "state": myequipment.state,
+            });
+        }
+    })
+</script>

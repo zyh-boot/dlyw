@@ -1,32 +1,31 @@
 package com.cx.module.mobile.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.StringPool;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cx.common.entity.Constant;
 import com.cx.common.entity.QueryRequest;
 import com.cx.common.utils.CommonUtil;
 import com.cx.common.utils.SortUtil;
 import com.cx.module.mobile.entity.Equipment;
-import com.cx.module.mobile.service.IEquipmentService;
 import com.cx.module.mobile.mapper.EquipmentMapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.cx.module.mobile.service.IEquipmentService;
 import com.cx.system.entity.User;
 import lombok.extern.slf4j.Slf4j;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.baomidou.mybatisplus.core.toolkit.StringPool;
-import org.springframework.stereotype.Service;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Service接口实现类
@@ -73,7 +72,10 @@ public class EquipmentServiceImpl extends ServiceImpl<EquipmentMapper, Equipment
 
         User user = CommonUtil.getCurrentUser();
         LambdaQueryWrapper<Equipment> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(Equipment::getType,obj.getType());
+        if(obj.getType()!=null){
+            queryWrapper.eq(Equipment::getType,obj.getType());
+        }
+
         return this.baseMapper.selectList(queryWrapper);
     }
 
