@@ -1,4 +1,4 @@
-package com.cx.module.amyequipment.service.impl;
+package com.cx.module.userEq.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -12,9 +12,9 @@ import com.cx.common.entity.Constant;
 import com.cx.common.entity.QueryRequest;
 import com.cx.common.utils.CommonUtil;
 import com.cx.common.utils.SortUtil;
-import com.cx.module.amyequipment.entity.Myequipment;
-import com.cx.module.amyequipment.mapper.MyequipmentMapper;
-import com.cx.module.amyequipment.service.IMyequipmentService;
+import com.cx.module.userEq.entity.UserMyequipment;
+import com.cx.module.userEq.mapper.UserMyequipmentMapper;
+import com.cx.module.userEq.service.IUserMyequipmentService;
 import com.cx.system.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -27,20 +27,20 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * 存放设备相关数据 Service接口实现类
+ * Service接口实现类
  *
  * @author admin
- * @Description Created on 2020-08-06
+ * @Description Created on 2020-08-07
  */
 @Slf4j
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
-public class MyequipmentServiceImpl extends ServiceImpl<MyequipmentMapper, Myequipment> implements IMyequipmentService {
+public class UserMyequipmentServiceImpl extends ServiceImpl<UserMyequipmentMapper, UserMyequipment> implements IUserMyequipmentService {
     /**
      * 查询详情
      */
     @Override
-    public Myequipment selectOne(Long id) {
+    public UserMyequipment selectOne(Long id) {
         return this.baseMapper.selectById(id);
     }
 
@@ -52,7 +52,7 @@ public class MyequipmentServiceImpl extends ServiceImpl<MyequipmentMapper, Myequ
      * @return
      */
     @Override
-    public Myequipment selectOne(Wrapper wrapper) {
+    public UserMyequipment selectOne(Wrapper wrapper) {
         return this.baseMapper.selectOne(wrapper);
     }
 
@@ -60,30 +60,38 @@ public class MyequipmentServiceImpl extends ServiceImpl<MyequipmentMapper, Myequ
      * 查询列表
      */
     @Override
-    public List<Myequipment> list(Myequipment obj) {
+    public List<UserMyequipment> list(UserMyequipment obj) {
 
         User user = CommonUtil.getCurrentUser();
-        LambdaQueryWrapper<Myequipment> queryWrapper = new LambdaQueryWrapper<>();
+        LambdaQueryWrapper<UserMyequipment> queryWrapper = new LambdaQueryWrapper<>();
 
         return this.baseMapper.selectList(queryWrapper);
+    }
+
+    /**
+     * 查询列表
+     * 自定义条件
+     */
+    @Override
+    public List<UserMyequipment> list(Wrapper wrapper) {
+
+        User user = CommonUtil.getCurrentUser();
+        return this.baseMapper.selectList(wrapper);
     }
 
     /**
      * 分页查询
      */
     @Override
-    public IPage<Myequipment> page(Myequipment obj, QueryRequest query) {
+    public IPage<UserMyequipment> page(UserMyequipment obj, QueryRequest query) {
 
-        LambdaQueryWrapper<Myequipment> queryWrapper = new LambdaQueryWrapper<>();
+        LambdaQueryWrapper<UserMyequipment> queryWrapper = new LambdaQueryWrapper<>();
 
         if (StringUtils.isNotBlank(obj.getStartDate()) && StringUtils.isNotBlank(obj.getEndDate())) {
-            queryWrapper.between(Myequipment::getEqAddTime, obj.getStartDate(), obj.getEndDate());
-        }
-        if(StringUtils.isNotBlank(obj.getEqAddress())){
-            queryWrapper.eq(Myequipment::getEqAddress,obj.getEqAddress());
+            queryWrapper.between(UserMyequipment::getCreateDate, obj.getStartDate(), obj.getEndDate());
         }
 
-        Page<Myequipment> page = new Page<>(query.getPageNum(), query.getPageSize());
+        Page<UserMyequipment> page = new Page<>(query.getPageNum(), query.getPageSize());
         SortUtil.handlePageSort(query, page, "id", Constant.ORDER_ASC, true);
         return this.baseMapper.selectPage(page, queryWrapper);
     }
@@ -93,7 +101,7 @@ public class MyequipmentServiceImpl extends ServiceImpl<MyequipmentMapper, Myequ
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public int add(Myequipment obj) {
+    public int add(UserMyequipment obj) {
         obj.setState(Constant.STATE_1);
         return this.baseMapper.insert(obj);
     }
@@ -103,7 +111,7 @@ public class MyequipmentServiceImpl extends ServiceImpl<MyequipmentMapper, Myequ
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public int update(Myequipment obj) {
+    public int update(UserMyequipment obj) {
         return this.baseMapper.updateById(obj);
     }
 
@@ -116,7 +124,7 @@ public class MyequipmentServiceImpl extends ServiceImpl<MyequipmentMapper, Myequ
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public int updateByWrapper(Myequipment obj, Wrapper wrapper) {
+    public int updateByWrapper(UserMyequipment obj, Wrapper wrapper) {
         return this.baseMapper.update(obj, wrapper);
     }
 
@@ -129,6 +137,15 @@ public class MyequipmentServiceImpl extends ServiceImpl<MyequipmentMapper, Myequ
         return this.baseMapper.deleteById(id);
     }
 
+    /**
+     * 删除
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public int delete(Wrapper wrapper) {
+        return this.baseMapper.delete(wrapper);
+//        return this.baseMapper.deleteById(id);
+    }
+
 
     /**
      * 逻辑删除
@@ -136,9 +153,9 @@ public class MyequipmentServiceImpl extends ServiceImpl<MyequipmentMapper, Myequ
     @Override
     @Transactional(rollbackFor = Exception.class)
     public int logicDel(Long id) {
-        LambdaUpdateWrapper<Myequipment> updateWrapper = new UpdateWrapper<Myequipment>().lambda();
-        updateWrapper.eq(Myequipment::getId, id);
-        Myequipment obj = new Myequipment();
+        LambdaUpdateWrapper<UserMyequipment> updateWrapper = new UpdateWrapper<UserMyequipment>().lambda();
+        updateWrapper.eq(UserMyequipment::getId, id);
+        UserMyequipment obj = new UserMyequipment();
         obj.setState(Constant.STATE_0);
         return this.baseMapper.update(obj, updateWrapper);
     }
@@ -172,9 +189,9 @@ public class MyequipmentServiceImpl extends ServiceImpl<MyequipmentMapper, Myequ
         List<Long> idLists = Arrays.stream(ids.split(StringPool.COMMA)).map(s ->
                 Long.valueOf(s.trim())).collect(Collectors.toList());
 
-        LambdaUpdateWrapper<Myequipment> updateWrapper = new UpdateWrapper<Myequipment>().lambda();
-        updateWrapper.in(Myequipment::getId, idLists);
-        Myequipment obj = new Myequipment();
+        LambdaUpdateWrapper<UserMyequipment> updateWrapper = new UpdateWrapper<UserMyequipment>().lambda();
+        updateWrapper.in(UserMyequipment::getId, idLists);
+        UserMyequipment obj = new UserMyequipment();
         obj.setState(Constant.STATE_0);
         return this.baseMapper.update(obj, updateWrapper);
     }

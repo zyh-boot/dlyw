@@ -1,0 +1,54 @@
+<style>
+
+</style>
+<div class="layui-fluid layui-anim febs-anim" id="febs-userMyequipment-update" lay-title="">
+    <form class="layui-form" action="" lay-filter="userMyequipment-update-form">
+                <input type="text" name="id" id="id" class="layui-input febs-hide" readonly>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="state" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+        <div class="layui-form-item febs-hide">
+            <button class="layui-btn" lay-submit="" lay-filter="userMyequipment-update-form-submit"
+                    id="submit"></button>
+            <button type="reset" class="layui-btn" id="reset"></button>
+        </div>
+    </form>
+</div>
+
+<script data-th-inline="javascript" type="text/javascript">
+    layui.use(['jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            febs = layui.febs,
+            form = layui.form,
+            table = layui.table,
+            xmSelect = layui.xmSelect,
+            userMyequipment =[[\$\{userMyequipment\}]],
+            $view = $('#febs-userMyequipment-update');
+
+        form.render();
+        initValue();
+
+
+        form.on('submit(userMyequipment-update-form-submit)', function (data) {
+            febs.put(ctx + 'userEq/userMyequipment', data.field, function () {
+                layer.closeAll();
+                $('#febs-userMyequipment').find('#query').click();
+            });
+            return false;
+        });
+
+
+        function initValue() {
+            form.val("userMyequipment-update-form", {
+                "id": userMyequipment.id,
+                "userId": userMyequipment.userId,
+                "myequipmentId": userMyequipment.myequipmentId,
+                "state": userMyequipment.state,
+            });
+        }
+    })
+</script>

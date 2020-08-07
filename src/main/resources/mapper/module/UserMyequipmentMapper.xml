@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cx.module.userEq.mapper.UserMyequipmentMapper">
+    <!--当前表名：a_user_myequipment-->
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.cx.module.userEq.entity.UserMyequipment">
+                    <id column="id" property="id"/>
+                    <result column="user_id" property="userId"/>
+                    <result column="myequipment_id" property="myequipmentId"/>
+                    <result column="state" property="state"/>
+                    <result column="creator" property="creator"/>
+                    <result column="create_date" property="createDate"/>
+                    <result column="modifier" property="modifier"/>
+                    <result column="mod_date" property="modDate"/>
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            id, user_id, myequipment_id, state, creator, create_date, modifier, mod_date
+        </sql>
+</mapper>

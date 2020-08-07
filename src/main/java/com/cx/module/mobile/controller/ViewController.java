@@ -86,7 +86,8 @@ public class ViewController extends BaseController {
     @GetMapping("account/kh_code/{id}")
     @PreAuthorize("hasRole('account:sb')")
     public String accountSb(HttpServletRequest request, ModelMap model, @PathVariable Long id) {
-        Account obj = iAccountService.selectOne(id);
+//        Account obj = iAccountService.selectOne(id);
+        Account obj = iAccountService.selectOne(Long.parseLong("48"));
         model.addAttribute("account", obj);
         List<String> sbList=new ArrayList<>();
         //获取客户的设备

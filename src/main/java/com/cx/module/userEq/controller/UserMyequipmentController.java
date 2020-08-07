@@ -1,31 +1,34 @@
-package com.cx.module.amyequipment.controller;
+package com.cx.module.userEq.controller;
+import java.util.List;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.RequestMapping;
+import com.cx.module.userEq.entity.UserMyequipment;
+import com.cx.module.userEq.service.IUserMyequipmentService;
+
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
-import com.cx.common.controller.BaseController;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import com.cx.common.entity.CommonResponse;
 import com.cx.common.entity.QueryRequest;
 import com.cx.common.exception.CommonException;
-import com.cx.module.amyequipment.entity.Myequipment;
-import com.cx.module.amyequipment.service.IMyequipmentService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDateTime;
+    import com.cx.common.controller.BaseController;
 
 /**
-* 存放设备相关数据  控制器
+*   控制器
 *
 * @author admin
-* @Description Created on 2020-08-06
+* @Description Created on 2020-08-07
 */
 @RestController
 @Slf4j
-@RequestMapping("amyequipment/myequipment")
-        public class MyequipmentController extends BaseController{
+@RequestMapping("userEq/userMyequipment")
+        public class UserMyequipmentController extends BaseController{
     @Autowired
-    IMyequipmentService iMyequipmentService;
+    IUserMyequipmentService iUserMyequipmentService;
 
     /**
     * 查询详情
@@ -33,7 +36,7 @@ import java.time.LocalDateTime;
     @GetMapping("detail")
     public CommonResponse add(Long id) throws CommonException{
         try {
-            return getCommonResponse(iMyequipmentService.selectOne(id));
+            return getCommonResponse(iUserMyequipmentService.selectOne(id));
         } catch (Exception e) {
             String message = "查询失败";
             log.error(message, e);
@@ -45,9 +48,9 @@ import java.time.LocalDateTime;
     * 分页查询
     */
     @GetMapping("pageList")
-    public CommonResponse pageList(Myequipment obj,QueryRequest query)  throws CommonException{
+    public CommonResponse pageList(UserMyequipment obj,QueryRequest query)  throws CommonException{
         try {
-            return  getTableData(iMyequipmentService.page(obj,query));
+            return  getTableData(iUserMyequipmentService.page(obj,query));
         } catch (Exception e) {
             String message = "分页查询失败";
             log.error(message, e);
@@ -59,9 +62,9 @@ import java.time.LocalDateTime;
     * 查询列表
     */
     @GetMapping("list")
-    public CommonResponse pageList(Myequipment obj)  throws CommonException{
+    public CommonResponse pageList(UserMyequipment obj)  throws CommonException{
         try {
-            return getCommonResponse(iMyequipmentService.list(obj));
+            return getCommonResponse(iUserMyequipmentService.list(obj));
         } catch (Exception e) {
             String message = "列表查询失败";
             log.error(message, e);
@@ -73,11 +76,10 @@ import java.time.LocalDateTime;
     * 新增
     */
     @PostMapping("")
-    @PreAuthorize("hasRole('myequipment:add')")
-    public CommonResponse add(Myequipment obj) throws CommonException{
-        obj.setEqAddTime(LocalDateTime.now());
+    @PreAuthorize("hasRole('userMyequipment:add')")
+    public CommonResponse add(UserMyequipment obj) throws CommonException{
         try {
-            return getCommonResponse(iMyequipmentService.add(obj));
+            return getCommonResponse(iUserMyequipmentService.add(obj));
         } catch (Exception e) {
             String message = "新增失败";
             log.error(message, e);
@@ -90,10 +92,10 @@ import java.time.LocalDateTime;
     * 修改
     */
     @PutMapping("")
-    @PreAuthorize("hasRole('myequipment:mod')")
-    public CommonResponse update(Myequipment obj) throws CommonException{
+    @PreAuthorize("hasRole('userMyequipment:mod')")
+    public CommonResponse update(UserMyequipment obj) throws CommonException{
         try {
-            return getCommonResponse(iMyequipmentService.update(obj));
+            return getCommonResponse(iUserMyequipmentService.update(obj));
         } catch (Exception e) {
             String message = "修改失败";
             log.error(message, e);
@@ -107,14 +109,14 @@ import java.time.LocalDateTime;
     * @return
     */
     @DeleteMapping("")
-    @PreAuthorize("hasRole('myequipment:del')")
+    @PreAuthorize("hasRole('userMyequipment:del')")
     public CommonResponse delete(String ids) throws CommonException{
         try {
             if (StringUtils.isNotBlank(ids)) {
                 if (ids.contains(StringPool.COMMA)) {
-                    iMyequipmentService.batchDel(ids);
+                    iUserMyequipmentService.batchDel(ids);
                 } else {
-                    iMyequipmentService.delete(Long.valueOf(ids));
+                    iUserMyequipmentService.delete(Long.valueOf(ids));
                 }
             }
             return new CommonResponse().success();

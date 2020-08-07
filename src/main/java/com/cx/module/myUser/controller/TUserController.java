@@ -1,5 +1,6 @@
 package com.cx.module.myUser.controller;
 
+import com.alibaba.fastjson.JSONArray;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.cx.common.controller.BaseController;
@@ -7,8 +8,11 @@ import com.cx.common.entity.CommonResponse;
 import com.cx.common.entity.QueryRequest;
 import com.cx.common.exception.CommonException;
 import com.cx.common.utils.Md5Util;
+import com.cx.module.mobile.entity.CodeBean;
 import com.cx.module.myUser.entity.TUser;
 import com.cx.module.myUser.service.ITUserService;
+import com.cx.module.userEq.entity.UserMyequipment;
+import com.cx.module.userEq.service.IUserMyequipmentService;
 import com.cx.system.entity.Role;
 import com.cx.system.entity.UserRole;
 import com.cx.system.service.IRoleService;
@@ -20,10 +24,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -44,6 +50,9 @@ public class TUserController extends BaseController {
 
     @Autowired
     IUserRoleService userRoleService;
+
+    @Autowired
+    IUserMyequipmentService userMyequipmentService;
 
     /**
      * 查询详情
@@ -116,9 +125,10 @@ public class TUserController extends BaseController {
 
 
             LambdaQueryWrapper<TUser> wrapper = new LambdaQueryWrapper<>();
-            wrapper.eq(TUser::getUsername,obj.getUsername())
-                    .eq(TUser::getAccountName,obj.getAccountName())
-                    .eq(TUser::getIdcardNum,obj.getIdcardNum());
+            wrapper.eq(TUser::getUsername, obj.getUsername())
+                    .eq(TUser::getAccountName, obj.getAccountName())
+                    .eq(TUser::getIdcardNum, obj.getIdcardNum());
+
             TUser tUser = iTUserService.selectOne(wrapper);
             UserRole userRole = new UserRole();
             userRole.setUserId(tUser.getUserId());
@@ -150,7 +160,7 @@ public class TUserController extends BaseController {
     }
 
     /**
-     * 删除
+     * 删除用户
      *
      * @param ids
      * @return
@@ -170,6 +180,74 @@ public class TUserController extends BaseController {
             return new CommonResponse().success();
         } catch (Exception e) {
             String message = "删除失败";
+            log.error(message, e);
+            throw new CommonException(message);
+        }
+    }
+
+    /**
+     * 设备绑定
+     *
+     * 功能: 添加设备; 删除名下设备
+     * @param request
+     * @param tUser
+     * @param sbCode
+     * @return
+     * @throws Exception
+     */
+    @PostMapping("bind")
+    @PreAuthorize("hasRole('tUser:bind')")
+    public CommonResponse bind(HttpServletRequest request, TUser tUser, String sbCode) throws Exception {
+        try {
+            List<CodeBean> codeBeans = null;
+            if (StringUtils.isNotBlank(sbCode)) {
+                codeBeans = JSONArray.parseArray(sbCode, CodeBean.class);
+            }
+            LambdaQueryWrapper<UserMyequipment> wrapper1 = new LambdaQueryWrapper<>();
+            wrapper1.eq(UserMyequipment::getUserId, tUser.getUserId());
+            List<UserMyequipment> list1 = userMyequipmentService.list(wrapper1);
+
+
+            /************************实现穿梭框左移删除功能***************************/
+            LinkedList<String> linkedList = new LinkedList<>();
+            for (UserMyequipment userMyequipment : list1) {
+                linkedList.add(userMyequipment.getMyequipmentId().toString());
+            }
+
+            LinkedList<String> linkedList1 = new LinkedList<>();
+            for (CodeBean userMyequipment : codeBeans) {
+                linkedList1.add(userMyequipment.getValue());
+            }
+
+            linkedList.removeAll(linkedList1);
+
+            for (String str : linkedList) {
+                LambdaQueryWrapper<UserMyequipment> wrapper = new LambdaQueryWrapper<>();
+                wrapper.eq(UserMyequipment::getUserId, tUser.getUserId())
+                        .eq(UserMyequipment::getMyequipmentId, str);
+                userMyequipmentService.delete(wrapper);
+            }
+            /************************************************************/
+
+
+            if (codeBeans.size() > 0) {
+                for (CodeBean codeBean : codeBeans) {
+                    LambdaQueryWrapper<UserMyequipment> wrapper = new LambdaQueryWrapper<>();
+                    wrapper.eq(UserMyequipment::getUserId, tUser.getUserId())
+                            .eq(UserMyequipment::getMyequipmentId, codeBean.getValue());
+                    List<UserMyequipment> list = userMyequipmentService.list(wrapper);
+
+                    if (list.size() == 0) {
+                        UserMyequipment userMyequipment = new UserMyequipment();
+                        userMyequipment.setUserId(tUser.getUserId().intValue());
+                        userMyequipment.setMyequipmentId(Integer.parseInt(codeBean.getValue()));
+                        userMyequipmentService.add(userMyequipment);
+                    }
+                }
+            }
+            return new CommonResponse().success();
+        } catch (Exception e) {
+            String message = "修改失败";
             log.error(message, e);
             throw new CommonException(message);
         }
