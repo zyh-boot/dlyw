@@ -1,0 +1,362 @@
+<style>
+    body {
+        background-color: #F3F2F7;
+    }
+
+    .list {
+        width: 95%;
+        border-radius: 0.5rem;
+        background-color: white;
+        margin: 1rem auto;
+    }
+
+    .list_top {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .ranking {
+        /*width: 25%;*/
+        /*width: 5%;*/
+        /*height: 2rem;*/
+        /*margin-left: 2%;*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ranking_img {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+    }
+
+    .ranking_p {
+        width: 25%;
+        margin: auto;
+        text-align: center;
+    }
+
+    .abx {
+        width: 25%;
+        margin: auto;
+        text-align: center;
+    }
+
+    .portrait {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+    }
+
+    .list_top_p {
+        width: 8%;
+        margin-left: 14%;
+        text-align: center;
+    }
+
+    .integral {
+        width: 25%;
+        margin: auto;
+        text-align: center;
+    }
+
+    .rol {
+        background: url("https://sucai.suoluomei.cn/sucai_zs/images/20191123133534-first.png");
+        background-size: 100% 100%;
+        margin-left: -31%;
+        width: 30px;
+        height: 30px;
+    }
+
+    .roltwo {
+        background: url("https://sucai.suoluomei.cn/sucai_zs/images/20191123133548-Second.png");
+        background-size: 100% 100%;
+        margin-left: -31%;
+        width: 30px;
+        height: 30px;
+    }
+
+    .rolthree {
+        background: url("https://sucai.suoluomei.cn/sucai_zs/images/20191123133558-Third.png");
+        background-size: 100% 100%;
+        margin-left: -31%;
+        width: 30px;
+        height: 30px;
+    }
+
+    .layui-card-header .layui-form-item div {
+        /*background: #00FF00;*/
+        width: 13%;
+    }
+
+    #templateDiv .layui-input-inline {
+        width: 13%;
+    }
+
+    .other{
+        margin-left: -33%;
+    }
+
+</style>
+<div class="layui-fluid layui-anim febs-anim layui-col-space12" id="febs-tUser-rank" lay-title="排名列表">
+    <form class="layui-form" action="" lay-filter="tUser-update-form">
+        <div class="layui-form-item layui-row">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    <div class="layui-inline layui-form-item" style="width: 100%">
+                        <div class="layui-input-inline">
+                            <label class="layui-form-label layui-form-label-sm">排名</label>
+                        </div>
+                        <div class="layui-input-inline ">
+                            <label class="layui-form-label layui-form-label-sm">机构名</label>
+                        </div>
+                        <div class="layui-input-inline ">
+                            <label class="layui-form-label layui-form-label-sm">数值</label>
+                        </div>
+                        <div class="layui-input-inline ">
+                            <label class="layui-form-label layui-form-label-sm">负责人</label>
+                        </div>
+                        <div class="layui-input-inline ">
+                            <label class="layui-form-label layui-form-label-sm">手机号</label>
+                        </div>
+
+                        <div class="layui-input-inline">
+                            <div class="layui-btn-group ">
+                                <button type="button" class="layui-btn layui-btn-primary" id="day">Pm2.5</button>
+                                <button type="button" class="layui-btn layui-btn-primary "
+                                        onclick="javaScript:void(0)" id="month">Pm10
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="layui-input-inline" style="margin-left: 10px">
+                            <div class="layui-btn-group ">
+                                <button type="button" class="layui-btn layui-btn-radius layui-btn-normal" id="echart">
+                                    查看图表
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item layui-card-body">
+                    <div class="layui-inline layui-form-item" style="width: 100%" id="templateDiv">
+
+                    </div>
+                </div>
+                <div class="layui-inline layui-form-item" style="margin-left: 40%">
+                    <div class="layui-input-inline ">
+                        <label class="layui-col-md4">查看更多</label>
+                        <!--                    <span class="span-h7"><a href="#">查看更多</a></span>-->
+                    </div>
+                </div>
+                <div class="layui-form-item layui-card-body">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item febs-hide">
+            <button class="layui-btn" lay-submit="" lay-filter="tUser-update-form-submit"
+                    id="submit"></button>
+            <button type="reset" class="layui-btn" id="reset"></button>
+        </div>
+    </form>
+</div>
+
+<script id="demo" type="text/html" template>
+
+    {{#  layui.each(d, function(index, item){ }}
+
+    <div class="layui-form-item">
+    {{# if(item.ranking == '1') { }}
+
+        <div class=" layui-input-inline ranking">
+            <div class="rol "></div>
+        </div>
+
+
+
+    <!--    <div class="layui-col-md10   layui-col-sm12 layui-col-xs12 table-action-area" >-->
+    <!--        <div class="ranking rol layui-input-inline" style=" width: 5%;height: 2rem;">-->
+    <!--        </div>-->
+    <!--        <p class="layui-input-inline "style="margin-left: 147px">{{item.name}}</p>-->
+    <!--        <p class="layui-input-inline ">{{item.integral}}</p>-->
+    <!--    </div>-->
+    {{# }else if(item.ranking == '2') { }}
+    <div class=" layui-input-inline ranking">
+        <div class="roltwo "></div>
+    </div>
+<!--    <div class="layui-input-inline">-->
+<!--        <label class="layui-form-label layui-form-label-sm">{{item.name}}</label>-->
+<!--    </div>-->
+<!--    <div class="layui-input-inline">-->
+<!--        <label class="layui-form-label layui-form-label-sm">{{item.integral}}</label>-->
+<!--    </div>-->
+<!--    </div>-->
+
+
+    <!--    <div class="layui-col-md10   layui-col-sm12 layui-col-xs12 table-action-area" >-->
+    <!--    <div class="ranking roltwo layui-input-inline" style=" width: 5%;height: 2rem;">-->
+    <!--        <p class="ranking_p"></p>-->
+    <!--    </div>-->
+    <!--    <p class="layui-input-inline" style="margin-left: 147px">{{item.name}}</p>-->
+    <!--    <p class="layui-input-inline">{{item.integral}}</p>-->
+    <!--    </div>-->
+    {{# }else if(item.ranking == '3') { }}
+<!--    <div class="layui-form-item">-->
+    <div class=" layui-input-inline ranking">
+        <div class="rolthree "></div>
+    </div>
+<!--    <div class="layui-input-inline">-->
+<!--        <label class="layui-form-label layui-form-label-sm">{{item.name}}</label>-->
+<!--    </div>-->
+<!--    <div class="layui-input-inline">-->
+<!--        <label class="layui-form-label layui-form-label-sm">{{item.integral}}</label>-->
+<!--    </div>-->
+<!--    </div>-->
+<!--    -->
+
+    <!--    <div class="layui-col-md10   layui-col-sm12 layui-col-xs12 table-action-area" >-->
+    <!--    <div class="ranking rolthree layui-input-inline" style=" width: 5%;height: 2rem;">-->
+    <!--        <p class="ranking_p"></p>-->
+    <!--    </div>-->
+    <!--    <p class="layui-input-inline" style="margin-left: 147px">{{item.name}}</p>-->
+    <!--    <p class="layui-input-inline">{{item.integral}}</p>-->
+    <!--    </div>-->
+    {{# }else{ }}
+
+<!--    <div class="layui-form-item">-->
+        <div class=" layui-input-inline ranking">
+            <div class="other">{{item.ranking}}</div>
+        </div>
+<!--        <div class="layui-input-inline">-->
+<!--            <label class="layui-form-label layui-form-label-sm">{{item.name}}</label>-->
+<!--        </div>-->
+<!--        <div class="layui-input-inline">-->
+<!--            <label class="layui-form-label layui-form-label-sm">{{item.integral}}</label>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+    <!--    <div class=" layui-col-md10   layui-col-sm12 layui-col-xs12 table-action-area">-->
+    <!--        <div class="layui-input-inline"style="margin-left: 47px"><p class="layui-input-inline">{{item.ranking}}</p></div>-->
+    <!--        <p class="layui-input-inline" style="margin-left: -14px">{{item.name}}</p>-->
+    <!--        <p class="layui-input-inline" >{{item.integral}}</p>-->
+    <!--    </div>-->
+
+    <!--    <div class="list_top layui-inline" >-->
+    <!--        <div class="ranking "><p class="abx">{{item.ranking}}</p></div>-->
+    <!--        <p class="list_top_p">{{item.name}}</p>-->
+    <!--        <p class="list_top_p">{{item.integral}}</p>-->
+    <!--    </div>-->
+    {{#  } }}
+        <div class="layui-input-inline">
+            <label class="layui-form-label layui-form-label-sm">{{item.name}}</label>
+        </div>
+        <div class="layui-input-inline">
+            <label class="layui-form-label layui-form-label-sm">{{item.integral}}</label>
+        </div>
+        <div class="layui-input-inline">
+            <label class="layui-form-label layui-form-label-sm">{{item.integral}}</label>
+        </div>
+        <div class="layui-input-inline">
+            <label class="layui-form-label layui-form-label-sm">{{item.integral}}</label>
+        </div>
+    </div>
+
+    {{#  }); }}
+    {{#  if(d.length === 0){ }}
+    无数据
+    {{#  } }}
+
+</script>
+<script data-th-inline="javascript" type="text/javascript">
+    layui.use(['jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect', 'laytpl'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            laytpl = layui.laytpl,
+            febs = layui.febs,
+            form = layui.form,
+            table = layui.table,
+            xmSelect = layui.xmSelect,
+            $view = $('#febs-tUser-rank');
+
+        form.render();
+        // initValue();
+        // alert($view.parent().attr("class"))
+        $view.parent().css("height", "100%")
+        $view.parent().css("background", "#fff")
+        /*****************************************************************************/
+        var daya = [{
+            ranking: "1",
+            portrait: "https://sucai.suoluomei.cn/sucai_zs/images/touxiang.jpeg?x-oss-process=image/resize,p_25,limit_0",
+            name: "赵云",
+            integral: "23554"
+        },
+            {
+                ranking: "2",
+                portrait: "https://sucai.suoluomei.cn/sucai_zs/images/touxiang.jpeg?x-oss-process=image/resize,p_25,limit_0",
+                name: "关羽",
+                integral: "22535"
+            },
+            {
+                ranking: "3",
+                portrait: "https://sucai.suoluomei.cn/sucai_zs/images/touxiang.jpeg?x-oss-process=image/resize,p_25,limit_0",
+                name: "张飞",
+                integral: "21535"
+            },
+            {
+                ranking: "4",
+                portrait: "https://sucai.suoluomei.cn/sucai_zs/images/touxiang.jpeg?x-oss-process=image/resize,p_25,limit_0",
+                name: "小码",
+                integral: "21535"
+            },
+            {
+                ranking: "5",
+                portrait: "https://sucai.suoluomei.cn/sucai_zs/images/touxiang.jpeg?x-oss-process=image/resize,p_25,limit_0",
+                name: "茄子",
+                integral: "21535"
+            },
+            {
+                ranking: "6",
+                portrait: "https://sucai.suoluomei.cn/sucai_zs/images/touxiang.jpeg?x-oss-process=image/resize,p_25,limit_0",
+                name: "葡萄",
+                integral: "21535"
+            }
+        ]
+        var div = document.getElementById("demo").innerHTML
+        var view = document.getElementById("templateDiv")
+        laytpl(div).render(daya, function (html) {
+            view.innerHTML = html
+        })
+        /*********************************************************************************/
+
+
+        var click = "layui-btn  layui-btn-primary "
+        var notClick = "layui-btn layui-btn-normal"
+        $("#day").on("click", function () {
+            var clazz = $("#day").hasClass("layui-btn-normal");
+            if (clazz) {
+                console.log(time)
+                return;
+            }
+            $("#day").attr("class", notClick)
+            $("#month").attr("class", click)
+        })
+
+
+        $("#month").on("click", function () {
+            var clazz = $("#month").hasClass("layui-btn-normal");
+            $("#month").attr("class", notClick)
+            $("#day").attr("class", click)
+        })
+
+        initValue()
+
+        function initValue() {
+            $("#day").click()
+        }
+    })
+</script>
