@@ -37,7 +37,7 @@ public class TestController {
     @Test
     public void test() {
         try {
-            MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("mobile/equipment/pageList").param("name", "tom"))
+            MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("rank/myequipment/rank").param("name", "tom"))
                     .andDo(MockMvcResultHandlers.print()).andReturn();
             int status = mvcResult.getResponse().getStatus();
             String content = mvcResult.getResponse().getContentAsString();

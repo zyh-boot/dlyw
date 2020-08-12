@@ -25,7 +25,10 @@
         <div class="layui-form-item">
             <label class="layui-form-label febs-form-item-require">机构名称：</label>
             <div class="layui-input-block">
-                <input type="text" name="deptName" autocomplete="off" class="layui-input" lay-verify="required">
+                <!--                <input type="text" name="deptName" autocomplete="off" class="layui-input" lay-verify="required">-->
+
+                <input type="text" name="deptName" id="deptName" class="layui-input febs-hide" readonly>
+                <select name="deptId" lay-filter="deptId" id="deptId" class="layui-form-select"></select>
             </div>
         </div>
         <!--                <div class="layui-form-item">-->
@@ -37,7 +40,8 @@
         <div class="layui-form-item">
             <label class="layui-form-label febs-form-item-require">联系电话：</label>
             <div class="layui-input-block">
-                <input type="text" name="mobile" autocomplete="off" id="phone" class="layui-input" lay-verify="required|phone">
+                <input type="text" name="mobile" autocomplete="off" id="phone" class="layui-input"
+                       lay-verify="required|phone">
             </div>
         </div>
         <div class="layui-form-item">
@@ -69,7 +73,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label febs-form-item-require">身份证号：</label>
             <div class="layui-input-block">
-                <input type="text" name="idcardNum" autocomplete="off" class="layui-input" lay-verify="required|idcard">
+                <input type="text" name="idcardNum" autocomplete="off" class="layui-input" lay-verify="required | idcard">
             </div>
         </div>
         <!--                <div class="layui-form-item">-->
@@ -84,18 +88,18 @@
         <!--                <input type="text" name="createTime" autocomplete="off" class="layui-input">-->
         <!--            </div>-->
         <!--        </div>-->
-        <div class="layui-form-item">
+        <div class="layui-form-item myselect">
             <label class="layui-form-label febs-form-item-require">角色权限：</label>
             <div class="layui-input-block">
                 <!--                <input type="text" name="time" id="open" autocomplete="off" class="layui-input">-->
-                <select name="myRole" lay-filter="myselect" id="selectID">
+                <select name="myRole" lay-filter="myselect" id="selectID" class="layui-form-select">
                 </select>
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label febs-form-item-require">账户开通时间：</label>
             <div class="layui-input-block">
-                <input type="text" name="time" id="open" autocomplete="off" class="layui-input" lay-verify="required">
+                <input type="text" name="time" id="open" autocomplete="off" readonly class="layui-input" lay-verify="required">
             </div>
         </div>
         <!--                <div class="layui-form-item">-->
@@ -147,8 +151,13 @@
         </div>
     </form>
 </div>
-
-
+<style>
+    .myselect .layui-form-select dl {
+        top: auto;
+        bottom: 36px;
+        /*background: #00FF00;*/
+    }
+</style>
 <script data-th-inline="javascript" type="text/javascript">
     layui.use(['dropdown', 'jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect', 'laydate'], function () {
         var $ = layui.jquery,
@@ -165,7 +174,12 @@
         laydate.render({
             elem: '#open'
         });
+        form.on('select(deptId)', function (data) {
+            $view.find("#deptName").val(this.innerText)
+        })
         form.on('submit(tUser-add-form-submit)', function (data) {
+
+
             febs.post(ctx + 'myUser/tUser', data.field, function () {
                 layer.closeAll();
                 $('#febs-tUser').find('#query').click();
@@ -195,7 +209,6 @@
         });
 
 
-
         $.ajax({
             url: "myUser/tUser/qx",
             data: "",
@@ -212,6 +225,28 @@
                     //form.render('select'); //刷新表单select选择框渲染
 
                 })
+            }
+        })
+
+        //请求机构树
+        $.ajax({
+            url: "myUser/tUser/dept",
+            data: "",
+            datatype: 'json',
+            success: function (res) {
+                console.log(res)
+                $.each(res.data, function (index, item) {
+                    console.log(item);
+                    //option 第一个参数是页面显示的值，第二个参数是传递到后台的值
+                    $('#deptId').append(new Option(item.name, item.id));//往下拉菜单里添加元素
+                    //设置value（这个值就可以是在更新的时候后台传递到前台的值）为2的值为默认选中
+                    // $('#deptId').val(2);
+                    form.render(); //更新全部表单内容
+                    //form.render('select'); //刷新表单select选择框渲染
+
+                })
+
+                $view.find("#deptName").val($view.find("#deptId").find("option:selected").text())
             }
         })
 

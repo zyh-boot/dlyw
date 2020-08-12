@@ -69,6 +69,17 @@ public class MydeptServiceImpl extends ServiceImpl<MydeptMapper, Mydept> impleme
     }
 
     /**
+     * 查询列表
+     */
+    @Override
+    public List<Mydept> list(Wrapper wrapper) {
+
+        User user = CommonUtil.getCurrentUser();
+
+        return this.baseMapper.selectList(wrapper);
+    }
+
+    /**
      * 分页查询
      */
     @Override
@@ -79,6 +90,9 @@ public class MydeptServiceImpl extends ServiceImpl<MydeptMapper, Mydept> impleme
         if (StringUtils.isNotBlank(obj.getStartDate()) && StringUtils.isNotBlank(obj.getEndDate())) {
             queryWrapper.between(Mydept::getCreateDate, obj.getStartDate(), obj.getEndDate());
         }
+//        if (StringUtils.isNotBlank(obj.getStartDate()) && StringUtils.isNotBlank(obj.getEndDate())) {
+//            queryWrapper.between(Mydept::getModDate, obj.getStartDate(), obj.getEndDate());
+//        }
         if (StringUtils.isNotBlank(obj.getName())) {
             queryWrapper.eq(Mydept::getName, obj.getName());
         }

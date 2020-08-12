@@ -40,12 +40,12 @@
                                             <input type="text" name="name" autocomplete="off" class="layui-input">
                                         </div>
                                     </div>
-                                    <!--                                    <div class="layui-inline">-->
-                                    <!--                                        <label class="layui-form-label layui-form-label-sm">创建时间</label>-->
-                                    <!--                                        <div class="layui-input-inline">-->
-                                    <!--                                            <input type="text" name="createDate" id="createTime" class="layui-input">-->
-                                    <!--                                        </div>-->
-                                    <!--                                    </div>-->
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label layui-form-label-sm">创建时间</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" name="createDate" id="createTime" class="layui-input">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -107,7 +107,9 @@
 
         initTable();
 
-
+        //设置父标签全覆盖
+        $view.parent().css("height", "100%")
+        $view.parent().css("background", "#fff")
         laydate.render({
             elem: '#createTime',
             range: true,
@@ -218,13 +220,13 @@
         }
 
         function getQueryParams(params) {
-            // var createTimeFrom = "",
-            //     createTimeTo = "",
-            //     createTime = $searchForm.find('input[name="createDate"]').val();
-            // if (createTime) {
-            //     createTimeFrom = createTime.split(' - ')[0];
-            //     createTimeTo = createTime.split(' - ')[1];
-            // }
+            var createTimeFrom = "",
+                createTimeTo = "",
+                createTime = $searchForm.find('input[name="createDate"]').val();
+            if (createTime) {
+                createTimeFrom = createTime.split(' - ')[0];
+                createTimeTo = createTime.split(' - ')[1];
+            }
             // return {
             //     startDate: createTimeFrom,
             //     endDate: createTimeTo,
@@ -237,14 +239,18 @@
                         name: $searchForm.find('input[name="name"]').val().trim(),
                         head: '',
                         category: '',
-                        address: ''
+                        address: '',
+                        startDate: createTimeFrom,
+                        endDate: createTimeTo
                     }
                 case '1' :
                     return {
                         name: '',
                         head: $searchForm.find('input[name="name"]').val().trim(),
                         category: '',
-                        address: ''
+                        address: '',
+                        startDate: createTimeFrom,
+                        endDate: createTimeTo
                     }
                 case '2' :
                     let trim = $searchForm.find('input[name="name"]').val().trim();
@@ -263,20 +269,31 @@
                             cat = 4;
                             break;
                     }
-                    return {name: '', head: '', category: cat, address: ''}
+                    return {
+                        name: '',
+                        head: '',
+                        category: cat,
+                        address: '',
+                        startDate: createTimeFrom,
+                        endDate: createTimeTo
+                    }
                 case '3' :
                     return {
                         name: '',
                         head: '',
                         category: '',
-                        address: $searchForm.find('input[name="name"]').val().trim()
+                        address: $searchForm.find('input[name="name"]').val().trim(),
+                        startDate: createTimeFrom,
+                        endDate: createTimeTo
                     }
                 default:
                     return {
                         name: $searchForm.find('input[name="name"]').val().trim(),
                         head: '',
                         category: '',
-                        address: ''
+                        address: '',
+                        startDate: createTimeFrom,
+                        endDate: createTimeTo
                     }
             }
         }

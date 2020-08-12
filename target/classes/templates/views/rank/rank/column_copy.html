@@ -1,0 +1,181 @@
+<style>
+    #febs-apex-column .layui-card-header {
+        font-weight: 600;
+    }
+</style>
+<div class="layui-fluid layui-anim febs-anim" id="febs-apex-column" lay-title="柱状图表">
+    <div class="layui-row layui-col-space8 febs-container">
+<!--        <div class="layui-col-md6 layui-col-sm6 layui-col-xs12">-->
+<!--            <div class="layui-card">-->
+<!--                <div class="layui-card-header">基础柱状图</div>-->
+<!--                <div class="layui-card-body">-->
+<!--                    <div id="basicColumnChart"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="layui-col-md6 layui-col-sm6 layui-col-xs12">-->
+            <div class="layui-card">
+                <div class="layui-card-header">机构污染柱状图</div>
+                <div class="layui-card-body">
+                    <div id="dataLabelsColumnChart"></div>
+                </div>
+            </div>
+<!--        </div>-->
+<!--        <div class="layui-col-md6 layui-col-sm6 layui-col-xs12">-->
+<!--            <div class="layui-card">-->
+<!--                <div class="layui-card-header">层叠柱状图</div>-->
+<!--                <div class="layui-card-body">-->
+<!--                    <div id="stackedColumnChart"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="layui-col-md6 layui-col-sm6 layui-col-xs12">-->
+<!--            <div class="layui-card">-->
+<!--                <div class="layui-card-header">百分比层叠柱状图</div>-->
+<!--                <div class="layui-card-body">-->
+<!--                    <div id="stackedColumnChart100"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="layui-col-md6 layui-col-sm6 layui-col-xs12">-->
+<!--            <div class="layui-card">-->
+<!--                <div class="layui-card-header">带负值的柱状图</div>-->
+<!--                <div class="layui-card-body">-->
+<!--                    <div id="columnWithNegativeChart"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="layui-col-md6 layui-col-sm6 layui-col-xs12">-->
+<!--            <div class="layui-card">-->
+<!--                <div class="layui-card-header">范围柱状图</div>-->
+<!--                <div class="layui-card-body">-->
+<!--                    <div id="rangeColumnChart"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+</div>
+<!--<script data-th-src="@{pdm/lay/data/dataSeries.js}"></script>-->
+<script data-th-inline="javascript" type="text/javascript">
+    layui.use(['apexcharts'], function () {
+       var  dataList =[[\$\{dataList\}]],
+         deptList =[[\$\{deptList\}]],
+         mydept =[[\$\{qwe\}]];
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>",dataList)
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>",deptList)
+        // -------------- dataLabelsColumnChart ---------------
+        var dataLabelsColumnChartOptions = {
+            chart: {
+                height: 350,
+                type: 'bar',
+                toolbar: {
+                    show: false
+                }
+            },
+            plotOptions: {
+                bar: {
+                    // dataLabels: {
+                    //     position: 'top' // top, center, bottom
+                    // },
+                    horizontal: false, // 是否启用水平方式显示
+                    columnWidth: '55%', // 设置柱状图单个的宽度
+                }
+            },
+            dataLabels: {
+                enabled: true,
+                formatter: function (val) {
+                    return val + "%";
+                },
+                offsetY: -20,
+                style: {
+                    fontSize: '12px',
+                    colors: ["#304758"]
+                }
+            },
+            series: [{
+                name: '数值',
+                //柱状图展示数据
+                // data: [2.3, 3.1, 4.0, 10.1, 4.0, 3.6, 3.2, 2.3, 1.4, 0.8, 0.5, 0.2]
+                data: dataList
+            }],
+            xaxis: {
+                //顶部栏 数据
+                // categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                categories: deptList,
+                position: 'top',
+                labels: {
+                    offsetY: -18
+
+                },
+                axisBorder: {
+                    show: false
+                },
+                axisTicks: {
+                    show: false
+                },
+                crosshairs: {
+                    fill: {
+                        type: 'gradient',
+                        gradient: {
+                            colorFrom: '#D8E3F0',
+                            colorTo: '#BED1E6',
+                            stops: [0, 100],
+                            opacityFrom: 0.4,
+                            opacityTo: 0.5
+                        }
+                    }
+                },
+                tooltip: {
+                    enabled: true,
+                    offsetY: -35
+
+                }
+            },
+            fill: {
+                gradient: {
+                    shade: 'light',
+                    type: "horizontal",
+                    shadeIntensity: 0.25,
+                    gradientToColors: undefined,
+                    inverseColors: true,
+                    opacityFrom: 1,
+                    opacityTo: 1,
+                    stops: [50, 0, 100, 100]
+                }
+            },
+            yaxis: {
+                axisBorder: {
+                    show: false
+                },
+                axisTicks: {
+                    show: false
+                },
+                labels: {
+                    show: true,
+                    formatter: function (val) {
+                        return val + "%";
+                    }
+                },
+                title: {
+                    text: '数值'
+                }
+
+            },
+            grid: {
+                row: {
+                    colors: ['transparent', 'transparent'],
+                    opacity: 0.2
+                },
+                borderColor: '#f1f3fa'
+            }
+        };
+
+        new ApexCharts(
+            document.querySelector("#dataLabelsColumnChart"),
+            dataLabelsColumnChartOptions
+        ).render();
+
+
+
+    });
+</script>

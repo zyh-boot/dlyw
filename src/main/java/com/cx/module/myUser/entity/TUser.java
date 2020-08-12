@@ -73,7 +73,7 @@ public class TUser extends BaseEnity implements Serializable {
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     @ApiModelProperty(value = "创建时间")
-    @TableField(value = "CREATE_TIME" ,fill = FieldFill.INSERT)
+    @TableField(value = "CREATE_TIME", fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
     @ApiModelProperty(value = "修改时间")

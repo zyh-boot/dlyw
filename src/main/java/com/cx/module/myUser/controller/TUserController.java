@@ -8,9 +8,13 @@ import com.cx.common.entity.CommonResponse;
 import com.cx.common.entity.QueryRequest;
 import com.cx.common.exception.CommonException;
 import com.cx.common.utils.Md5Util;
+import com.cx.module.amyequipment.entity.Myequipment;
+import com.cx.module.amyequipment.service.IMyequipmentService;
 import com.cx.module.mobile.entity.CodeBean;
 import com.cx.module.myUser.entity.TUser;
 import com.cx.module.myUser.service.ITUserService;
+import com.cx.module.mydept.entity.Mydept;
+import com.cx.module.mydept.service.IMydeptService;
 import com.cx.module.userEq.entity.UserMyequipment;
 import com.cx.module.userEq.service.IUserMyequipmentService;
 import com.cx.system.entity.Role;
@@ -25,6 +29,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -54,6 +59,9 @@ public class TUserController extends BaseController {
     @Autowired
     IUserMyequipmentService userMyequipmentService;
 
+    @Autowired
+    IMydeptService mydeptService;
+
     /**
      * 查询详情
      */
@@ -68,9 +76,25 @@ public class TUserController extends BaseController {
         }
     }
 
+    /**
+     * 角色树
+     *
+     * @return
+     */
     @GetMapping("qx")
     public CommonResponse qw() {
         List<Role> list = roleService.list();
+        return new CommonResponse().code(HttpStatus.OK).data(list);
+    }
+
+    /**
+     * 部门树
+     *
+     * @return
+     */
+    @GetMapping("dept")
+    public CommonResponse dept() {
+        List<Mydept> list = mydeptService.list(new Mydept());
         return new CommonResponse().code(HttpStatus.OK).data(list);
     }
 
@@ -145,19 +169,43 @@ public class TUserController extends BaseController {
 
 
     /**
-     * 修改
+     * 修改用户
      */
     @PutMapping("")
     @PreAuthorize("hasRole('tUser:mod')")
-    public CommonResponse update(TUser obj) throws CommonException {
+    public CommonResponse update(TUser obj,  @NotBlank(message = "{required}") String oldPassword,@NotBlank(message = "{required}") String newPassword) throws Exception {
         try {
-            return getCommonResponse(iTUserService.update(obj));
+            if (!Md5Util.decrypt(oldPassword,obj.getPassword())) {
+                throw new CommonException("原密码不正确");
+            }
+            obj.setPassword(Md5Util.encrypt(obj.getUsername(), newPassword));
+            iTUserService.update(obj);
+            return getCommonResponse().success();
         } catch (Exception e) {
             String message = "修改失败";
             log.error(message, e);
             throw new CommonException(message);
         }
     }
+
+//    @PostMapping("password/update")
+//    public CommonResponse updatePassword(
+//            @NotBlank(message = "{required}") String oldPassword,
+//            @NotBlank(message = "{required}") String newPassword) throws CommonException {
+//        try {
+//            User user = getCurrentUser();
+//
+//            if (!StringUtils.equals(user.getPassword(), Md5Util.encrypt(user.getUsername(), oldPassword))) {
+//                throw new CommonException("原密码不正确");
+//            }
+//            userService.updatePassword(user.getUsername(), newPassword);
+//            return new CommonResponse().success();
+//        } catch (Exception e) {
+//            String message = "修改密码失败，" + e.getMessage();
+//            log.error(message, e);
+//            throw new CommonException(message);
+//        }
+//    }
 
     /**
      * 删除用户
@@ -187,14 +235,18 @@ public class TUserController extends BaseController {
 
     /**
      * 设备绑定
-     *
+     * <p>
      * 功能: 添加设备; 删除名下设备
+     *
      * @param request
      * @param tUser
      * @param sbCode
      * @return
      * @throws Exception
      */
+
+    @Autowired
+    IMyequipmentService myequipmentService;
     @PostMapping("bind")
     @PreAuthorize("hasRole('tUser:bind')")
     public CommonResponse bind(HttpServletRequest request, TUser tUser, String sbCode) throws Exception {
@@ -242,6 +294,17 @@ public class TUserController extends BaseController {
                         userMyequipment.setUserId(tUser.getUserId().intValue());
                         userMyequipment.setMyequipmentId(Integer.parseInt(codeBean.getValue()));
                         userMyequipmentService.add(userMyequipment);
+
+
+                        Myequipment myequipment = new Myequipment();
+//                        myequipment.setId(Long.parseLong(codeBean.getValue()));
+                        myequipment.setEqDeptId(tUser.getDeptId());
+                        myequipment.setEqDeptName(tUser.getDeptName());
+
+                        LambdaQueryWrapper<Myequipment> myeqWrapper = new LambdaQueryWrapper<>();
+                        myeqWrapper.eq(Myequipment::getId,Long.parseLong(codeBean.getValue()));
+                        myequipmentService.updateByWrapper(myequipment,myeqWrapper);
+
                     }
                 }
             }

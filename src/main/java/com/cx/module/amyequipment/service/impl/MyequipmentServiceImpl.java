@@ -69,24 +69,56 @@ public class MyequipmentServiceImpl extends ServiceImpl<MyequipmentMapper, Myequ
     }
 
     /**
+     * 查询列表
+     */
+    @Override
+    public List<Myequipment> list(Wrapper obj) {
+
+        User user = CommonUtil.getCurrentUser();
+
+        return this.baseMapper.selectList(obj);
+    }
+
+    /**
      * 分页查询
      */
     @Override
     public IPage<Myequipment> page(Myequipment obj, QueryRequest query) {
-
         LambdaQueryWrapper<Myequipment> queryWrapper = new LambdaQueryWrapper<>();
 
         if (StringUtils.isNotBlank(obj.getStartDate()) && StringUtils.isNotBlank(obj.getEndDate())) {
             queryWrapper.between(Myequipment::getEqAddTime, obj.getStartDate(), obj.getEndDate());
         }
-        if(StringUtils.isNotBlank(obj.getEqAddress())){
-            queryWrapper.eq(Myequipment::getEqAddress,obj.getEqAddress());
+        if (StringUtils.isNotBlank(obj.getEqAddress())) {
+            queryWrapper.eq(Myequipment::getEqAddress, obj.getEqAddress());
         }
+        Page<Myequipment> page = new Page<>(query.getPageNum(), query.getPageSize());
+        SortUtil.handlePageSort(query, page, "id", Constant.ORDER_ASC, true);
+        return this.baseMapper.selectPage(page, queryWrapper);
+    }
+
+    /**
+     * 其他分页查询
+     */
+
+    @Override
+    public IPage<Myequipment> myPage(Myequipment obj, QueryRequest query, List category) {
+        LambdaQueryWrapper<Myequipment> queryWrapper = new LambdaQueryWrapper<>();
+
+        if (StringUtils.isNotBlank(obj.getStartDate()) && StringUtils.isNotBlank(obj.getEndDate())) {
+            queryWrapper.between(Myequipment::getEqAddTime, obj.getStartDate(), obj.getEndDate());
+        }
+
+        if (!category.isEmpty()) {
+            queryWrapper.in(Myequipment::getEqDeptId, category);
+        }
+
 
         Page<Myequipment> page = new Page<>(query.getPageNum(), query.getPageSize());
         SortUtil.handlePageSort(query, page, "id", Constant.ORDER_ASC, true);
         return this.baseMapper.selectPage(page, queryWrapper);
     }
+
 
     /**
      * 新增
@@ -117,6 +149,7 @@ public class MyequipmentServiceImpl extends ServiceImpl<MyequipmentMapper, Myequ
     @Override
     @Transactional(rollbackFor = Exception.class)
     public int updateByWrapper(Myequipment obj, Wrapper wrapper) {
+
         return this.baseMapper.update(obj, wrapper);
     }
 

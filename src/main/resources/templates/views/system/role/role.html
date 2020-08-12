@@ -110,6 +110,11 @@
 
         initTable();
 
+        //设置父标签全覆盖
+        $view.parent().css("height", "100%")
+        $view.parent().css("background", "#fff")
+
+
         laydate.render({
             elem: '#createTime',
             range: true

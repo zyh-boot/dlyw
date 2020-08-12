@@ -1,4 +1,4 @@
-<div class="layui-fluid layui-anim febs-anim" id="febs-myequipment" lay-title="设备列表">
+<div class="layui-fluid layui-anim febs-anim" id="febs-myequipment" lay-title="市级设备列表">
     <div class="layui-row febs-container">
         <div class="layui-col-md12">
             <div class="layui-card">
@@ -31,7 +31,7 @@
                                     <div class="layui-inline">
                                         <label class="layui-form-label layui-form-label-sm">创建时间</label>
                                         <div class="layui-input-inline">
-                                            <input type="text" name="createDate" id="createTime" class="layui-input">
+                                            <input type="text" name="createDate" id="createTime1" class="layui-input">
                                         </div>
                                     </div>
                                 </div>
@@ -92,10 +92,12 @@
         form.render();
 
         initTable();
-
+        //设置父标签全覆盖
+        $view.parent().css("height", "100%")
+        $view.parent().css("background", "#fff")
 
         laydate.render({
-            elem: '#createTime',
+            elem: '#createTime1',
             range: true,
             trigger: 'click'
         });

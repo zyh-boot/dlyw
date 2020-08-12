@@ -1,4 +1,4 @@
-<div class="layui-fluid layui-anim febs-anim" id="febs-myequipment" lay-title="设备列表">
+<div class="layui-fluid layui-anim febs-anim" id="febs-myequipment" lay-title="市级设备列表">
     <div class="layui-row febs-container">
         <div class="layui-col-md12">
             <div class="layui-card">
@@ -23,7 +23,7 @@
                             <div class="layui-col-md10   layui-col-sm12 layui-col-xs12 table-action-area">
                                 <div class="layui-form-item">
                                     <div class="layui-inline">
-                                        <label class="layui-form-label layui-form-label-sm">名称</label>
+                                        <label class="layui-form-label layui-form-label-sm">设备区域</label>
                                         <div class="layui-input-inline">
                                             <input type="text" name="name" autocomplete="off" class="layui-input">
                                         </div>
@@ -31,7 +31,7 @@
                                     <div class="layui-inline">
                                         <label class="layui-form-label layui-form-label-sm">创建时间</label>
                                         <div class="layui-input-inline">
-                                            <input type="text" name="createDate" id="createTime" class="layui-input">
+                                            <input type="text" name="createDate" id="createTime1" class="layui-input">
                                         </div>
                                     </div>
                                 </div>
@@ -52,6 +52,16 @@
     1: {title: '有效', color: 'green'},
     0: {title: '失效', color: 'volcano'}
     }[d.state];
+    }}
+    <span class="layui-badge febs-tag-{{status.color}}">{{ status.title }}</span>
+</script>
+
+<script type="text/html" id="myequipment-eqOverhaul">
+    {{#
+    var status = {
+    1: {title: '正常', color: 'green'},
+    0: {title: '检修', color: 'volcano'}
+    }[d.eqOverhaul];
     }}
     <span class="layui-badge febs-tag-{{status.color}}">{{ status.title }}</span>
 </script>
@@ -82,10 +92,12 @@
         form.render();
 
         initTable();
-
+        //设置父标签全覆盖
+        $view.parent().css("height", "100%")
+        $view.parent().css("background", "#fff")
 
         laydate.render({
-            elem: '#createTime',
+            elem: '#createTime1',
             range: true,
             trigger: 'click'
         });
@@ -185,10 +197,10 @@
                     // {field: 'eqSo2', title: 'SO2(二氧化硫)'},
                     // {field: 'sqNo2', title: 'NO2(二氧化氮)'},
                     // {field: 'sqO3', title: 'O3(臭氧)'},
-                    {field: 'eqAddress', title: '设备地址'},
+                    {field: 'eqAddress', title: '设备区域'},
                     {field: 'eqAddTime', title: '设备添加时间'},
                     {field: 'eqSupplier', title: '设备供应商'},
-                    {field: 'eqOverhaul', title: '是否检修(1:正常 0:修理)'},
+                    { title: '是否检修',templet: "#myequipment-eqOverhaul"},
                     {title: '状态', templet: '#myequipment-status'},
                     // {field: 'createDate', title: '创建时间', minWidth: 180, sort: true},
                     {title: '操作', toolbar: '#myequipment-option', minWidth: 140}
@@ -207,8 +219,8 @@
             return {
                 startDate: createTimeFrom,
                 endDate: createTimeTo,
-                name: $searchForm.find('input[name="name"]').val().trim(),
-                invalidate_ie_cache: new Date()
+                eqAddress   : $searchForm.find('input[name="name"]').val().trim(),
+                // invalidate_ie_cache: new Date()
             };
         }
 

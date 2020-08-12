@@ -1,11 +1,16 @@
 package com.cx.module.amyequipment.controller;
+
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cx.common.controller.BaseController;
 import com.cx.common.entity.CommonResponse;
 import com.cx.common.entity.QueryRequest;
 import com.cx.common.exception.CommonException;
 import com.cx.module.amyequipment.entity.Myequipment;
 import com.cx.module.amyequipment.service.IMyequipmentService;
+import com.cx.module.mydept.entity.Mydept;
+import com.cx.module.mydept.service.IMydeptService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,25 +18,27 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
-* 存放设备相关数据  控制器
-*
-* @author admin
-* @Description Created on 2020-08-06
-*/
+ * 存放设备相关数据  控制器
+ *
+ * @author admin
+ * @Description Created on 2020-08-06
+ */
 @RestController
 @Slf4j
 @RequestMapping("amyequipment/myequipment")
-        public class MyequipmentController extends BaseController{
+public class MyequipmentController extends BaseController {
     @Autowired
     IMyequipmentService iMyequipmentService;
 
     /**
-    * 查询详情
-    */
+     * 查询详情
+     */
     @GetMapping("detail")
-    public CommonResponse add(Long id) throws CommonException{
+    public CommonResponse add(Long id) throws CommonException {
         try {
             return getCommonResponse(iMyequipmentService.selectOne(id));
         } catch (Exception e) {
@@ -42,12 +49,12 @@ import java.time.LocalDateTime;
     }
 
     /**
-    * 分页查询
-    */
+     * 分页查询
+     */
     @GetMapping("pageList")
-    public CommonResponse pageList(Myequipment obj,QueryRequest query)  throws CommonException{
+    public CommonResponse pageList(Myequipment obj, QueryRequest query) throws CommonException {
         try {
-            return  getTableData(iMyequipmentService.page(obj,query));
+            return getTableData(iMyequipmentService.page(obj, query));
         } catch (Exception e) {
             String message = "分页查询失败";
             log.error(message, e);
@@ -56,10 +63,38 @@ import java.time.LocalDateTime;
     }
 
     /**
-    * 查询列表
-    */
+     * 分页查询其他
+     */
+    @Autowired
+    IMydeptService mydeptService;
+
+    @GetMapping("pageOtherList/{categroy}")
+    public CommonResponse pageOtherList(Myequipment obj, QueryRequest query, @PathVariable String categroy) throws CommonException {
+        try {
+            LambdaQueryWrapper<Mydept> wrapper = new LambdaQueryWrapper<>();
+            wrapper.eq(Mydept::getCategory, categroy);
+            List<Mydept> mydepts = mydeptService.list(wrapper);
+
+            ArrayList<Object> list = new ArrayList<>();
+            for (Mydept mydept : mydepts) {
+                list.add(mydept.getId());
+            }
+            if (list.isEmpty()){
+                return getTableData(new Page<>());
+            }
+            return getTableData(iMyequipmentService.myPage(obj, query, list));
+        } catch (Exception e) {
+            String message = "分页查询失败";
+            log.error(message, e);
+            throw new CommonException(message);
+        }
+    }
+
+    /**
+     * 查询列表
+     */
     @GetMapping("list")
-    public CommonResponse pageList(Myequipment obj)  throws CommonException{
+    public CommonResponse pageList(Myequipment obj) throws CommonException {
         try {
             return getCommonResponse(iMyequipmentService.list(obj));
         } catch (Exception e) {
@@ -70,11 +105,11 @@ import java.time.LocalDateTime;
     }
 
     /**
-    * 新增
-    */
+     * 新增
+     */
     @PostMapping("")
     @PreAuthorize("hasRole('myequipment:add')")
-    public CommonResponse add(Myequipment obj) throws CommonException{
+    public CommonResponse add(Myequipment obj) throws CommonException {
         obj.setEqAddTime(LocalDateTime.now());
         try {
             return getCommonResponse(iMyequipmentService.add(obj));
@@ -87,11 +122,11 @@ import java.time.LocalDateTime;
 
 
     /**
-    * 修改
-    */
+     * 修改
+     */
     @PutMapping("")
     @PreAuthorize("hasRole('myequipment:mod')")
-    public CommonResponse update(Myequipment obj) throws CommonException{
+    public CommonResponse update(Myequipment obj) throws CommonException {
         try {
             return getCommonResponse(iMyequipmentService.update(obj));
         } catch (Exception e) {
@@ -102,13 +137,14 @@ import java.time.LocalDateTime;
     }
 
     /**
-    * 删除
-    * @param ids
-    * @return
-    */
+     * 删除
+     *
+     * @param ids
+     * @return
+     */
     @DeleteMapping("")
     @PreAuthorize("hasRole('myequipment:del')")
-    public CommonResponse delete(String ids) throws CommonException{
+    public CommonResponse delete(String ids) throws CommonException {
         try {
             if (StringUtils.isNotBlank(ids)) {
                 if (ids.contains(StringPool.COMMA)) {

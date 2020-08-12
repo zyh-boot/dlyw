@@ -3,34 +3,36 @@
 </style>
 <div class="layui-fluid layui-anim febs-anim" id="febs-tUser-update" lay-title="用户表">
     <form class="layui-form" action="" lay-filter="tUser-update-form">
-<!--                <div class="layui-form-item">-->
-<!--                    <label class="layui-form-label febs-form-item-require">用户ID：</label>-->
-<!--                    <div class="layui-input-block">-->
-<!--                        <input type="text" name="userId" autocomplete="off" class="layui-input">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="layui-form-item">-->
-<!--                    <label class="layui-form-label febs-form-item-require">用户名：</label>-->
-<!--                    <div class="layui-input-block">-->
-<!--                        <input type="text" name="username" autocomplete="off" class="layui-input">-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">用户ID：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="userId" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">用户名：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="username" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
 <!--                <div class="layui-form-item">-->
 <!--                    <label class="layui-form-label febs-form-item-require">密码：</label>-->
 <!--                    <div class="layui-input-block">-->
 <!--                        <input type="text" name="password" autocomplete="off" class="layui-input">-->
 <!--                    </div>-->
 <!--                </div>-->
-<!--                <div class="layui-form-item">-->
-<!--                    <label class="layui-form-label febs-form-item-require">部门ID：</label>-->
-<!--                    <div class="layui-input-block">-->
-<!--                        <input type="text" name="deptId" autocomplete="off" class="layui-input">-->
-<!--                    </div>-->
-<!--                </div>-->
+        <input type="text" name="userId" id="id" class="layui-input febs-hide" readonly>
+
+        <input type="text" name="deptId" id ="hidenDeptID" readonly class="layui-input febs-hide ">
+
                 <div class="layui-form-item">
                     <label class="layui-form-label febs-form-item-require">部门名称：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="deptName" autocomplete="off" class="layui-input">
+<!--                        <input type="text" name="deptName" autocomplete="off" class="layui-input">-->
+
+                        <input type="text" name="deptName" id="deptName" class="layui-input febs-hide" readonly>
+                        <select name="mydeptId" lay-filter="mydeptId" id="mydeptId" class="layui-form-select"></select>
+
                     </div>
                 </div>
 <!--                <div class="layui-form-item">-->
@@ -57,6 +59,32 @@
                 <input type="text" name="password" autocomplete="off" class="layui-input">
             </div>
         </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">原密码：</label>
+            <div class="layui-input-block">
+                <input autocomplete="off" class="layui-input" lay-verify="required"
+                       name="oldPassword" type="password">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">新密码：</label>
+            <div class="layui-input-block">
+                <input autocomplete="off" class="layui-input" lay-verify="range" minlength="6"
+                       name="newPassword" type="password">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">密码确认：</label>
+            <div class="layui-input-block">
+                <input autocomplete="off" class="layui-input" lay-verify="range" minlength="6"
+                       name="confirmPassword" type="password">
+            </div>
+        </div>
+
+
+
+
                 <div class="layui-form-item">
                     <label class="layui-form-label febs-form-item-require">账户剩余时间：</label>
                     <div class="layui-input-block">
@@ -145,15 +173,45 @@
         form.render();
         initValue();
 
-
+        form.on('select(mydeptId)', function (data) {
+            $view.find("#deptName").val(this.innerText)
+            console.log(data.value)
+            $view.find("#hidenDeptID").val(data.value)
+        })
         form.on('submit(tUser-update-form-submit)', function (data) {
+            console.log(data)
+            if (data.field.newPassword !== data.field.confirmPassword) {
+                febs.alert.warn('两次密码输入不一致！');
+                return false;
+            }
             febs.put(ctx + 'myUser/tUser', data.field, function () {
                 layer.closeAll();
                 $('#febs-tUser').find('#query').click();
             });
             return false;
         });
+        //请求机构树
+        $.ajax({
+            url: "myUser/tUser/dept",
+            data: "",
+            datatype: 'json',
+            success: function (res) {
+                console.log(res)
+                $.each(res.data, function (index, item) {
+                    console.log(item);
+                    //option 第一个参数是页面显示的值，第二个参数是传递到后台的值
+                    $('#mydeptId').append(new Option(item.name, item.id));//往下拉菜单里添加元素
+                    //设置value（这个值就可以是在更新的时候后台传递到前台的值）为2的值为默认选中
+                    // $('#deptId').val(tUser.deptId);
+                    form.render(); //更新全部表单内容
+                    //form.render('select'); //刷新表单select选择框渲染
 
+                    $view.find("#mydeptId").val($view.find("#hidenDeptID").val())
+                })
+
+                // $view.find("#deptName").val($view.find("#deptId").find("option:selected").text())
+            }
+        })
 
         function initValue() {
             form.val("tUser-update-form", {

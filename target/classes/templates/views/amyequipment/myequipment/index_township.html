@@ -1,0 +1,235 @@
+<div class="layui-fluid layui-anim febs-anim" id="febs-myequipment" lay-title="乡级设备列表">
+    <div class="layui-row febs-container">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body febs-table-full">
+                    <form class="layui-form layui-table-form" lay-filter="myequipment-table-form">
+                        <div class="layui-row">
+                            <div class="layui-col-md2 layui-col-sm12 layui-col-xs12 table-action-area">
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action"
+                                     id="addmyequipment"   sec:authorize="hasRole('myequipment:add')">
+                                    <i class="layui-icon">&#xe891;</i>
+                                </div>
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="delete" sec:authorize="hasRole('myequipment:del')">
+                                    <i class="layui-icon">&#xe7f9;</i>
+                                </div>
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="query">
+                                    <i class="layui-icon">&#xe848;</i>
+                                </div>
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="reset">
+                                    <i class="layui-icon">&#xe79b;</i>
+                                </div>
+                            </div>
+                            <div class="layui-col-md10   layui-col-sm12 layui-col-xs12 table-action-area">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label layui-form-label-sm">设备区域</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" name="name" autocomplete="off" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label layui-form-label-sm">创建时间</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" name="createDate" id="createTime4" class="layui-input">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <table lay-filter="myequipmentTable"
+                           lay-data="{id: 'myequipmentTable'}"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="myequipment-status">
+    {{#
+    var status = {
+    1: {title: '有效', color: 'green'},
+    0: {title: '失效', color: 'volcano'}
+    }[d.state];
+    }}
+    <span class="layui-badge febs-tag-{{status.color}}">{{ status.title }}</span>
+</script>
+
+<script type="text/html" id="myequipment-eqOverhaul">
+    {{#
+    var status = {
+    1: {title: '正常', color: 'green'},
+    0: {title: '检修', color: 'volcano'}
+    }[d.eqOverhaul];
+    }}
+    <span class="layui-badge febs-tag-{{status.color}}">{{ status.title }}</span>
+</script>
+
+<script type="text/html" id="myequipment-option">
+    <a lay-event="edit"><i class="layui-icon febs-edit-area febs-blue"  sec:authorize="hasRole('myequipment:mod')">&#xe7a4;</i></a>
+    <a lay-event="del"><i class="layui-icon febs-edit-area febs-red"  sec:authorize="hasRole('myequipment:del')">&#xe7f9;</i></a>
+</script>
+
+<script data-th-inline="none" type="text/javascript">
+    layui.use([ 'jquery', 'layer', 'laydate', 'form','febs','table', 'util','xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            laydate = layui.laydate,
+            febs = layui.febs,
+            form = layui.form,
+            table=layui.table,
+            xmSelect = layui.xmSelect,
+            $view = $('#febs-myequipment'),
+            $query = $view.find('#query'),
+            $reset = $view.find('#reset'),
+            $addmyequipment = $view.find('#addmyequipment'),
+            $delete = $view.find('#delete'),
+            $searchForm = $view.find('form'),
+            sortObject = {field: 'createDate', type: null},
+            tableIns;
+
+        form.render();
+
+        initTable();
+
+        //设置父标签全覆盖
+        $view.parent().css("height", "100%")
+        $view.parent().css("background", "#fff")
+        laydate.render({
+            elem: '#createTime4',
+            range: true,
+            trigger: 'click'
+        });
+
+
+        //监听单元格事件
+        table.on('tool(myequipmentTable)', function (obj) {
+            var data = obj.data,
+                layEvent = obj.event;
+            console.log("data", data);
+            if (layEvent === 'del') {
+                febs.modal.confirm('删除设备', '确定删除该设备 ？', function () {
+                    deleteMyequipment(data.id);
+                });
+            }
+            if (layEvent === 'edit') {
+                febs.modal.open('修改设备', 'amyequipment/myequipment/update/' + data.id, {
+                    area: $(window).width() <= 750 ? '90%' : '50%',
+                    btn: ['提交', '取消'],
+                    yes: function (index, layero) {
+                        $('#febs-myequipment-update').find('#submit').trigger('click');
+                    },
+                    btn2: function () {
+                        layer.closeAll();
+                    }
+                });
+            }
+        });
+
+        table.on('sort(myequipmentTable)', function (obj) {
+            sortObject = obj;
+            tableIns.reload({
+                initSort: obj,
+                where: $.extend(getQueryParams(), {
+                    field: obj.field,
+                    order: obj.type
+                })
+            });
+        });
+
+        $query.on('click', function () {
+            var params = $.extend(getQueryParams(), {field: sortObject.field, order: sortObject.type});
+            tableIns.reload({where: params, page: {curr: 1}});
+        });
+
+        $reset.on('click', function () {
+            $searchForm[0].reset();
+            sortObject.type = 'null';
+            tableIns.reload({where: getQueryParams(), page: {curr: 1}, initSort: sortObject});
+        });
+
+
+        $addmyequipment.on('click', function () {
+            febs.modal.open('新增设备', 'amyequipment/myequipment/add', {
+                btn: ['提交', '重置'],
+                area: $(window).width() <= 750 ? '95%' : '50%',
+                yes: function (index, layero) {
+                    $('#febs-myequipment-add').find('#submit').trigger('click');
+                },
+                btn2: function () {
+                    $('#febs-myequipment-add').find('#reset').trigger('click');
+                    return false;
+                }
+            });
+        });
+
+
+        $delete.on('click', function () {
+            var checkStatus = table.checkStatus('myequipmentTable');
+            if (!checkStatus.data.length) {
+                febs.alert.warn('请选择需要删除的设备 ');
+            } else {
+                febs.modal.confirm('删除设备', '确定删除该设备 ？', function () {
+                    var userIds = [];
+                    layui.each(checkStatus.data, function (key, item) {
+                        userIds.push(item.id)
+                    });
+                    deleteMyequipment(userIds.join(','));
+                });
+            }
+        });
+
+        function initTable() {
+            tableIns = febs.table.init({
+                elem: $view.find('table'),
+                id: 'myequipmentTable',
+                url: ctx + 'amyequipment/myequipment/pageOtherList/3',
+                cols: [[
+                    {type: 'checkbox'},
+                    {field: 'eqName', title: '设备名'},
+                    {field: 'eqCode', title: '设备编号'},
+                    {field: 'eqType', title: '设备类型'},
+                    {field: 'eqLedger', title: '设备台账'},
+                    // {field: 'eqPmTwo', title: 'PM2.5'},
+                    // {field: 'eqPmTen', title: 'PM10'},
+                    // {field: 'eqCo', title: 'CO(一氧化碳)'},
+                    // {field: 'eqSo2', title: 'SO2(二氧化硫)'},
+                    // {field: 'sqNo2', title: 'NO2(二氧化氮)'},
+                    // {field: 'sqO3', title: 'O3(臭氧)'},
+                    {field: 'eqAddress', title: '设备区域'},
+                    {field: 'eqAddTime', title: '设备添加时间'},
+                    {field: 'eqSupplier', title: '设备供应商'},
+                    { title: '是否检修',templet: "#myequipment-eqOverhaul"},
+                    {title: '状态', templet: '#myequipment-status'},
+                    // {field: 'createDate', title: '创建时间', minWidth: 180, sort: true},
+                    {title: '操作', toolbar: '#myequipment-option', minWidth: 140}
+                ]]
+            });
+        }
+
+        function getQueryParams() {
+            var createTimeFrom = "",
+                createTimeTo = "",
+                createTime = $searchForm.find('input[name="createDate"]').val();
+            if (createTime) {
+                createTimeFrom = createTime.split(' - ')[0];
+                createTimeTo = createTime.split(' - ')[1];
+            }
+            return {
+                startDate: createTimeFrom,
+                endDate: createTimeTo,
+                eqAddress   : $searchForm.find('input[name="name"]').val().trim(),
+                // invalidate_ie_cache: new Date()
+            };
+        }
+
+
+        function deleteMyequipment(ids){
+            febs.delete(ctx + 'amyequipment/myequipment', {"ids": ids}, function () {
+                febs.alert.success('删除成功');
+                $query.click();
+            });
+        }
+    })
+</script>

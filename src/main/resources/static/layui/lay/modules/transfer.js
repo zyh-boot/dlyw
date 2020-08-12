@@ -156,8 +156,10 @@ layui.define(["laytpl", "form"], function (e) {
                 n = t[0].checked,
                 i = t.parents("." + s).eq(0).find("." + y);
             t[0].disabled || ("all" === t.attr("lay-type") && i.find('input[type="checkbox"]').each(function () {
+
                 this.disabled || (this.checked = n)
             }), e.renderCheckBtn({
+
                 stopNone: !0
             }))
         }), e.layBtn.on("click", function () {
@@ -165,6 +167,7 @@ layui.define(["laytpl", "form"], function (e) {
                 i = n.data("index"),
                 l = e.layBox.eq(i),
                 r = [];
+
             if (!n.hasClass(o)) {
                 e.layBox.eq(i).each(function (t) {
                     var n = a(this),

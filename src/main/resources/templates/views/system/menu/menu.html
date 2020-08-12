@@ -144,7 +144,9 @@
 
         form.verify(validate);
         form.render();
-
+        //设置父标签全覆盖
+        $view.parent().css("height", "100%")
+        $view.parent().css("background", "#fff")
         dropdown.render({
             elem: $view.find('.action-more'),
             click: function (name, elem, event) {

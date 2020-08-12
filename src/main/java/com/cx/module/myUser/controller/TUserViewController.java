@@ -1,5 +1,6 @@
 package com.cx.module.myUser.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.cx.common.controller.BaseController;
 import com.cx.common.entity.Constant;
 import com.cx.common.utils.CommonUtil;
@@ -86,27 +87,57 @@ public class TUserViewController extends BaseController {
         model.addAttribute("tUser", obj);
 
         //查询当前用户下的设备
-        UserMyequipment userMyequipment = new UserMyequipment();
-        userMyequipment.setUserId(id);
-        List<UserMyequipment> list = userMyequipmentService.list(userMyequipment);
+        LambdaQueryWrapper<UserMyequipment> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(UserMyequipment::getUserId, id);
+        List<UserMyequipment> list = userMyequipmentService.list(wrapper);
+
         ArrayList<Object> dataList = new ArrayList<>();
-        for(UserMyequipment userMyequipment1 : list ){
-            if (userMyequipment1 != null){
+        for (UserMyequipment userMyequipment1 : list) {
+            if (userMyequipment1 != null) {
                 dataList.add(userMyequipment1.getMyequipmentId());
             }
         }
+/****************************查找已绑定设备Id***************************************/
+        ArrayList<String> allList = new ArrayList<>();
+        List<Myequipment> myequipmentList = myequipmentService.list(new Myequipment());
+        for (Myequipment myequipment : myequipmentList) {
+            allList.add(myequipment.getId().toString());
+        }
+
+        ArrayList<String> nowList = new ArrayList<>();
+        List<UserMyequipment> userMyequipments = userMyequipmentService.list(new UserMyequipment());
+        for (UserMyequipment userMyequipment : userMyequipments) {
+            nowList.add(userMyequipment.getMyequipmentId().toString());
+        }
+
+        allList.retainAll(nowList);
+        System.out.println(">>>>>>>>>>>>>>>>>>>>" + allList);
+/*******************************************************************/
 
         List<Myequipment> myequipments = myequipmentService.list(new Myequipment());
         ArrayList<CodeBean> listCode = new ArrayList<>();
-        for (Myequipment myequipment : myequipments){
+        for (Myequipment myequipment : myequipments) {
             CodeBean codeBean = new CodeBean();
             codeBean.setTitle(myequipment.getEqName());
             codeBean.setValue(myequipment.getId().toString());
+
+            /**********************判断设备是否在自己名下********************/
+            if (allList.indexOf(myequipment.getId().toString()) >= 0) {
+                LambdaQueryWrapper<UserMyequipment> wrapper1 = new LambdaQueryWrapper<>();
+                wrapper1.eq(UserMyequipment::getUserId, id)
+                        .eq(UserMyequipment::getMyequipmentId, myequipment.getId());
+                UserMyequipment userMyequipment = userMyequipmentService.selectOne(wrapper1);
+                //不在自己名下不可绑定
+                if (userMyequipment == null) {
+                    codeBean.setDisabled(true);
+                }
+            }
+            /*************************************************************/
             listCode.add(codeBean);
         }
 
-        model.addAttribute("codeList",listCode);
-        model.addAttribute("dataList",dataList);
+        model.addAttribute("codeList", listCode);
+        model.addAttribute("dataList", dataList);
         return CommonUtil.view("myUser/tUser/bind");
     }
 }

@@ -69,6 +69,7 @@
 </script>
 
 <script type="text/html" id="tUser-option">
+    <a lay-event="kh_code"><i class="layui-icon febs-edit-area febs-green"  sec:authorize="hasRole('tUser:bind')">&#xe653;</i></a>
     <a lay-event="edit"><i class="layui-icon febs-edit-area febs-blue" sec:authorize="hasRole('tUser:mod')">&#xe7a4;</i></a>
     <a lay-event="del"><i class="layui-icon febs-edit-area febs-red"
                           sec:authorize="hasRole('tUser:del')">&#xe7f9;</i></a>
@@ -95,7 +96,9 @@
         form.render();
 
         initTable();
-
+        //设置父标签全覆盖
+        $view.parent().css("height", "100%")
+        $view.parent().css("background", "#fff")
 
         laydate.render({
             elem: '#createTime',
@@ -126,6 +129,18 @@
                     }
                 });
             }
+            if (layEvent === 'kh_code') {
+                febs.modal.open('绑定设备', 'myUser/tUser/bind/' + data.userId, {
+                    area: $(window).width() <= 750 ? '90%' : '50%',
+                    btn: ['提交', '取消'],
+                    yes: function (index, layero) {
+                        $('#febs-kh-code').find('#submit').trigger('click');
+                    },
+                    btn2: function () {
+                        layer.closeAll();
+                    }
+                });
+            }
         });
 
         table.on('sort(tUserTable)', function (obj) {
@@ -142,8 +157,6 @@
             console.log(data.value);
         })
         $query.on('click', function () {
-            // var params = $.extend(getQueryParams(), {field: sortObject.field, order: sortObject.type});
-            // tableIns.reload({where: params, page: {curr: 1}});
             let index = $searchForm.find('select[name="interest"]').val().trim();
             let queryParams = ''
             console.log(index)
@@ -197,7 +210,7 @@
                 cols: [[
                     {type: 'checkbox'},
                     {field: 'userId', title: '用户ID', hide: true},
-                    {field: 'username', title: '用户名'},
+                    {field: 'username', title: '用户登录名'},
                     {field: 'accountName', title: '用户姓名'},
                     // {field: 'password', title: '密码'},
                     // {field: 'deptId', title: '部门ID'},

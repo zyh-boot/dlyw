@@ -96,7 +96,9 @@
         form.render();
 
         initTable();
-
+        //设置父标签全覆盖
+        $view.parent().css("height", "100%")
+        $view.parent().css("background", "#fff")
 
         laydate.render({
             elem: '#createTime',
@@ -155,8 +157,6 @@
             console.log(data.value);
         })
         $query.on('click', function () {
-            // var params = $.extend(getQueryParams(), {field: sortObject.field, order: sortObject.type});
-            // tableIns.reload({where: params, page: {curr: 1}});
             let index = $searchForm.find('select[name="interest"]').val().trim();
             let queryParams = ''
             console.log(index)

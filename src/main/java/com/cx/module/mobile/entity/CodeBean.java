@@ -25,4 +25,13 @@ public class CodeBean {
         this.value = value;
     }
 
+    private Boolean disabled;
+
+    public Boolean getDisabled() {
+        return disabled;
+    }
+
+    public void setDisabled(Boolean disabled) {
+        this.disabled = disabled;
+    }
 }

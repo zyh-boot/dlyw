@@ -32,6 +32,9 @@ public class Mydept extends BaseEnity implements Serializable {
     @ApiModelProperty(value = "机构名称")
     @TableField("name")
     private String name;
+    @ApiModelProperty(value = "电话")
+    @TableField("phone")
+    private String phone;
     @ApiModelProperty(value = "机构负责人")
     @TableField("head")
     private String head;
