@@ -184,9 +184,10 @@
             tableIns = febs.table.init({
                 elem: $view.find('table'),
                 id: 'myequipmentTable',
-                url: ctx + 'amyequipment/myequipment/pageList',
+                url: ctx + 'amyequipment/myequipment/pageOtherList/1',
                 cols: [[
                     {type: 'checkbox'},
+                    {field: 'id', title: '设备id',hide:true},
                     {field: 'eqName', title: '设备名'},
                     {field: 'eqCode', title: '设备编号'},
                     {field: 'eqType', title: '设备类型'},

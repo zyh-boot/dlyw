@@ -1,24 +1,28 @@
 package com.cx.module.amyequipment.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cx.common.controller.BaseController;
 import com.cx.common.entity.CommonResponse;
 import com.cx.common.entity.QueryRequest;
 import com.cx.common.exception.CommonException;
+import com.cx.common.utils.CommonUtil;
 import com.cx.module.amyequipment.entity.Myequipment;
 import com.cx.module.amyequipment.service.IMyequipmentService;
 import com.cx.module.mydept.entity.Mydept;
 import com.cx.module.mydept.service.IMydeptService;
+import com.cx.system.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -71,18 +75,24 @@ public class MyequipmentController extends BaseController {
     @GetMapping("pageOtherList/{categroy}")
     public CommonResponse pageOtherList(Myequipment obj, QueryRequest query, @PathVariable String categroy) throws CommonException {
         try {
-            LambdaQueryWrapper<Mydept> wrapper = new LambdaQueryWrapper<>();
-            wrapper.eq(Mydept::getCategory, categroy);
-            List<Mydept> mydepts = mydeptService.list(wrapper);
+//            LambdaQueryWrapper<Mydept> wrapper = new LambdaQueryWrapper<>();
+//            wrapper.eq(Mydept::getCategory, categroy);
+//            List<Mydept> mydepts = mydeptService.list(wrapper);
+//
+//            ArrayList<Object> list = new ArrayList<>();
+//            for (Mydept mydept : mydepts) {
+//                list.add(mydept.getId());
+//            }
+//            if (list.isEmpty()){
+//                return getTableData(new Page<>());
+//            }
+//            return getTableData(iMyequipmentService.myPage(obj, query, list));
+            obj.setEqDeptCategory(categroy);
+            IPage<Myequipment> myequipmentIPage = iMyequipmentService.myPage(obj, query, new ArrayList());
+            List<Myequipment> records = myequipmentIPage.getRecords();
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>" + records);
+            return getTableData(iMyequipmentService.myPage(obj, query, new ArrayList()));
 
-            ArrayList<Object> list = new ArrayList<>();
-            for (Mydept mydept : mydepts) {
-                list.add(mydept.getId());
-            }
-            if (list.isEmpty()){
-                return getTableData(new Page<>());
-            }
-            return getTableData(iMyequipmentService.myPage(obj, query, list));
         } catch (Exception e) {
             String message = "分页查询失败";
             log.error(message, e);
@@ -159,6 +169,34 @@ public class MyequipmentController extends BaseController {
             log.error(message, e);
             throw new CommonException(message);
         }
+    }
+
+    @GetMapping("catetory")
+    public CommonResponse getCategory(){
+        HashMap<String, List> map = new HashMap<>();
+
+        HashMap<Object, Object> hashMap = new HashMap<>();
+        hashMap.put("index","1");
+
+
+        String value = "{'index':'1','value':'市'}";
+        String value1 = "{'index':'2','value':'县'}";
+        String value2 = "{'index':'3','value':'乡'}";
+        String value3 = "{'index':'4','value':'村'}";
+
+        ArrayList<Object> list = new ArrayList<>();
+        list.add(JSON.parse(value));
+        list.add(JSON.parse(value1));
+        list.add(JSON.parse(value2));
+        list.add(JSON.parse(value3));
+
+
+        User user = CommonUtil.getCurrentUser();
+        Mydept mydept = mydeptService.selectOne(user.getDeptId());
+        Integer category = mydept.getCategory() - 1 ;
+        List<Object> subList = list.subList(category < 0 ? 0 : category, list.size());
+        return new CommonResponse().code(HttpStatus.OK).data(subList);
+
     }
 
 }

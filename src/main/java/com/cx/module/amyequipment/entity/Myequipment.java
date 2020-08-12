@@ -40,6 +40,9 @@ public class Myequipment extends BaseEnity implements Serializable {
     @ApiModelProperty(value = "机构名")
     @TableField("eq_dept_name")
     private String eqDeptName;
+    @ApiModelProperty(value = "机构类别")
+    @TableField("eq_dept_category")
+    private String eqDeptCategory;
     @ApiModelProperty(value = "设备类型")
     @TableField("eq_type")
     private Integer eqType;

@@ -7,6 +7,7 @@ import com.cx.common.controller.BaseController;
 import com.cx.common.entity.CommonResponse;
 import com.cx.common.entity.QueryRequest;
 import com.cx.common.exception.CommonException;
+import com.cx.common.utils.CommonUtil;
 import com.cx.common.utils.Md5Util;
 import com.cx.module.amyequipment.entity.Myequipment;
 import com.cx.module.amyequipment.service.IMyequipmentService;
@@ -18,6 +19,7 @@ import com.cx.module.mydept.service.IMydeptService;
 import com.cx.module.userEq.entity.UserMyequipment;
 import com.cx.module.userEq.service.IUserMyequipmentService;
 import com.cx.system.entity.Role;
+import com.cx.system.entity.User;
 import com.cx.system.entity.UserRole;
 import com.cx.system.service.IRoleService;
 import com.cx.system.service.IUserRoleService;
@@ -210,13 +212,29 @@ public class TUserController extends BaseController {
     /**
      * 删除用户
      *
-     * @param ids
+     * @param ids 用户ID
      * @return
      */
+
     @DeleteMapping("")
     @PreAuthorize("hasRole('tUser:del')")
     public CommonResponse delete(String ids) throws CommonException {
         System.out.println(">>>>>>>>>>>>>>>>>>>>>" + ids);
+
+        //当前用户机构级别
+        User user = CommonUtil.getCurrentUser();
+        Mydept mydept = mydeptService.selectOne(user.getDeptId());
+
+        //目标用户机构级别
+        TUser tUser = iTUserService.selectOne(Long.parseLong(ids));
+        Mydept mydept1 = mydeptService.selectOne(tUser.getDeptId());
+
+        //判断用户级别是否拥有权限
+        if (mydept.getCategory() > mydept1.getCategory()){
+            String message = "权限不足";
+            throw new CommonException(message);
+        }
+
         try {
             if (StringUtils.isNotBlank(ids)) {
                 if (ids.contains(StringPool.COMMA)) {
@@ -295,16 +313,19 @@ public class TUserController extends BaseController {
                         userMyequipment.setMyequipmentId(Integer.parseInt(codeBean.getValue()));
                         userMyequipmentService.add(userMyequipment);
 
-
+                        /*********************************************/
+                        //向设备表添加机构Id,name,category
                         Myequipment myequipment = new Myequipment();
-//                        myequipment.setId(Long.parseLong(codeBean.getValue()));
                         myequipment.setEqDeptId(tUser.getDeptId());
                         myequipment.setEqDeptName(tUser.getDeptName());
+
+                        Mydept mydept = mydeptService.selectOne(tUser.getDeptId());
+                        myequipment.setEqDeptCategory(mydept.getCreator());
 
                         LambdaQueryWrapper<Myequipment> myeqWrapper = new LambdaQueryWrapper<>();
                         myeqWrapper.eq(Myequipment::getId,Long.parseLong(codeBean.getValue()));
                         myequipmentService.updateByWrapper(myequipment,myeqWrapper);
-
+                        /*********************************************/
                     }
                 }
             }

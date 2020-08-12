@@ -5,6 +5,9 @@ import com.cx.common.entity.Constant;
 import com.cx.common.utils.CommonUtil;
 import com.cx.module.amyequipment.entity.Myequipment;
 import com.cx.module.amyequipment.service.IMyequipmentService;
+import com.cx.module.mydept.entity.Mydept;
+import com.cx.module.mydept.service.IMydeptService;
+import com.cx.system.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -63,9 +66,16 @@ public class MyequipmentViewController extends BaseController {
     /**
      * 存放设备相关数据新增页面
      */
+    @Autowired
+    IMydeptService mydeptService;
     @GetMapping("myequipment/add")
     @PreAuthorize("hasRole('myequipment:add')")
     public String myequipmentAdd(HttpServletRequest request, ModelMap model) {
+
+        User user = CommonUtil.getCurrentUser();
+        Long deptId = user.getDeptId();
+        Mydept mydept = mydeptService.selectOne(deptId);
+        mydept.getCategory();
         return CommonUtil.view("amyequipment/myequipment/add");
     }
 

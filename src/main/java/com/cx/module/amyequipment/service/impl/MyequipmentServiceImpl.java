@@ -109,10 +109,12 @@ public class MyequipmentServiceImpl extends ServiceImpl<MyequipmentMapper, Myequ
             queryWrapper.between(Myequipment::getEqAddTime, obj.getStartDate(), obj.getEndDate());
         }
 
-        if (!category.isEmpty()) {
-            queryWrapper.in(Myequipment::getEqDeptId, category);
+        if (!obj.getEqDeptCategory().isEmpty()) {
+            queryWrapper.eq(Myequipment::getEqDeptCategory, obj.getEqDeptCategory());
         }
-
+        if (StringUtils.isNotBlank(obj.getEqAddress())) {
+            queryWrapper.eq(Myequipment::getEqAddress, obj.getEqAddress());
+        }
 
         Page<Myequipment> page = new Page<>(query.getPageNum(), query.getPageSize());
         SortUtil.handlePageSort(query, page, "id", Constant.ORDER_ASC, true);

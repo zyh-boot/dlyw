@@ -75,9 +75,12 @@ public class TUserServiceImpl extends ServiceImpl<TUserMapper, TUser> implements
     public IPage<TUser> page(TUser obj, QueryRequest query) {
 
         LambdaQueryWrapper<TUser> queryWrapper = new LambdaQueryWrapper<>();
-
+//
+//        if (StringUtils.isNotBlank(obj.getStartDate()) && StringUtils.isNotBlank(obj.getEndDate())) {
+//            queryWrapper.between(TUser::getCreateDate, obj.getStartDate(), obj.getEndDate());
+//        }
         if (StringUtils.isNotBlank(obj.getStartDate()) && StringUtils.isNotBlank(obj.getEndDate())) {
-            queryWrapper.between(TUser::getCreateDate, obj.getStartDate(), obj.getEndDate());
+            queryWrapper.between(TUser::getOpen, obj.getStartDate(), obj.getEndDate());
         }
         if (StringUtils.isNotBlank(obj.getUsername())) {
             queryWrapper.eq(TUser::getUsername, obj.getUsername());

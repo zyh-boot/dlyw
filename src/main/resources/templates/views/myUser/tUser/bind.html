@@ -8,7 +8,7 @@
     <input type="text" name="deptId" id="deptId" class="layui-input febs-hide" readonly>
     <input type="text" name="sbCode"  class="layui-input febs-hide" readonly>
     <div class="layui-form-item" style="margin-top: 10px;">
-        <label class="layui-form-label febs-form-item-require">管理员名称：</label>
+        <label class="layui-form-label febs-form-item-require">管理员名称123：</label>
         <div class="layui-input-block">
             <input type="text" name="accountName" autocomplete="off" readonly class="layui-input">
         </div>
@@ -36,7 +36,12 @@
 
 
 </div>
+<style>
 
+    /*#codes div div button{*/
+    /*    background: #00F7DE !important;*/
+    /*}*/
+</style>
 <script data-th-inline="javascript" type="text/javascript">
     layui.use(['transfer', 'layer','form','febs', 'util','jquery'], function(){
         var $ = layui.$
@@ -59,7 +64,9 @@
             ,value:dataList
         })
 
-        // //基础效果
+
+
+             // //基础效果
         // transfer.render({
         //     elem: '#codes'
         //     ,data: codeList

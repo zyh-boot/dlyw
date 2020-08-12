@@ -238,13 +238,13 @@
         }
 
         function getQueryParams(params) {
-            // var createTimeFrom = "",
-            //     createTimeTo = "",
-            //     createTime = $searchForm.find('input[name="createDate"]').val();
-            // if (createTime) {
-            //     createTimeFrom = createTime.split(' - ')[0];
-            //     createTimeTo = createTime.split(' - ')[1];
-            // }
+            var createTimeFrom = "",
+                createTimeTo = "",
+                createTime = $searchForm.find('input[name="createDate"]').val();
+            if (createTime) {
+                createTimeFrom = createTime.split(' - ')[0];
+                createTimeTo = createTime.split(' - ')[1];
+            }
             // return {
             //     startDate: createTimeFrom,
             //     endDate: createTimeTo,
@@ -260,7 +260,9 @@
                         username: '',
                         wechart: '',
                         accountName: '',
-                        deptName: ''
+                        deptName: '',
+                        startDate: createTimeFrom,
+                        endDate: createTimeTo
                     }
                 case '1' :
                     return {
@@ -268,7 +270,9 @@
                         username: '',
                         wechart: '',
                         accountName: value,
-                        deptName: ''
+                        deptName: '',
+                        startDate: createTimeFrom,
+                        endDate: createTimeTo
                     }
                 case '2' :
                     return {
@@ -276,7 +280,9 @@
                         username: '',
                         wechart: '',
                         accountName: '',
-                        deptName: value
+                        deptName: value,
+                        startDate: createTimeFrom,
+                        endDate: createTimeTo
                     }
                 case '3' :
                     return {
@@ -284,7 +290,9 @@
                         username: '',
                         wechart: value,
                         accountName: '',
-                        deptName: ''
+                        deptName: '',
+                        startDate: createTimeFrom,
+                        endDate: createTimeTo
                     }
                 case '4' :
                     return {
@@ -292,7 +300,9 @@
                         username: value,
                         wechart: '',
                         accountName: '',
-                        deptName: ''
+                        deptName: '',
+                        startDate: createTimeFrom,
+                        endDate: createTimeTo
                     }
                 default:
                     return {
@@ -300,7 +310,9 @@
                         username: value,
                         wechart: '',
                         accountName: '',
-                        deptName: ''
+                        deptName: '',
+                        startDate: createTimeFrom,
+                        endDate: createTimeTo
                     }
             }
         }
