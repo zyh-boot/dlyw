@@ -3,10 +3,10 @@
 </style>
 <div class="layui-fluid layui-anim febs-anim" id="febs-tUser-update" lay-title="用户表">
     <form class="layui-form" action="" lay-filter="tUser-update-form">
-                <div class="layui-form-item">
+                <div class="layui-form-item febs-hide">
                     <label class="layui-form-label febs-form-item-require">用户ID：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="userId" autocomplete="off" class="layui-input">
+                        <input type="text" name="userId" autocomplete="off" class="layui-input ">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -53,7 +53,8 @@
 <!--                        <input type="text" name="wechart" autocomplete="off" class="layui-input">-->
 <!--                    </div>-->
 <!--                </div>-->
-        <div class="layui-form-item">
+
+        <div class="layui-form-item febs-hide">
             <label class="layui-form-label febs-form-item-require">密码：</label>
             <div class="layui-input-block">
                 <input type="text" name="password" autocomplete="off" class="layui-input">
@@ -86,9 +87,10 @@
 
 
                 <div class="layui-form-item">
-                    <label class="layui-form-label febs-form-item-require">账户剩余时间：</label>
+                    <label class="layui-form-label febs-form-item-require">账户到期时间：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="remaing" autocomplete="off" class="layui-input">
+<!--                        <input type="text" name="remaing" autocomplete="off" class="layui-input">-->
+                        <input type="text" name="myRemaing" id="myopen" autocomplete="off" readonly class="layui-input" lay-verify="required">
                     </div>
                 </div>
 <!--                <div class="layui-form-item">-->
@@ -160,7 +162,7 @@
 </div>
 
 <script data-th-inline="javascript" type="text/javascript">
-    layui.use(['jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect'], function () {
+    layui.use(['jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect', 'laydate'], function () {
         var $ = layui.jquery,
             layer = layui.layer,
             febs = layui.febs,
@@ -168,11 +170,16 @@
             table = layui.table,
             xmSelect = layui.xmSelect,
             tUser =[[\$\{tUser\}]],
-            $view = $('#febs-tUser-update');
+            $view = $('#febs-tUser-update'),
+        laydate = layui.laydate;
 
         form.render();
         initValue();
 
+        laydate.render({
+            elem: '#myopen',
+            value : tUser.remaing.split("T")[0]
+        });
         form.on('select(mydeptId)', function (data) {
             $view.find("#deptName").val(this.innerText)
             console.log(data.value)
@@ -185,6 +192,7 @@
                 return false;
             }
             febs.put(ctx + 'myUser/tUser', data.field, function () {
+
                 layer.closeAll();
                 $('#febs-tUser').find('#query').click();
             });

@@ -9,6 +9,7 @@ import com.cx.system.entity.User;
 import com.cx.system.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,11 +34,13 @@ public class ViewController extends BaseController {
     public Object login(HttpServletRequest request) throws Exception {
         ModelAndView mav = new ModelAndView();
         mav.setViewName(CommonUtil.view("login"));
+        User currentUser = super.getCurrentUser();
         return mav;
     }
 
     @GetMapping("unauthorized")
     public String unauthorized() {
+
         return CommonUtil.view("error/403");
     }
 
@@ -48,8 +51,9 @@ public class ViewController extends BaseController {
 
 
     @RequestMapping("index")
-    public String index(Model model) {
+    public String index(Model model) throws UsernameNotFoundException {
         User user = super.getCurrentUser();
+
         user.setPassword("It's a secret");
         // 获取实时的用户信息
         model.addAttribute("user",super.getCurrentUser());

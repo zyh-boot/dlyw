@@ -135,7 +135,7 @@
                 .find('#user-role').text(currentUser.roleName ? currentUser.roleName : '暂无角色').end()
                 .find('#last-login-time').text(currentUser.lastLoginTime ? currentUser.lastLoginTime : '第一次访问系统').end()
                 .find('#welcome-message').html(welcomeMessage).end()
-                .find('#user-avatar').attr('src', ctx + "common/images/avatar/" + currentUser.avatar);
+                .find('#user-avatar').attr('src', ctx + "common/images/avatar/" + (currentUser.avatar == null ? 'default.jpg': currentUser.avatar));
         }
 
         $view.on('click', '#febs-index-user', function () {

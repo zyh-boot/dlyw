@@ -18,7 +18,7 @@
                 <li class="layui-nav-item layui-user" lay-unselect>
                     <a>
                         <img style="width: 1.9rem;margin-right:.5rem;border-radius: 50%"
-                             src="{{= ctx + 'common/images/avatar/' + currentUser.avatar }}" title="头像">
+                             src="{{= ctx + 'common/images/avatar/' + (currentUser.avatar == null ? 'default.jpg':currentUser.avatar) }}" title="头像">
                         {{ currentUser.username }}
                     </a>
                     <dl class="layui-nav-child">
@@ -123,7 +123,7 @@
 
         initTheme();
 
-        $view.find('#user-avatar').attr('src', ctx + "common/images/avatar/" + currentUser.avatar);
+        $view.find('#user-avatar').attr('src', ctx + "common/images/avatar/" + (currentUser.avatar == null ? "default.jpg":currentUser.avatar));
 
         $view.on('click', '.layui-logo', function () {
             febs.navigate("/index");

@@ -109,7 +109,7 @@ public class MyequipmentServiceImpl extends ServiceImpl<MyequipmentMapper, Myequ
             queryWrapper.between(Myequipment::getEqAddTime, obj.getStartDate(), obj.getEndDate());
         }
 
-        if (!obj.getEqDeptCategory().isEmpty()) {
+        if (StringUtils.isNotBlank(obj.getEqDeptCategory().toString())) {
             queryWrapper.eq(Myequipment::getEqDeptCategory, obj.getEqDeptCategory());
         }
         if (StringUtils.isNotBlank(obj.getEqAddress())) {

@@ -8,10 +8,7 @@ import com.cx.system.entity.User;
 import com.cx.system.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotBlank;
 import java.util.HashMap;
@@ -29,6 +26,8 @@ public class LoginController extends BaseController {
     private IUserService userService;
     @Autowired
     private ILoginLogService loginLogService;
+
+
 
 //    @PostMapping("login")
 //    @Limit(key = "login", period = 60, count = 20, name = "登录接口", prefix = "limit")

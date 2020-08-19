@@ -66,6 +66,18 @@
     <span class="layui-badge febs-tag-{{status.color}}">{{ status.title }}</span>
 </script>
 
+<script type="text/html" id="myequipment-category">
+    {{#
+    var status = {
+    1: {title: '市级', color: 'green'},
+    2: {title: '县级', color: 'green'},
+    3: {title: '乡级', color: 'green'},
+    4: {title: '村级', color: 'green'},
+    }[d.eqDeptCategory];
+    }}
+    <span class="layui-badge febs-tag-{{status.color}}">{{ status.title }}</span>
+</script>
+
 <script type="text/html" id="myequipment-option">
     <a lay-event="edit"><i class="layui-icon febs-edit-area febs-blue"  sec:authorize="hasRole('myequipment:mod')">&#xe7a4;</i></a>
     <a lay-event="del"><i class="layui-icon febs-edit-area febs-red"  sec:authorize="hasRole('myequipment:del')">&#xe7f9;</i></a>
@@ -190,7 +202,7 @@
                     {field: 'id', title: '设备id',hide:true},
                     {field: 'eqName', title: '设备名'},
                     {field: 'eqCode', title: '设备编号'},
-                    {field: 'eqType', title: '设备类型'},
+                    {field: 'eqType', title: '设备类型',hide:true},
                     {field: 'eqLedger', title: '设备台账'},
                     // {field: 'eqPmTwo', title: 'PM2.5'},
                     // {field: 'eqPmTen', title: 'PM10'},
@@ -199,6 +211,7 @@
                     // {field: 'sqNo2', title: 'NO2(二氧化氮)'},
                     // {field: 'sqO3', title: 'O3(臭氧)'},
                     {field: 'eqAddress', title: '设备区域'},
+                    {title: '设备机构类别', templet: '#myequipment-category',hide:true},
                     {field: 'eqAddTime', title: '设备添加时间'},
                     {field: 'eqSupplier', title: '设备供应商'},
                     { title: '是否检修',templet: "#myequipment-eqOverhaul"},

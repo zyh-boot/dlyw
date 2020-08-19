@@ -121,7 +121,7 @@
                 <div class="layui-inline">
                     <label class="layui-form-label layui-form-label-sm">创建时间</label>
                     <div class="layui-input-inline">
-                        <input type="text" name="createDate" id="createTime" class="layui-input">
+                        <input type="text" name="createDate" id="createTimeRank" class="layui-input">
                     </div>
                 </div>
             </div>
@@ -148,9 +148,9 @@
 
                         <div class="layui-input-inline">
                             <div class="layui-btn-group ">
-                                <button type="button" class="layui-btn layui-btn-primary" id="day">Pm2.5</button>
+                                <button type="button" class="layui-btn layui-btn-primary" id="pmtwo">Pm2.5</button>
                                 <button type="button" class="layui-btn layui-btn-primary "
-                                        onclick="javaScript:void(0)" id="month">Pm10
+                                        onclick="javaScript:void(0)" id="pmten">Pm10
                                 </button>
                             </div>
                         </div>
@@ -188,7 +188,7 @@
 <script id="demo" type="text/html" template>
 
     {{#  layui.each(d, function(index, item){ }}
-    <div class="layui-form-item">
+    <div class="layui-form-item" onclick="jump()">
         {{# if(item.ranking == '1') { }}
         <div class=" layui-input-inline ranking">
             <div class="rol "></div>
@@ -244,6 +244,7 @@
             laypage = layui.laypage,
             flow = layui.flow,
             $view = $('#febs-tUser-rank'),
+            $creaData = $view.find("#createTime"),
             $query = $view.find('#query'),
             $reset = $view.find('#reset');
 
@@ -251,12 +252,23 @@
         form.render();
 
         laydate.render({
-            elem: '#createTime',
+            elem: '#createTimeRank',
             range: true,
             trigger: 'click'
         });
 
-
+    window.jump = function(){
+        febs.modal.open('机构污染', 'rank/myequipment/detiles', {
+            area: $(window).width() <= 750 ? '90%' : '50%',
+            btn: ['提交', '取消'],
+            yes: function (index, layero) {
+                $('#febs-kh-code').find('#submit').trigger('click');
+            },
+            btn2: function () {
+                layer.closeAll();
+            }
+        });
+    }
         $query.on('click', function () {
             const queryParams = getQueryParams();
             console.log(queryParams)
@@ -278,9 +290,9 @@
                 // ,scrollElem: '#LAY_demo1' //滚动条所在元素，一般不用填，此处只是演示需要。
                 , done: function (page, next) { //执行下一页的回调
                     setTimeout(function () {
-                        if ($view.find("#day").hasClass("layui-btn-normal")) {
+                        if ($view.find("#pmtwo").hasClass("layui-btn-normal")) {
                             sendAjax({"pollution": "pm2.5"})
-                        } else if ($view.find("#month").hasClass("layui-btn-normal")) {
+                        } else if ($view.find("#pmten").hasClass("layui-btn-normal")) {
                             sendAjax({"pollution": "pm10"})
                         }
 
@@ -362,36 +374,36 @@
 
         var click = "layui-btn  layui-btn-primary "
         var notClick = "layui-btn layui-btn-normal"
-        $("#day").on("click", function () {
-            var clazz = $("#day").hasClass("layui-btn-normal")
+        $view.find("#pmtwo").on("click", function () {
+            var clazz = $view.find("#pmtwo").hasClass("layui-btn-normal")
             if (!clazz) {
                 sendAjax({"pollution": "pm2.5"})
             }
 
-            $("#day").attr("class", notClick)
-            $("#month").attr("class", click)
+            $view.find("#pmtwo").attr("class", notClick)
+            $view.find("#pmten").attr("class", click)
         })
 
 
-        $("#month").on("click", function () {
-            var clazz = $("#month").hasClass("layui-btn-normal");
+        $view.find("#pmten").on("click", function () {
+            var clazz = $view.find("#pmten").hasClass("layui-btn-normal");
             if (!clazz) {
                 sendAjax({"pollution": "pm10"})
             }
-            $("#month").attr("class", notClick)
-            $("#day").attr("class", click)
+            $view.find("#pmten").attr("class", notClick)
+            $view.find("#pmtwo").attr("class", click)
 
         })
 
         initValue()
 
         function initValue() {
-            $("#day").click()
+            $view.find("#pmtwo").click()
         }
 
 
         $view.find("#echart").on("click", function () {
-            febs.modal.open('绑定设备', 'rank/myequipment/clu', {
+            febs.modal.open('机构污染', 'rank/myequipment/clu', {
                 area: $(window).width() <= 750 ? '90%' : '50%',
                 btn: ['提交', '取消'],
                 yes: function (index, layero) {

@@ -7,9 +7,6 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.cx.common.annotation.IsMobile;
 import com.cx.common.converter.TimeConverter;
 import com.cx.common.entity.Constant;
-import com.cx.common.annotation.IsMobile;
-import com.cx.common.converter.TimeConverter;
-import com.cx.common.entity.Constant;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.wuwenze.poi.annotation.Excel;
 import com.wuwenze.poi.annotation.ExcelField;
@@ -21,6 +18,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -121,6 +119,13 @@ public class User implements UserDetails {
     @IsMobile(message = "{mobile}")
     @ExcelField(value = "联系电话")
     private String mobile;
+   /**
+     * 联系电话
+     */
+    @TableField("remaing")
+    @IsMobile(message = "{remaing}")
+    @ExcelField(value = "剩余时间")
+    private LocalDateTime remaing;
 
     /**
      * 状态 0锁定 1有效

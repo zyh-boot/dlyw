@@ -40,6 +40,14 @@ public class RankViewController extends BaseController {
         return CommonUtil.view("rank/rank/pollution");
     }
 
+    /**
+     * 机构下数据详情
+     */
+    @GetMapping("myequipment/detiles")
+    public String myequipmentDetiles(HttpServletRequest request, ModelMap model) {
+        return CommonUtil.view("rank/rank/column");
+    }
+
 
     @Autowired
     IMydeptService mydeptService;

@@ -10,6 +10,7 @@ import com.cx.common.exception.CommonException;
 import com.cx.common.utils.CommonUtil;
 import com.cx.module.amyequipment.entity.Myequipment;
 import com.cx.module.amyequipment.service.IMyequipmentService;
+import com.cx.module.myUser.service.ITUserService;
 import com.cx.module.mydept.entity.Mydept;
 import com.cx.module.mydept.service.IMydeptService;
 import com.cx.system.entity.User;
@@ -87,7 +88,7 @@ public class MyequipmentController extends BaseController {
 //                return getTableData(new Page<>());
 //            }
 //            return getTableData(iMyequipmentService.myPage(obj, query, list));
-            obj.setEqDeptCategory(categroy);
+            obj.setEqDeptCategory(Integer.parseInt(categroy));
             IPage<Myequipment> myequipmentIPage = iMyequipmentService.myPage(obj, query, new ArrayList());
             List<Myequipment> records = myequipmentIPage.getRecords();
             System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>" + records);
@@ -152,9 +153,29 @@ public class MyequipmentController extends BaseController {
      * @param ids
      * @return
      */
+    @Autowired
+    ITUserService iTUserService;
+
     @DeleteMapping("")
     @PreAuthorize("hasRole('myequipment:del')")
     public CommonResponse delete(String ids) throws CommonException {
+        //批量校验
+        if (StringUtils.isNotBlank(ids)) {
+            if (ids.contains(StringPool.COMMA)) {
+                for (String str : ids.split(StringPool.COMMA)) {
+                    if (judgmentCategory(str)) {
+                        String message = "权限不足, 列表存在上级机构设备!";
+                        throw new CommonException(message);
+                    }
+                }
+            } else {
+                if (judgmentCategory(ids)) {
+                    String message = "权限不足!";
+                    throw new CommonException(message);
+                }
+            }
+        }
+
         try {
             if (StringUtils.isNotBlank(ids)) {
                 if (ids.contains(StringPool.COMMA)) {
@@ -171,13 +192,28 @@ public class MyequipmentController extends BaseController {
         }
     }
 
+    private Boolean judgmentCategory(String ids) throws CommonException {
+        //当前用户机构级别
+        User user = CommonUtil.getCurrentUser();
+        Mydept mydept = mydeptService.selectOne(user.getDeptId());
+
+        //目标设备机构级别
+        Myequipment myequipment = iMyequipmentService.selectOne(Long.parseLong(ids));
+
+        //判断用户级别是否拥有权限
+        return mydept.getCategory() > myequipment.getEqDeptCategory();
+//        if (mydept.getCategory() > myequipment.getEqDeptCategory()){
+//            String message = "权限不足";
+//            throw new CommonException(message);
+//        }
+    }
+
     @GetMapping("catetory")
-    public CommonResponse getCategory(){
+    public CommonResponse getCategory() {
         HashMap<String, List> map = new HashMap<>();
 
         HashMap<Object, Object> hashMap = new HashMap<>();
-        hashMap.put("index","1");
-
+        hashMap.put("index", "1");
 
         String value = "{'index':'1','value':'市'}";
         String value1 = "{'index':'2','value':'县'}";
@@ -193,7 +229,7 @@ public class MyequipmentController extends BaseController {
 
         User user = CommonUtil.getCurrentUser();
         Mydept mydept = mydeptService.selectOne(user.getDeptId());
-        Integer category = mydept.getCategory() - 1 ;
+        Integer category = mydept.getCategory() - 1;
         List<Object> subList = list.subList(category < 0 ? 0 : category, list.size());
         return new CommonResponse().code(HttpStatus.OK).data(subList);
 

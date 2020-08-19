@@ -33,7 +33,7 @@ public class Myequipment extends BaseEnity implements Serializable {
     private String eqName;
     @ApiModelProperty(value = "设备编号")
     @TableField("eq_code")
-    private Long eqCode;
+    private String eqCode;
     @ApiModelProperty(value = "机构ID")
     @TableField("eq_dept_id")
     private Long eqDeptId;
@@ -42,7 +42,7 @@ public class Myequipment extends BaseEnity implements Serializable {
     private String eqDeptName;
     @ApiModelProperty(value = "机构类别")
     @TableField("eq_dept_category")
-    private String eqDeptCategory;
+    private Integer eqDeptCategory;
     @ApiModelProperty(value = "设备类型")
     @TableField("eq_type")
     private Integer eqType;
@@ -67,6 +67,12 @@ public class Myequipment extends BaseEnity implements Serializable {
     @ApiModelProperty(value = "O3(臭氧)")
     @TableField("sq_o3")
     private BigDecimal sqO3;
+    @ApiModelProperty(value = "噪声")
+    @TableField("eq_noise")
+    private BigDecimal eqNoise;
+    @ApiModelProperty(value = "风向")
+    @TableField("wind_direction")
+    private String windDirection;
     @ApiModelProperty(value = "设备地址")
     @TableField("eq_address")
     private String eqAddress;

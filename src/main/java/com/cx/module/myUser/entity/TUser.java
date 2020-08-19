@@ -11,7 +11,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
@@ -56,7 +55,7 @@ public class TUser extends BaseEnity implements Serializable {
     private String wechart;
     @ApiModelProperty(value = "账户剩余时间")
     @TableField("remaing")
-    private BigDecimal remaing;
+    private LocalDateTime remaing;
     @ApiModelProperty(value = "用户姓名")
     @TableField("account_name")
     private String accountName;
@@ -79,6 +78,8 @@ public class TUser extends BaseEnity implements Serializable {
     @ApiModelProperty(value = "修改时间")
     @TableField("MODIFY_TIME")
     private LocalDateTime modifyTime;
+
+
     @ApiModelProperty(value = "最近访问时间")
     @TableField("LAST_LOGIN_TIME")
     private LocalDateTime lastLoginTime;

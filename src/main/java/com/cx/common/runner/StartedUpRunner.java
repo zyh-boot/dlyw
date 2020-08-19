@@ -68,7 +68,7 @@ public class StartedUpRunner implements ApplicationRunner {
             log.info("/ /`  / / \\ | |\\/| | |_) | |   | |_   | |  | |_  ");
             log.info("\\_\\_, \\_\\_/ |_|  | |_|   |_|__ |_|__  |_|  |_|__ ");
             log.info("                                                      ");
-            log.info("智工系统启动完毕，地址：{}", url);
+            log.info("环境监测平台启动完毕，地址：{}", url);
         }
     }
 }

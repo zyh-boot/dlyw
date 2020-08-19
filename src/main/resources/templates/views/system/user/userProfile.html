@@ -58,7 +58,7 @@
                 <div class="layui-card-body user-profile-card">
                     <div id="user-profile">
                         <div id="user-img">
-                            <img alt="头像" data-th-src="@{common/images/avatar/empty.jpg}" title="点我更换头像">
+                            <img alt="头像" data-th-src="@{common/images/avatar/default.jpg}" title="点我更换头像">
                             <div id="options-wrapper">
                                 <div id="update-user-info">
                                     <a>
@@ -148,8 +148,10 @@
 
         form.render();
         initSettings();
+      const img =  currentUser.avatar == null ? "default.jpg":currentUser.avatar;
+        console.log(currentUser.avatar == null ? "default.jpg":currentUser.avatar)
 
-        $view.find('#user-img img').attr('src', ctx + "common/images/avatar/" + currentUser.avatar);
+        $view.find('#user-img img').attr('src', ctx + "common/images/avatar/" + img);
         $view.on('click', '#update-user-info', function () {
             febs.modal.view('个人信息修改', 'sysUser/profile/update', {
                 area: $(window).width() <= 750 ? '90%' : '50%',

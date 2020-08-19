@@ -6,28 +6,28 @@
         <div class="layui-form-item">
             <label class="layui-form-label febs-form-item-require">设备名：</label>
             <div class="layui-input-block">
-                <input type="text" name="eqName" autocomplete="off" class="layui-input" lay-verify="required">
+                <input type="text" name="eqName" autocomplete="off" class="layui-input" lay-verify="required|title">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label febs-form-item-require">设备编号：</label>
             <div class="layui-input-block">
-                <input type="text" name="eqCode" autocomplete="off" class="layui-input" lay-verify="required">
+                <input type="text" name="eqCode" autocomplete="off" class="layui-input" lay-verify="required|code">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label febs-form-item-require">机构类别：</label>
             <div class="layui-input-block myselect">
-<!--                <select name="eqDeptCategory" lay-filter="myselect" class="layui-form-select">-->
-<!--                    <option value="1" selected="">市</option>-->
-<!--                    <option value="2">县</option>-->
-<!--                    <option value="3">乡</option>-->
-<!--                    <option value="4">村</option>-->
-<!--                </select>-->
+                <!--                <select name="eqDeptCategory" lay-filter="myselect" class="layui-form-select">-->
+                <!--                    <option value="1" selected="">市</option>-->
+                <!--                    <option value="2">县</option>-->
+                <!--                    <option value="3">乡</option>-->
+                <!--                    <option value="4">村</option>-->
+                <!--                </select>-->
                 <!--                        <input type="text" name="category" autocomplete="off" class="layui-input">-->
-                <select name="eqDeptCategory" lay-filter="eqDeptCategory" id="eqDeptCategory" class="layui-form-select"></select>
+                <select name="eqDeptCategory" lay-filter="eqDeptCategory" id="eqDeptCategory"
+                        class="layui-form-select"></select>
             </div>
-
         </div>
         <!--                <div class="layui-form-item">-->
         <!--                    <label class="layui-form-label febs-form-item-require">设备类型：</label>-->
@@ -38,7 +38,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label febs-form-item-require">设备台账：</label>
             <div class="layui-input-block">
-                <input type="text" name="eqLedger" autocomplete="off" class="layui-input" lay-verify="required">
+                <input type="text" name="eqLedger" autocomplete="off" class="layui-input" lay-verify="required|title">
             </div>
         </div>
         <!--                <div class="layui-form-item">-->
@@ -155,6 +155,19 @@
                 })
             }
         })
+
+        //自定义验证规则
+        form.verify({
+            title: function (value) {
+                if (value.length > 10) {
+                    return '数据长度超限';
+                }
+            },
+            code: [
+                /^[A-Za-z0-9]+$/
+                , '编号不能存在中文字符'
+            ],
+        });
 
     })
 </script>

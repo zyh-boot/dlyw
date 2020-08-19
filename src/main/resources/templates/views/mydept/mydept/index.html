@@ -43,7 +43,7 @@
                                     <div class="layui-inline">
                                         <label class="layui-form-label layui-form-label-sm">创建时间</label>
                                         <div class="layui-input-inline">
-                                            <input type="text" name="createDate" id="createTime" class="layui-input">
+                                            <input type="text" name="createDate" id="createTimeDept" class="layui-input">
                                         </div>
                                     </div>
                                 </div>
@@ -58,15 +58,15 @@
     </div>
 </div>
 
-<script type="text/html" id="mydept-status">
-    {{#
-    var status = {
-    1: {title: '有效', color: 'green'},
-    0: {title: '失效', color: 'volcano'}
-    }[d.state];
-    }}
-    <span class="layui-badge febs-tag-{{status.color}}">{{ status.title }}</span>
-</script>
+<!--<script type="text/html" id="mydept-status">-->
+<!--    {{#-->
+<!--    var status = {-->
+<!--    1: {title: '有效', color: 'green'},-->
+<!--    0: {title: '失效', color: 'volcano'}-->
+<!--    }[d.state];-->
+<!--    }}-->
+<!--    <span class="layui-badge febs-tag-{{status.color}}">{{ status.title }}</span>-->
+<!--</script>-->
 <script type="text/html" id="mydept-category">
     {{#
     var status = {
@@ -111,7 +111,7 @@
         $view.parent().css("height", "100%")
         $view.parent().css("background", "#fff")
         laydate.render({
-            elem: '#createTime',
+            elem: '#createTimeDept',
             range: true,
             trigger: 'click'
         });
