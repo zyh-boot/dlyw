@@ -15790,3 +15790,596 @@ UPDATE t_job SET bean_name = 'commonTask', method_name = 'send', params = '1', c
 2020-08-12 17:20:10.074 febs [aps_Scheduler_Worker-10] INFO  p6spy - 2020-08-12 17:20:10 | 耗时 1 ms | SQL 语句：
 INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, times, create_time) VALUES (2, 'commonTask', 'send', '2', '0', 56, '2020-08-12T17:20:10.013+0800');
 2020-08-12 17:20:13.511 febs [QuartzScheduler_aps_Scheduler-LAPTOP-R0RM3FEG1597223755495_MisfireHandler] INFO  o.s.s.quartz.LocalDataSourceJobStore - Handling 1 trigger(s) that missed their scheduled fire-time.
+2020-08-12 17:24:28.266 febs [main] INFO  com.cx.AppApplication - Starting AppApplication on LAPTOP-R0RM3FEG with PID 1552 (F:\ideaWorkSpace\my-private\target\classes started by zyh in F:\ideaWorkSpace\my-private)
+2020-08-12 17:24:28.270 febs [main] INFO  com.cx.AppApplication - The following profiles are active: pro
+2020-08-12 17:24:30.402 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-12 17:24:30.405 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-08-12 17:24:30.482 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 59ms. Found 0 repository interfaces.
+2020-08-12 17:24:31.275 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.datasource.dynamic-com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:24:31.481 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$ebf55530] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:24:31.492 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dsProcessor' of type [com.baomidou.dynamic.datasource.processor.DsHeaderProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:24:31.496 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicDatasourceAnnotationAdvisor' of type [com.baomidou.dynamic.datasource.aop.DynamicDataSourceAnnotationAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:24:31.508 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8266e45f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:24:31.545 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfigure' of type [com.cx.common.configure.RedisConfigure$$EnhancerBySpringCGLIB$$665f5b8e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:24:31.613 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$1b14ac99] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:24:31.626 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:24:31.629 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@67e6eb52' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:24:31.634 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$3fe94f4b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:24:31.643 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:24:32.142 febs [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2020-08-12 17:24:32.164 febs [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2020-08-12 17:24:32.176 febs [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-12 17:24:32.176 febs [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-08-12 17:24:32.187 febs [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\JDK\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\JDK\bin;D:\Program Files\Git\cmd;D:\mysql-8.0.20-winx64\bin;D:\Program Files\nodejs\;D:\mysql-8.0.20-winx64\bin;D:\apache-maven-3.6.3-bin\apache-maven-3.6.3\bin;D:\Readis\Redis-x64-3.2.100;D:\Program Files\nodejs\node_global;C:\Users\zyh\AppData\Local\Microsoft\WindowsApps;;D:\Program Files\JetBrains\IntelliJ IDEA 2019.3\bin;;C:\Users\zyh\AppData\Roaming\npm;.]
+2020-08-12 17:24:32.332 febs [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-12 17:24:32.333 febs [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3975 ms
+2020-08-12 17:24:32.811 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 动态数据源-检测到并开启了p6spy
+2020-08-12 17:24:32.820 febs [main] INFO  com.zaxxer.hikari.HikariDataSource - base - Starting...
+2020-08-12 17:24:33.418 febs [main] INFO  com.zaxxer.hikari.HikariDataSource - base - Start completed.
+2020-08-12 17:24:33.419 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 初始共加载 1 个数据源
+2020-08-12 17:24:33.419 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 动态数据源-加载 base 成功
+2020-08-12 17:24:33.419 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 当前的默认数据源是单数据源，数据源名为 base
+2020-08-12 17:24:34.067 febs [main] INFO  com.cx.common.xss.XssFilter - ------------ xss filter init ------------
+2020-08-12 17:24:36.708 febs [main] INFO  c.cx.job.configure.ScheduleConfigure - ------
+2020-08-12 17:24:36.750 febs [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2020-08-12 17:24:36.767 febs [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-08-12 17:24:36.767 febs [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.0 created.
+2020-08-12 17:24:36.773 febs [main] INFO  o.s.s.quartz.LocalDataSourceJobStore - Using db table-based data access locking (synchronization).
+2020-08-12 17:24:36.775 febs [main] INFO  o.s.s.quartz.LocalDataSourceJobStore - JobStoreCMT initialized.
+2020-08-12 17:24:36.776 febs [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'aps_Scheduler' with instanceId 'LAPTOP-R0RM3FEG1597224276752'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
+  Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
+
+2020-08-12 17:24:36.777 febs [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'aps_Scheduler' initialized from an externally provided properties instance.
+2020-08-12 17:24:36.777 febs [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.0
+2020-08-12 17:24:36.779 febs [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@149238fe
+2020-08-12 17:24:36.878 febs [main] INFO  p6spy - 2020-08-12 17:24:36 | 耗时 1 ms | SQL 语句：
+SELECT job_id jobId, bean_name beanName, method_name methodName, params, cron_expression cronExpression, status, remark, create_time createTime FROM t_job ORDER BY job_id;
+2020-08-12 17:24:39.514 febs [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-08-12 17:24:39.902 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/test/**'], []
+2020-08-12 17:24:39.902 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/common/**'], []
+2020-08-12 17:24:39.902 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/app/**'], []
+2020-08-12 17:24:39.902 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/*.js'], []
+2020-08-12 17:24:39.902 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/*.css'], []
+2020-08-12 17:24:39.903 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/font/**'], []
+2020-08-12 17:24:39.903 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/images/**'], []
+2020-08-12 17:24:39.903 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/img/**'], []
+2020-08-12 17:24:39.903 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/lay/**'], []
+2020-08-12 17:24:39.903 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/layui/**'], []
+2020-08-12 17:24:39.903 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/json/**'], []
+2020-08-12 17:24:39.903 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/api/**'], []
+2020-08-12 17:24:39.903 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/app/**'], []
+2020-08-12 17:24:39.903 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-ui.html'], []
+2020-08-12 17:24:39.903 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger/**'], []
+2020-08-12 17:24:39.903 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-resources/**'], []
+2020-08-12 17:24:39.903 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/webjars/**'], []
+2020-08-12 17:24:39.903 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/v2/api-docs'], []
+2020-08-12 17:24:39.903 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/views/403'], []
+2020-08-12 17:24:39.903 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/views/401'], []
+2020-08-12 17:24:39.903 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/views/404'], []
+2020-08-12 17:24:40.005 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@44103266, org.springframework.security.web.context.SecurityContextPersistenceFilter@7e484bd, org.springframework.security.web.header.HeaderWriterFilter@1c96bf1e, org.springframework.security.web.authentication.logout.LogoutFilter@4eb3b690, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@34766f4b, org.springframework.security.web.session.ConcurrentSessionFilter@85b9f9c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3e0600a4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d8751de, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@6600d07d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@439b0198, org.springframework.security.web.session.SessionManagementFilter@14764fdd, org.springframework.security.web.access.ExceptionTranslationFilter@25093079, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1516f497]
+2020-08-12 17:24:40.082 febs [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-08-12 17:24:40.101 febs [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService
+2020-08-12 17:24:40.103 febs [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'apsAsyncThreadPool'
+2020-08-12 17:24:40.684 febs [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2020-08-12 17:24:41.711 febs [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2020-08-12 17:24:41.727 febs [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2020-08-12 17:24:41.800 febs [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2020-08-12 17:24:41.826 febs [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Will start Quartz Scheduler [aps_Scheduler] in 1 seconds
+2020-08-12 17:24:41.840 febs [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+2020-08-12 17:24:41.876 febs [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+2020-08-12 17:24:41.881 febs [main] INFO  com.cx.AppApplication - Started AppApplication in 14.612 seconds (JVM running for 16.172)
+2020-08-12 17:24:41.914 febs [main] INFO  com.cx.common.runner.StartedUpRunner -  __    ___   _      ___   _     ____ _____  ____ 
+2020-08-12 17:24:41.914 febs [main] INFO  com.cx.common.runner.StartedUpRunner - / /`  / / \ | |\/| | |_) | |   | |_   | |  | |_  
+2020-08-12 17:24:41.914 febs [main] INFO  com.cx.common.runner.StartedUpRunner - \_\_, \_\_/ |_|  | |_|   |_|__ |_|__  |_|  |_|__ 
+2020-08-12 17:24:41.914 febs [main] INFO  com.cx.common.runner.StartedUpRunner -                                                       
+2020-08-12 17:24:41.914 febs [main] INFO  com.cx.common.runner.StartedUpRunner - 智工系统启动完毕，地址：http://192.168.1.113:8099/login
+2020-08-12 17:24:42.438 febs [RMI TCP Connection(1)-192.168.1.113] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-12 17:24:42.438 febs [RMI TCP Connection(1)-192.168.1.113] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-12 17:24:42.463 febs [RMI TCP Connection(2)-192.168.1.113] INFO  p6spy - 2020-08-12 17:24:42 | 耗时 1 ms | SQL 语句：
+select 1;
+2020-08-12 17:24:42.467 febs [RMI TCP Connection(1)-192.168.1.113] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 28 ms
+2020-08-12 17:24:42.828 febs [Quartz Scheduler [aps_Scheduler]] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now, after delay of 1 seconds
+2020-08-12 17:24:42.841 febs [Quartz Scheduler [aps_Scheduler]] INFO  o.s.s.quartz.LocalDataSourceJobStore - ClusterManager: detected 1 failed or restarted instances.
+2020-08-12 17:24:42.841 febs [Quartz Scheduler [aps_Scheduler]] INFO  o.s.s.quartz.LocalDataSourceJobStore - ClusterManager: Scanning for instance "LAPTOP-R0RM3FEG1597223755495"'s failed in-progress jobs.
+2020-08-12 17:24:42.850 febs [Quartz Scheduler [aps_Scheduler]] INFO  org.quartz.core.QuartzScheduler - Scheduler aps_Scheduler_$_LAPTOP-R0RM3FEG1597224276752 started.
+2020-08-12 17:24:42.858 febs [QuartzScheduler_aps_Scheduler-LAPTOP-R0RM3FEG1597224276752_MisfireHandler] INFO  o.s.s.quartz.LocalDataSourceJobStore - Handling the first 1 triggers that missed their scheduled fire-time.  More misfired triggers remain to be processed.
+2020-08-12 17:24:42.932 febs [QuartzScheduler_aps_Scheduler-LAPTOP-R0RM3FEG1597224276752_MisfireHandler] INFO  o.s.s.quartz.LocalDataSourceJobStore - Handling 1 trigger(s) that missed their scheduled fire-time.
+2020-08-12 17:24:48.084 febs [http-nio-8099-exec-1] INFO  c.c.c.a.s.HttpSessionCreatedEventListener - 新建session:CA8950F73AEB648B1D9F61C065539249
+2020-08-12 17:24:51.180 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-08-12 17:24:51 | 耗时 1 ms | SQL 语句：
+SELECT u.user_id userId, u.username, u.password, u.email, u.mobile, u.status, u.create_time createTime, u.ssex sex, u.dept_id deptId, u.last_login_time lastLoginTime, u.modify_time modifyTime, u.description, u.avatar, u.THEME, u.IS_TAB, d.dept_name deptName, GROUP_CONCAT(r.role_id) roleId, GROUP_CONCAT(r.ROLE_NAME) roleName FROM t_user u LEFT JOIN t_dept d ON (u.dept_id = d.dept_id) LEFT JOIN t_user_role ur ON (u.user_id = ur.user_id) LEFT JOIN t_role r ON r.role_id = ur.role_id WHERE 1 = 1 AND u.username = 'admin' GROUP BY u.username, u.user_id, u.email, u.mobile, u.status, u.create_time, u.ssex, u.dept_id, u.last_login_time, u.modify_time, u.description, u.avatar;
+2020-08-12 17:24:51.311 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-08-12 17:24:51 | 耗时 1 ms | SQL 语句：
+SELECT r.* FROM t_role r LEFT JOIN t_user_role ur ON (r.role_id = ur.role_id) LEFT JOIN t_user u ON (u.user_id = ur.user_id) WHERE u.username = 'admin';
+2020-08-12 17:24:51.326 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-08-12 17:24:51 | 耗时 1 ms | SQL 语句：
+SELECT m.perms FROM t_role r LEFT JOIN t_user_role ur ON (r.role_id = ur.role_id) LEFT JOIN t_user u ON (u.user_id = ur.user_id) LEFT JOIN t_role_menu rm ON (rm.role_id = r.role_id) LEFT JOIN t_menu m ON (m.menu_id = rm.menu_id) WHERE m.perms IS NOT NULL AND m.perms <> '' AND u.username = 'admin';
+2020-08-12 17:24:51.849 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-08-12 17:24:51 | 耗时 3 ms | SQL 语句：
+SELECT m.* FROM t_menu m WHERE m.type <> 1 AND m.MENU_ID IN (SELECT DISTINCT rm.menu_id FROM t_role_menu rm LEFT JOIN t_role r ON (rm.role_id = r.role_id) LEFT JOIN t_user_role ur ON (ur.role_id = r.role_id) LEFT JOIN t_user u ON (u.user_id = ur.user_id) WHERE u.username = 'admin') ORDER BY m.order_num;
+2020-08-12 17:24:52.065 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-08-12 17:24:52 | 耗时 1 ms | SQL 语句：
+UPDATE t_user SET LAST_LOGIN_TIME = '2020-08-12T17:24:52.006+0800' WHERE (USERNAME = 'admin');
+2020-08-12 17:24:52.084 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-08-12 17:24:52 | 耗时 0 ms | SQL 语句：
+SELECT count(1) FROM t_login_log;
+2020-08-12 17:24:52.089 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-08-12 17:24:52 | 耗时 1 ms | SQL 语句：
+SELECT count(1) FROM t_login_log WHERE datediff(login_time, now()) = 0;
+2020-08-12 17:24:52.094 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-08-12 17:24:52 | 耗时 0 ms | SQL 语句：
+SELECT count(DISTINCT (ip)) FROM t_login_log WHERE datediff(login_time, now()) = 0;
+2020-08-12 17:24:52.102 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-08-12 17:24:52 | 耗时 0 ms | SQL 语句：
+SELECT date_format(l.login_time, '%m-%d') days, count(1) count FROM (SELECT * FROM t_login_log WHERE date_sub(curdate(), INTERVAL 10 day) <= date(login_time)) AS l WHERE 1 = 1 GROUP BY days;
+2020-08-12 17:24:52.108 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-08-12 17:24:52 | 耗时 0 ms | SQL 语句：
+SELECT date_format(l.login_time, '%m-%d') days, count(1) count FROM (SELECT * FROM t_login_log WHERE date_sub(curdate(), INTERVAL 10 day) <= date(login_time)) AS l WHERE 1 = 1 AND l.username = 'admin' GROUP BY days;
+2020-08-12 17:25:00.051 febs [aps_Scheduler_Worker-1] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:25:00.073 febs [aps_Scheduler_Worker-1] INFO  p6spy - 2020-08-12 17:25:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 4, '2020-08-12T17:25:00.051+0800');
+2020-08-12 17:25:10.019 febs [aps_Scheduler_Worker-2] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:25:10.046 febs [example-schedule-pool-1] INFO  p6spy - 2020-08-12 17:25:10 | 耗时 1 ms | SQL 语句：
+SELECT id, sb_code, plc_address, function_code, qs_address, jcqnum, unit_type, gs, command, remark, state, creator, create_date, modifier, mod_date FROM a_send_command;
+2020-08-12 17:25:10.070 febs [example-schedule-pool-1] INFO  p6spy - 2020-08-12 17:25:10 | 耗时 1 ms | SQL 语句：
+SELECT JOB_ID, bean_name, method_name, params, cron_expression, status, remark, create_time FROM t_job WHERE (bean_name = 'commonTask' AND method_name = 'send');
+2020-08-12 17:25:10.118 febs [example-schedule-pool-1] INFO  p6spy - 2020-08-12 17:25:10 | 耗时 1 ms | SQL 语句：
+UPDATE t_job SET bean_name = 'commonTask', method_name = 'send', params = '2', cron_expression = '10 */1 * * * ?', status = '0', remark = '发送报文数据', create_time = '2020-05-19T16:23:23.000+0800' WHERE JOB_ID = 2;
+2020-08-12 17:25:10.122 febs [aps_Scheduler_Worker-2] INFO  com.cx.job.util.ScheduleJob - 任务执行完毕，任务ID：2 总共耗时：103 毫秒
+2020-08-12 17:25:10.130 febs [aps_Scheduler_Worker-2] INFO  p6spy - 2020-08-12 17:25:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, times, create_time) VALUES (2, 'commonTask', 'send', '1', '0', 103, '2020-08-12T17:25:10.019+0800');
+2020-08-12 17:25:18.935 febs [QuartzScheduler_aps_Scheduler-LAPTOP-R0RM3FEG1597224276752_MisfireHandler] INFO  o.s.s.quartz.LocalDataSourceJobStore - Handling 1 trigger(s) that missed their scheduled fire-time.
+2020-08-12 17:26:00.029 febs [aps_Scheduler_Worker-3] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:26:00.038 febs [aps_Scheduler_Worker-3] INFO  p6spy - 2020-08-12 17:26:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 1, '2020-08-12T17:26:00.029+0800');
+2020-08-12 17:26:10.016 febs [aps_Scheduler_Worker-4] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:26:10.025 febs [example-schedule-pool-1] INFO  p6spy - 2020-08-12 17:26:10 | 耗时 1 ms | SQL 语句：
+SELECT id, sb_code, plc_address, function_code, qs_address, jcqnum, unit_type, gs, command, remark, state, creator, create_date, modifier, mod_date FROM a_send_command;
+2020-08-12 17:26:10.034 febs [example-schedule-pool-1] INFO  p6spy - 2020-08-12 17:26:10 | 耗时 1 ms | SQL 语句：
+SELECT JOB_ID, bean_name, method_name, params, cron_expression, status, remark, create_time FROM t_job WHERE (bean_name = 'commonTask' AND method_name = 'send');
+2020-08-12 17:26:10.069 febs [example-schedule-pool-1] INFO  p6spy - 2020-08-12 17:26:10 | 耗时 1 ms | SQL 语句：
+UPDATE t_job SET bean_name = 'commonTask', method_name = 'send', params = '1', cron_expression = '10 */1 * * * ?', status = '0', remark = '发送报文数据', create_time = '2020-05-19T16:23:23.000+0800' WHERE JOB_ID = 2;
+2020-08-12 17:26:10.073 febs [aps_Scheduler_Worker-4] INFO  com.cx.job.util.ScheduleJob - 任务执行完毕，任务ID：2 总共耗时：56 毫秒
+2020-08-12 17:26:10.080 febs [aps_Scheduler_Worker-4] INFO  p6spy - 2020-08-12 17:26:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, times, create_time) VALUES (2, 'commonTask', 'send', '2', '0', 56, '2020-08-12T17:26:10.016+0800');
+2020-08-12 17:26:10.210 febs [Thread-35] INFO  org.quartz.core.QuartzScheduler - Scheduler aps_Scheduler_$_LAPTOP-R0RM3FEG1597224276752 paused.
+2020-08-12 17:26:10.225 febs [Thread-35] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'apsAsyncThreadPool'
+2020-08-12 17:26:10.233 febs [Thread-35] INFO  o.s.s.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler
+2020-08-12 17:26:10.233 febs [Thread-35] INFO  org.quartz.core.QuartzScheduler - Scheduler aps_Scheduler_$_LAPTOP-R0RM3FEG1597224276752 shutting down.
+2020-08-12 17:26:10.233 febs [Thread-35] INFO  org.quartz.core.QuartzScheduler - Scheduler aps_Scheduler_$_LAPTOP-R0RM3FEG1597224276752 paused.
+2020-08-12 17:26:10.235 febs [Thread-35] INFO  org.quartz.core.QuartzScheduler - Scheduler aps_Scheduler_$_LAPTOP-R0RM3FEG1597224276752 shutdown complete.
+2020-08-12 17:26:10.247 febs [Thread-35] INFO  c.b.d.d.DynamicRoutingDataSource - closing dynamicDatasource  ing....
+2020-08-12 17:26:10.248 febs [Thread-35] INFO  com.zaxxer.hikari.HikariDataSource - base - Shutdown initiated...
+2020-08-12 17:26:10.256 febs [Thread-35] INFO  com.zaxxer.hikari.HikariDataSource - base - Shutdown completed.
+2020-08-12 17:30:45.148 febs [main] INFO  com.cx.AppApplication - Starting AppApplication on LAPTOP-R0RM3FEG with PID 14580 (F:\ideaWorkSpace\my-private\target\classes started by zyh in F:\ideaWorkSpace\my-private)
+2020-08-12 17:30:45.153 febs [main] INFO  com.cx.AppApplication - The following profiles are active: pro
+2020-08-12 17:30:46.993 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-12 17:30:46.998 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-08-12 17:30:47.086 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 68ms. Found 0 repository interfaces.
+2020-08-12 17:30:47.798 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.datasource.dynamic-com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:30:47.960 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$27f7133e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:30:47.973 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dsProcessor' of type [com.baomidou.dynamic.datasource.processor.DsHeaderProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:30:47.979 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicDatasourceAnnotationAdvisor' of type [com.baomidou.dynamic.datasource.aop.DynamicDataSourceAnnotationAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:30:47.996 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$be68a26d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:30:48.120 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfigure' of type [com.cx.common.configure.RedisConfigure$$EnhancerBySpringCGLIB$$a261199c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:30:48.183 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$57166aa7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:30:48.194 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:30:48.197 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@1cc41b77' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:30:48.202 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$7beb0d59] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:30:48.210 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:30:48.669 febs [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2020-08-12 17:30:48.686 febs [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2020-08-12 17:30:48.695 febs [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-12 17:30:48.696 febs [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-08-12 17:30:48.704 febs [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\JDK\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\JDK\bin;D:\Program Files\Git\cmd;D:\mysql-8.0.20-winx64\bin;D:\Program Files\nodejs\;D:\mysql-8.0.20-winx64\bin;D:\apache-maven-3.6.3-bin\apache-maven-3.6.3\bin;D:\Readis\Redis-x64-3.2.100;D:\Program Files\nodejs\node_global;C:\Users\zyh\AppData\Local\Microsoft\WindowsApps;;D:\Program Files\JetBrains\IntelliJ IDEA 2019.3\bin;;C:\Users\zyh\AppData\Roaming\npm;.]
+2020-08-12 17:30:48.846 febs [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-12 17:30:48.846 febs [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3585 ms
+2020-08-12 17:30:49.302 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 动态数据源-检测到并开启了p6spy
+2020-08-12 17:30:49.312 febs [main] INFO  com.zaxxer.hikari.HikariDataSource - base - Starting...
+2020-08-12 17:30:49.913 febs [main] INFO  com.zaxxer.hikari.HikariDataSource - base - Start completed.
+2020-08-12 17:30:49.913 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 初始共加载 1 个数据源
+2020-08-12 17:30:49.914 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 动态数据源-加载 base 成功
+2020-08-12 17:30:49.914 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 当前的默认数据源是单数据源，数据源名为 base
+2020-08-12 17:30:50.572 febs [main] INFO  com.cx.common.xss.XssFilter - ------------ xss filter init ------------
+2020-08-12 17:30:51.118 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - closing dynamicDatasource  ing....
+2020-08-12 17:30:51.119 febs [main] INFO  com.zaxxer.hikari.HikariDataSource - base - Shutdown initiated...
+2020-08-12 17:30:51.125 febs [main] INFO  com.zaxxer.hikari.HikariDataSource - base - Shutdown completed.
+2020-08-12 17:30:51.130 febs [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2020-08-12 17:30:51.154 febs [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-08-12 17:34:12.779 febs [main] INFO  com.cx.AppApplication - Starting AppApplication on LAPTOP-R0RM3FEG with PID 3172 (F:\ideaWorkSpace\my-private\target\classes started by zyh in F:\ideaWorkSpace\my-private)
+2020-08-12 17:34:12.783 febs [main] INFO  com.cx.AppApplication - The following profiles are active: pro
+2020-08-12 17:34:14.553 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-12 17:34:14.559 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-08-12 17:34:14.653 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 66ms. Found 0 repository interfaces.
+2020-08-12 17:34:15.414 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.datasource.dynamic-com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:34:15.623 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$3cde15b0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:34:15.635 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dsProcessor' of type [com.baomidou.dynamic.datasource.processor.DsHeaderProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:34:15.639 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicDatasourceAnnotationAdvisor' of type [com.baomidou.dynamic.datasource.aop.DynamicDataSourceAnnotationAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:34:15.650 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d34fa4df] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:34:15.682 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfigure' of type [com.cx.common.configure.RedisConfigure$$EnhancerBySpringCGLIB$$b7481c0e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:34:15.732 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$6bfd6d19] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:34:15.739 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:34:15.742 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@1bfa5a13' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:34:15.746 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$90d20fcb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:34:15.753 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-12 17:34:16.242 febs [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2020-08-12 17:34:16.261 febs [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2020-08-12 17:34:16.270 febs [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-12 17:34:16.270 febs [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-08-12 17:34:16.278 febs [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\JDK\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\JDK\bin;D:\Program Files\Git\cmd;D:\mysql-8.0.20-winx64\bin;D:\Program Files\nodejs\;D:\mysql-8.0.20-winx64\bin;D:\apache-maven-3.6.3-bin\apache-maven-3.6.3\bin;D:\Readis\Redis-x64-3.2.100;D:\Program Files\nodejs\node_global;C:\Users\zyh\AppData\Local\Microsoft\WindowsApps;;D:\Program Files\JetBrains\IntelliJ IDEA 2019.3\bin;;C:\Users\zyh\AppData\Roaming\npm;.]
+2020-08-12 17:34:16.408 febs [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-12 17:34:16.409 febs [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3538 ms
+2020-08-12 17:34:16.971 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 动态数据源-检测到并开启了p6spy
+2020-08-12 17:34:16.982 febs [main] INFO  com.zaxxer.hikari.HikariDataSource - base - Starting...
+2020-08-12 17:34:17.588 febs [main] INFO  com.zaxxer.hikari.HikariDataSource - base - Start completed.
+2020-08-12 17:34:17.589 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 初始共加载 1 个数据源
+2020-08-12 17:34:17.589 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 动态数据源-加载 base 成功
+2020-08-12 17:34:17.589 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 当前的默认数据源是单数据源，数据源名为 base
+2020-08-12 17:34:18.201 febs [main] INFO  com.cx.common.xss.XssFilter - ------------ xss filter init ------------
+2020-08-12 17:34:20.170 febs [main] INFO  c.cx.job.configure.ScheduleConfigure - ------
+2020-08-12 17:34:20.217 febs [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2020-08-12 17:34:20.239 febs [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-08-12 17:34:20.239 febs [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.0 created.
+2020-08-12 17:34:20.249 febs [main] INFO  o.s.s.quartz.LocalDataSourceJobStore - Using db table-based data access locking (synchronization).
+2020-08-12 17:34:20.254 febs [main] INFO  o.s.s.quartz.LocalDataSourceJobStore - JobStoreCMT initialized.
+2020-08-12 17:34:20.255 febs [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'aps_Scheduler' with instanceId 'LAPTOP-R0RM3FEG1597224860218'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
+  Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
+
+2020-08-12 17:34:20.256 febs [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'aps_Scheduler' initialized from an externally provided properties instance.
+2020-08-12 17:34:20.256 febs [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.0
+2020-08-12 17:34:20.259 febs [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@78b44fcb
+2020-08-12 17:34:20.376 febs [main] INFO  p6spy - 2020-08-12 17:34:20 | 耗时 2 ms | SQL 语句：
+SELECT job_id jobId, bean_name beanName, method_name methodName, params, cron_expression cronExpression, status, remark, create_time createTime FROM t_job ORDER BY job_id;
+2020-08-12 17:34:21.982 febs [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-08-12 17:34:22.387 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/test/**'], []
+2020-08-12 17:34:22.387 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/common/**'], []
+2020-08-12 17:34:22.387 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/app/**'], []
+2020-08-12 17:34:22.387 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/*.js'], []
+2020-08-12 17:34:22.387 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/*.css'], []
+2020-08-12 17:34:22.387 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/font/**'], []
+2020-08-12 17:34:22.387 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/images/**'], []
+2020-08-12 17:34:22.387 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/img/**'], []
+2020-08-12 17:34:22.387 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/lay/**'], []
+2020-08-12 17:34:22.388 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/layui/**'], []
+2020-08-12 17:34:22.388 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/json/**'], []
+2020-08-12 17:34:22.388 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/api/**'], []
+2020-08-12 17:34:22.388 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/app/**'], []
+2020-08-12 17:34:22.388 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-ui.html'], []
+2020-08-12 17:34:22.388 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger/**'], []
+2020-08-12 17:34:22.388 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-resources/**'], []
+2020-08-12 17:34:22.388 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/webjars/**'], []
+2020-08-12 17:34:22.388 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/v2/api-docs'], []
+2020-08-12 17:34:22.388 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/views/403'], []
+2020-08-12 17:34:22.388 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/views/401'], []
+2020-08-12 17:34:22.388 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/views/404'], []
+2020-08-12 17:34:22.470 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1e4b9592, org.springframework.security.web.context.SecurityContextPersistenceFilter@fef2768, org.springframework.security.web.header.HeaderWriterFilter@7da9b32c, org.springframework.security.web.authentication.logout.LogoutFilter@3006aef5, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5a20f793, org.springframework.security.web.session.ConcurrentSessionFilter@22a2e581, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@733e3c19, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37b44e8e, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@4e0139, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@438a65a7, org.springframework.security.web.session.SessionManagementFilter@46df794e, org.springframework.security.web.access.ExceptionTranslationFilter@1735e1c4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2926f7bd]
+2020-08-12 17:34:22.526 febs [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-08-12 17:34:22.556 febs [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService
+2020-08-12 17:34:22.559 febs [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'apsAsyncThreadPool'
+2020-08-12 17:34:23.154 febs [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2020-08-12 17:34:24.090 febs [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2020-08-12 17:34:24.109 febs [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2020-08-12 17:34:24.189 febs [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2020-08-12 17:34:24.213 febs [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Will start Quartz Scheduler [aps_Scheduler] in 1 seconds
+2020-08-12 17:34:24.228 febs [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+2020-08-12 17:34:24.259 febs [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+2020-08-12 17:34:24.264 febs [main] INFO  com.cx.AppApplication - Started AppApplication in 12.545 seconds (JVM running for 14.023)
+2020-08-12 17:34:24.290 febs [main] INFO  com.cx.common.runner.StartedUpRunner -  __    ___   _      ___   _     ____ _____  ____ 
+2020-08-12 17:34:24.291 febs [main] INFO  com.cx.common.runner.StartedUpRunner - / /`  / / \ | |\/| | |_) | |   | |_   | |  | |_  
+2020-08-12 17:34:24.291 febs [main] INFO  com.cx.common.runner.StartedUpRunner - \_\_, \_\_/ |_|  | |_|   |_|__ |_|__  |_|  |_|__ 
+2020-08-12 17:34:24.291 febs [main] INFO  com.cx.common.runner.StartedUpRunner -                                                       
+2020-08-12 17:34:24.291 febs [main] INFO  com.cx.common.runner.StartedUpRunner - 智工系统启动完毕，地址：http://192.168.1.113:8099/login
+2020-08-12 17:34:24.899 febs [RMI TCP Connection(1)-192.168.1.113] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-12 17:34:24.900 febs [RMI TCP Connection(1)-192.168.1.113] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-12 17:34:24.911 febs [RMI TCP Connection(2)-192.168.1.113] INFO  p6spy - 2020-08-12 17:34:24 | 耗时 0 ms | SQL 语句：
+select 1;
+2020-08-12 17:34:24.925 febs [RMI TCP Connection(1)-192.168.1.113] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 25 ms
+2020-08-12 17:34:25.214 febs [Quartz Scheduler [aps_Scheduler]] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now, after delay of 1 seconds
+2020-08-12 17:34:25.227 febs [Quartz Scheduler [aps_Scheduler]] INFO  o.s.s.quartz.LocalDataSourceJobStore - ClusterManager: detected 1 failed or restarted instances.
+2020-08-12 17:34:25.227 febs [Quartz Scheduler [aps_Scheduler]] INFO  o.s.s.quartz.LocalDataSourceJobStore - ClusterManager: Scanning for instance "LAPTOP-R0RM3FEG1597224276752"'s failed in-progress jobs.
+2020-08-12 17:34:25.234 febs [Quartz Scheduler [aps_Scheduler]] INFO  org.quartz.core.QuartzScheduler - Scheduler aps_Scheduler_$_LAPTOP-R0RM3FEG1597224860218 started.
+2020-08-12 17:34:25.241 febs [QuartzScheduler_aps_Scheduler-LAPTOP-R0RM3FEG1597224860218_MisfireHandler] INFO  o.s.s.quartz.LocalDataSourceJobStore - Handling the first 1 triggers that missed their scheduled fire-time.  More misfired triggers remain to be processed.
+2020-08-12 17:34:25.317 febs [QuartzScheduler_aps_Scheduler-LAPTOP-R0RM3FEG1597224860218_MisfireHandler] INFO  o.s.s.quartz.LocalDataSourceJobStore - Handling 1 trigger(s) that missed their scheduled fire-time.
+2020-08-12 17:34:30.729 febs [http-nio-8099-exec-2] INFO  c.c.c.a.s.HttpSessionCreatedEventListener - 新建session:A8F76EE21BD6D0F807B9233D56DF9F9B
+2020-08-12 17:34:33.833 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-08-12 17:34:33 | 耗时 2 ms | SQL 语句：
+SELECT u.user_id userId, u.username, u.password, u.email, u.mobile, u.status, u.create_time createTime, u.ssex sex, u.dept_id deptId, u.last_login_time lastLoginTime, u.modify_time modifyTime, u.description, u.avatar, u.THEME, u.IS_TAB, d.dept_name deptName, GROUP_CONCAT(r.role_id) roleId, GROUP_CONCAT(r.ROLE_NAME) roleName FROM t_user u LEFT JOIN t_dept d ON (u.dept_id = d.dept_id) LEFT JOIN t_user_role ur ON (u.user_id = ur.user_id) LEFT JOIN t_role r ON r.role_id = ur.role_id WHERE 1 = 1 AND u.username = 'admin' GROUP BY u.username, u.user_id, u.email, u.mobile, u.status, u.create_time, u.ssex, u.dept_id, u.last_login_time, u.modify_time, u.description, u.avatar;
+2020-08-12 17:34:33.951 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-08-12 17:34:33 | 耗时 1 ms | SQL 语句：
+SELECT r.* FROM t_role r LEFT JOIN t_user_role ur ON (r.role_id = ur.role_id) LEFT JOIN t_user u ON (u.user_id = ur.user_id) WHERE u.username = 'admin';
+2020-08-12 17:34:33.970 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-08-12 17:34:33 | 耗时 2 ms | SQL 语句：
+SELECT m.perms FROM t_role r LEFT JOIN t_user_role ur ON (r.role_id = ur.role_id) LEFT JOIN t_user u ON (u.user_id = ur.user_id) LEFT JOIN t_role_menu rm ON (rm.role_id = r.role_id) LEFT JOIN t_menu m ON (m.menu_id = rm.menu_id) WHERE m.perms IS NOT NULL AND m.perms <> '' AND u.username = 'admin';
+2020-08-12 17:34:34.498 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-08-12 17:34:34 | 耗时 2 ms | SQL 语句：
+SELECT m.* FROM t_menu m WHERE m.type <> 1 AND m.MENU_ID IN (SELECT DISTINCT rm.menu_id FROM t_role_menu rm LEFT JOIN t_role r ON (rm.role_id = r.role_id) LEFT JOIN t_user_role ur ON (ur.role_id = r.role_id) LEFT JOIN t_user u ON (u.user_id = ur.user_id) WHERE u.username = 'admin') ORDER BY m.order_num;
+2020-08-12 17:34:34.714 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-12 17:34:34 | 耗时 1 ms | SQL 语句：
+UPDATE t_user SET LAST_LOGIN_TIME = '2020-08-12T17:34:34.651+0800' WHERE (USERNAME = 'admin');
+2020-08-12 17:34:34.728 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-12 17:34:34 | 耗时 1 ms | SQL 语句：
+SELECT count(1) FROM t_login_log;
+2020-08-12 17:34:34.732 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-12 17:34:34 | 耗时 0 ms | SQL 语句：
+SELECT count(1) FROM t_login_log WHERE datediff(login_time, now()) = 0;
+2020-08-12 17:34:34.736 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-12 17:34:34 | 耗时 0 ms | SQL 语句：
+SELECT count(DISTINCT (ip)) FROM t_login_log WHERE datediff(login_time, now()) = 0;
+2020-08-12 17:34:34.745 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-12 17:34:34 | 耗时 0 ms | SQL 语句：
+SELECT date_format(l.login_time, '%m-%d') days, count(1) count FROM (SELECT * FROM t_login_log WHERE date_sub(curdate(), INTERVAL 10 day) <= date(login_time)) AS l WHERE 1 = 1 GROUP BY days;
+2020-08-12 17:34:34.750 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-12 17:34:34 | 耗时 0 ms | SQL 语句：
+SELECT date_format(l.login_time, '%m-%d') days, count(1) count FROM (SELECT * FROM t_login_log WHERE date_sub(curdate(), INTERVAL 10 day) <= date(login_time)) AS l WHERE 1 = 1 AND l.username = 'admin' GROUP BY days;
+2020-08-12 17:34:36.504 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-12 17:34:36 | 耗时 1 ms | SQL 语句：
+SELECT MENU_ID, PARENT_ID, MENU_NAME, URL, PERMS, ICON, TYPE, ORDER_NUM, CREATE_TIME, MODIFY_TIME FROM t_menu ORDER BY ORDER_NUM ASC;
+2020-08-12 17:34:37.266 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-08-12 17:34:37 | 耗时 2 ms | SQL 语句：
+SELECT MENU_ID, PARENT_ID, MENU_NAME, URL, PERMS, ICON, TYPE, ORDER_NUM, CREATE_TIME, MODIFY_TIME FROM t_menu ORDER BY ORDER_NUM ASC;
+2020-08-12 17:34:37.281 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-08-12 17:34:37 | 耗时 2 ms | SQL 语句：
+SELECT COUNT(1) FROM ( SELECT r.role_id roleId, r.role_name roleName, r.remark, r.create_time createTime, r.modify_time modifyTime, GROUP_CONCAT(rm.menu_id) menuIds FROM t_role r LEFT JOIN t_role_menu rm ON (r.role_id = rm.role_id) WHERE 1 = 1 GROUP BY r.role_id ) TOTAL;
+2020-08-12 17:34:37.306 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-08-12 17:34:37 | 耗时 2 ms | SQL 语句：
+SELECT r.role_id roleId, r.role_name roleName, r.remark, r.create_time createTime, r.modify_time modifyTime, GROUP_CONCAT(rm.menu_id) menuIds FROM t_role r LEFT JOIN t_role_menu rm ON (r.role_id = rm.role_id) WHERE 1 = 1 GROUP BY r.role_id ORDER BY createTime DESC LIMIT 0,10;
+2020-08-12 17:34:40.801 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-12 17:34:40 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = '1');
+2020-08-12 17:34:40.805 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-12 17:34:40 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = '1') ORDER BY id ASC LIMIT 0,10;
+2020-08-12 17:34:40.818 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-12 17:34:40 | 耗时 0 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = '1');
+2020-08-12 17:34:40.823 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-12 17:34:40 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = '1') ORDER BY id ASC LIMIT 0,10;
+2020-08-12 17:34:41.400 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-08-12 17:34:41 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = '2');
+2020-08-12 17:34:41.405 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-08-12 17:34:41 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = '2') ORDER BY id ASC LIMIT 0,10;
+2020-08-12 17:34:41.414 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-08-12 17:34:41 | 耗时 0 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = '2');
+2020-08-12 17:34:41.418 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-08-12 17:34:41 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = '2') ORDER BY id ASC LIMIT 0,10;
+2020-08-12 17:34:42.437 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-12 17:34:42 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-12 17:34:42.486 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-08-12 17:34:42 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-12 17:34:48.326 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-12 17:34:48 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = '3');
+2020-08-12 17:34:48.331 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-12 17:34:48 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = '3') ORDER BY id ASC LIMIT 0,10;
+2020-08-12 17:34:48.339 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-12 17:34:48 | 耗时 0 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = '3');
+2020-08-12 17:34:48.342 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-12 17:34:48 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = '3') ORDER BY id ASC LIMIT 0,10;
+2020-08-12 17:34:48.943 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-08-12 17:34:48 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-12 17:34:48.985 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-08-12 17:34:48 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-12 17:34:55.649 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-12 17:34:55 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-12 17:34:55.652 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-12 17:34:55 | 耗时 0 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-12 17:34:55.660 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-12 17:34:55 | 耗时 2 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-12 17:34:55.663 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-12 17:34:55 | 耗时 0 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-12 17:35:00.075 febs [aps_Scheduler_Worker-1] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:35:00.145 febs [aps_Scheduler_Worker-1] INFO  p6spy - 2020-08-12 17:35:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 51, '2020-08-12T17:35:00.075+0800');
+2020-08-12 17:35:10.026 febs [aps_Scheduler_Worker-2] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:35:10.035 febs [aps_Scheduler_Worker-2] INFO  p6spy - 2020-08-12 17:35:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 1, '2020-08-12T17:35:10.026+0800');
+2020-08-12 17:35:15.893 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-12 17:35:15 | 耗时 3 ms | SQL 语句：
+SELECT m.* FROM t_menu m WHERE m.type <> 1 AND m.MENU_ID IN (SELECT DISTINCT rm.menu_id FROM t_role_menu rm LEFT JOIN t_role r ON (rm.role_id = r.role_id) LEFT JOIN t_user_role ur ON (ur.role_id = r.role_id) LEFT JOIN t_user u ON (u.user_id = ur.user_id) WHERE u.username = 'admin') ORDER BY m.order_num;
+2020-08-12 17:35:15.969 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-08-12 17:35:15 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-12 17:35:15.972 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-08-12 17:35:15 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-12 17:35:15.978 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-08-12 17:35:15 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-12 17:35:15.980 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-08-12 17:35:15 | 耗时 0 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-12 17:35:19.578 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-12 17:35:19 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 1;
+2020-08-12 17:35:23.595 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-12 17:35:23 | 耗时 1 ms | SQL 语句：
+DELETE FROM a_mydept WHERE id = 7;
+2020-08-12 17:35:23.645 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-08-12 17:35:23 | 耗时 2 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-12 17:35:23.650 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-08-12 17:35:23 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-12 17:35:23.657 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-08-12 17:35:23 | 耗时 2 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-12 17:35:23.661 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-08-12 17:35:23 | 耗时 0 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-12 17:35:27.641 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-08-12 17:35:27 | 耗时 1 ms | SQL 语句：
+DELETE FROM a_mydept WHERE id = 9;
+2020-08-12 17:35:27.697 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-08-12 17:35:27 | 耗时 2 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-12 17:35:27.700 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-08-12 17:35:27 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-12 17:35:27.709 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-08-12 17:35:27 | 耗时 2 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-12 17:35:27.712 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-08-12 17:35:27 | 耗时 0 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-12 17:35:31.002 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-08-12 17:35:31 | 耗时 1 ms | SQL 语句：
+DELETE FROM a_mydept WHERE id = 8;
+2020-08-12 17:35:31.049 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-12 17:35:31 | 耗时 2 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-12 17:35:31.053 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-12 17:35:31 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-12 17:35:31.062 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-12 17:35:31 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-12 17:35:31.065 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-12 17:35:31 | 耗时 0 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-12 17:35:34.087 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-08-12 17:35:34 | 耗时 1 ms | SQL 语句：
+DELETE FROM a_mydept WHERE id = 4;
+2020-08-12 17:35:34.143 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-12 17:35:34 | 耗时 2 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-12 17:35:34.147 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-12 17:35:34 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-12 17:35:34.154 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-12 17:35:34 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-12 17:35:34.159 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-12 17:35:34 | 耗时 0 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-12 17:36:00.029 febs [aps_Scheduler_Worker-3] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:36:00.037 febs [aps_Scheduler_Worker-3] INFO  p6spy - 2020-08-12 17:36:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 0, '2020-08-12T17:36:00.029+0800');
+2020-08-12 17:36:10.015 febs [aps_Scheduler_Worker-4] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:36:10.022 febs [aps_Scheduler_Worker-4] INFO  p6spy - 2020-08-12 17:36:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 1, '2020-08-12T17:36:10.015+0800');
+2020-08-12 17:37:00.027 febs [aps_Scheduler_Worker-5] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:37:00.035 febs [aps_Scheduler_Worker-5] INFO  p6spy - 2020-08-12 17:37:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 1, '2020-08-12T17:37:00.027+0800');
+2020-08-12 17:37:10.024 febs [aps_Scheduler_Worker-6] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:37:10.035 febs [aps_Scheduler_Worker-6] INFO  p6spy - 2020-08-12 17:37:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 1, '2020-08-12T17:37:10.024+0800');
+2020-08-12 17:38:00.052 febs [aps_Scheduler_Worker-7] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:38:00.061 febs [aps_Scheduler_Worker-7] INFO  p6spy - 2020-08-12 17:38:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 1, '2020-08-12T17:38:00.052+0800');
+2020-08-12 17:38:10.024 febs [aps_Scheduler_Worker-8] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:38:10.031 febs [aps_Scheduler_Worker-8] INFO  p6spy - 2020-08-12 17:38:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 0, '2020-08-12T17:38:10.024+0800');
+2020-08-12 17:39:00.026 febs [aps_Scheduler_Worker-9] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:39:00.034 febs [aps_Scheduler_Worker-9] INFO  p6spy - 2020-08-12 17:39:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 1, '2020-08-12T17:39:00.026+0800');
+2020-08-12 17:39:10.024 febs [aps_Scheduler_Worker-10] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:39:10.031 febs [aps_Scheduler_Worker-10] INFO  p6spy - 2020-08-12 17:39:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 0, '2020-08-12T17:39:10.024+0800');
+2020-08-12 17:40:00.026 febs [aps_Scheduler_Worker-11] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:40:00.035 febs [aps_Scheduler_Worker-11] INFO  p6spy - 2020-08-12 17:40:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 1, '2020-08-12T17:40:00.026+0800');
+2020-08-12 17:40:10.023 febs [aps_Scheduler_Worker-12] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:40:10.032 febs [aps_Scheduler_Worker-12] INFO  p6spy - 2020-08-12 17:40:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 1, '2020-08-12T17:40:10.023+0800');
+2020-08-12 17:41:00.026 febs [aps_Scheduler_Worker-13] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:41:00.035 febs [aps_Scheduler_Worker-13] INFO  p6spy - 2020-08-12 17:41:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 1, '2020-08-12T17:41:00.026+0800');
+2020-08-12 17:41:10.022 febs [aps_Scheduler_Worker-14] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:41:10.030 febs [aps_Scheduler_Worker-14] INFO  p6spy - 2020-08-12 17:41:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 0, '2020-08-12T17:41:10.022+0800');
+2020-08-12 17:42:00.025 febs [aps_Scheduler_Worker-15] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:42:00.033 febs [aps_Scheduler_Worker-15] INFO  p6spy - 2020-08-12 17:42:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 1, '2020-08-12T17:42:00.025+0800');
+2020-08-12 17:42:10.023 febs [aps_Scheduler_Worker-16] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:42:10.031 febs [aps_Scheduler_Worker-16] INFO  p6spy - 2020-08-12 17:42:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 1, '2020-08-12T17:42:10.023+0800');
+2020-08-12 17:43:00.026 febs [aps_Scheduler_Worker-17] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:43:00.034 febs [aps_Scheduler_Worker-17] INFO  p6spy - 2020-08-12 17:43:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 0, '2020-08-12T17:43:00.026+0800');
+2020-08-12 17:43:10.023 febs [aps_Scheduler_Worker-18] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:43:10.031 febs [aps_Scheduler_Worker-18] INFO  p6spy - 2020-08-12 17:43:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 1, '2020-08-12T17:43:10.023+0800');
+2020-08-12 17:44:00.023 febs [aps_Scheduler_Worker-19] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:44:00.030 febs [aps_Scheduler_Worker-19] INFO  p6spy - 2020-08-12 17:44:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 0, '2020-08-12T17:44:00.023+0800');
+2020-08-12 17:44:10.023 febs [aps_Scheduler_Worker-20] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:44:10.030 febs [aps_Scheduler_Worker-20] INFO  p6spy - 2020-08-12 17:44:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 0, '2020-08-12T17:44:10.023+0800');
+2020-08-12 17:45:00.019 febs [aps_Scheduler_Worker-1] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:45:00.025 febs [aps_Scheduler_Worker-1] INFO  p6spy - 2020-08-12 17:45:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 1, '2020-08-12T17:45:00.019+0800');
+2020-08-12 17:45:10.010 febs [aps_Scheduler_Worker-2] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:45:10.016 febs [aps_Scheduler_Worker-2] INFO  p6spy - 2020-08-12 17:45:10 | 耗时 0 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 0, '2020-08-12T17:45:10.010+0800');
+2020-08-12 17:46:00.017 febs [aps_Scheduler_Worker-3] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:46:00.026 febs [aps_Scheduler_Worker-3] INFO  p6spy - 2020-08-12 17:46:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 1, '2020-08-12T17:46:00.017+0800');
+2020-08-12 17:46:10.015 febs [aps_Scheduler_Worker-4] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:46:10.024 febs [aps_Scheduler_Worker-4] INFO  p6spy - 2020-08-12 17:46:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 1, '2020-08-12T17:46:10.015+0800');
+2020-08-12 17:47:00.025 febs [aps_Scheduler_Worker-5] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:47:00.032 febs [aps_Scheduler_Worker-5] INFO  p6spy - 2020-08-12 17:47:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 0, '2020-08-12T17:47:00.025+0800');
+2020-08-12 17:47:10.017 febs [aps_Scheduler_Worker-6] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:47:10.024 febs [aps_Scheduler_Worker-6] INFO  p6spy - 2020-08-12 17:47:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 0, '2020-08-12T17:47:10.017+0800');
+2020-08-12 17:48:00.024 febs [aps_Scheduler_Worker-7] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:48:00.032 febs [aps_Scheduler_Worker-7] INFO  p6spy - 2020-08-12 17:48:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 1, '2020-08-12T17:48:00.024+0800');
+2020-08-12 17:48:10.022 febs [aps_Scheduler_Worker-8] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:48:10.029 febs [aps_Scheduler_Worker-8] INFO  p6spy - 2020-08-12 17:48:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 0, '2020-08-12T17:48:10.022+0800');
+2020-08-12 17:49:00.024 febs [aps_Scheduler_Worker-9] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:49:00.031 febs [aps_Scheduler_Worker-9] INFO  p6spy - 2020-08-12 17:49:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 0, '2020-08-12T17:49:00.024+0800');
+2020-08-12 17:49:10.048 febs [aps_Scheduler_Worker-10] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:49:10.055 febs [aps_Scheduler_Worker-10] INFO  p6spy - 2020-08-12 17:49:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 0, '2020-08-12T17:49:10.048+0800');
+2020-08-12 17:50:00.026 febs [aps_Scheduler_Worker-11] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:50:00.033 febs [aps_Scheduler_Worker-11] INFO  p6spy - 2020-08-12 17:50:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 1, '2020-08-12T17:50:00.026+0800');
+2020-08-12 17:50:10.022 febs [aps_Scheduler_Worker-12] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:50:10.027 febs [aps_Scheduler_Worker-12] INFO  p6spy - 2020-08-12 17:50:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 0, '2020-08-12T17:50:10.022+0800');
+2020-08-12 17:51:00.025 febs [aps_Scheduler_Worker-13] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:51:00.032 febs [aps_Scheduler_Worker-13] INFO  p6spy - 2020-08-12 17:51:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 0, '2020-08-12T17:51:00.025+0800');
+2020-08-12 17:51:10.011 febs [aps_Scheduler_Worker-14] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:51:10.019 febs [aps_Scheduler_Worker-14] INFO  p6spy - 2020-08-12 17:51:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 1, '2020-08-12T17:51:10.011+0800');
+2020-08-12 17:52:00.021 febs [aps_Scheduler_Worker-15] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:52:00.030 febs [aps_Scheduler_Worker-15] INFO  p6spy - 2020-08-12 17:52:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 1, '2020-08-12T17:52:00.021+0800');
+2020-08-12 17:52:10.046 febs [aps_Scheduler_Worker-16] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:52:10.054 febs [aps_Scheduler_Worker-16] INFO  p6spy - 2020-08-12 17:52:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 1, '2020-08-12T17:52:10.046+0800');
+2020-08-12 17:53:00.023 febs [aps_Scheduler_Worker-17] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:53:00.030 febs [aps_Scheduler_Worker-17] INFO  p6spy - 2020-08-12 17:53:00 | 耗时 2 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 0, '2020-08-12T17:53:00.023+0800');
+2020-08-12 17:53:10.045 febs [aps_Scheduler_Worker-18] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:53:10.053 febs [aps_Scheduler_Worker-18] INFO  p6spy - 2020-08-12 17:53:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 1, '2020-08-12T17:53:10.045+0800');
+2020-08-12 17:54:00.023 febs [aps_Scheduler_Worker-19] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:54:00.031 febs [aps_Scheduler_Worker-19] INFO  p6spy - 2020-08-12 17:54:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 0, '2020-08-12T17:54:00.023+0800');
+2020-08-12 17:54:10.011 febs [aps_Scheduler_Worker-20] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:54:10.017 febs [aps_Scheduler_Worker-20] INFO  p6spy - 2020-08-12 17:54:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 1, '2020-08-12T17:54:10.011+0800');
+2020-08-12 17:55:00.019 febs [aps_Scheduler_Worker-1] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:55:00.023 febs [aps_Scheduler_Worker-1] INFO  p6spy - 2020-08-12 17:55:00 | 耗时 0 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 0, '2020-08-12T17:55:00.019+0800');
+2020-08-12 17:55:10.013 febs [aps_Scheduler_Worker-2] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:55:10.020 febs [aps_Scheduler_Worker-2] INFO  p6spy - 2020-08-12 17:55:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 1, '2020-08-12T17:55:10.013+0800');
+2020-08-12 17:56:00.023 febs [aps_Scheduler_Worker-3] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:56:00.028 febs [aps_Scheduler_Worker-3] INFO  p6spy - 2020-08-12 17:56:00 | 耗时 0 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 0, '2020-08-12T17:56:00.023+0800');
+2020-08-12 17:56:10.012 febs [aps_Scheduler_Worker-4] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:56:10.020 febs [aps_Scheduler_Worker-4] INFO  p6spy - 2020-08-12 17:56:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 1, '2020-08-12T17:56:10.012+0800');
+2020-08-12 17:57:00.014 febs [aps_Scheduler_Worker-5] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:57:00.025 febs [aps_Scheduler_Worker-5] INFO  p6spy - 2020-08-12 17:57:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 1, '2020-08-12T17:57:00.014+0800');
+2020-08-12 17:57:10.012 febs [aps_Scheduler_Worker-6] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:57:10.019 febs [aps_Scheduler_Worker-6] INFO  p6spy - 2020-08-12 17:57:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 1, '2020-08-12T17:57:10.012+0800');
+2020-08-12 17:58:00.021 febs [aps_Scheduler_Worker-7] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:58:00.028 febs [aps_Scheduler_Worker-7] INFO  p6spy - 2020-08-12 17:58:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 0, '2020-08-12T17:58:00.021+0800');
+2020-08-12 17:58:10.011 febs [aps_Scheduler_Worker-8] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:58:10.018 febs [aps_Scheduler_Worker-8] INFO  p6spy - 2020-08-12 17:58:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 1, '2020-08-12T17:58:10.011+0800');
+2020-08-12 17:59:00.014 febs [aps_Scheduler_Worker-9] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 17:59:00.022 febs [aps_Scheduler_Worker-9] INFO  p6spy - 2020-08-12 17:59:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 1, '2020-08-12T17:59:00.014+0800');
+2020-08-12 17:59:10.011 febs [aps_Scheduler_Worker-10] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 17:59:10.018 febs [aps_Scheduler_Worker-10] INFO  p6spy - 2020-08-12 17:59:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 1, '2020-08-12T17:59:10.011+0800');
+2020-08-12 18:00:00.025 febs [aps_Scheduler_Worker-11] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 18:00:00.033 febs [aps_Scheduler_Worker-11] INFO  p6spy - 2020-08-12 18:00:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 1, '2020-08-12T18:00:00.025+0800');
+2020-08-12 18:00:10.010 febs [aps_Scheduler_Worker-12] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 18:00:10.014 febs [aps_Scheduler_Worker-12] INFO  p6spy - 2020-08-12 18:00:10 | 耗时 0 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 0, '2020-08-12T18:00:10.010+0800');
+2020-08-12 18:01:00.025 febs [aps_Scheduler_Worker-13] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 18:01:00.032 febs [aps_Scheduler_Worker-13] INFO  p6spy - 2020-08-12 18:01:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 1, '2020-08-12T18:01:00.025+0800');
+2020-08-12 18:01:10.011 febs [aps_Scheduler_Worker-14] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 18:01:10.018 febs [aps_Scheduler_Worker-14] INFO  p6spy - 2020-08-12 18:01:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 1, '2020-08-12T18:01:10.011+0800');
+2020-08-12 18:02:00.025 febs [aps_Scheduler_Worker-15] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 18:02:00.031 febs [aps_Scheduler_Worker-15] INFO  p6spy - 2020-08-12 18:02:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 0, '2020-08-12T18:02:00.025+0800');
+2020-08-12 18:02:10.013 febs [aps_Scheduler_Worker-16] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：2
+2020-08-12 18:02:10.019 febs [aps_Scheduler_Worker-16] INFO  p6spy - 2020-08-12 18:02:10 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (2, 'commonTask', 'send', '1', '1', 'org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named ''commonTask'' available', 1, '2020-08-12T18:02:10.013+0800');
+2020-08-12 18:03:00.026 febs [aps_Scheduler_Worker-17] INFO  com.cx.job.util.ScheduleJob - 任务准备执行，任务ID：1
+2020-08-12 18:03:00.033 febs [aps_Scheduler_Worker-17] INFO  p6spy - 2020-08-12 18:03:00 | 耗时 1 ms | SQL 语句：
+INSERT INTO t_job_log (job_id, bean_name, method_name, params, status, error, times, create_time) VALUES (1, 'testTask', 'test1', '1', '1', 'java.lang.NoSuchMethodException: com.cx.job.task.TestTask.test1(java.lang.String)', 1, '2020-08-12T18:03:00.026+0800');
+2020-08-12 18:03:06.770 febs [Thread-30] INFO  org.quartz.core.QuartzScheduler - Scheduler aps_Scheduler_$_LAPTOP-R0RM3FEG1597224860218 paused.
+2020-08-12 18:03:06.784 febs [Thread-30] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'apsAsyncThreadPool'
+2020-08-12 18:03:06.787 febs [Thread-30] INFO  o.s.s.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler
+2020-08-12 18:03:06.787 febs [Thread-30] INFO  org.quartz.core.QuartzScheduler - Scheduler aps_Scheduler_$_LAPTOP-R0RM3FEG1597224860218 shutting down.
+2020-08-12 18:03:06.787 febs [Thread-30] INFO  org.quartz.core.QuartzScheduler - Scheduler aps_Scheduler_$_LAPTOP-R0RM3FEG1597224860218 paused.
+2020-08-12 18:03:06.789 febs [Thread-30] INFO  org.quartz.core.QuartzScheduler - Scheduler aps_Scheduler_$_LAPTOP-R0RM3FEG1597224860218 shutdown complete.
+2020-08-12 18:03:06.795 febs [Thread-30] INFO  c.b.d.d.DynamicRoutingDataSource - closing dynamicDatasource  ing....
+2020-08-12 18:03:06.795 febs [Thread-30] INFO  com.zaxxer.hikari.HikariDataSource - base - Shutdown initiated...
+2020-08-12 18:03:06.801 febs [Thread-30] INFO  com.zaxxer.hikari.HikariDataSource - base - Shutdown completed.

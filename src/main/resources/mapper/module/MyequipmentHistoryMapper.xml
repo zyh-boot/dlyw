@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cx.module.myequipment_history.mapper.MyequipmentHistoryMapper">
+    <!--当前表名：a_myequipment_history-->
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cx.module.myequipment_history.entity.MyequipmentHistory">
+        <id column="id" property="id"/>
+        <result column="eq_id" property="eqId"/>
+        <result column="eq_name" property="eqName"/>
+        <result column="eq_dept_id" property="eqDeptId"/>
+        <result column="eq_dept_name" property="eqDeptName"/>
+        <result column="eq_dept_category" property="eqDeptCategory"/>
+        <result column="eq_code" property="eqCode"/>
+        <result column="eq_type" property="eqType"/>
+        <result column="eq_ledger" property="eqLedger"/>
+        <result column="eq_pm_two" property="eqPmTwo"/>
+        <result column="eq_pm_ten" property="eqPmTen"/>
+        <result column="eq_co" property="eqCo"/>
+        <result column="eq_so2" property="eqSo2"/>
+        <result column="sq_no2" property="sqNo2"/>
+        <result column="sq_o3" property="sqO3"/>
+        <result column="eq_noise" property="eqNoise"/>
+        <result column="wind_direction" property="windDirection"/>
+        <result column="wind_speed" property="windSpeed"/>
+        <result column="eq_address" property="eqAddress"/>
+        <result column="eq_add_time" property="eqAddTime"/>
+        <result column="eq_supplier" property="eqSupplier"/>
+        <result column="eq_overhaul" property="eqOverhaul"/>
+        <result column="state" property="state"/>
+        <result column="creator" property="creator"/>
+        <result column="create_date" property="createDate"/>
+        <result column="modifier" property="modifier"/>
+        <result column="mod_date" property="modDate"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+
+
+            id, eq_id,eq_name, eq_dept_id, eq_dept_name, eq_dept_category, eq_code, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_noise, wind_direction, wind_speed, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date
+
+
+    </sql>
+    <insert id="bathAddList" parameterType="list">
+
+        insert into a_myequipment_history (eq_id, eq_name, eq_dept_id, eq_dept_name, eq_dept_category,
+        eq_code, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3,
+         eq_noise, wind_direction, wind_speed, eq_address, eq_add_time, eq_supplier,
+          eq_overhaul, state, creator, create_date, modifier, mod_date)
+        values
+
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id},#{item.eqName},#{item.eqDeptId},#{item.eqDeptName},#{item.eqDeptCategory },#{item.eqCode},#{item.eqType},
+            #{item.eqLedger},#{item.eqPmTwo},#{item.eqPmTen},#{item.eqCo},#{item.eqSo2},#{item.sqNo2},
+            #{item.sqO3},#{item.eqNoise},#{item.windDirection},#{item.windSpeed},#{item.eqAddress},#{item.eqAddTime},
+            #{item.eqSupplier},#{item.eqOverhaul},#{item.state},#{item.creator},#{item.createDate},#{item.modifier},#{item.modDate})
+        </foreach>
+    </insert>
+</mapper>

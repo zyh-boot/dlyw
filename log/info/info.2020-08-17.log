@@ -1,0 +1,376 @@
+2020-08-17 08:40:00.690 febs [main] INFO  com.cx.AppApplication - Starting AppApplication on LAPTOP-R0RM3FEG with PID 1852 (F:\ideaWorkSpace\my-private\target\classes started by zyh in F:\ideaWorkSpace\my-private)
+2020-08-17 08:40:00.698 febs [main] INFO  com.cx.AppApplication - The following profiles are active: pro
+2020-08-17 08:40:03.115 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-17 08:40:03.118 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-08-17 08:40:03.216 febs [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 72ms. Found 0 repository interfaces.
+2020-08-17 08:40:03.982 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.datasource.dynamic-com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-17 08:40:04.172 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$f92edc41] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-17 08:40:04.183 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dsProcessor' of type [com.baomidou.dynamic.datasource.processor.DsHeaderProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-17 08:40:04.188 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dynamicDatasourceAnnotationAdvisor' of type [com.baomidou.dynamic.datasource.aop.DynamicDataSourceAnnotationAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-17 08:40:04.203 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8fa06b70] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-17 08:40:04.238 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisConfigure' of type [com.cx.common.configure.RedisConfigure$$EnhancerBySpringCGLIB$$7398e29f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-17 08:40:04.295 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$284e33aa] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-17 08:40:04.303 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-17 08:40:04.306 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@31228d83' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-17 08:40:04.307 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$4d22d65c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-17 08:40:04.317 febs [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-08-17 08:40:05.017 febs [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8099 (http)
+2020-08-17 08:40:05.043 febs [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8099"]
+2020-08-17 08:40:05.055 febs [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-08-17 08:40:05.056 febs [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-08-17 08:40:05.065 febs [main] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\JDK\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;D:\JDK\bin;D:\Program Files\Git\cmd;D:\mysql-8.0.20-winx64\bin;D:\Program Files\nodejs\;D:\mysql-8.0.20-winx64\bin;D:\apache-maven-3.6.3-bin\apache-maven-3.6.3\bin;D:\Readis\Redis-x64-3.2.100;D:\Program Files\nodejs\node_global;D:\Go\bin;D:\python-3.8.5;F:\GoWorkSpace;F:\GoWorkSpace\bin;C:\Users\zyh\AppData\Local\Microsoft\WindowsApps;;D:\Program Files\JetBrains\IntelliJ IDEA 2019.3\bin;;C:\Users\zyh\AppData\Roaming\npm;D:\Program Files\JetBrains\GoLand 2020.2.2\bin;;D:\Program Files\JetBrains\PyCharm 2020.2\bin;;C:\Users\zyh\go\bin;.]
+2020-08-17 08:40:05.293 febs [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-08-17 08:40:05.293 febs [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 4437 ms
+2020-08-17 08:40:05.876 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 动态数据源-检测到并开启了p6spy
+2020-08-17 08:40:05.892 febs [main] INFO  com.zaxxer.hikari.HikariDataSource - base - Starting...
+2020-08-17 08:40:06.643 febs [main] INFO  com.zaxxer.hikari.HikariDataSource - base - Start completed.
+2020-08-17 08:40:06.644 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 初始共加载 1 个数据源
+2020-08-17 08:40:06.644 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 动态数据源-加载 base 成功
+2020-08-17 08:40:06.644 febs [main] INFO  c.b.d.d.DynamicRoutingDataSource - 当前的默认数据源是单数据源，数据源名为 base
+2020-08-17 08:40:07.321 febs [main] INFO  com.cx.common.xss.XssFilter - ------------ xss filter init ------------
+2020-08-17 08:40:09.319 febs [main] INFO  org.quartz.impl.StdSchedulerFactory - Using default implementation for ThreadExecutor
+2020-08-17 08:40:09.336 febs [main] INFO  o.quartz.core.SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-08-17 08:40:09.337 febs [main] INFO  org.quartz.core.QuartzScheduler - Quartz Scheduler v.2.3.0 created.
+2020-08-17 08:40:09.338 febs [main] INFO  org.quartz.simpl.RAMJobStore - RAMJobStore initialized.
+2020-08-17 08:40:09.339 febs [main] INFO  org.quartz.core.QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-08-17 08:40:09.339 febs [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-08-17 08:40:09.339 febs [main] INFO  org.quartz.impl.StdSchedulerFactory - Quartz scheduler version: 2.3.0
+2020-08-17 08:40:09.339 febs [main] INFO  org.quartz.core.QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@1642968c
+2020-08-17 08:40:10.586 febs [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-08-17 08:40:10.955 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/test/**'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/common/**'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/app/**'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/*.js'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/*.css'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/font/**'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/images/**'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/img/**'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/**/lay/**'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/layui/**'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/json/**'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/api/**'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/app/**'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-ui.html'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger/**'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-resources/**'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/webjars/**'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/v2/api-docs'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/views/403'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/views/401'], []
+2020-08-17 08:40:10.956 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/views/404'], []
+2020-08-17 08:40:11.287 febs [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3d01b609, org.springframework.security.web.context.SecurityContextPersistenceFilter@1f3dafd4, org.springframework.security.web.header.HeaderWriterFilter@49c6ee4a, org.springframework.security.web.authentication.logout.LogoutFilter@2e96489b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2053b761, org.springframework.security.web.session.ConcurrentSessionFilter@9a74a93, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@33622388, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3fcb737, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@34588991, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@38b7004d, org.springframework.security.web.session.SessionManagementFilter@4dd425dc, org.springframework.security.web.access.ExceptionTranslationFilter@2afe825a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4202276]
+2020-08-17 08:40:11.359 febs [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-08-17 08:40:11.380 febs [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService
+2020-08-17 08:40:11.382 febs [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'apsAsyncThreadPool'
+2020-08-17 08:40:11.924 febs [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2020-08-17 08:40:12.626 febs [main] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+2020-08-17 08:40:12.802 febs [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2020-08-17 08:40:12.826 febs [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2020-08-17 08:40:12.905 febs [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2020-08-17 08:40:12.935 febs [main] INFO  o.s.s.quartz.SchedulerFactoryBean - Starting Quartz Scheduler now
+2020-08-17 08:40:12.935 febs [main] INFO  org.quartz.core.QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-08-17 08:40:12.954 febs [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8099"]
+2020-08-17 08:40:12.993 febs [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8099 (http) with context path ''
+2020-08-17 08:40:12.998 febs [main] INFO  com.cx.AppApplication - Started AppApplication in 13.56 seconds (JVM running for 16.331)
+2020-08-17 08:40:15.038 febs [main] INFO  com.cx.common.runner.StartedUpRunner -  __    ___   _      ___   _     ____ _____  ____ 
+2020-08-17 08:40:15.038 febs [main] INFO  com.cx.common.runner.StartedUpRunner - / /`  / / \ | |\/| | |_) | |   | |_   | |  | |_  
+2020-08-17 08:40:15.038 febs [main] INFO  com.cx.common.runner.StartedUpRunner - \_\_, \_\_/ |_|  | |_|   |_|__ |_|__  |_|  |_|__ 
+2020-08-17 08:40:15.038 febs [main] INFO  com.cx.common.runner.StartedUpRunner -                                                       
+2020-08-17 08:40:15.038 febs [main] INFO  com.cx.common.runner.StartedUpRunner - 智工系统启动完毕，地址：http://192.168.1.113:8099/login
+2020-08-17 08:40:15.441 febs [RMI TCP Connection(3)-192.168.1.113] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-08-17 08:40:15.442 febs [RMI TCP Connection(3)-192.168.1.113] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-08-17 08:40:15.471 febs [RMI TCP Connection(3)-192.168.1.113] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 29 ms
+2020-08-17 08:40:17.158 febs [RMI TCP Connection(1)-192.168.1.113] INFO  p6spy - 2020-08-17 08:40:17 | 耗时 7 ms | SQL 语句：
+select 1;
+2020-08-17 08:41:43.201 febs [http-nio-8099-exec-2] INFO  c.c.c.a.s.HttpSessionCreatedEventListener - 新建session:825599AE80FC870FB1D96FDEB6CAFAA1
+2020-08-17 08:41:46.430 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:41:46 | 耗时 38 ms | SQL 语句：
+SELECT u.user_id userId, u.username, u.password, u.email, u.mobile, u.status, u.remaing, u.create_time createTime, u.ssex sex, u.dept_id deptId, u.last_login_time lastLoginTime, u.modify_time modifyTime, u.description, u.avatar, u.THEME, u.IS_TAB, d.dept_name deptName, GROUP_CONCAT(r.role_id) roleId, GROUP_CONCAT(r.ROLE_NAME) roleName FROM t_user u LEFT JOIN t_dept d ON (u.dept_id = d.dept_id) LEFT JOIN t_user_role ur ON (u.user_id = ur.user_id) LEFT JOIN t_role r ON r.role_id = ur.role_id WHERE 1 = 1 AND u.username = 'admin' GROUP BY u.username, u.user_id, u.email, u.mobile, u.status, u.create_time, u.ssex, u.dept_id, u.last_login_time, u.modify_time, u.description, u.avatar;
+2020-08-17 08:41:46.539 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:41:46 | 耗时 1 ms | SQL 语句：
+SELECT r.* FROM t_role r LEFT JOIN t_user_role ur ON (r.role_id = ur.role_id) LEFT JOIN t_user u ON (u.user_id = ur.user_id) WHERE u.username = 'admin';
+2020-08-17 08:41:46.570 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:41:46 | 耗时 17 ms | SQL 语句：
+SELECT m.perms FROM t_role r LEFT JOIN t_user_role ur ON (r.role_id = ur.role_id) LEFT JOIN t_user u ON (u.user_id = ur.user_id) LEFT JOIN t_role_menu rm ON (rm.role_id = r.role_id) LEFT JOIN t_menu m ON (m.menu_id = rm.menu_id) WHERE m.perms IS NOT NULL AND m.perms <> '' AND u.username = 'admin';
+2020-08-17 08:41:47.387 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:41:47 | 耗时 2 ms | SQL 语句：
+SELECT m.* FROM t_menu m WHERE m.type <> 1 AND m.MENU_ID IN (SELECT DISTINCT rm.menu_id FROM t_role_menu rm LEFT JOIN t_role r ON (rm.role_id = r.role_id) LEFT JOIN t_user_role ur ON (ur.role_id = r.role_id) LEFT JOIN t_user u ON (u.user_id = ur.user_id) WHERE u.username = 'admin') ORDER BY m.order_num;
+2020-08-17 08:41:47.584 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-08-17 08:41:47 | 耗时 2 ms | SQL 语句：
+UPDATE t_user SET LAST_LOGIN_TIME = '2020-08-17T08:41:47.526+0800' WHERE (USERNAME = 'admin');
+2020-08-17 08:41:47.608 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-08-17 08:41:47 | 耗时 10 ms | SQL 语句：
+SELECT count(1) FROM t_login_log;
+2020-08-17 08:41:47.614 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-08-17 08:41:47 | 耗时 1 ms | SQL 语句：
+SELECT count(1) FROM t_login_log WHERE datediff(login_time, now()) = 0;
+2020-08-17 08:41:47.619 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-08-17 08:41:47 | 耗时 1 ms | SQL 语句：
+SELECT count(DISTINCT (ip)) FROM t_login_log WHERE datediff(login_time, now()) = 0;
+2020-08-17 08:41:47.627 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-08-17 08:41:47 | 耗时 1 ms | SQL 语句：
+SELECT date_format(l.login_time, '%m-%d') days, count(1) count FROM (SELECT * FROM t_login_log WHERE date_sub(curdate(), INTERVAL 10 day) <= date(login_time)) AS l WHERE 1 = 1 GROUP BY days;
+2020-08-17 08:41:47.633 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-08-17 08:41:47 | 耗时 0 ms | SQL 语句：
+SELECT date_format(l.login_time, '%m-%d') days, count(1) count FROM (SELECT * FROM t_login_log WHERE date_sub(curdate(), INTERVAL 10 day) <= date(login_time)) AS l WHERE 1 = 1 AND l.username = 'admin' GROUP BY days;
+2020-08-17 08:44:33.834 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-08-17 08:44:33 | 耗时 13 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept;
+2020-08-17 08:44:33.859 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-08-17 08:44:33 | 耗时 11 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_id = 1);
+2020-08-17 08:44:33.866 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-08-17 08:44:33 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_id = 2);
+2020-08-17 08:44:33.871 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-08-17 08:44:33 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_id = 3);
+2020-08-17 08:44:33.877 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-08-17 08:44:33 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_id = 10);
+2020-08-17 08:44:34.469 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-08-17 08:44:34 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment;
+2020-08-17 08:44:41.554 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-17 08:44:41 | 耗时 2 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-17 08:44:41.575 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-17 08:44:41 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:44:41.583 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-17 08:44:41 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-17 08:44:41.586 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-17 08:44:41 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:44:43.075 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:44:43 | 耗时 3 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-17 08:44:43.080 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:44:43 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:44:43.092 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:44:43 | 耗时 2 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-17 08:44:43.095 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:44:43 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:44:52.909 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-17 08:44:52 | 耗时 2 ms | SQL 语句：
+SELECT m.* FROM t_menu m WHERE m.type <> 1 AND m.MENU_ID IN (SELECT DISTINCT rm.menu_id FROM t_role_menu rm LEFT JOIN t_role r ON (rm.role_id = r.role_id) LEFT JOIN t_user_role ur ON (ur.role_id = r.role_id) LEFT JOIN t_user u ON (u.user_id = ur.user_id) WHERE u.username = 'admin') ORDER BY m.order_num;
+2020-08-17 08:44:52.971 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-08-17 08:44:52 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-17 08:44:52.975 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-08-17 08:44:52 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:44:52.982 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-08-17 08:44:52 | 耗时 2 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-17 08:44:52.985 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-08-17 08:44:52 | 耗时 0 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:46:10.013 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-08-17 08:46:10 | 耗时 3 ms | SQL 语句：
+SELECT m.* FROM t_menu m WHERE m.type <> 1 AND m.MENU_ID IN (SELECT DISTINCT rm.menu_id FROM t_role_menu rm LEFT JOIN t_role r ON (rm.role_id = r.role_id) LEFT JOIN t_user_role ur ON (ur.role_id = r.role_id) LEFT JOIN t_user u ON (u.user_id = ur.user_id) WHERE u.username = 'admin') ORDER BY m.order_num;
+2020-08-17 08:46:10.091 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-17 08:46:10 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-17 08:46:10.096 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-17 08:46:10 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:46:10.103 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-17 08:46:10 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-17 08:46:10.107 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-17 08:46:10 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:46:16.243 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:46:16 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept;
+2020-08-17 08:46:16.251 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:46:16 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_id = 1);
+2020-08-17 08:46:16.255 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:46:16 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_id = 2);
+2020-08-17 08:46:16.262 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:46:16 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_id = 3);
+2020-08-17 08:46:16.267 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:46:16 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_id = 10);
+2020-08-17 08:46:17.659 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-08-17 08:46:17 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment;
+2020-08-17 08:46:22.105 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-08-17 08:46:22 | 耗时 0 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = 1);
+2020-08-17 08:46:22.108 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-08-17 08:46:22 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = 1) ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:46:22.114 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-08-17 08:46:22 | 耗时 0 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = 1);
+2020-08-17 08:46:22.116 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-08-17 08:46:22 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = 1) ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:46:23.602 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-08-17 08:46:23 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = 2);
+2020-08-17 08:46:23.609 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-08-17 08:46:23 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = 2) ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:46:23.620 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-08-17 08:46:23 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = 2);
+2020-08-17 08:46:23.624 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-08-17 08:46:23 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = 2) ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:46:25.229 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-17 08:46:25 | 耗时 0 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = 3);
+2020-08-17 08:46:25.235 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-17 08:46:25 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = 3) ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:46:25.244 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-17 08:46:25 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = 3);
+2020-08-17 08:46:25.248 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-17 08:46:25 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = 3) ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:46:26.858 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:46:26 | 耗时 0 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = 4);
+2020-08-17 08:46:26.863 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:46:26 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = 4) ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:46:26.870 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:46:26 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = 4);
+2020-08-17 08:46:26.873 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:46:26 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = 4) ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:46:27.736 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-17 08:46:27 | 耗时 0 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 08:46:27.792 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-08-17 08:46:27 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 08:46:34.373 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-08-17 08:46:34 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 08:46:34.416 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-08-17 08:46:34 | 耗时 0 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 08:46:40.469 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-08-17 08:46:40 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 08:46:40.501 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-17 08:46:40 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 08:46:46.676 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-17 08:46:46 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 08:46:46.727 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:46:46 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 08:47:36.689 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-08-17 08:47:36 | 耗时 0 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 08:47:36.722 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-08-17 08:47:36 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 08:48:40.573 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-08-17 08:48:40 | 耗时 2 ms | SQL 语句：
+SELECT m.* FROM t_menu m WHERE m.type <> 1 AND m.MENU_ID IN (SELECT DISTINCT rm.menu_id FROM t_role_menu rm LEFT JOIN t_role r ON (rm.role_id = r.role_id) LEFT JOIN t_user_role ur ON (ur.role_id = r.role_id) LEFT JOIN t_user u ON (u.user_id = ur.user_id) WHERE u.username = 'admin') ORDER BY m.order_num;
+2020-08-17 08:48:40.668 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-08-17 08:48:40 | 耗时 0 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = 1);
+2020-08-17 08:48:40.672 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-08-17 08:48:40 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = 1) ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:48:40.678 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-08-17 08:48:40 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = 1);
+2020-08-17 08:48:40.682 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-08-17 08:48:40 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = 1) ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:48:41.595 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-17 08:48:41 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 08:49:19.394 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-17 08:49:19 | 耗时 15 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 08:52:00.472 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-17 08:52:00 | 耗时 2 ms | SQL 语句：
+SELECT m.* FROM t_menu m WHERE m.type <> 1 AND m.MENU_ID IN (SELECT DISTINCT rm.menu_id FROM t_role_menu rm LEFT JOIN t_role r ON (rm.role_id = r.role_id) LEFT JOIN t_user_role ur ON (ur.role_id = r.role_id) LEFT JOIN t_user u ON (u.user_id = ur.user_id) WHERE u.username = 'admin') ORDER BY m.order_num;
+2020-08-17 08:52:00.549 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-08-17 08:52:00 | 耗时 0 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = 1);
+2020-08-17 08:52:00.554 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-08-17 08:52:00 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = 1) ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:52:00.561 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-08-17 08:52:00 | 耗时 0 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = 1);
+2020-08-17 08:52:00.563 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-08-17 08:52:00 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = 1) ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:52:01.840 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-08-17 08:52:01 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 08:52:01.879 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-08-17 08:52:01 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 08:52:08.327 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-17 08:52:08 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = 2);
+2020-08-17 08:52:08.330 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-17 08:52:08 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = 2) ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:52:08.337 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-17 08:52:08 | 耗时 0 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = 2);
+2020-08-17 08:52:08.341 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-17 08:52:08 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = 2) ORDER BY id ASC LIMIT 0,10;
+2020-08-17 08:52:09.210 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:52:09 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 08:52:09.251 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-17 08:52:09 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 08:54:58.453 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-08-17 08:54:58 | 耗时 2 ms | SQL 语句：
+SELECT COUNT(1) FROM t_user;
+2020-08-17 08:54:58.457 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-08-17 08:54:58 | 耗时 1 ms | SQL 语句：
+SELECT USER_ID, USERNAME, PASSWORD, DEPT_ID, dept_name, EMAIL, MOBILE, idcard_num, wechart, remaing, account_name, STATUS, open, CREATE_TIME, MODIFY_TIME, LAST_LOGIN_TIME, SSEX, IS_TAB, THEME, AVATAR, DESCRIPTION, state, creator, create_date, modifier, mod_date FROM t_user ORDER BY user_id ASC LIMIT 0,10;
+2020-08-17 08:55:01.754 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-08-17 08:55:01 | 耗时 1 ms | SQL 语句：
+SELECT USER_ID, USERNAME, PASSWORD, DEPT_ID, dept_name, EMAIL, MOBILE, idcard_num, wechart, remaing, account_name, STATUS, open, CREATE_TIME, MODIFY_TIME, LAST_LOGIN_TIME, SSEX, IS_TAB, THEME, AVATAR, DESCRIPTION, state, creator, create_date, modifier, mod_date FROM t_user WHERE USER_ID = 1;
+2020-08-17 08:55:01.820 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-08-17 08:55:01 | 耗时 0 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept;
+2020-08-17 08:55:06.837 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-17 08:55:06 | 耗时 1 ms | SQL 语句：
+SELECT USER_ID, USERNAME, PASSWORD, DEPT_ID, dept_name, EMAIL, MOBILE, idcard_num, wechart, remaing, account_name, STATUS, open, CREATE_TIME, MODIFY_TIME, LAST_LOGIN_TIME, SSEX, IS_TAB, THEME, AVATAR, DESCRIPTION, state, creator, create_date, modifier, mod_date FROM t_user WHERE USER_ID = 28;
+2020-08-17 08:55:06.891 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 08:55:06 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept;
+2020-08-17 08:55:10.132 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-17 08:55:10 | 耗时 2 ms | SQL 语句：
+SELECT USER_ID, USERNAME, PASSWORD, DEPT_ID, dept_name, EMAIL, MOBILE, idcard_num, wechart, remaing, account_name, STATUS, open, CREATE_TIME, MODIFY_TIME, LAST_LOGIN_TIME, SSEX, IS_TAB, THEME, AVATAR, DESCRIPTION, state, creator, create_date, modifier, mod_date FROM t_user WHERE USER_ID = 26;
+2020-08-17 08:55:10.160 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-08-17 08:55:10 | 耗时 1 ms | SQL 语句：
+SELECT USER_ID, USERNAME, PASSWORD, DEPT_ID, dept_name, EMAIL, MOBILE, idcard_num, wechart, remaing, account_name, STATUS, open, CREATE_TIME, MODIFY_TIME, LAST_LOGIN_TIME, SSEX, IS_TAB, THEME, AVATAR, DESCRIPTION, state, creator, create_date, modifier, mod_date FROM t_user WHERE USER_ID = 26;
+2020-08-17 08:55:10.191 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-17 08:55:10 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept;
+2020-08-17 08:55:10.231 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-08-17 08:55:10 | 耗时 0 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept;
+2020-08-17 08:59:59.006 febs [scheduling-1] INFO  p6spy - 2020-08-17 08:59:59 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment;
+2020-08-17 09:00:00.907 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-08-17 09:00:00 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-17 09:00:00.911 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-08-17 09:00:00 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-17 09:00:00.918 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-08-17 09:00:00 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-17 09:00:00.920 febs [http-nio-8099-exec-10] INFO  p6spy - 2020-08-17 09:00:00 | 耗时 0 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-17 09:00:02.304 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-17 09:00:02 | 耗时 0 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 2;
+2020-08-17 09:00:59.007 febs [scheduling-1] INFO  p6spy - 2020-08-17 09:00:59 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment;
+2020-08-17 09:00:59.011 febs [scheduling-1] INFO  c.c.m.myUser.Scheduled.MyUserTask - >>>>>>>>>>>>>>>>>>设备超时<<<<<<<<<<<<<<<<<<<<<<<<
+2020-08-17 09:00:59.011 febs [scheduling-1] INFO  c.c.m.myUser.Scheduled.MyUserTask - >>>>>>>>>>>>>>>>>>设备超时<<<<<<<<<<<<<<<<<<<<<<<<
+2020-08-17 09:00:59.011 febs [scheduling-1] INFO  c.c.m.myUser.Scheduled.MyUserTask - >>>>>>>>>>>>>>>>>>设备超时<<<<<<<<<<<<<<<<<<<<<<<<
+2020-08-17 09:00:59.011 febs [scheduling-1] INFO  c.c.m.myUser.Scheduled.MyUserTask - >>>>>>>>>>>>>>>>>>设备超时<<<<<<<<<<<<<<<<<<<<<<<<
+2020-08-17 09:00:59.012 febs [scheduling-1] INFO  c.c.m.myUser.Scheduled.MyUserTask - >>>>>>>>>>>>>>>>>>设备超时<<<<<<<<<<<<<<<<<<<<<<<<
+2020-08-17 09:00:59.012 febs [scheduling-1] INFO  c.c.m.myUser.Scheduled.MyUserTask - >>>>>>>>>>>>>>>>>>设备超时<<<<<<<<<<<<<<<<<<<<<<<<
+2020-08-17 09:00:59.012 febs [scheduling-1] INFO  c.c.m.myUser.Scheduled.MyUserTask - >>>>>>>>>>>>>>>>>>设备超时<<<<<<<<<<<<<<<<<<<<<<<<
+2020-08-17 09:00:59.012 febs [scheduling-1] INFO  c.c.m.myUser.Scheduled.MyUserTask - >>>>>>>>>>>>>>>>>>设备超时<<<<<<<<<<<<<<<<<<<<<<<<
+2020-08-17 09:00:59.013 febs [scheduling-1] INFO  c.c.m.myUser.Scheduled.MyUserTask - >>>>>>>>>>>>>>>>>>设备超时<<<<<<<<<<<<<<<<<<<<<<<<
+2020-08-17 09:00:59.013 febs [scheduling-1] INFO  c.c.m.myUser.Scheduled.MyUserTask - >>>>>>>>>>>>>>>>>>设备超时<<<<<<<<<<<<<<<<<<<<<<<<
+2020-08-17 09:01:09.249 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 09:01:09 | 耗时 2 ms | SQL 语句：
+SELECT m.* FROM t_menu m WHERE m.type <> 1 AND m.MENU_ID IN (SELECT DISTINCT rm.menu_id FROM t_role_menu rm LEFT JOIN t_role r ON (rm.role_id = r.role_id) LEFT JOIN t_user_role ur ON (ur.role_id = r.role_id) LEFT JOIN t_user u ON (u.user_id = ur.user_id) WHERE u.username = 'admin') ORDER BY m.order_num;
+2020-08-17 09:01:09.332 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-17 09:01:09 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-17 09:01:09.336 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-17 09:01:09 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-17 09:01:09.347 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-17 09:01:09 | 耗时 5 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-17 09:01:09.350 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-17 09:01:09 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-17 09:01:15.458 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-08-17 09:01:15 | 耗时 0 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 09:01:15.465 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-08-17 09:01:15 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 10;
+2020-08-17 09:01:21.771 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-08-17 09:01:21 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 10;
+2020-08-17 09:01:24.550 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-08-17 09:01:24 | 耗时 0 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 09:01:24.554 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-08-17 09:01:24 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 09:01:24.570 febs [http-nio-8099-exec-7] INFO  p6spy - 2020-08-17 09:01:24 | 耗时 1 ms | SQL 语句：
+UPDATE a_mydept SET name = 'qwa', head = 'asd', address = 'asd', category = 3, modifier = '1', mod_date = '2020-08-17T09:01:24.565' WHERE id = 10;
+2020-08-17 09:01:24.614 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-08-17 09:01:24 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-17 09:01:24.618 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-08-17 09:01:24 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-17 09:01:24.626 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-08-17 09:01:24 | 耗时 2 ms | SQL 语句：
+SELECT COUNT(1) FROM a_mydept;
+2020-08-17 09:01:24.629 febs [http-nio-8099-exec-9] INFO  p6spy - 2020-08-17 09:01:24 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept ORDER BY id ASC LIMIT 0,10;
+2020-08-17 09:01:28.181 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-17 09:01:28 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM t_user;
+2020-08-17 09:01:28.185 febs [http-nio-8099-exec-4] INFO  p6spy - 2020-08-17 09:01:28 | 耗时 1 ms | SQL 语句：
+SELECT USER_ID, USERNAME, PASSWORD, DEPT_ID, dept_name, EMAIL, MOBILE, idcard_num, wechart, remaing, account_name, STATUS, open, CREATE_TIME, MODIFY_TIME, LAST_LOGIN_TIME, SSEX, IS_TAB, THEME, AVATAR, DESCRIPTION, state, creator, create_date, modifier, mod_date FROM t_user ORDER BY user_id ASC LIMIT 0,10;
+2020-08-17 09:01:30.836 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 09:01:30 | 耗时 1 ms | SQL 语句：
+SELECT USER_ID, USERNAME, PASSWORD, DEPT_ID, dept_name, EMAIL, MOBILE, idcard_num, wechart, remaing, account_name, STATUS, open, CREATE_TIME, MODIFY_TIME, LAST_LOGIN_TIME, SSEX, IS_TAB, THEME, AVATAR, DESCRIPTION, state, creator, create_date, modifier, mod_date FROM t_user WHERE USER_ID = 28;
+2020-08-17 09:01:30.887 febs [http-nio-8099-exec-8] INFO  p6spy - 2020-08-17 09:01:30 | 耗时 0 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept;
+2020-08-17 09:01:33.755 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-08-17 09:01:33 | 耗时 1 ms | SQL 语句：
+SELECT USER_ID, USERNAME, PASSWORD, DEPT_ID, dept_name, EMAIL, MOBILE, idcard_num, wechart, remaing, account_name, STATUS, open, CREATE_TIME, MODIFY_TIME, LAST_LOGIN_TIME, SSEX, IS_TAB, THEME, AVATAR, DESCRIPTION, state, creator, create_date, modifier, mod_date FROM t_user WHERE USER_ID = 26;
+2020-08-17 09:01:33.804 febs [http-nio-8099-exec-1] INFO  p6spy - 2020-08-17 09:01:33 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept;
+2020-08-17 09:01:36.088 febs [http-nio-8099-exec-2] INFO  p6spy - 2020-08-17 09:01:36 | 耗时 1 ms | SQL 语句：
+SELECT USER_ID, USERNAME, PASSWORD, DEPT_ID, dept_name, EMAIL, MOBILE, idcard_num, wechart, remaing, account_name, STATUS, open, CREATE_TIME, MODIFY_TIME, LAST_LOGIN_TIME, SSEX, IS_TAB, THEME, AVATAR, DESCRIPTION, state, creator, create_date, modifier, mod_date FROM t_user WHERE USER_ID = 28;
+2020-08-17 09:01:36.142 febs [http-nio-8099-exec-5] INFO  p6spy - 2020-08-17 09:01:36 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept;
+2020-08-17 09:09:30.564 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 09:09:30 | 耗时 0 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = 1);
+2020-08-17 09:09:30.568 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 09:09:30 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = 1) ORDER BY id ASC LIMIT 0,10;
+2020-08-17 09:09:30.576 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 09:09:30 | 耗时 1 ms | SQL 语句：
+SELECT COUNT(1) FROM a_myequipment WHERE (eq_dept_category = 1);
+2020-08-17 09:09:30.580 febs [http-nio-8099-exec-6] INFO  p6spy - 2020-08-17 09:09:30 | 耗时 1 ms | SQL 语句：
+SELECT id, eq_name, eq_code, eq_dept_id, eq_dept_name, eq_dept_category, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date FROM a_myequipment WHERE (eq_dept_category = 1) ORDER BY id ASC LIMIT 0,10;
+2020-08-17 09:21:25.594 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-08-17 09:21:25 | 耗时 2 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 3;
+2020-08-17 09:21:25.600 febs [http-nio-8099-exec-3] INFO  p6spy - 2020-08-17 09:21:25 | 耗时 1 ms | SQL 语句：
+SELECT id, name, phone, head, address, category, state, creator, create_date, modifier, mod_date FROM a_mydept WHERE id = 10;
+2020-08-17 09:21:59.403 febs [Thread-31] INFO  org.quartz.core.QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-08-17 09:21:59.413 febs [Thread-31] INFO  o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'taskScheduler'
+2020-08-17 09:21:59.626 febs [Thread-31] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'apsAsyncThreadPool'
+2020-08-17 09:21:59.636 febs [Thread-31] INFO  o.s.s.quartz.SchedulerFactoryBean - Shutting down Quartz Scheduler
+2020-08-17 09:21:59.638 febs [Thread-31] INFO  org.quartz.core.QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2020-08-17 09:21:59.638 febs [Thread-31] INFO  org.quartz.core.QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-08-17 09:21:59.655 febs [Thread-31] INFO  org.quartz.core.QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2020-08-17 09:21:59.685 febs [Thread-31] INFO  c.b.d.d.DynamicRoutingDataSource - closing dynamicDatasource  ing....
+2020-08-17 09:21:59.686 febs [Thread-31] INFO  com.zaxxer.hikari.HikariDataSource - base - Shutdown initiated...
+2020-08-17 09:21:59.701 febs [Thread-31] INFO  com.zaxxer.hikari.HikariDataSource - base - Shutdown completed.

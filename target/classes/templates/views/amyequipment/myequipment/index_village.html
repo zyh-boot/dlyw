@@ -79,6 +79,7 @@
 <script type="text/html" id="myequipment-option">
     <a lay-event="edit"><i class="layui-icon febs-edit-area febs-blue"  sec:authorize="hasRole('myequipment:mod')">&#xe7a4;</i></a>
     <a lay-event="del"><i class="layui-icon febs-edit-area febs-red"  sec:authorize="hasRole('myequipment:del')">&#xe7f9;</i></a>
+    <a lay-event="info"><i class="layui-icon febs-edit-area febs-red" >&#xe671;</i></a>
 </script>
 
 <script data-th-inline="none" type="text/javascript">
@@ -122,6 +123,20 @@
                 febs.modal.confirm('删除设备', '确定删除该设备 ？', function () {
                     deleteMyequipment(data.id);
                 });
+            }
+            if (layEvent === 'info') {
+                var data = obj.data;
+                console.log(data.id)
+                console.log($(window).width())
+                febs.modal.open('设备数据', 'rank/myequipment/detiles/' + data.id, {
+                    area: $(window).width() <= 750 ? '90%' : '70%',
+                    btn: ['取消'],
+                    btn2: function () {
+                        layer.closeAll();
+                    }
+                });
+                //标注选中样式
+                // obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
             }
             if (layEvent === 'edit') {
                 febs.modal.open('修改设备', 'amyequipment/myequipment/update/' + data.id, {

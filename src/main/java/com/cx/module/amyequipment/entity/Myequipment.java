@@ -73,6 +73,9 @@ public class Myequipment extends BaseEnity implements Serializable {
     @ApiModelProperty(value = "风向")
     @TableField("wind_direction")
     private String windDirection;
+    @ApiModelProperty(value = "风速")
+    @TableField("wind_speed")
+    private String windSpeed;
     @ApiModelProperty(value = "设备地址")
     @TableField("eq_address")
     private String eqAddress;

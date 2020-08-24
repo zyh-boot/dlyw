@@ -141,6 +141,11 @@ public class MyequipmentServiceImpl extends ServiceImpl<MyequipmentMapper, Myequ
         return this.baseMapper.updateById(obj);
     }
 
+    @Override
+    public int updateBathList(List<Myequipment> obj) {
+        return this.baseMapper.updateBathList(obj);
+    }
+
 
     /**
      * 修改

@@ -8,11 +8,13 @@ import com.cx.module.amyequipment.entity.Myequipment;
 import com.cx.module.amyequipment.service.IMyequipmentService;
 import com.cx.module.mydept.entity.Mydept;
 import com.cx.module.mydept.service.IMydeptService;
+import com.cx.module.myequipment_history.service.IMyequipmentHistoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +26,13 @@ import java.util.List;
 @Slf4j
 @RequestMapping(Constant.VIEW_PREFIX + "/rank")
 public class RankViewController extends BaseController {
+    @Autowired
+    IMydeptService mydeptService;
+    @Autowired
+    IMyequipmentService myequipmentService;
+    @Autowired
+    IMyequipmentHistoryService myequipmentHistoryService;
+
     /**
      * 排名
      */
@@ -43,16 +52,13 @@ public class RankViewController extends BaseController {
     /**
      * 机构下数据详情
      */
-    @GetMapping("myequipment/detiles")
-    public String myequipmentDetiles(HttpServletRequest request, ModelMap model) {
+    @GetMapping("myequipment/detiles/{id}")
+    public String myequipmentDetiles(HttpServletRequest request, ModelMap model, @PathVariable String id) {
+        model.addAttribute("id",id);
         return CommonUtil.view("rank/rank/column");
     }
 
 
-    @Autowired
-    IMydeptService mydeptService;
-    @Autowired
-    IMyequipmentService myequipmentService;
 
     /**
      * 排名柱状图

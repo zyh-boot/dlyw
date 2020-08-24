@@ -1,0 +1,1617 @@
+2020-08-19 08:51:41.943 febs [main] ERROR c.c.m.service.impl.RedisServiceImpl - {}
+com.cx.common.exception.RedisConnectException: 连接失败
+	at com.cx.monitor.service.impl.RedisServiceImpl.excuteByJedis(RedisServiceImpl.java:43)
+	at com.cx.monitor.service.impl.RedisServiceImpl.exists(RedisServiceImpl.java:181)
+	at com.cx.common.runner.StartedUpRunner.run(StartedUpRunner.java:44)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:804)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:794)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:324)
+	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:139)
+	at com.cx.AppApplication.main(AppApplication.java:24)
+2020-08-19 08:57:26.814 febs [http-nio-8099-exec-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 08:59:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 09:00:59.000 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 09:27:19.101 febs [http-nio-8099-exec-2] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 09:27:25.105 febs [http-nio-8099-exec-6] ERROR org.thymeleaf.TemplateEngine - [THYMELEAF][http-nio-8099-exec-6] Exception processing template "views/rank/rank/column_detiles": Error resolving template [views/rank/rank/column_detiles], template might not exist or might not be accessible by any of the configured Template Resolvers
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [views/rank/rank/column_detiles], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.cx.common.xss.XssFilter.doFilter(XssFilter.java:56)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-19 09:27:25.109 febs [http-nio-8099-exec-6] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template [views/rank/rank/column_detiles], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [views/rank/rank/column_detiles], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.cx.common.xss.XssFilter.doFilter(XssFilter.java:56)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-19 09:30:07.608 febs [http-nio-8099-exec-2] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 09:30:15.623 febs [http-nio-8099-exec-6] ERROR org.thymeleaf.TemplateEngine - [THYMELEAF][http-nio-8099-exec-6] Exception processing template "views/rank/rank/column_detiles": Error resolving template [views/rank/rank/column_detiles], template might not exist or might not be accessible by any of the configured Template Resolvers
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [views/rank/rank/column_detiles], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.cx.common.xss.XssFilter.doFilter(XssFilter.java:56)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-19 09:30:15.627 febs [http-nio-8099-exec-6] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template [views/rank/rank/column_detiles], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [views/rank/rank/column_detiles], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.cx.common.xss.XssFilter.doFilter(XssFilter.java:56)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-19 09:31:23.486 febs [http-nio-8099-exec-2] ERROR org.thymeleaf.TemplateEngine - [THYMELEAF][http-nio-8099-exec-2] Exception processing template "views/rank/rank/column_detiles": Error resolving template [views/rank/rank/column_detiles], template might not exist or might not be accessible by any of the configured Template Resolvers
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [views/rank/rank/column_detiles], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.cx.common.xss.XssFilter.doFilter(XssFilter.java:56)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-19 09:31:23.487 febs [http-nio-8099-exec-2] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template [views/rank/rank/column_detiles], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [views/rank/rank/column_detiles], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.cx.common.xss.XssFilter.doFilter(XssFilter.java:56)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-19 09:32:29.451 febs [http-nio-8099-exec-4] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 09:34:03.620 febs [http-nio-8099-exec-2] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 09:34:10.006 febs [http-nio-8099-exec-10] ERROR org.thymeleaf.TemplateEngine - [THYMELEAF][http-nio-8099-exec-10] Exception processing template "views/rank/rank/column": Error resolving template [views/rank/rank/column], template might not exist or might not be accessible by any of the configured Template Resolvers
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [views/rank/rank/column], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.cx.common.xss.XssFilter.doFilter(XssFilter.java:56)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-19 09:34:10.010 febs [http-nio-8099-exec-10] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template [views/rank/rank/column], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [views/rank/rank/column], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.cx.common.xss.XssFilter.doFilter(XssFilter.java:56)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-19 09:40:35.704 febs [http-nio-8099-exec-3] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 09:40:41.007 febs [http-nio-8099-exec-6] ERROR org.thymeleaf.TemplateEngine - [THYMELEAF][http-nio-8099-exec-6] Exception processing template "views/rank/rank/column": Error resolving template [views/rank/rank/column], template might not exist or might not be accessible by any of the configured Template Resolvers
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [views/rank/rank/column], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.cx.common.xss.XssFilter.doFilter(XssFilter.java:56)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-19 09:40:41.011 febs [http-nio-8099-exec-6] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template [views/rank/rank/column], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [views/rank/rank/column], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.cx.common.xss.XssFilter.doFilter(XssFilter.java:56)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:155)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-19 09:59:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 10:00:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 10:26:45.086 febs [http-nio-8099-exec-9] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 10:59:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 11:00:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 11:59:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 12:00:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 12:12:28.368 febs [Catalina-utility-2] ERROR c.c.c.a.s.SessionDestroyedEventListener - 失效session:[530BA5FB007217B24CD9E6749408C99E]发生异常.
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at com.cx.common.authentication.session.SessionDestroyedEventListener.onApplicationEvent(SessionDestroyedEventListener.java:28)
+	at com.cx.common.authentication.session.SessionDestroyedEventListener.onApplicationEvent(SessionDestroyedEventListener.java:16)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:402)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:359)
+	at org.springframework.security.web.session.HttpSessionEventPublisher.sessionDestroyed(HttpSessionEventPublisher.java:91)
+	at org.apache.catalina.session.StandardSession.expire(StandardSession.java:801)
+	at org.apache.catalina.session.StandardSession.isValid(StandardSession.java:659)
+	at org.apache.catalina.session.ManagerBase.processExpires(ManagerBase.java:573)
+	at org.apache.catalina.session.ManagerBase.backgroundProcess(ManagerBase.java:558)
+	at org.apache.catalina.core.StandardContext.backgroundProcess(StandardContext.java:5517)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1346)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1350)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1350)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1328)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset$$$capture(FutureTask.java:308)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-19 13:36:25.973 febs [http-nio-8099-exec-5] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 14:04:28.794 febs [http-nio-8099-exec-2] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 14:06:20.463 febs [http-nio-8099-exec-2] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 14:06:23.448 febs [http-nio-8099-exec-6] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 14:08:01.974 febs [http-nio-8099-exec-2] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 14:08:02.297 febs [http-nio-8099-exec-4] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 14:10:47.211 febs [http-nio-8099-exec-2] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 14:12:32.337 febs [http-nio-8099-exec-3] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 14:28:32.282 febs [http-nio-8099-exec-5] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 14:43:43.830 febs [http-nio-8099-exec-2] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 14:49:31.879 febs [http-nio-8099-exec-3] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 14:56:51.946 febs [http-nio-8099-exec-3] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 14:59:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 15:00:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 15:59:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:00:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:57:34.728 febs [http-nio-8099-exec-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:57:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:57:59.033 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:57:59.033 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:57:59.033 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:57:59.034 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:57:59.034 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:57:59.034 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:57:59.034 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:57:59.034 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:57:59.034 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:57:59.034 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:58:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:58:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:58:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:58:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:58:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:58:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:58:59.015 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:58:59.015 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:58:59.015 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:58:59.015 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:58:59.015 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:59:59.000 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:59:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:59:59.019 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:59:59.019 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:59:59.020 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:59:59.020 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:59:59.020 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:59:59.020 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:59:59.020 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:59:59.020 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:59:59.020 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 16:59:59.020 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:00:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:00:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:00:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:00:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:00:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:00:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:00:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:00:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:00:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:00:59.015 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:00:59.015 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:00:59.034 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:01:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:01:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:01:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:01:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:01:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:01:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:01:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:01:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:01:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:01:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:01:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:02:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:02:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:02:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:02:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:02:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:02:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:02:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:02:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:02:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:02:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:02:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:03:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:03:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:03:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:03:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:03:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:03:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:03:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:03:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:03:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:03:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:03:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:04:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:04:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:04:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:04:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:04:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:04:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:04:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:04:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:04:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:04:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:04:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:05:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:05:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:05:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:05:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:05:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:05:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:05:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:05:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:05:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:05:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:05:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:06:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:06:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:06:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:06:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:06:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:06:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:06:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:06:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:06:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:06:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:06:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:07:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:07:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:07:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:07:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:07:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:07:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:07:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:07:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:07:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:07:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:07:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:08:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:08:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:08:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:08:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:08:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:08:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:08:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:08:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:08:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:08:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:08:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:09:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:09:59.013 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:09:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:09:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:09:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:09:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:09:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:09:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:09:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:09:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:09:59.015 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:10:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:10:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:10:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:10:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:10:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:10:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:10:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:10:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:10:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:10:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:10:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:11:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:11:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:11:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:11:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:11:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:11:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:11:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:11:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:11:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:11:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:11:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:12:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:12:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:12:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:12:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:12:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:12:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:12:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:12:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:12:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:12:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:12:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:13:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:13:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:13:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:13:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:13:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:13:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:13:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:13:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:13:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:13:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:13:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:14:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:14:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:14:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:14:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:14:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:14:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:14:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:14:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:14:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:14:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:14:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:15:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:15:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:15:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:15:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:15:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:15:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:15:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:15:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:15:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:15:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:15:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:16:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:16:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:16:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:16:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:16:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:16:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:16:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:16:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:16:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:16:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:16:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:17:46.904 febs [http-nio-8099-exec-5] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:17:59.000 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:17:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:17:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:17:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:17:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:17:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:17:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:17:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:17:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:17:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:17:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:18:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:18:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:18:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:18:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:18:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:18:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:18:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:18:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:18:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:18:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:18:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:19:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:19:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:19:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:19:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:19:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:19:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:19:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:19:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:19:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:19:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:19:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:20:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:20:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:20:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:20:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:20:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:20:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:20:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:20:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:20:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:20:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:20:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:21:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:21:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:21:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:21:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:21:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:21:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:21:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:21:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:21:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:21:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:21:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:22:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:22:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:22:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:22:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:22:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:22:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:22:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:22:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:22:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:22:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:22:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:23:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:23:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:23:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:23:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:23:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:23:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:23:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:23:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:23:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:23:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:23:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:24:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:24:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:24:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:24:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:24:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:24:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:24:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:24:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:24:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:24:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:24:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:25:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:25:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:25:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:25:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:25:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:25:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:25:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:25:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:25:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:25:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:25:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:26:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:26:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:26:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:26:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:26:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:26:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:26:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:26:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:26:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:26:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:26:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:27:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:27:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:27:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:27:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:27:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:27:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:27:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:27:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:27:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:27:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:27:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:28:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:28:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:28:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:28:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:28:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:28:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:28:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:28:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:28:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:28:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:28:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:29:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:29:59.006 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:29:59.006 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:29:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:29:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:29:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:29:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:29:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:29:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:29:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:29:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:30:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:30:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:30:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:30:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:30:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:30:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:30:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:30:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:30:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:30:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:30:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:31:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:31:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:31:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:31:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:31:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:31:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:31:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:31:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:31:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:31:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:31:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:32:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:32:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:32:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:32:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:32:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:32:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:32:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:32:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:32:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:32:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:32:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:33:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:33:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:33:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:33:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:33:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:33:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:33:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:33:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:33:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:33:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:33:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:34:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:34:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:34:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:34:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:34:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:34:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:34:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:34:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:34:59.013 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:34:59.013 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:34:59.013 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:35:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:35:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:35:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:35:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:35:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:35:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:35:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:35:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:35:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:35:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:35:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:36:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:36:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:36:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:36:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:36:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:36:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:36:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:36:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:36:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:36:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:36:59.010 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:37:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:37:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:37:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:37:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:37:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:37:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:37:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:37:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:37:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:37:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:37:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:38:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:38:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:38:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:38:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:38:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:38:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:38:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:38:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:38:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:38:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:38:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:39:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:39:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:39:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:39:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:39:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:39:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:39:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:39:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:39:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:39:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:39:59.008 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:40:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:40:59.006 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:40:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:40:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:40:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:40:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:40:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:40:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:40:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:40:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:40:59.007 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:41:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:41:59.011 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:41:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:41:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:41:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:41:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:41:59.012 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:41:59.013 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:41:59.013 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:41:59.013 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:41:59.013 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:43:44.012 febs [http-nio-8099-exec-3] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:49:25.948 febs [http-nio-8099-exec-3] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:52:48.715 febs [http-nio-8099-exec-3] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:59:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:59:59.017 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:59:59.018 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:59:59.018 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:59:59.018 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:59:59.018 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:59:59.018 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:59:59.018 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:59:59.018 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:59:59.018 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:59:59.018 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 17:59:59.041 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 18:00:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 18:00:59.013 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 18:00:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 18:00:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 18:00:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 18:00:59.014 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 18:00:59.015 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 18:00:59.015 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 18:00:59.015 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 18:00:59.015 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 18:00:59.015 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-19 18:00:59.040 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空

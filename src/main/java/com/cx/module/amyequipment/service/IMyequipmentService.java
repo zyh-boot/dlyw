@@ -81,6 +81,14 @@ public interface IMyequipmentService {
     int update(Myequipment obj);
 
     /**
+     * 批量修改
+     *
+     * @param obj
+     * @return
+     */
+    int updateBathList(List<Myequipment> obj);
+
+    /**
      * 修改
      *
      * @param wrapper

@@ -1,0 +1,46 @@
+2020-08-24 10:15:00.602 febs [main] ERROR c.c.m.service.impl.RedisServiceImpl - {}
+com.cx.common.exception.RedisConnectException: 连接失败
+	at com.cx.monitor.service.impl.RedisServiceImpl.excuteByJedis(RedisServiceImpl.java:43)
+	at com.cx.monitor.service.impl.RedisServiceImpl.exists(RedisServiceImpl.java:181)
+	at com.cx.common.runner.StartedUpRunner.run(StartedUpRunner.java:44)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:804)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:794)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:324)
+	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:139)
+	at com.cx.AppApplication.main(AppApplication.java:24)
+2020-08-24 10:15:46.426 febs [http-nio-8099-exec-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-24 11:25:57.793 febs [Catalina-utility-1] ERROR c.c.c.a.s.SessionDestroyedEventListener - 失效session:[68493D4735CF6C6140B0E5258096329F]发生异常.
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at com.cx.common.authentication.session.SessionDestroyedEventListener.onApplicationEvent(SessionDestroyedEventListener.java:28)
+	at com.cx.common.authentication.session.SessionDestroyedEventListener.onApplicationEvent(SessionDestroyedEventListener.java:16)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:402)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:359)
+	at org.springframework.security.web.session.HttpSessionEventPublisher.sessionDestroyed(HttpSessionEventPublisher.java:91)
+	at org.apache.catalina.session.StandardSession.expire(StandardSession.java:801)
+	at org.apache.catalina.session.StandardSession.isValid(StandardSession.java:659)
+	at org.apache.catalina.session.ManagerBase.processExpires(ManagerBase.java:573)
+	at org.apache.catalina.session.ManagerBase.backgroundProcess(ManagerBase.java:558)
+	at org.apache.catalina.core.StandardContext.backgroundProcess(StandardContext.java:5517)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1346)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1350)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1350)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1328)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset$$$capture(FutureTask.java:308)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-24 11:30:09.237 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-24 11:59:59.003 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-24 12:00:59.004 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-24 13:45:43.769 febs [http-nio-8099-exec-7] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-24 14:18:46.057 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空

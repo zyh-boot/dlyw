@@ -188,7 +188,7 @@
 <script id="demo" type="text/html" template>
 
     {{#  layui.each(d, function(index, item){ }}
-    <div class="layui-form-item" onclick="jump()">
+    <div class="layui-form-item" >
         {{# if(item.ranking == '1') { }}
         <div class=" layui-input-inline ranking">
             <div class="rol "></div>
@@ -257,18 +257,6 @@
             trigger: 'click'
         });
 
-    window.jump = function(){
-        febs.modal.open('机构污染', 'rank/myequipment/detiles', {
-            area: $(window).width() <= 750 ? '90%' : '50%',
-            btn: ['提交', '取消'],
-            yes: function (index, layero) {
-                $('#febs-kh-code').find('#submit').trigger('click');
-            },
-            btn2: function () {
-                layer.closeAll();
-            }
-        });
-    }
         $query.on('click', function () {
             const queryParams = getQueryParams();
             console.log(queryParams)
@@ -405,10 +393,8 @@
         $view.find("#echart").on("click", function () {
             febs.modal.open('机构污染', 'rank/myequipment/clu', {
                 area: $(window).width() <= 750 ? '90%' : '50%',
-                btn: ['提交', '取消'],
-                yes: function (index, layero) {
-                    $('#febs-kh-code').find('#submit').trigger('click');
-                },
+                btn: ['取消'],
+
                 btn2: function () {
                     layer.closeAll();
                 }

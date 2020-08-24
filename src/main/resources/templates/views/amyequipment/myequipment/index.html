@@ -7,10 +7,11 @@
                         <div class="layui-row">
                             <div class="layui-col-md2 layui-col-sm12 layui-col-xs12 table-action-area">
                                 <div class="layui-btn layui-btn-sm layui-btn-primary table-action"
-                                     id="addmyequipment"   sec:authorize="hasRole('myequipment:add')">
+                                     id="addmyequipment" sec:authorize="hasRole('myequipment:add')">
                                     <i class="layui-icon">&#xe891;</i>
                                 </div>
-                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="delete" sec:authorize="hasRole('myequipment:del')">
+                                <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="delete"
+                                     sec:authorize="hasRole('myequipment:del')">
                                     <i class="layui-icon">&#xe7f9;</i>
                                 </div>
                                 <div class="layui-btn layui-btn-sm layui-btn-primary table-action" id="query">
@@ -79,18 +80,20 @@
 </script>
 
 <script type="text/html" id="myequipment-option">
-    <a lay-event="edit"><i class="layui-icon febs-edit-area febs-blue"  sec:authorize="hasRole('myequipment:mod')">&#xe7a4;</i></a>
-    <a lay-event="del"><i class="layui-icon febs-edit-area febs-red"  sec:authorize="hasRole('myequipment:del')">&#xe7f9;</i></a>
+    <a lay-event="edit"><i class="layui-icon febs-edit-area febs-blue" sec:authorize="hasRole('myequipment:mod')">&#xe7a4;</i></a>
+    <a lay-event="del"><i class="layui-icon febs-edit-area febs-red"
+                          sec:authorize="hasRole('myequipment:del')">&#xe7f9;</i></a>
+    <a lay-event="info"><i class="layui-icon febs-edit-area febs-red">&#xe671;</i></a>
 </script>
 
 <script data-th-inline="none" type="text/javascript">
-    layui.use([ 'jquery', 'layer', 'laydate', 'form','febs','table', 'util','xmSelect'], function () {
+    layui.use(['jquery', 'layer', 'laydate', 'form', 'febs', 'table', 'util', 'xmSelect'], function () {
         var $ = layui.jquery,
             layer = layui.layer,
             laydate = layui.laydate,
             febs = layui.febs,
             form = layui.form,
-            table=layui.table,
+            table = layui.table,
             xmSelect = layui.xmSelect,
             $view = $('#febs-myequipment'),
             $query = $view.find('#query'),
@@ -102,8 +105,78 @@
             tableIns;
 
         form.render();
-
         initTable();
+        cka()
+
+        function cka(res) {
+            // $view.find("tr:gt(0)").hover(function (event) {
+            $view.find("td").hover(function (event) {
+                // console.log($(this).attr("data-index"))
+                _this = this
+                const index = $(this).parent().attr("data-index");
+                console.log("index>>>>>>>>",index)
+                subtips = ""
+                var s = '<div>' +
+                '<label>pm2.5:</label>' +
+                '<label>' + res[index].eqPmTwo + '</label>' +
+                '</div>' + '<div>' +
+                '<label>pm10:</label>' +
+                '<label>' + res[index].eqPmTen + '</label>' +
+                '</div>' + '<div>' +
+                '<label>noise:</label>' +
+                '<label>' + res[index].eqNoise + '</label>' +
+                '</div>' + '<div>' +
+                '<label>co:</label>' +
+                '<label>' + res[index].eqCo + '</label>' +
+                '</div>' + '<div>' +
+                '<label>so2:</label>' +
+                '<label>' + res[index].eqSo2 + '</label>' +
+                '</div>' + '<div>' +
+                '<label>no2:</label>' +
+                '<label>' + res[index].sqNo2 + '</label>' +
+                '</div>' + '<div>' +
+                '<label>o3:</label>' +
+                '<label>' + res[index].sqO3 + '</label>' +
+                '</div>'
+                // var s = '<div>' +
+                //     '<label>pm2.5:</label>' +
+                //     '<label>' + res[index].eqPmTwo + '</label>' +
+                //     '<label>pm10:</label>' +
+                //     '<label>' + res[index].eqPmTen + '</label>' +
+                //
+                //
+                //     '</div>' + '<div>' +
+                //     '<label>pm10:</label>' +
+                //     '<label>' + res[index].eqPmTen + '</label>' +
+                //     '</div>' + '<div>' +
+                //     '<label>noise:</label>' +
+                //     '<label>' + res[index].eqNoise + '</label>' +
+                //     '</div>' + '<div>' +
+                //     '<label>co:</label>' +
+                //     '<label>' + res[index].eqCo + '</label>' +
+                //     '</div>' + '<div>' +
+                //     '<label>so2:</label>' +
+                //     '<label>' + res[index].eqSo2 + '</label>' +
+                //     '</div>' + '<div>' +
+                //     '<label>no2:</label>' +
+                //     '<label>' + res[index].sqNo2 + '</label>' +
+                //     '</div>' + '<div>' +
+                //     '<label>o3:</label>' +
+                //     '<label>' + res[index].sqO3 + '</label>' +
+                //     '</div>'
+                console.log($view.find("td :focus").prop("tagName"))
+                timer = setTimeout(function () {
+                    // const  wq=$view.find("td:focus").attr("tagName")
+                    subtips = layer.tips(s,_this, {tips: [1, '#ff6700'], time: 30000})
+                }, 1000)
+            }, function () {
+                //这里去clear
+                layer.close(subtips);
+                clearTimeout(timer);//如果bai没du停留3秒,直接会被clear掉,如果停留超过zhi3秒,也一样会被clear,但是你要做的方法已经被执行了
+            })
+        }
+
+
         //设置父标签全覆盖
         $view.parent().css("height", "100%")
         $view.parent().css("background", "#fff")
@@ -114,6 +187,21 @@
             trigger: 'click'
         });
 
+        // //监听行单击事件（双击事件为：rowDouble）
+        // table.on('row(myequipmentTable)', function(obj){
+        //     var data = obj.data;
+        //     console.log(data.id)
+        //     febs.modal.open('机构污染', 'rank/myequipment/detiles/' + data.id, {
+        //         area: $(window).width() <= 750 ? '90%' : '50%',
+        //         btn: ['取消'],
+        //         btn2: function () {
+        //             layer.closeAll();
+        //         }
+        //     });
+        //
+        //     //标注选中样式
+        //     obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
+        // });
 
         //监听单元格事件
         table.on('tool(myequipmentTable)', function (obj) {
@@ -124,6 +212,20 @@
                 febs.modal.confirm('删除设备', '确定删除该设备 ？', function () {
                     deleteMyequipment(data.id);
                 });
+            }
+            if (layEvent === 'info') {
+                var data = obj.data;
+                console.log(data.id)
+                console.log($(window).width())
+                febs.modal.open('设备数据', 'rank/myequipment/detiles/' + data.id, {
+                    area: $(window).width() <= 750 ? '90%' : '70%',
+                    btn: ['取消'],
+                    btn2: function () {
+                        layer.closeAll();
+                    }
+                });
+                //标注选中样式
+                // obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
             }
             if (layEvent === 'edit') {
                 febs.modal.open('修改设备', 'amyequipment/myequipment/update/' + data.id, {
@@ -199,10 +301,10 @@
                 url: ctx + 'amyequipment/myequipment/pageOtherList/1',
                 cols: [[
                     {type: 'checkbox'},
-                    {field: 'id', title: '设备id',hide:true},
+                    {field: 'id', title: '设备id', hide: true},
                     {field: 'eqName', title: '设备名'},
                     {field: 'eqCode', title: '设备编号'},
-                    {field: 'eqType', title: '设备类型',hide:true},
+                    {field: 'eqType', title: '设备类型', hide: true},
                     {field: 'eqLedger', title: '设备台账'},
                     // {field: 'eqPmTwo', title: 'PM2.5'},
                     // {field: 'eqPmTen', title: 'PM10'},
@@ -211,15 +313,20 @@
                     // {field: 'sqNo2', title: 'NO2(二氧化氮)'},
                     // {field: 'sqO3', title: 'O3(臭氧)'},
                     {field: 'eqAddress', title: '设备区域'},
-                    {title: '设备机构类别', templet: '#myequipment-category',hide:true},
+                    {title: '设备机构类别', templet: '#myequipment-category', hide: true},
                     {field: 'eqAddTime', title: '设备添加时间'},
                     {field: 'eqSupplier', title: '设备供应商'},
-                    { title: '是否检修',templet: "#myequipment-eqOverhaul"},
+                    {title: '是否检修', templet: "#myequipment-eqOverhaul"},
                     {title: '状态', templet: '#myequipment-status'},
                     // {field: 'createDate', title: '创建时间', minWidth: 180, sort: true},
                     {title: '操作', toolbar: '#myequipment-option', minWidth: 140}
-                ]]
+                ]],
+                done: function (res) {
+                    console.log(">>>>>>>>>>>>>", res)
+                    cka(res.data)
+                }
             });
+
         }
 
         function getQueryParams() {
@@ -233,13 +340,13 @@
             return {
                 startDate: createTimeFrom,
                 endDate: createTimeTo,
-                eqAddress   : $searchForm.find('input[name="name"]').val().trim(),
+                eqAddress: $searchForm.find('input[name="name"]').val().trim(),
                 // invalidate_ie_cache: new Date()
             };
         }
 
 
-        function deleteMyequipment(ids){
+        function deleteMyequipment(ids) {
             febs.delete(ctx + 'amyequipment/myequipment', {"ids": ids}, function () {
                 febs.alert.success('删除成功');
                 $query.click();

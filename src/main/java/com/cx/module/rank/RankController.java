@@ -7,6 +7,8 @@ import com.cx.module.amyequipment.entity.Myequipment;
 import com.cx.module.amyequipment.service.IMyequipmentService;
 import com.cx.module.mydept.entity.Mydept;
 import com.cx.module.mydept.service.IMydeptService;
+import com.cx.module.myequipment_history.entity.MyequipmentHistory;
+import com.cx.module.myequipment_history.service.IMyequipmentHistoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -34,6 +37,8 @@ public class RankController extends BaseController {
     IMydeptService mydeptService;
     @Autowired
     IMyequipmentService myequipmentService;
+    @Autowired
+    IMyequipmentHistoryService myequipmentHistoryService;
 
 
     /**
@@ -185,6 +190,110 @@ public class RankController extends BaseController {
         bigDecimal1 = bigDecimal1 == null ? new BigDecimal(0) : bigDecimal1;
         bigDecimal2 = bigDecimal2 == null ? new BigDecimal(0) : bigDecimal2;
         return bigDecimal1.add(bigDecimal2);
+    }
+
+    @GetMapping("detile")
+    public CommonResponse getDetile(String id, String data) {
+        LambdaQueryWrapper<MyequipmentHistory> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(MyequipmentHistory::getEqId, Long.parseLong(id))
+                .likeRight(MyequipmentHistory::getModDate, data == null ? LocalDate.now() : data)
+                .orderByAsc(MyequipmentHistory::getModDate);
+        List<MyequipmentHistory> list = myequipmentHistoryService.list(wrapper);
+
+        ArrayList<Object> pmtwo = new ArrayList<>();
+        ArrayList<Object> pmten = new ArrayList<>();
+        ArrayList<Object> co = new ArrayList<>();
+        ArrayList<Object> so2 = new ArrayList<>();
+        ArrayList<Object> no2 = new ArrayList<>();
+        ArrayList<Object> o3 = new ArrayList<>();
+        ArrayList<Object> windSpeed = new ArrayList<>();
+        ArrayList<Object> noise = new ArrayList<>();
+
+
+        if (!list.isEmpty()){
+            int hour = list.get(0).getModDate().getHour();
+            if (hour != 0) {
+                for (int i = 0; i < hour; i++) {
+                    setZero(pmtwo, pmten, co, so2, no2, o3, windSpeed, noise);
+                }
+            }
+
+                for (int j = 0; j < list.size(); j++) {
+                    if (j == 0) {
+                        pmtwo.add(list.get(j).getEqPmTwo());
+                        pmten.add(list.get(j).getEqPmTen());
+                        co.add(list.get(j).getEqCo());
+                        so2.add(list.get(j).getEqSo2());
+                        no2.add(list.get(j).getSqNo2());
+                        o3.add(list.get(j).getSqO3());
+                        windSpeed.add(list.get(j).getWindSpeed());
+                        noise.add(list.get(j).getEqNoise());
+                    } else {
+                        int start = list.get(j - 1).getModDate().getHour();
+                        int end = list.get(j).getModDate().getHour();
+                        if (end-start>1){
+                            for(int k=0;k<end-start;k++){
+                                setZero(pmtwo, pmten, co, so2, no2, o3, windSpeed, noise);
+                            }
+                            pmtwo.add(list.get(j).getEqPmTwo());
+                            pmten.add(list.get(j).getEqPmTen());
+                            co.add(list.get(j).getEqCo());
+                            so2.add(list.get(j).getEqSo2());
+                            no2.add(list.get(j).getSqNo2());
+                            o3.add(list.get(j).getSqO3());
+                            windSpeed.add(list.get(j).getWindSpeed());
+                            noise.add(list.get(j).getEqNoise());
+                        }else if(end-start==0){
+                            pmtwo.set(pmtwo.size()-1,list.get(j).getEqPmTwo());
+                            pmten.set(pmten.size()-1,list.get(j).getEqPmTen());
+                            co.set(co.size()-1,list.get(j).getEqCo());
+                            so2.set(so2.size()-1,list.get(j).getEqSo2());
+                            no2.set(no2.size()-1,list.get(j).getSqNo2());
+                            o3.set(o3.size()-1,list.get(j).getSqO3());
+                            windSpeed.set(windSpeed.size()-1,list.get(j).getWindSpeed());
+                            noise.set(noise.size()-1,list.get(j).getEqNoise());
+                        }else{
+                            pmtwo.add(list.get(j).getEqPmTwo());
+                            pmten.add(list.get(j).getEqPmTen());
+                            co.add(list.get(j).getEqCo());
+                            so2.add(list.get(j).getEqSo2());
+                            no2.add(list.get(j).getSqNo2());
+                            o3.add(list.get(j).getSqO3());
+                            windSpeed.add(list.get(j).getWindSpeed());
+                            noise.add(list.get(j).getEqNoise());
+                        }
+                    }
+                }
+
+        }else{
+            for(int l=0;l<24;l++){
+                setZero(pmtwo, pmten, co, so2, no2, o3, windSpeed, noise);
+            }
+        }
+
+
+
+        HashMap<Object, Object> hashMap = new HashMap<>();
+        hashMap.put("pmtwo", pmtwo);
+        hashMap.put("pmten", pmten);
+        hashMap.put("co", co);
+        hashMap.put("so2", so2);
+        hashMap.put("no2", no2);
+        hashMap.put("o3", o3);
+        hashMap.put("windSpeed", windSpeed);
+        hashMap.put("noise", noise);
+        return new CommonResponse().code(HttpStatus.OK).data(hashMap);
+    }
+
+    private void setZero(ArrayList<Object> pmtwo, ArrayList<Object> pmten, ArrayList<Object> co, ArrayList<Object> so2, ArrayList<Object> no2, ArrayList<Object> o3, ArrayList<Object> windSpeed, ArrayList<Object> noise) {
+        pmtwo.add(0);
+        pmten.add(0);
+        co.add(0);
+        so2.add(0);
+        no2.add(0);
+        o3.add(0);
+        windSpeed.add(0);
+        noise.add(0);
     }
 
 }

@@ -1,0 +1,76 @@
+2020-08-18 11:40:34.823 febs [http-nio-8099-exec-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-18 11:59:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-18 12:00:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-18 13:50:26.652 febs [http-nio-8099-exec-8] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-18 13:59:59.009 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-18 14:00:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-18 14:49:03.593 febs [http-nio-8099-exec-9] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-18 14:59:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-18 15:00:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-18 15:14:40.936 febs [Catalina-utility-2] ERROR c.c.c.a.s.SessionDestroyedEventListener - 失效session:[C11C79137E9A0681FA25D6B579A6C551]发生异常.
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at com.cx.common.authentication.session.SessionDestroyedEventListener.onApplicationEvent(SessionDestroyedEventListener.java:28)
+	at com.cx.common.authentication.session.SessionDestroyedEventListener.onApplicationEvent(SessionDestroyedEventListener.java:16)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:402)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:359)
+	at org.springframework.security.web.session.HttpSessionEventPublisher.sessionDestroyed(HttpSessionEventPublisher.java:91)
+	at org.apache.catalina.session.StandardSession.expire(StandardSession.java:801)
+	at org.apache.catalina.session.StandardSession.isValid(StandardSession.java:659)
+	at org.apache.catalina.session.ManagerBase.processExpires(ManagerBase.java:573)
+	at org.apache.catalina.session.ManagerBase.backgroundProcess(ManagerBase.java:558)
+	at org.apache.catalina.core.StandardContext.backgroundProcess(StandardContext.java:5517)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1346)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1350)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1350)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1328)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset$$$capture(FutureTask.java:308)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-18 15:59:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-18 16:00:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-18 16:40:41.362 febs [Catalina-utility-1] ERROR c.c.c.a.s.SessionDestroyedEventListener - 失效session:[0489739081729AD2F3CF146A9D28470B]发生异常.
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at com.cx.common.authentication.session.SessionDestroyedEventListener.onApplicationEvent(SessionDestroyedEventListener.java:28)
+	at com.cx.common.authentication.session.SessionDestroyedEventListener.onApplicationEvent(SessionDestroyedEventListener.java:16)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:402)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:359)
+	at org.springframework.security.web.session.HttpSessionEventPublisher.sessionDestroyed(HttpSessionEventPublisher.java:91)
+	at org.apache.catalina.session.StandardSession.expire(StandardSession.java:801)
+	at org.apache.catalina.session.StandardSession.isValid(StandardSession.java:659)
+	at org.apache.catalina.session.ManagerBase.processExpires(ManagerBase.java:573)
+	at org.apache.catalina.session.ManagerBase.backgroundProcess(ManagerBase.java:558)
+	at org.apache.catalina.core.StandardContext.backgroundProcess(StandardContext.java:5517)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1346)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1350)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1350)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1328)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset$$$capture(FutureTask.java:308)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-08-18 16:43:15.700 febs [http-nio-8099-exec-5] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-18 16:59:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-18 17:00:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-18 17:24:30.649 febs [http-nio-8099-exec-2] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-18 17:59:59.002 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空

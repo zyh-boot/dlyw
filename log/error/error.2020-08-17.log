@@ -1,0 +1,13 @@
+2020-08-17 08:40:15.036 febs [main] ERROR c.c.m.service.impl.RedisServiceImpl - {}
+com.cx.common.exception.RedisConnectException: 连接失败
+	at com.cx.monitor.service.impl.RedisServiceImpl.excuteByJedis(RedisServiceImpl.java:43)
+	at com.cx.monitor.service.impl.RedisServiceImpl.exists(RedisServiceImpl.java:181)
+	at com.cx.common.runner.StartedUpRunner.run(StartedUpRunner.java:44)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:804)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:794)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:324)
+	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:139)
+	at com.cx.AppApplication.main(AppApplication.java:24)
+2020-08-17 08:41:43.219 febs [http-nio-8099-exec-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-17 08:59:59.000 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
+2020-08-17 09:00:59.001 febs [scheduling-1] ERROR com.cx.common.utils.SecurityUtils - 用户获取为空
