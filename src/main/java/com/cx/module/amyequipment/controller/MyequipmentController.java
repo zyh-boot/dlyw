@@ -192,6 +192,14 @@ public class MyequipmentController extends BaseController {
         }
     }
 
+    /**
+     * 校验当前用户是否有权限操作
+     * 规则: 通过设备找到管理用户的机构级别,判断当前用户的机构级别与设备的类别大小
+     * 机构级别: 1:市 2:县 3:乡 4:村
+     * @param ids
+     * @return
+     * @throws CommonException
+     */
     private Boolean judgmentCategory(String ids) throws CommonException {
         //当前用户机构级别
         User user = CommonUtil.getCurrentUser();
@@ -208,6 +216,10 @@ public class MyequipmentController extends BaseController {
 //        }
     }
 
+    /**
+     * 返回当前用户机构类别下的机构
+     * @return
+     */
     @GetMapping("catetory")
     public CommonResponse getCategory() {
         HashMap<String, List> map = new HashMap<>();
@@ -232,7 +244,6 @@ public class MyequipmentController extends BaseController {
         Integer category = mydept.getCategory() - 1;
         List<Object> subList = list.subList(category < 0 ? 0 : category, list.size());
         return new CommonResponse().code(HttpStatus.OK).data(subList);
-
     }
 
 }

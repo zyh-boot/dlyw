@@ -112,6 +112,8 @@ public class RankViewController extends BaseController {
                 list.set(3,list.get(3).add(bigDecimalIsNull(myequipment.getEqSo2())));
                 list.set(4,list.get(4).add(bigDecimalIsNull(myequipment.getSqO3())));
                 list.set(5,list.get(5).add(bigDecimalIsNull(myequipment.getSqNo2())));
+                list.set(6,list.get(6).add(bigDecimalIsNull(myequipment.getEqNoise())));
+                list.set(7,list.get(7).add(bigDecimalIsNull(new BigDecimal(myequipment.getWindSpeed()))));
 
             }else {
                 list.add(0,bigDecimalIsNull(myequipment.getEqPmTwo()));
@@ -120,6 +122,8 @@ public class RankViewController extends BaseController {
                 list.add(3,bigDecimalIsNull(myequipment.getEqSo2()));
                 list.add(4,bigDecimalIsNull(myequipment.getSqO3()));
                 list.add(5,bigDecimalIsNull(myequipment.getSqNo2()));
+                list.add(6,bigDecimalIsNull(myequipment.getEqNoise()));
+                list.add(7,bigDecimalIsNull(new BigDecimal(myequipment.getWindSpeed())));
             }
         }
         return list;

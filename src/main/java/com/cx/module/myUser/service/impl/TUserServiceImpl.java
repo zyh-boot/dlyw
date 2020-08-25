@@ -69,6 +69,14 @@ public class TUserServiceImpl extends ServiceImpl<TUserMapper, TUser> implements
     }
 
     /**
+     * 查询列表
+     */
+    @Override
+    public List<TUser> list(Wrapper obj) {
+        return this.baseMapper.selectList(obj);
+    }
+
+    /**
      * 分页查询
      */
     @Override
@@ -83,16 +91,16 @@ public class TUserServiceImpl extends ServiceImpl<TUserMapper, TUser> implements
             queryWrapper.between(TUser::getOpen, obj.getStartDate(), obj.getEndDate());
         }
         if (StringUtils.isNotBlank(obj.getUsername())) {
-            queryWrapper.eq(TUser::getUsername, obj.getUsername());
+            queryWrapper.like(TUser::getUsername, obj.getUsername());
         }
         if (StringUtils.isNotBlank(obj.getDeptName())) {
-            queryWrapper.eq(TUser::getDeptName, obj.getDeptName());
+            queryWrapper.like(TUser::getDeptName, obj.getDeptName());
         }
         if (StringUtils.isNotBlank(obj.getWechart())) {
-            queryWrapper.eq(TUser::getUsername, obj.getWechart());
+            queryWrapper.like(TUser::getWechart, obj.getWechart());
         }
         if (StringUtils.isNotBlank(obj.getAccountName())) {
-            queryWrapper.eq(TUser::getAccountName, obj.getAccountName());
+            queryWrapper.like(TUser::getAccountName, obj.getAccountName());
         }
         if (StringUtils.isNotBlank(obj.getMobile())) {
             queryWrapper.eq(TUser::getMobile, obj.getMobile());

@@ -1,5 +1,6 @@
 package com.cx.module.mydept.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.cx.common.controller.BaseController;
@@ -7,6 +8,7 @@ import com.cx.common.entity.CommonResponse;
 import com.cx.common.entity.QueryRequest;
 import com.cx.common.exception.CommonException;
 import com.cx.common.utils.CommonUtil;
+import com.cx.module.myUser.entity.TUser;
 import com.cx.module.myUser.service.ITUserService;
 import com.cx.module.mydept.entity.Mydept;
 import com.cx.module.mydept.service.IMydeptService;
@@ -16,6 +18,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 控制器
@@ -100,7 +104,7 @@ public class MydeptController extends BaseController {
     @PutMapping("")
     @PreAuthorize("hasRole('mydept:mod')")
     public CommonResponse update(Mydept obj) throws CommonException {
-        judgmentCategory(obj.getCategory().toString());
+        judgmentCategory(obj.getId().toString());
         try {
             return getCommonResponse(iMydeptService.update(obj));
         } catch (Exception e) {
@@ -145,8 +149,10 @@ public class MydeptController extends BaseController {
         try {
             if (StringUtils.isNotBlank(ids)) {
                 if (ids.contains(StringPool.COMMA)) {
+                    updataUser(ids);
                     iMydeptService.batchDel(ids);
                 } else {
+                    updataUser(ids);
                     iMydeptService.delete(Long.valueOf(ids));
                 }
             }
@@ -158,6 +164,30 @@ public class MydeptController extends BaseController {
         }
     }
 
+    /**
+     * 删除机构时 同步用户表字段 重置用户表的机构信息
+     *
+     * @param ids
+     */
+    private void updataUser(String ids) {
+        LambdaQueryWrapper<TUser> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(TUser::getDeptId, ids);
+        List<TUser> list = iTUserService.list(wrapper);
+        for (TUser user : list) {
+            user.setDeptId(Long.valueOf(-1));
+            user.setDeptName("无部门");
+            iTUserService.update(user);
+        }
+    }
+
+    /**
+     * 校验当前用户是否有权限操作
+     * 规则: 查找目标机构级别,判断当前用户的机构类别大小
+     * 机构级别: 1:市 2:县 3:乡 4:村
+     *
+     * @param ids 目标ID
+     * @throws CommonException
+     */
     private void judgmentCategory(String ids) throws CommonException {
         //当前用户机构级别
         User user = CommonUtil.getCurrentUser();
@@ -175,7 +205,7 @@ public class MydeptController extends BaseController {
                 for (String str : ids.split(StringPool.COMMA)) {
                     //目标用户机构级别
                     Mydept mydept1 = mydeptService.selectOne(Long.parseLong(ids));
-                    if (mydept1 != null){
+                    if (mydept1 != null) {
                         if (mydept.getCategory() > mydept1.getCategory()) {
                             String message = "权限不足, 列表存在上级机构!";
                             throw new CommonException(message);
@@ -184,7 +214,7 @@ public class MydeptController extends BaseController {
                 }
             } else {
                 Mydept mydept1 = mydeptService.selectOne(Long.parseLong(ids));
-                if (mydept1 != null){
+                if (mydept1 != null) {
                     if (mydept.getCategory() > mydept1.getCategory()) {
                         String message = "权限不足!";
                         throw new CommonException(message);

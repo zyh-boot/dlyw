@@ -28,6 +28,9 @@ import java.util.Map;
 
 import static java.util.Comparator.comparing;
 
+/**
+ * 排名
+ */
 @RestController
 @Slf4j
 @RequestMapping("rank/myequipment")
@@ -42,6 +45,7 @@ public class RankController extends BaseController {
 
 
     /**
+     * 页面初始化数据
      * @param pollution
      * @return
      */
@@ -66,6 +70,13 @@ public class RankController extends BaseController {
         return new CommonResponse().data(entries);
     }
 
+
+    /**
+     * 各个污染项数据 从小到大排序返回
+     * @param startDate
+     * @param endDate
+     * @return
+     */
     private ArrayList<Map.Entry<String, BigDecimal>> getEntries(String startDate, String endDate) {
         LambdaQueryWrapper<Myequipment> wrapper = new LambdaQueryWrapper<>();
         if (StringUtils.isNotBlank(startDate) && StringUtils.isNotBlank(endDate)) {
@@ -81,12 +92,12 @@ public class RankController extends BaseController {
         HashMap<String, BigDecimal> hashMap = new HashMap<>();
         for (Myequipment myequipment : myequipments) {
 
-            BigDecimal eqPmTwo = myequipment.getEqPmTwo();
-            BigDecimal eqPmTen = myequipment.getEqPmTen();
-            BigDecimal eqCo = myequipment.getEqCo();
-            BigDecimal eqSo2 = myequipment.getEqSo2();
-            BigDecimal sqO3 = myequipment.getSqO3();
-            BigDecimal sqNo2 = myequipment.getSqNo2();
+//            BigDecimal eqPmTwo = myequipment.getEqPmTwo();
+//            BigDecimal eqPmTen = myequipment.getEqPmTen();
+//            BigDecimal eqCo = myequipment.getEqCo();
+//            BigDecimal eqSo2 = myequipment.getEqSo2();
+//            BigDecimal sqO3 = myequipment.getSqO3();
+//            BigDecimal sqNo2 = myequipment.getSqNo2();
 
             hashMap.put("pm2.5", bigDecimalAdd(hashMap.get("pm2.5"), myequipment.getEqPmTwo()));
             hashMap.put("pm10", bigDecimalAdd(hashMap.get("pm10"), myequipment.getEqPmTen()));
@@ -94,8 +105,6 @@ public class RankController extends BaseController {
             hashMap.put("So2", bigDecimalAdd(hashMap.get("So2"), myequipment.getEqSo2()));
             hashMap.put("O3", bigDecimalAdd(hashMap.get("O3"), myequipment.getSqO3()));
             hashMap.put("No2", bigDecimalAdd(hashMap.get("No2"), myequipment.getSqNo2()));
-
-
         }
 
         ArrayList<Map.Entry<String, BigDecimal>> entries = new ArrayList<>(hashMap.entrySet());
@@ -104,6 +113,13 @@ public class RankController extends BaseController {
     }
 
 
+    /**
+     * 污染项排名页面查询操作
+     * @param name
+     * @param startDate
+     * @param endDate
+     * @return
+     */
     @GetMapping("pollutionSearch")
     public CommonResponse getPollution(String name, String startDate, String endDate) {
 
@@ -122,6 +138,14 @@ public class RankController extends BaseController {
         return new CommonResponse().code(HttpStatus.OK).data(list);
     }
 
+    /**
+     * 机构污染排名页面查询
+     * @param name
+     * @param startDate
+     * @param endDate
+     * @param type
+     * @return
+     */
     @GetMapping("search")
     public CommonResponse getData(String name, String startDate, String endDate, String type) {
 
@@ -186,12 +210,25 @@ public class RankController extends BaseController {
         return list;
     }
 
+    /**
+     * 校验数据为空 赋默认值
+     * @param bigDecimal1
+     * @param bigDecimal2
+     * @return
+     */
     private BigDecimal bigDecimalAdd(BigDecimal bigDecimal1, BigDecimal bigDecimal2) {
         bigDecimal1 = bigDecimal1 == null ? new BigDecimal(0) : bigDecimal1;
         bigDecimal2 = bigDecimal2 == null ? new BigDecimal(0) : bigDecimal2;
         return bigDecimal1.add(bigDecimal2);
     }
 
+    /**
+     * 返回echarts图表所需数据
+     * 每个数据用了一个列表保存,可优化
+     * @param id
+     * @param data
+     * @return
+     */
     @GetMapping("detile")
     public CommonResponse getDetile(String id, String data) {
         LambdaQueryWrapper<MyequipmentHistory> wrapper = new LambdaQueryWrapper<>();
@@ -295,5 +332,4 @@ public class RankController extends BaseController {
         windSpeed.add(0);
         noise.add(0);
     }
-
 }

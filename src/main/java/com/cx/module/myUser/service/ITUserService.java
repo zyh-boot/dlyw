@@ -37,6 +37,13 @@ TUser selectOne(Wrapper wrapper);
 * @return
 */
 List<TUser> list(TUser obj);
+/**
+* 查询列表
+*
+* @param obj
+* @return
+*/
+List<TUser> list(Wrapper obj);
 
 /**
 * 分页查询

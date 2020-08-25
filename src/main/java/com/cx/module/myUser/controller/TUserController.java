@@ -40,6 +40,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * 页面用户操作
+ *
  * 用户表  控制器
  *
  * @author admin
@@ -262,6 +264,15 @@ public class TUserController extends BaseController {
         }
     }
 
+    /**
+     * 校验当前用户是否有权限操作
+     * 规则: 查找目标用户级别,判断当前用户的机构级别大小
+     * 无部门的人员机构id为-1, 任何人都可以操作
+     * 机构级别: 1:市 2:县 3:乡 4:村
+     *
+     * @param ids
+     * @throws CommonException
+     */
     private void judgmentCategory(String ids) throws CommonException {
         //当前用户机构级别
         User user = CommonUtil.getCurrentUser();

@@ -24,12 +24,14 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label febs-form-item-require">机构类别：</label>
                     <div class="layui-input-block myselect">
-                        <select name="category" lay-filter="myselect" class="layui-form-select">
-                            <option value="1" selected="">市</option>
-                            <option value="2">县</option>
-                            <option value="3">乡</option>
-                            <option value="4">村</option>
-                        </select>
+<!--                        <select name="category" lay-filter="myselect" class="layui-form-select">-->
+<!--                            <option value="1" selected="">市</option>-->
+<!--                            <option value="2">县</option>-->
+<!--                            <option value="3">乡</option>-->
+<!--                            <option value="4">村</option>-->
+<!--                        </select>-->
+                        <select name="category" lay-filter="eqDeptCategory1" id="eqDeptCategory1"
+                                class="layui-form-select"></select>
 <!--                        <input type="text" name="category" autocomplete="off" class="layui-input">-->
                     </div>
                 </div>
@@ -73,6 +75,27 @@
             });
             return false;
         });
+
+        $.ajax({
+            url: "amyequipment/myequipment/catetory",
+            data: "",
+            datatype: 'json',
+            success: function (res) {
+                console.log(res)
+                $.each(res.data, function (index, item) {
+                    console.log(item);
+                    //option 第一个参数是页面显示的值，第二个参数是传递到后台的值
+                    $('#eqDeptCategory1').append(new Option(item.value, item.index));//往下拉菜单里添加元素
+                    // $('#myID').append(new Option(1,1));//往下拉菜单里添加元素
+                    //设置value（这个值就可以是在更新的时候后台传递到前台的值）为2的值为默认选中
+                    // $('#selectID').val(2);
+                    form.render(); //更新全部表单内容
+                    //form.render('select'); //刷新表单select选择框渲染
+
+                })
+            }
+        })
+
 
     })
 </script>
