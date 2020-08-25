@@ -84,9 +84,9 @@
             dataLabels: {
                 enabled: true,
                 formatter: function (val) {
-                    return val ;
+                    return val  ;
                 },
-                offsetY: -20,
+                offsetY: 0,
                 style: {
                     fontSize: '12px',
                     colors: ["#304758"]
@@ -100,7 +100,7 @@
             }],
             xaxis: {
                 //顶部栏 数据
-                categories: ["pm2.5 μg/m3", "pm10 μg/m3", "Co mg/m3", "So2", "O3", "No2","噪声","风速"],
+                categories: ["pm2.5 μg/m3", "pm10 μg/m3", "Co mg/m3", "So2 μg/m3", "O3 μg/m3", "No2 μg/m3","噪声 db","风速 m/s"],
                 // categories: deptList,
                 position: 'top',
                 labels: {

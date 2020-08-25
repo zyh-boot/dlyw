@@ -105,7 +105,7 @@ public class RankViewController extends BaseController {
     private ArrayList<BigDecimal> getBigDecimals(List<Myequipment> myequipments) {
         ArrayList<BigDecimal> list = new ArrayList<>();
         for (Myequipment myequipment : myequipments) {
-            if(list.size() == 6){
+            if(list.size() == 8){
                 list.set(0,list.get(0).add(bigDecimalIsNull(myequipment.getEqPmTwo())));
                 list.set(1,list.get(1).add(bigDecimalIsNull(myequipment.getEqPmTen())));
                 list.set(2,list.get(2).add(bigDecimalIsNull(myequipment.getEqCo())));
@@ -113,7 +113,8 @@ public class RankViewController extends BaseController {
                 list.set(4,list.get(4).add(bigDecimalIsNull(myequipment.getSqO3())));
                 list.set(5,list.get(5).add(bigDecimalIsNull(myequipment.getSqNo2())));
                 list.set(6,list.get(6).add(bigDecimalIsNull(myequipment.getEqNoise())));
-                list.set(7,list.get(7).add(bigDecimalIsNull(new BigDecimal(myequipment.getWindSpeed()))));
+
+                list.set(7,list.get(7).add(bigDecimalIsNull(new BigDecimal(myequipment.getWindSpeed() == null ? "0" : myequipment.getWindSpeed()))));
 
             }else {
                 list.add(0,bigDecimalIsNull(myequipment.getEqPmTwo()));
@@ -123,7 +124,7 @@ public class RankViewController extends BaseController {
                 list.add(4,bigDecimalIsNull(myequipment.getSqO3()));
                 list.add(5,bigDecimalIsNull(myequipment.getSqNo2()));
                 list.add(6,bigDecimalIsNull(myequipment.getEqNoise()));
-                list.add(7,bigDecimalIsNull(new BigDecimal(myequipment.getWindSpeed())));
+                list.add(7,bigDecimalIsNull(new BigDecimal(myequipment.getWindSpeed() == null ? "0" : myequipment.getWindSpeed())));
             }
         }
         return list;
