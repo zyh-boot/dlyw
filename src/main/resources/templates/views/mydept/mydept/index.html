@@ -123,7 +123,8 @@
                 layEvent = obj.event;
             console.log("data", data);
             if (layEvent === 'del') {
-                febs.modal.confirm('删除', '确定删除该 ？', function () {
+                /*#00d57b*/
+                febs.modal.confirm('删除', '确定删除该机构: <span style="color: #00d57b">' + data.name + '</span>', function () {
                     deleteMydept(data.id);
                 });
             }
@@ -157,7 +158,6 @@
         })
 
         $query.on('click', function () {
-
             let index = $searchForm.find('select[name="interest"]').val().trim();
             let queryParams = ''
             queryParams = getQueryParams(index);

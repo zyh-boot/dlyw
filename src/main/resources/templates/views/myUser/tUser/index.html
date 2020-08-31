@@ -113,7 +113,7 @@
                 layEvent = obj.event;
             console.log("data", data);
             if (layEvent === 'del') {
-                febs.modal.confirm('删除用户表', '确定删除该用户表 ？', function () {
+                febs.modal.confirm('删除用户表', '确定删除该用户: <span style="color: #00d57b">' + data.username + '</span>', function () {
                     deleteTUser(data.userId);
                 });
             }

@@ -2,6 +2,7 @@ package com.cx.module.amyequipment.service;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.cx.common.entity.QueryRequest;
 import com.cx.module.amyequipment.entity.Myequipment;
 
@@ -13,7 +14,7 @@ import java.util.List;
  * @author admin
  * @Description Created on 2020-08-06
  */
-public interface IMyequipmentService {
+public interface IMyequipmentService extends IService<Myequipment> {
     /**
      * 查询详情
      *

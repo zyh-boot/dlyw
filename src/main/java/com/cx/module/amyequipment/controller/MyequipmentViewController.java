@@ -2,6 +2,7 @@ package com.cx.module.amyequipment.controller;
 
 import com.cx.common.controller.BaseController;
 import com.cx.common.entity.Constant;
+import com.cx.common.exception.CommonException;
 import com.cx.common.utils.CommonUtil;
 import com.cx.module.amyequipment.entity.Myequipment;
 import com.cx.module.amyequipment.service.IMyequipmentService;
@@ -70,12 +71,13 @@ public class MyequipmentViewController extends BaseController {
     IMydeptService mydeptService;
     @GetMapping("myequipment/add")
     @PreAuthorize("hasRole('myequipment:add')")
-    public String myequipmentAdd(HttpServletRequest request, ModelMap model) {
-
+    public String myequipmentAdd(HttpServletRequest request, ModelMap model) throws CommonException {
         User user = CommonUtil.getCurrentUser();
         Long deptId = user.getDeptId();
         Mydept mydept = mydeptService.selectOne(deptId);
-        mydept.getCategory();
+        if( mydept == null){
+            return CommonUtil.view("error/403");
+        }
         return CommonUtil.view("amyequipment/myequipment/add");
     }
 

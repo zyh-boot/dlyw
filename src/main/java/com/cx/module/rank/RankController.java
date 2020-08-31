@@ -257,14 +257,14 @@ public class RankController extends BaseController {
 
                 for (int j = 0; j < list.size(); j++) {
                     if (j == 0) {
-                        pmtwo.add(list.get(j).getEqPmTwo());
-                        pmten.add(list.get(j).getEqPmTen());
-                        co.add(list.get(j).getEqCo());
-                        so2.add(list.get(j).getEqSo2());
-                        no2.add(list.get(j).getSqNo2());
-                        o3.add(list.get(j).getSqO3());
-                        windSpeed.add(list.get(j).getWindSpeed());
-                        noise.add(list.get(j).getEqNoise());
+                        pmtwo.add(getBigDecimal(list.get(j).getEqPmTwo()));
+                        pmten.add(getBigDecimal(list.get(j).getEqPmTen()));
+                        co.add(getBigDecimal(list.get(j).getEqCo()));
+                        so2.add(getBigDecimal(list.get(j).getEqSo2()));
+                        no2.add(getBigDecimal(list.get(j).getSqNo2()));
+                        o3.add(getBigDecimal(list.get(j).getSqO3()));
+                        windSpeed.add(getBigDecimal(list.get(j).getWindSpeed()));
+                        noise.add(getBigDecimal(list.get(j).getEqNoise()));
                     } else {
                         int start = list.get(j - 1).getModDate().getHour();
                         int end = list.get(j).getModDate().getHour();
@@ -272,32 +272,32 @@ public class RankController extends BaseController {
                             for(int k=0;k<end-start;k++){
                                 setZero(pmtwo, pmten, co, so2, no2, o3, windSpeed, noise);
                             }
-                            pmtwo.add(list.get(j).getEqPmTwo());
-                            pmten.add(list.get(j).getEqPmTen());
-                            co.add(list.get(j).getEqCo());
-                            so2.add(list.get(j).getEqSo2());
-                            no2.add(list.get(j).getSqNo2());
-                            o3.add(list.get(j).getSqO3());
-                            windSpeed.add(list.get(j).getWindSpeed());
-                            noise.add(list.get(j).getEqNoise());
+                            pmtwo.add(getBigDecimal(list.get(j).getEqPmTwo()));
+                            pmten.add(getBigDecimal(list.get(j).getEqPmTen()));
+                            co.add(getBigDecimal(list.get(j).getEqCo()));
+                            so2.add(getBigDecimal(list.get(j).getEqSo2()));
+                            no2.add(getBigDecimal(list.get(j).getSqNo2()));
+                            o3.add(getBigDecimal(list.get(j).getSqO3()));
+                            windSpeed.add(getBigDecimal(list.get(j).getWindSpeed()));
+                            noise.add(getBigDecimal(list.get(j).getEqNoise()));
                         }else if(end-start==0){
-                            pmtwo.set(pmtwo.size()-1,list.get(j).getEqPmTwo());
-                            pmten.set(pmten.size()-1,list.get(j).getEqPmTen());
-                            co.set(co.size()-1,list.get(j).getEqCo());
-                            so2.set(so2.size()-1,list.get(j).getEqSo2());
-                            no2.set(no2.size()-1,list.get(j).getSqNo2());
-                            o3.set(o3.size()-1,list.get(j).getSqO3());
-                            windSpeed.set(windSpeed.size()-1,list.get(j).getWindSpeed());
-                            noise.set(noise.size()-1,list.get(j).getEqNoise());
+                            pmtwo.set(pmtwo.size()-1,getBigDecimal(list.get(j).getEqPmTwo()));
+                            pmten.set(pmten.size()-1,getBigDecimal(list.get(j).getEqPmTen()));
+                            co.set(co.size()-1,getBigDecimal(list.get(j).getEqCo()));
+                            so2.set(so2.size()-1,getBigDecimal(list.get(j).getEqSo2()));
+                            no2.set(no2.size()-1,getBigDecimal(list.get(j).getSqNo2()));
+                            o3.set(o3.size()-1,getBigDecimal(list.get(j).getSqO3()));
+                            windSpeed.set(windSpeed.size()-1,getBigDecimal(list.get(j).getWindSpeed()));
+                            noise.set(noise.size()-1,getBigDecimal(list.get(j).getEqNoise()));
                         }else{
-                            pmtwo.add(list.get(j).getEqPmTwo());
-                            pmten.add(list.get(j).getEqPmTen());
-                            co.add(list.get(j).getEqCo());
-                            so2.add(list.get(j).getEqSo2());
-                            no2.add(list.get(j).getSqNo2());
-                            o3.add(list.get(j).getSqO3());
-                            windSpeed.add(list.get(j).getWindSpeed());
-                            noise.add(list.get(j).getEqNoise());
+                            pmtwo.add(getBigDecimal(list.get(j).getEqPmTwo()));
+                            pmten.add(getBigDecimal(list.get(j).getEqPmTen()));
+                            co.add(getBigDecimal(list.get(j).getEqCo()));
+                            so2.add(getBigDecimal(list.get(j).getEqSo2()));
+                            no2.add(getBigDecimal(list.get(j).getSqNo2()));
+                            o3.add(getBigDecimal(list.get(j).getSqO3()));
+                            windSpeed.add(getBigDecimal(list.get(j).getWindSpeed()));
+                            noise.add(getBigDecimal(list.get(j).getEqNoise()));
                         }
                     }
                 }
@@ -331,5 +331,9 @@ public class RankController extends BaseController {
         o3.add(0);
         windSpeed.add(0);
         noise.add(0);
+    }
+
+    private BigDecimal getBigDecimal(BigDecimal bigDecimal){
+        return bigDecimal == null ? new BigDecimal(0) : bigDecimal;
     }
 }

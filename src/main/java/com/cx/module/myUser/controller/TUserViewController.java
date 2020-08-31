@@ -9,8 +9,11 @@ import com.cx.module.amyequipment.service.IMyequipmentService;
 import com.cx.module.mobile.entity.CodeBean;
 import com.cx.module.myUser.entity.TUser;
 import com.cx.module.myUser.service.ITUserService;
+import com.cx.module.mydept.entity.Mydept;
+import com.cx.module.mydept.service.IMydeptService;
 import com.cx.module.userEq.entity.UserMyequipment;
 import com.cx.module.userEq.service.IUserMyequipmentService;
+import com.cx.system.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -44,6 +47,8 @@ public class TUserViewController extends BaseController {
     IUserMyequipmentService userMyequipmentService;
     @Autowired
     IMyequipmentService myequipmentService;
+    @Autowired
+    IMydeptService mydeptService;
 
     /**
      * 用户表跳转列表页面
@@ -63,6 +68,13 @@ public class TUserViewController extends BaseController {
     @GetMapping("tUser/add")
     @PreAuthorize("hasRole('tUser:add')")
     public String tUserAdd(HttpServletRequest request, ModelMap model) {
+        User user = CommonUtil.getCurrentUser();
+        Long deptId = user.getDeptId();
+        Mydept mydept = mydeptService.selectOne(deptId);
+        if( mydept == null){
+            return CommonUtil.view("error/403");
+        }
+
         return CommonUtil.view("myUser/tUser/add");
     }
 

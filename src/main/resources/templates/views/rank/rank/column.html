@@ -35,7 +35,7 @@
             laydate = layui.laydate,
             echarts = layui.echarts,
             chartZhu = echarts.init(document.getElementById("dataLabelsColumnChart"));
-        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>", id)
+        // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>", id)
         laydate.render({
             elem: '#mycreate',
             // range: true,
@@ -70,7 +70,7 @@
                 tooltip: {
                     trigger: 'axis',
                     formatter: function (value) {
-                        console.log(value[0])
+                        // console.log(value[0])
                         const aname = value[0].name
                         if ("pm2.5" == aname || "pm10" == aname) {
                             // ug/m3
@@ -193,7 +193,7 @@
                 success: function (res) {
                     const result = res.data
                     tmpData = res.data
-                    console.log("<><><><", res)
+                    // console.log("<><><><", res)
                     pmtwo = result.pmtwo
                     pmten = result.pmten
                     co = result.co

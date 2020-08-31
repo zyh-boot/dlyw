@@ -38,7 +38,8 @@ import java.util.List;
 public class MyequipmentController extends BaseController {
     @Autowired
     IMyequipmentService iMyequipmentService;
-
+    @Autowired
+    IMydeptService mydeptService;
     /**
      * 查询详情
      */
@@ -70,8 +71,7 @@ public class MyequipmentController extends BaseController {
     /**
      * 分页查询其他
      */
-    @Autowired
-    IMydeptService mydeptService;
+
 
     @GetMapping("pageOtherList/{categroy}")
     public CommonResponse pageOtherList(Myequipment obj, QueryRequest query, @PathVariable String categroy) throws CommonException {
@@ -91,7 +91,7 @@ public class MyequipmentController extends BaseController {
             obj.setEqDeptCategory(Integer.parseInt(categroy));
             IPage<Myequipment> myequipmentIPage = iMyequipmentService.myPage(obj, query, new ArrayList());
             List<Myequipment> records = myequipmentIPage.getRecords();
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>" + records);
+//            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>" + records);
             return getTableData(iMyequipmentService.myPage(obj, query, new ArrayList()));
 
         } catch (Exception e) {
@@ -204,7 +204,9 @@ public class MyequipmentController extends BaseController {
         //当前用户机构级别
         User user = CommonUtil.getCurrentUser();
         Mydept mydept = mydeptService.selectOne(user.getDeptId());
-
+        if (mydept == null){
+            return true;
+        }
         //目标设备机构级别
         Myequipment myequipment = iMyequipmentService.selectOne(Long.parseLong(ids));
 
@@ -221,28 +223,36 @@ public class MyequipmentController extends BaseController {
      * @return
      */
     @GetMapping("catetory")
-    public CommonResponse getCategory() {
-        HashMap<String, List> map = new HashMap<>();
+    public CommonResponse getCategory() throws CommonException {
+        List<Object> subList = null;
+        try {
+            HashMap<String, List> map = new HashMap<>();
 
-        HashMap<Object, Object> hashMap = new HashMap<>();
-        hashMap.put("index", "1");
+            HashMap<Object, Object> hashMap = new HashMap<>();
+            hashMap.put("index", "1");
 
-        String value = "{'index':'1','value':'市'}";
-        String value1 = "{'index':'2','value':'县'}";
-        String value2 = "{'index':'3','value':'乡'}";
-        String value3 = "{'index':'4','value':'村'}";
+            String value = "{'index':'1','value':'市'}";
+            String value1 = "{'index':'2','value':'县'}";
+            String value2 = "{'index':'3','value':'乡'}";
+            String value3 = "{'index':'4','value':'村'}";
 
-        ArrayList<Object> list = new ArrayList<>();
-        list.add(JSON.parse(value));
-        list.add(JSON.parse(value1));
-        list.add(JSON.parse(value2));
-        list.add(JSON.parse(value3));
+            ArrayList<Object> list = new ArrayList<>();
+            list.add(JSON.parse(value));
+            list.add(JSON.parse(value1));
+            list.add(JSON.parse(value2));
+            list.add(JSON.parse(value3));
 
 
-        User user = CommonUtil.getCurrentUser();
-        Mydept mydept = mydeptService.selectOne(user.getDeptId());
-        Integer category = mydept.getCategory() - 1;
-        List<Object> subList = list.subList(category < 0 ? 0 : category, list.size());
+            User user = CommonUtil.getCurrentUser();
+            Mydept mydept = mydeptService.selectOne(user.getDeptId());
+            if(mydept == null){
+                throw new CommonException("用户无部门");
+            }
+            Integer category = mydept.getCategory() - 1;
+            subList = list.subList(category < 0 ? 0 : category, list.size());
+        } catch (CommonException e) {
+            e.printStackTrace();
+        }
         return new CommonResponse().code(HttpStatus.OK).data(subList);
     }
 

@@ -16,6 +16,12 @@
                         <input type="text" name="head" autocomplete="off" class="layui-input">
                     </div>
                 </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label febs-form-item-require">负责人电话：</label>
+            <div class="layui-input-block">
+                <input type="text" name="phone" autocomplete="off" class="layui-input">
+            </div>
+        </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label febs-form-item-require">机构地址：</label>
                     <div class="layui-input-block">
@@ -26,11 +32,11 @@
                     <label class="layui-form-label febs-form-item-require">机构类别：</label>
 
                     <div class="layui-input-block myselect">
-                        <select name="category" lay-filter="myselect" id="selectID" class="layui-form-select">
-                            <option value="1" selected="">市</option>
-                            <option value="2">县</option>
-                            <option value="3">乡</option>
-                            <option value="4">村</option>
+                        <select name="category" lay-filter="myselect" id="eqDeptCategory" class="layui-form-select">
+<!--                            <option value="1" selected="">市</option>-->
+<!--                            <option value="2">县</option>-->
+<!--                            <option value="3">乡</option>-->
+<!--                            <option value="4">村</option>-->
                         </select>
 <!--                        <input type="text"  id="mydeptCategory" autocomplete="off" class="layui-input">-->
                     </div>
@@ -78,12 +84,30 @@
             return false;
         });
 
-
+        $.ajax({
+            url: "mydept/mydept/category",
+            data: {category : mydept.category},
+            datatype: 'json',
+            success: function (res) {
+                console.log(res)
+                $.each(res.data, function (index, item) {
+                    console.log(item);
+                    //option 第一个参数是页面显示的值，第二个参数是传递到后台的值
+                    $view.find('#eqDeptCategory').append(new Option(item.value, item.index));//往下拉菜单里添加元素
+                    // $('#myID').append(new Option(1,1));//往下拉菜单里添加元素
+                    //设置value（这个值就可以是在更新的时候后台传递到前台的值）为2的值为默认选中
+                    // $('#selectID').val(2);
+                    form.render(); //更新全部表单内容
+                    //form.render('select'); //刷新表单select选择框渲染
+                })
+            }
+        })
         function initValue() {
             form.val("mydept-update-form", {
                 "id": mydept.id,
                 "name": mydept.name,
                 "head": mydept.head,
+                "phone": mydept.phone,
                 "address": mydept.address,
                 "category": mydept.category,
                 "state": mydept.state,

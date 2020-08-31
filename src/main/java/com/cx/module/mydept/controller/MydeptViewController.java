@@ -5,6 +5,7 @@ import com.cx.common.entity.Constant;
 import com.cx.common.utils.CommonUtil;
 import com.cx.module.mydept.entity.Mydept;
 import com.cx.module.mydept.service.IMydeptService;
+import com.cx.system.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -51,6 +52,12 @@ public class MydeptViewController extends BaseController {
     @GetMapping("mydept/add")
     @PreAuthorize("hasRole('mydept:add')")
     public String mydeptAdd(HttpServletRequest request, ModelMap model) {
+        User user = CommonUtil.getCurrentUser();
+        Long deptId = user.getDeptId();
+        Mydept mydept = iMydeptService.selectOne(deptId);
+        if( mydept == null){
+            return CommonUtil.view("error/403");
+        }
         return CommonUtil.view("mydept/mydept/add");
     }
 
@@ -62,6 +69,8 @@ public class MydeptViewController extends BaseController {
     public String mydeptUpdate(HttpServletRequest request, ModelMap model, @PathVariable Long id) {
         Mydept obj = iMydeptService.selectOne(id);
         model.addAttribute("mydept", obj);
+        Boolean s = null;
+
         return CommonUtil.view("mydept/mydept/update");
     }
 }

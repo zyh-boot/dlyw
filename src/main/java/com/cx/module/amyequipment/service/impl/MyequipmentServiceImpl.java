@@ -141,9 +141,17 @@ public class MyequipmentServiceImpl extends ServiceImpl<MyequipmentMapper, Myequ
         return this.baseMapper.updateById(obj);
     }
 
+    /**
+     * 批量更新数据
+     * @param obj
+     * @return
+     */
     @Override
     public int updateBathList(List<Myequipment> obj) {
-        return this.baseMapper.updateBathList(obj);
+
+        boolean b = this.updateBatchById(obj);
+        return b ? 1 : 0;
+//        return this.baseMapper.updateBathList(obj);
     }
 
 
@@ -156,7 +164,6 @@ public class MyequipmentServiceImpl extends ServiceImpl<MyequipmentMapper, Myequ
     @Override
     @Transactional(rollbackFor = Exception.class)
     public int updateByWrapper(Myequipment obj, Wrapper wrapper) {
-
         return this.baseMapper.update(obj, wrapper);
     }
 

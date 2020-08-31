@@ -41,7 +41,7 @@ import java.util.List;
 
 /**
  * 页面用户操作
- *
+ * <p>
  * 用户表  控制器
  *
  * @author admin
@@ -65,6 +65,9 @@ public class TUserController extends BaseController {
 
     @Autowired
     IMydeptService mydeptService;
+
+    @Autowired
+    IMyequipmentService myequipmentService;
 
     /**
      * 查询详情
@@ -197,18 +200,21 @@ public class TUserController extends BaseController {
      */
     @PutMapping("")
     @PreAuthorize("hasRole('tUser:mod')")
-    public CommonResponse update(TUser obj,String myRemaing, @NotBlank(message = "{required}") String oldPassword, @NotBlank(message = "{required}") String newPassword) throws Exception {
+    public CommonResponse update(TUser obj, String myRemaing, @NotBlank(message = "{required}") String oldPassword, @NotBlank(message = "{required}") String newPassword) throws Exception {
         judgmentCategory(obj.getUserId().toString());
         DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate localDate = LocalDate.parse(myRemaing, df);
-        obj.setRemaing(LocalDateTime.of(localDate,LocalTime.now()));
-
-        if (!Md5Util.decrypt(oldPassword, obj.getPassword())) {
-            throw new CommonException("原密码不正确");
+        obj.setRemaing(LocalDateTime.of(localDate, LocalTime.now()));
+        if(StringUtils.isNotBlank(oldPassword)){
+            if (!Md5Util.decrypt(oldPassword, obj.getPassword())) {
+                throw new CommonException("原密码不正确");
+            }
         }
 
-        try {
+        if(StringUtils.isNotBlank(newPassword)){
             obj.setPassword(Md5Util.encrypt(obj.getUsername(), newPassword));
+        }
+        try {
             iTUserService.update(obj);
             return getCommonResponse().success();
         } catch (Exception e) {
@@ -277,6 +283,9 @@ public class TUserController extends BaseController {
         //当前用户机构级别
         User user = CommonUtil.getCurrentUser();
         Mydept mydept = mydeptService.selectOne(user.getDeptId());
+        if (mydept == null) {
+            throw new CommonException("权限不足");
+        }
 
 //        //目标用户机构级别
 //        TUser tUser = iTUserService.selectOne(Long.parseLong(ids));
@@ -292,18 +301,18 @@ public class TUserController extends BaseController {
                     //目标用户机构级别
                     TUser tUser = iTUserService.selectOne(Long.parseLong(str));
                     Mydept mydept1 = mydeptService.selectOne(tUser.getDeptId());
-                   if (mydept1 != null){
-                       if (mydept.getCategory() > mydept1.getCategory()) {
-                           String message = "权限不足, 列表存在上级机构人员!";
-                           throw new CommonException(message);
-                       }
-                   }
+                    if (mydept1 != null) {
+                        if (mydept.getCategory() > mydept1.getCategory()) {
+                            String message = "权限不足, 列表存在上级机构人员!";
+                            throw new CommonException(message);
+                        }
+                    }
                 }
             } else {
                 //目标用户机构级别
                 TUser tUser = iTUserService.selectOne(Long.parseLong(ids));
                 Mydept mydept1 = mydeptService.selectOne(tUser.getDeptId());
-                if (mydept1 != null){
+                if (mydept1 != null) {
                     if (mydept.getCategory() > mydept1.getCategory()) {
                         String message = "权限不足!";
                         throw new CommonException(message);
@@ -327,12 +336,23 @@ public class TUserController extends BaseController {
      * @throws Exception
      */
 
-    @Autowired
-    IMyequipmentService myequipmentService;
-
     @PostMapping("bind")
     @PreAuthorize("hasRole('tUser:bind')")
-    public CommonResponse bind(HttpServletRequest request, TUser tUser, String sbCode) throws Exception {
+    public CommonResponse bind(HttpServletRequest request, TUser tUser, String sbCode) throws CommonException {
+
+        //权限校验
+        Mydept mydept = mydeptService.selectOne(tUser.getDeptId());
+        checkDept(mydept);
+
+        User user = CommonUtil.getCurrentUser();
+        Mydept mydept1 = mydeptService.selectOne(user.getDeptId());
+        checkDept(mydept1);
+
+        if (mydept1.getCategory() > mydept.getCategory()) {
+            throw new CommonException("权限不足! " + tUser.getUsername() + "为" + mydept.getCategory()
+                    + "级部门 当前用户:" + user.getUsername() + "为" + mydept1.getCategory() + "级部门人员");
+        }
+
         try {
             List<CodeBean> codeBeans = null;
             if (StringUtils.isNotBlank(sbCode)) {
@@ -373,6 +393,8 @@ public class TUserController extends BaseController {
                     List<UserMyequipment> list = userMyequipmentService.list(wrapper);
 
                     if (list.size() == 0) {
+
+
                         UserMyequipment userMyequipment = new UserMyequipment();
                         userMyequipment.setUserId(tUser.getUserId().intValue());
                         userMyequipment.setMyequipmentId(Integer.parseInt(codeBean.getValue()));
@@ -383,9 +405,8 @@ public class TUserController extends BaseController {
                         Myequipment myequipment = new Myequipment();
                         myequipment.setEqDeptId(tUser.getDeptId());
                         myequipment.setEqDeptName(tUser.getDeptName());
-
-                        Mydept mydept = mydeptService.selectOne(tUser.getDeptId());
                         myequipment.setEqDeptCategory(mydept.getCategory());
+
 
                         LambdaQueryWrapper<Myequipment> myeqWrapper = new LambdaQueryWrapper<>();
                         myeqWrapper.eq(Myequipment::getId, Long.parseLong(codeBean.getValue()));
@@ -402,4 +423,10 @@ public class TUserController extends BaseController {
         }
     }
 
+    private void checkDept(Mydept mydept) throws CommonException {
+        if (mydept == null) {
+            String message = "当前登录用户无部门 权限不足";
+            throw new CommonException(message);
+        }
+    }
 }
