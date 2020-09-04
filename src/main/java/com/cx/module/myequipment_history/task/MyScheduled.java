@@ -26,7 +26,7 @@ public class MyScheduled {
     IMyequipmentService myequipmentService;
     @Autowired
     IMyequipmentHistoryService myequipmentHistoryService;
-    @Scheduled(cron = " 59 */29 * * * ?")
+    @Scheduled(cron = " 59 59 * * * ?")
 //    @Scheduled(cron = " 59 */5 * * * ?")
     public void uadetaEntoryUsed() {
         List<Myequipment> list = myequipmentService.list(new Myequipment());
@@ -34,7 +34,7 @@ public class MyScheduled {
     }
 
     //模拟设备数据传递
-    @Scheduled(cron = " 59 */4 * * * ?")
+//    @Scheduled(cron = " 59 */4 * * * ?")
     public void addda() {
         log.info("************数据发送************");
         List<Myequipment> list = myequipmentService.list(new Myequipment());

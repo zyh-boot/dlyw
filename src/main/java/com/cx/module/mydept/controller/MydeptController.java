@@ -2,7 +2,6 @@ package com.cx.module.mydept.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.cx.common.controller.BaseController;
 import com.cx.common.entity.CommonResponse;
@@ -66,7 +65,7 @@ public class MydeptController extends BaseController {
     public CommonResponse pageList(Mydept obj, QueryRequest query) throws CommonException {
         try {
 //            System.out.println(">>>>>>>>>>>>>>>>>>>>>" + obj);
-            IPage<Mydept> page = iMydeptService.page(obj, query);
+//            IPage<Mydept> page = iMydeptService.page(obj, query);
 //            for (Mydept mydept : page.getRecords()) {
 //                System.out.println(">>>>>>>>>>>>>>>>>>>>>" + mydept);
 //            }

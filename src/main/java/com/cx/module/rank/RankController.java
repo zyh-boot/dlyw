@@ -231,9 +231,11 @@ public class RankController extends BaseController {
      */
     @GetMapping("detile")
     public CommonResponse getDetile(String id, String data) {
+
         LambdaQueryWrapper<MyequipmentHistory> wrapper = new LambdaQueryWrapper<>();
+        boolean notBlank = data == null;
         wrapper.eq(MyequipmentHistory::getEqId, Long.parseLong(id))
-                .likeRight(MyequipmentHistory::getModDate, data == null ? LocalDate.now() : data)
+                .likeRight(MyequipmentHistory::getModDate,StringUtils.isEmpty(data) ?  LocalDate.now() : data)
                 .orderByAsc(MyequipmentHistory::getModDate);
         List<MyequipmentHistory> list = myequipmentHistoryService.list(wrapper);
 

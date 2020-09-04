@@ -113,7 +113,8 @@ public class MyequipmentServiceImpl extends ServiceImpl<MyequipmentMapper, Myequ
             queryWrapper.eq(Myequipment::getEqDeptCategory, obj.getEqDeptCategory());
         }
         if (StringUtils.isNotBlank(obj.getEqAddress())) {
-            queryWrapper.eq(Myequipment::getEqAddress, obj.getEqAddress());
+//            queryWrapper.eq(Myequipment::getEqAddress, obj.getEqAddress());
+            queryWrapper.like(Myequipment::getEqAddress, obj.getEqAddress());
         }
 
         Page<Myequipment> page = new Page<>(query.getPageNum(), query.getPageSize());

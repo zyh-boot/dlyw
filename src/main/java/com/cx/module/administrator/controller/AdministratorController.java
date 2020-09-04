@@ -1,4 +1,5 @@
 package com.cx.module.administrator.controller;
+
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.cx.common.controller.BaseController;
 import com.cx.common.entity.CommonResponse;
@@ -19,24 +20,25 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 /**
-*   控制器
-*
-* @author admin
-* @Description Created on 2020-08-05
-*/
+ * 控制器
+ *
+ * @author admin
+ * @Description Created on 2020-08-05
+ */
 @RestController
 @Slf4j
 @RequestMapping("administrator/administrator")
-        public class AdministratorController extends BaseController{
+public class AdministratorController extends BaseController {
     @Autowired
     IAdministratorService iAdministratorService;
-@Autowired
+    @Autowired
     IUserService userService;
+
     /**
-    * 查询详情
-    */
+     * 查询详情
+     */
     @GetMapping("detail")
-    public CommonResponse add(Long id) throws CommonException{
+    public CommonResponse add(Long id) throws CommonException {
         try {
             return getCommonResponse(iAdministratorService.selectOne(id));
         } catch (Exception e) {
@@ -47,12 +49,12 @@ import java.time.format.DateTimeFormatter;
     }
 
     /**
-    * 分页查询
-    */
+     * 分页查询
+     */
     @GetMapping("pageList")
-    public CommonResponse pageList(Administrator obj,QueryRequest query)  throws CommonException{
+    public CommonResponse pageList(Administrator obj, QueryRequest query) throws CommonException {
         try {
-            return  getTableData(iAdministratorService.page(obj,query));
+            return getTableData(iAdministratorService.page(obj, query));
         } catch (Exception e) {
             String message = "分页查询失败";
             log.error(message, e);
@@ -61,10 +63,10 @@ import java.time.format.DateTimeFormatter;
     }
 
     /**
-    * 查询列表
-    */
+     * 查询列表
+     */
     @GetMapping("list")
-    public CommonResponse pageList(Administrator obj)  throws CommonException{
+    public CommonResponse pageList(Administrator obj) throws CommonException {
         try {
             return getCommonResponse(iAdministratorService.list(obj));
         } catch (Exception e) {
@@ -75,17 +77,17 @@ import java.time.format.DateTimeFormatter;
     }
 
     /**
-    * 新增
-    */
+     * 新增
+     */
     @PostMapping("")
     @PreAuthorize("hasRole('administrator:add')")
-    public CommonResponse add(Administrator obj,String time) throws CommonException{
+    public CommonResponse add(Administrator obj, String time) throws CommonException {
 
         try {
             DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             LocalDate localDate = LocalDate.parse(time, df);
             LocalTime localTime = LocalTime.now();
-            LocalDateTime parse = LocalDateTime.of(localDate,localTime);
+            LocalDateTime parse = LocalDateTime.of(localDate, localTime);
             obj.setCreateTime(parse);
             return getCommonResponse(iAdministratorService.add(obj));
         } catch (Exception e) {
@@ -97,11 +99,11 @@ import java.time.format.DateTimeFormatter;
 
 
     /**
-    * 修改
-    */
+     * 修改
+     */
     @PutMapping("")
     @PreAuthorize("hasRole('administrator:mod')")
-    public CommonResponse update(Administrator obj) throws CommonException{
+    public CommonResponse update(Administrator obj) throws CommonException {
         try {
             return getCommonResponse(iAdministratorService.update(obj));
         } catch (Exception e) {
@@ -112,13 +114,14 @@ import java.time.format.DateTimeFormatter;
     }
 
     /**
-    * 删除
-    * @param ids
-    * @return
-    */
+     * 删除
+     *
+     * @param ids
+     * @return
+     */
     @DeleteMapping("")
     @PreAuthorize("hasRole('administrator:del')")
-    public CommonResponse delete(String ids) throws CommonException{
+    public CommonResponse delete(String ids) throws CommonException {
         try {
             if (StringUtils.isNotBlank(ids)) {
                 if (ids.contains(StringPool.COMMA)) {

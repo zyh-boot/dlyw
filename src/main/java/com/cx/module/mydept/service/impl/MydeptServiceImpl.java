@@ -94,13 +94,16 @@ public class MydeptServiceImpl extends ServiceImpl<MydeptMapper, Mydept> impleme
 //            queryWrapper.between(Mydept::getModDate, obj.getStartDate(), obj.getEndDate());
 //        }
         if (StringUtils.isNotBlank(obj.getName())) {
-            queryWrapper.eq(Mydept::getName, obj.getName());
+//            queryWrapper.eq(Mydept::getName, obj.getName());
+            queryWrapper.like(Mydept::getName, obj.getName());
         }
         if (StringUtils.isNotBlank(obj.getHead())) {
-            queryWrapper.eq(Mydept::getHead, obj.getHead());
+//            queryWrapper.eq(Mydept::getHead, obj.getHead());
+            queryWrapper.like(Mydept::getHead, obj.getHead());
         }
         if (StringUtils.isNotBlank(obj.getAddress())) {
-            queryWrapper.eq(Mydept::getAddress, obj.getAddress());
+//            queryWrapper.eq(Mydept::getAddress, obj.getAddress());
+            queryWrapper.like(Mydept::getAddress, obj.getAddress());
         }
         if (obj.getCategory() != null) {
             queryWrapper.eq(Mydept::getCategory, obj.getCategory());
