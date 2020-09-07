@@ -118,7 +118,6 @@ public class MydeptController extends BaseController {
         try {
             //同步设备表 关于机构的字段
             updataMyequipment(obj.getId().toString(), "updata", obj);
-
             //同步用户表
             updataUser(obj.getId().toString(), "updata", obj);
 
@@ -192,7 +191,7 @@ public class MydeptController extends BaseController {
         wrapper.eq(TUser::getDeptId, ids);
         List<TUser> list = itUserService.list(wrapper);
         for (TUser user : list) {
-            if ("update".equals(type)) {
+            if ("updata".equals(type)) {
                 user.setDeptName(obj.getName());
             } else if ("del".equals(type)) {
                 user.setDeptId(Long.valueOf(-1));

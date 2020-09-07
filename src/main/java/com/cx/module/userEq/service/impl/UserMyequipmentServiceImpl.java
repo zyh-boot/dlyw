@@ -140,6 +140,7 @@ public class UserMyequipmentServiceImpl extends ServiceImpl<UserMyequipmentMappe
     /**
      * 删除
      */
+    @Override
     @Transactional(rollbackFor = Exception.class)
     public int delete(Wrapper wrapper) {
         return this.baseMapper.delete(wrapper);

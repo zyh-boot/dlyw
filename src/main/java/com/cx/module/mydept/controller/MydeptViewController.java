@@ -3,6 +3,8 @@ package com.cx.module.mydept.controller;
 import com.cx.common.controller.BaseController;
 import com.cx.common.entity.Constant;
 import com.cx.common.utils.CommonUtil;
+import com.cx.module.myUser.entity.TUser;
+import com.cx.module.myUser.service.ITUserService;
 import com.cx.module.mydept.entity.Mydept;
 import com.cx.module.mydept.service.IMydeptService;
 import com.cx.system.entity.User;
@@ -33,6 +35,8 @@ public class MydeptViewController extends BaseController {
 
     @Autowired
     IMydeptService iMydeptService;
+    @Autowired
+    ITUserService userService;
 
     /**
      * 跳转列表页面
@@ -53,9 +57,11 @@ public class MydeptViewController extends BaseController {
     @PreAuthorize("hasRole('mydept:add')")
     public String mydeptAdd(HttpServletRequest request, ModelMap model) {
         User user = CommonUtil.getCurrentUser();
-        Long deptId = user.getDeptId();
+
+        TUser tUser = userService.selectOne(user.getUserId());
+        Long deptId = tUser.getDeptId();
         Mydept mydept = iMydeptService.selectOne(deptId);
-        if( mydept == null){
+        if (mydept == null) {
             return CommonUtil.view("error/403");
         }
         return CommonUtil.view("mydept/mydept/add");

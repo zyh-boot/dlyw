@@ -125,17 +125,30 @@ public class RankController extends BaseController {
 
         ArrayList<Map.Entry<String, BigDecimal>> maps = getEntries(startDate, endDate);
         ArrayList<Map.Entry<String, BigDecimal>> list = new ArrayList<>();
+        ArrayList<Object> list1 = new ArrayList<>();
+        int index = 1;
         if (StringUtils.isNotBlank(name)) {
             for (Map.Entry<String, BigDecimal> map : maps) {
-                if (name.equals(map.getKey())) {
+//                if (name.equals(map.getKey())) {
+//                    list.add(map);
+//                }
+                if (map.getKey().indexOf(name) >= 0) {
+                    list1.add(index);
                     list.add(map);
+//                    list1.add(hashMap);
                 }
+                index++;
             }
         } else {
+//            ArrayList<Map.Entry<String, BigDecimal>> list = new ArrayList<>();
             list = maps;
         }
-
-        return new CommonResponse().code(HttpStatus.OK).data(list);
+        HashMap<Object, Object> hashMap = new HashMap<>();
+        hashMap.put("index",list1);
+        hashMap.put("data",list);
+        hashMap.put("type",StringUtils.isEmpty(name) ? "1":"0");
+//        return new CommonResponse().code(HttpStatus.OK).data(list);
+        return new CommonResponse().code(HttpStatus.OK).data(hashMap);
     }
 
     /**
@@ -148,12 +161,15 @@ public class RankController extends BaseController {
      */
     @GetMapping("search")
     public CommonResponse getData(String name, String startDate, String endDate, String type) {
-
         ArrayList<Map> maps = getMaps(type, startDate, endDate);
         ArrayList<Map> list = new ArrayList<>();
         if (StringUtils.isNotBlank(name)) {
             for (Map map : maps) {
-                if (name.equals(map.get("deptName"))) {
+//                if (name.equals(map.get("deptName"))) {
+//                    list.add(map);
+//                }
+                int deptName = map.get("deptName").toString().indexOf(name);
+                if (map.get("deptName").toString().indexOf(name) >= 0) {
                     list.add(map);
                 }
             }

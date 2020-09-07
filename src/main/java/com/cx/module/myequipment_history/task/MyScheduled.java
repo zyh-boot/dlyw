@@ -13,10 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 定时任务: 每个小时更新sq_energy_used(用电量表)
+ * 定时任务: 每个小时更新a_myequipment_history(设备数据历史表)
  * <p>
  * <p>
- * 每月月底自动将本月最后一条数据存入sq_energy_used_history(用电量历史表) 保存月用电量
  */
 @Slf4j
 @Configuration
@@ -26,6 +25,10 @@ public class MyScheduled {
     IMyequipmentService myequipmentService;
     @Autowired
     IMyequipmentHistoryService myequipmentHistoryService;
+
+    /**
+     * 一个小时更新一次数据
+     */
     @Scheduled(cron = " 59 59 * * * ?")
 //    @Scheduled(cron = " 59 */5 * * * ?")
     public void uadetaEntoryUsed() {
@@ -33,8 +36,8 @@ public class MyScheduled {
         myequipmentHistoryService.batchAddList(list);
     }
 
-    //模拟设备数据传递
-//    @Scheduled(cron = " 59 */4 * * * ?")
+    //测试模拟设备数据传递
+    @Scheduled(cron = " 59 */4 * * * ?")
     public void addda() {
         log.info("************数据发送************");
         List<Myequipment> list = myequipmentService.list(new Myequipment());

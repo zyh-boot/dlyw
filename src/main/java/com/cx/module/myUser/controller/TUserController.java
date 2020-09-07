@@ -36,6 +36,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -237,29 +238,41 @@ public class TUserController extends BaseController {
         System.out.println(">>>>>>>>>>>>>>>>>>>>>" + ids);
 
         judgmentCategory(ids);
-//        //批量校验
-//        if (StringUtils.isNotBlank(ids)) {
-//            if (ids.contains(StringPool.COMMA)) {
-//                for (String str : ids.split(StringPool.COMMA)) {
-//                    if (judgmentCategory(str)) {
-//                        String message = "权限不足, 列表存在上级机构人员!";
-//                        throw new CommonException(message);
-//                    }
-//                }
-//            } else {
-//                if (judgmentCategory(ids)) {
-//                    String message = "权限不足!";
-//                    throw new CommonException(message);
-//                }
-//            }
-//        }
 
         try {
             if (StringUtils.isNotBlank(ids)) {
                 if (ids.contains(StringPool.COMMA)) {
                     iTUserService.batchDel(ids);
+                    HashSet<Object> set = new HashSet<>();
+                    for(String str : ids.split(StringPool.COMMA)){
+                        LambdaQueryWrapper<UserMyequipment> wrapper = new LambdaQueryWrapper<>();
+                        wrapper.eq(UserMyequipment::getUserId,str);
+                        List<UserMyequipment> list = userMyequipmentService.list(wrapper);
+
+                        for(UserMyequipment userMyequipment : list){
+                            set.add(userMyequipment.getId());
+                        }
+                    }
+                    String objects = set.toString();
+                    String substring = objects.substring(objects.indexOf("[") + 1, objects.lastIndexOf("]"));
+                    userMyequipmentService.batchDel(substring);
                 } else {
                     iTUserService.delete(Long.valueOf(ids));
+
+                    HashSet<Object> set = new HashSet<>();
+                    LambdaQueryWrapper<UserMyequipment> wrapper = new LambdaQueryWrapper<>();
+                    wrapper.eq(UserMyequipment::getUserId,ids);
+                    List<UserMyequipment> list = userMyequipmentService.list(wrapper);
+
+                    for(UserMyequipment userMyequipment : list){
+                        set.add(userMyequipment.getId());
+                    }
+                    String objects = set.toString();
+                    String substring = objects.substring(objects.indexOf("[") + 1, objects.lastIndexOf("]"));
+                    if(!StringUtils.isEmpty(substring)){
+                        userMyequipmentService.batchDel(substring);
+                    }
+
                 }
             }
             return new CommonResponse().success();
@@ -282,7 +295,8 @@ public class TUserController extends BaseController {
     private void judgmentCategory(String ids) throws CommonException {
         //当前用户机构级别
         User user = CommonUtil.getCurrentUser();
-        Mydept mydept = mydeptService.selectOne(user.getDeptId());
+        TUser tUser1 = iTUserService.selectOne(user.getUserId());
+        Mydept mydept = mydeptService.selectOne(tUser1.getDeptId());
         if (mydept == null) {
             throw new CommonException("权限不足");
         }
@@ -318,7 +332,6 @@ public class TUserController extends BaseController {
                         throw new CommonException(message);
                     }
                 }
-
             }
         }
 
@@ -345,7 +358,8 @@ public class TUserController extends BaseController {
         checkDept(mydept);
 
         User user = CommonUtil.getCurrentUser();
-        Mydept mydept1 = mydeptService.selectOne(user.getDeptId());
+        TUser user1 = iTUserService.selectOne(user.getUserId());
+        Mydept mydept1 = mydeptService.selectOne(user1.getDeptId());
         checkDept(mydept1);
 
         if (mydept1.getCategory() > mydept.getCategory()) {
@@ -381,7 +395,14 @@ public class TUserController extends BaseController {
                 wrapper.eq(UserMyequipment::getUserId, tUser.getUserId())
                         .eq(UserMyequipment::getMyequipmentId, str);
                 userMyequipmentService.delete(wrapper);
+
+                Myequipment myequipment = myequipmentService.selectOne(Long.valueOf(str));
+                myequipment.setEqDeptId(Long.valueOf(-1));
+                myequipment.setEqDeptName("无部门");
+                myequipmentService.update(myequipment);
             }
+
+
             /************************************************************/
 
 

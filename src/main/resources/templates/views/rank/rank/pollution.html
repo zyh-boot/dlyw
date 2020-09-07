@@ -195,93 +195,31 @@
             <div class="rol "></div>
         </div>
 
-
-        <!--    <div class="layui-col-md10   layui-col-sm12 layui-col-xs12 table-action-area" >-->
-        <!--        <div class="ranking rol layui-input-inline" style=" width: 5%;height: 2rem;">-->
-        <!--        </div>-->
-        <!--        <p class="layui-input-inline "style="margin-left: 147px">{{item.name}}</p>-->
-        <!--        <p class="layui-input-inline ">{{item.integral}}</p>-->
-        <!--    </div>-->
         {{# }else if(item.index == '2') { }}
         <div class=" layui-input-inline ranking">
             <div class="roltwo "></div>
         </div>
-        <!--    <div class="layui-input-inline">-->
-        <!--        <label class="layui-form-label layui-form-label-sm">{{item.name}}</label>-->
-        <!--    </div>-->
-        <!--    <div class="layui-input-inline">-->
-        <!--        <label class="layui-form-label layui-form-label-sm">{{item.integral}}</label>-->
-        <!--    </div>-->
-        <!--    </div>-->
 
-
-        <!--    <div class="layui-col-md10   layui-col-sm12 layui-col-xs12 table-action-area" >-->
-        <!--    <div class="ranking roltwo layui-input-inline" style=" width: 5%;height: 2rem;">-->
-        <!--        <p class="ranking_p"></p>-->
-        <!--    </div>-->
-        <!--    <p class="layui-input-inline" style="margin-left: 147px">{{item.name}}</p>-->
-        <!--    <p class="layui-input-inline">{{item.integral}}</p>-->
-        <!--    </div>-->
         {{# }else if(item.index == '3') { }}
-        <!--    <div class="layui-form-item">-->
+
         <div class=" layui-input-inline ranking">
             <div class="rolthree "></div>
         </div>
-        <!--    <div class="layui-input-inline">-->
-        <!--        <label class="layui-form-label layui-form-label-sm">{{item.name}}</label>-->
-        <!--    </div>-->
-        <!--    <div class="layui-input-inline">-->
-        <!--        <label class="layui-form-label layui-form-label-sm">{{item.integral}}</label>-->
-        <!--    </div>-->
-        <!--    </div>-->
-        <!--    -->
 
-        <!--    <div class="layui-col-md10   layui-col-sm12 layui-col-xs12 table-action-area" >-->
-        <!--    <div class="ranking rolthree layui-input-inline" style=" width: 5%;height: 2rem;">-->
-        <!--        <p class="ranking_p"></p>-->
-        <!--    </div>-->
-        <!--    <p class="layui-input-inline" style="margin-left: 147px">{{item.name}}</p>-->
-        <!--    <p class="layui-input-inline">{{item.integral}}</p>-->
-        <!--    </div>-->
         {{# }else{ }}
 
-        <!--    <div class="layui-form-item">-->
         <div class=" layui-input-inline ranking">
             <div class="other">{{item.index}}</div>
         </div>
-        <!--        <div class="layui-input-inline">-->
-        <!--            <label class="layui-form-label layui-form-label-sm">{{item.name}}</label>-->
-        <!--        </div>-->
-        <!--        <div class="layui-input-inline">-->
-        <!--            <label class="layui-form-label layui-form-label-sm">{{item.integral}}</label>-->
-        <!--        </div>-->
-        <!--    </div>-->
 
-
-        <!--    <div class=" layui-col-md10   layui-col-sm12 layui-col-xs12 table-action-area">-->
-        <!--        <div class="layui-input-inline"style="margin-left: 47px"><p class="layui-input-inline">{{item.ranking}}</p></div>-->
-        <!--        <p class="layui-input-inline" style="margin-left: -14px">{{item.name}}</p>-->
-        <!--        <p class="layui-input-inline" >{{item.integral}}</p>-->
-        <!--    </div>-->
-
-        <!--    <div class="list_top layui-inline" >-->
-        <!--        <div class="ranking "><p class="abx">{{item.ranking}}</p></div>-->
-        <!--        <p class="list_top_p">{{item.name}}</p>-->
-        <!--        <p class="list_top_p">{{item.integral}}</p>-->
-        <!--    </div>-->
         {{# } }}
+
         <div class="layui-input-inline">
             <label class="layui-form-label layui-form-label-sm">{{item.name}}</label>
         </div>
         <div class="layui-input-inline">
             <label class="layui-form-label layui-form-label-sm">{{item.value}}</label>
         </div>
-        <!--        <div class="layui-input-inline">-->
-        <!--            <label class="layui-form-label layui-form-label-sm">{{item.deptHeader}}</label>-->
-        <!--        </div>-->
-        <!--        <div class="layui-input-inline">-->
-        <!--            <label class="layui-form-label layui-form-label-sm">{{item.deptPhone}}</label>-->
-        <!--        </div>-->
     </div>
 
     {{#  }); }}
@@ -324,11 +262,11 @@
                 datatype: "json",
                 success: function (res) {
                     daya = res.data
-                    console.log(daya)
+                    console.log("daya>>>>>>>>>>>>>>>>>>>>>>>>>>>",daya)
                     const array = new Array();
                     for (qw in daya) {
                         for (as in daya[qw]) {
-                            console.log(daya[qw][as])
+                            console.log("12>>>>>>>>>>>>>>>>>>>>>>>>>>>",daya[qw][as])
                             array.push({"index": parseInt(qw) + 1, "name": as, "value": daya[qw][as]})
 
                         }
@@ -397,13 +335,20 @@
                 data: queryParams,
                 datatype: "json",
                 success: function (res) {
-                    daya = res.data
-                    console.log(daya)
+                    daya = res.data.data
+                    console.log("daya11111>>>>>>>>>>>>>>>>>>>>>>>>>>>",res.data)
+                    console.log("index>>>>>>>>>>>>>>>>>>>>>>>>>>>",res.data.index[0])
                     const array = new Array();
+                    var index = res.data.index;
                     for (qw in daya) {
                         for (as in daya[qw]) {
                             console.log(daya[qw][as])
-                            array.push({"index": parseInt(qw) + 1, "name": as, "value": daya[qw][as]})
+                            if(res.data.type == 1){
+                                array.push({"index": parseInt(qw) + 1, "name": as, "value": daya[qw][as]})
+                            }else if(res.data.type == 0){
+                                array.push({"index": index[qw], "name": as, "value": daya[qw][as]})
+                            }
+
                         }
                     }
                     daya = array

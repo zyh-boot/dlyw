@@ -10,6 +10,7 @@ import com.cx.common.exception.CommonException;
 import com.cx.common.utils.CommonUtil;
 import com.cx.module.amyequipment.entity.Myequipment;
 import com.cx.module.amyequipment.service.IMyequipmentService;
+import com.cx.module.myUser.entity.TUser;
 import com.cx.module.myUser.service.ITUserService;
 import com.cx.module.mydept.entity.Mydept;
 import com.cx.module.mydept.service.IMydeptService;
@@ -244,7 +245,8 @@ public class MyequipmentController extends BaseController {
 
 
             User user = CommonUtil.getCurrentUser();
-            Mydept mydept = mydeptService.selectOne(user.getDeptId());
+            TUser tUser = iTUserService.selectOne(user.getUserId());
+            Mydept mydept = mydeptService.selectOne(tUser.getDeptId());
             if(mydept == null){
                 throw new CommonException("用户无部门");
             }

@@ -6,6 +6,8 @@ import com.cx.common.exception.CommonException;
 import com.cx.common.utils.CommonUtil;
 import com.cx.module.amyequipment.entity.Myequipment;
 import com.cx.module.amyequipment.service.IMyequipmentService;
+import com.cx.module.myUser.entity.TUser;
+import com.cx.module.myUser.service.ITUserService;
 import com.cx.module.mydept.entity.Mydept;
 import com.cx.module.mydept.service.IMydeptService;
 import com.cx.system.entity.User;
@@ -36,7 +38,8 @@ public class MyequipmentViewController extends BaseController {
 
     @Autowired
     IMyequipmentService iMyequipmentService;
-
+@Autowired
+    ITUserService userService;
     /**
      * 存放设备相关数据跳转列表页面
      *
@@ -73,7 +76,9 @@ public class MyequipmentViewController extends BaseController {
     @PreAuthorize("hasRole('myequipment:add')")
     public String myequipmentAdd(HttpServletRequest request, ModelMap model) throws CommonException {
         User user = CommonUtil.getCurrentUser();
-        Long deptId = user.getDeptId();
+
+        TUser tUser = userService.selectOne(user.getUserId());
+        Long deptId = tUser.getDeptId();
         Mydept mydept = mydeptService.selectOne(deptId);
         if( mydept == null){
             return CommonUtil.view("error/403");

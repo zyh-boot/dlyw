@@ -69,7 +69,8 @@ public class TUserViewController extends BaseController {
     @PreAuthorize("hasRole('tUser:add')")
     public String tUserAdd(HttpServletRequest request, ModelMap model) {
         User user = CommonUtil.getCurrentUser();
-        Long deptId = user.getDeptId();
+        TUser tUser = iTUserService.selectOne(user.getUserId());
+        Long deptId = tUser.getDeptId();
         Mydept mydept = mydeptService.selectOne(deptId);
         if( mydept == null){
             return CommonUtil.view("error/403");

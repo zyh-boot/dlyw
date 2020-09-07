@@ -87,6 +87,8 @@ public interface IUserMyequipmentService {
      * @return
      */
     int delete(Long id);
+
+
     int delete(Wrapper wrapper);
 
     /**
