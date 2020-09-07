@@ -355,7 +355,7 @@ public class TUserController extends BaseController {
 
         //权限校验
         Mydept mydept = mydeptService.selectOne(tUser.getDeptId());
-        checkDept(mydept);
+         checkDept(mydept);
 
         User user = CommonUtil.getCurrentUser();
         TUser user1 = iTUserService.selectOne(user.getUserId());
@@ -446,7 +446,7 @@ public class TUserController extends BaseController {
 
     private void checkDept(Mydept mydept) throws CommonException {
         if (mydept == null) {
-            String message = "当前登录用户无部门 权限不足";
+            String message = "用户无部门 无法绑定";
             throw new CommonException(message);
         }
     }

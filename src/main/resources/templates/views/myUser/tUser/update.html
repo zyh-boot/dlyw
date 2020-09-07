@@ -31,7 +31,9 @@
 <!--                        <input type="text" name="deptName" autocomplete="off" class="layui-input">-->
 
                         <input type="text" name="deptName" id="deptName" class="layui-input febs-hide" readonly>
-                        <select name="mydeptId" lay-filter="mydeptId" id="mydeptId" class="layui-form-select"></select>
+                        <select name="mydeptId" lay-filter="mydeptId" id="mydeptId" class="layui-form-select">
+                            <option value="-1">无部门</option>
+                        </select>
 
                     </div>
                 </div>
@@ -192,7 +194,6 @@
                 return false;
             }
             febs.put(ctx + 'myUser/tUser', data.field, function () {
-
                 layer.closeAll();
                 $('#febs-tUser').find('#query').click();
             });
