@@ -72,8 +72,6 @@ public class MyequipmentController extends BaseController {
     /**
      * 分页查询其他
      */
-
-
     @GetMapping("pageOtherList/{categroy}")
     public CommonResponse pageOtherList(Myequipment obj, QueryRequest query, @PathVariable String categroy) throws CommonException {
         try {
@@ -92,9 +90,7 @@ public class MyequipmentController extends BaseController {
             obj.setEqDeptCategory(Integer.parseInt(categroy));
             IPage<Myequipment> myequipmentIPage = iMyequipmentService.myPage(obj, query, new ArrayList());
             List<Myequipment> records = myequipmentIPage.getRecords();
-//            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>" + records);
             return getTableData(iMyequipmentService.myPage(obj, query, new ArrayList()));
-
         } catch (Exception e) {
             String message = "分页查询失败";
             log.error(message, e);
