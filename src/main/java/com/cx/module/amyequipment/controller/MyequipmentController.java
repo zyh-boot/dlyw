@@ -75,18 +75,6 @@ public class MyequipmentController extends BaseController {
     @GetMapping("pageOtherList/{categroy}")
     public CommonResponse pageOtherList(Myequipment obj, QueryRequest query, @PathVariable String categroy) throws CommonException {
         try {
-//            LambdaQueryWrapper<Mydept> wrapper = new LambdaQueryWrapper<>();
-//            wrapper.eq(Mydept::getCategory, categroy);
-//            List<Mydept> mydepts = mydeptService.list(wrapper);
-//
-//            ArrayList<Object> list = new ArrayList<>();
-//            for (Mydept mydept : mydepts) {
-//                list.add(mydept.getId());
-//            }
-//            if (list.isEmpty()){
-//                return getTableData(new Page<>());
-//            }
-//            return getTableData(iMyequipmentService.myPage(obj, query, list));
             obj.setEqDeptCategory(Integer.parseInt(categroy));
             IPage<Myequipment> myequipmentIPage = iMyequipmentService.myPage(obj, query, new ArrayList());
             List<Myequipment> records = myequipmentIPage.getRecords();
