@@ -33,7 +33,11 @@
 
 
 
-            id, eq_name, eq_code, eq_type, eq_ledger, eq_pm2.5, eq_pm10, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date
+
+
+            id, eq_name, eq_code, eq_type, eq_ledger, eq_pm_two, eq_pm_ten, eq_co, eq_so2, sq_no2, sq_o3, eq_address, eq_add_time, eq_supplier, eq_overhaul, state, creator, create_date, modifier, mod_date
+
+
 
 
 
@@ -44,23 +48,22 @@
 
 
 
-
-        update my_equipment
-        <foreach collection="list" item="item"  separator=",">
-
+        <foreach collection="list" item="item" separator=";" >
+         update a_myequipment
             <set>
-                `eq_pm_two` = ${item.eqPmTwo},
-      `eq_pm_ten` = ${item.eqPmTen},
-      `eq_co` = ${item.eqCo},
-      `eq_so2` = ${item.eqSo2},
-      `sq_no2` = ${item.sqNo2},
-      `sq_o3` = ${item.sqO3},
-      `eq_noise` = ${item.eqNoise},
-      `wind_direction` = ${item.windDirection},
-      `wind_speed` = ${item.windSpeed},
+              eq_pm_two = ${item.eqPmTwo},
+              eq_pm_ten = ${item.eqPmTen},
+              eq_co = ${item.eqCo},
+              eq_so2 = ${item.eqSo2},
+              sq_no2 = ${item.sqNo2},
+              sq_o3 = ${item.sqO3},
+              eq_noise = ${item.eqNoise},
+              wind_direction = ${item.windDirection},
+              wind_speed = ${item.windSpeed}
             </set>
-
-            where id = ${item.id}
+            <where>
+             id = ${item.id}
+            </where>
         </foreach>
     </update>
 </mapper>

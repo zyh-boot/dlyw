@@ -43,7 +43,7 @@
                                     <div class="layui-inline">
                                         <label class="layui-form-label layui-form-label-sm">创建时间</label>
                                         <div class="layui-input-inline">
-                                            <input type="text" name="createDate" id="createTime" class="layui-input">
+                                            <input type="text" name="createDate" id="createTime" class="layui-input" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -113,7 +113,7 @@
                 layEvent = obj.event;
             console.log("data", data);
             if (layEvent === 'del') {
-                febs.modal.confirm('删除用户表', '确定删除该用户表 ？', function () {
+                febs.modal.confirm('删除用户表', '确定删除该用户: <span style="color: #00d57b">' + data.username + '</span>', function () {
                     deleteTUser(data.userId);
                 });
             }
@@ -209,7 +209,7 @@
                 url: ctx + 'myUser/tUser/pageList',
                 cols: [[
                     {type: 'checkbox'},
-                    {field: 'userId', title: '用户ID', hide: true},
+                    {field: 'userId', title: '用户ID'},
                     {field: 'username', title: '用户登录名'},
                     {field: 'accountName', title: '用户姓名'},
                     // {field: 'password', title: '密码'},
@@ -218,7 +218,7 @@
                     // {field: 'email', title: '邮箱'},
                     {field: 'mobile', title: '联系电话'},
                     // {field: 'idcardNum', title: '身份证号'},
-                    // {field: 'wechart', title: '微信号'},
+                    {field: 'wechart', title: '微信号'},
                     // {field: 'createDate', title: '创建时间', minWidth: 180, sort: true},
                     {field: 'open', title: '开通时间', minWidth: 180, sort: true},
                     {field: 'remaing', title: '账户到期时间'},

@@ -29,6 +29,13 @@ public class ViewController extends BaseController {
     @Autowired
     private IUserService userService;
 
+    @RequestMapping("swagger")
+    public Object swagger(){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName(CommonUtil.view("monitor/swagger"));
+        return mav;
+    }
+
     @RequestMapping("login")
     @ResponseBody
     public Object login(HttpServletRequest request) throws Exception {

@@ -1,0 +1,102 @@
+<style>
+
+</style>
+<div class="layui-fluid layui-anim febs-anim" id="febs-tSb-add" lay-title="">
+    <form class="layui-form" action="" lay-filter="tSb-add-form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">名称：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="name" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">地址：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="address" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">电站编码：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="code" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">时实运行状态：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="status" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="lon" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="lat" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="createdTime" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="vpncode" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">所属区域：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="qy" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">设备种类1乡镇  2企业 ：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="sbType" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label febs-form-item-require">用户Id：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="sbUserid" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+        <div class="layui-form-item febs-hide">
+            <button class="layui-btn" lay-submit="" lay-filter="tSb-add-form-submit"
+                    id="submit"></button>
+            <button type="reset" class="layui-btn" id="reset"></button>
+        </div>
+    </form>
+</div>
+
+<script data-th-inline="javascript" type="text/javascript">
+    layui.use(['dropdown', 'jquery', 'layer', 'form', 'table', 'febs', 'util', 'xmSelect'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            febs = layui.febs,
+            form = layui.form,
+            table = layui.table,
+            xmSelect = layui.xmSelect,
+            $view = $('#febs-tSb-add');
+
+        form.render();
+
+
+        form.on('submit(tSb-add-form-submit)', function (data) {
+            febs.post(ctx + 'sbb/tSb', data.field, function () {
+                layer.closeAll();
+                $('#febs-tSb').find('#query').click();
+            });
+            return false;
+        });
+
+    })
+</script>

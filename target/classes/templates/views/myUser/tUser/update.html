@@ -31,7 +31,9 @@
 <!--                        <input type="text" name="deptName" autocomplete="off" class="layui-input">-->
 
                         <input type="text" name="deptName" id="deptName" class="layui-input febs-hide" readonly>
-                        <select name="mydeptId" lay-filter="mydeptId" id="mydeptId" class="layui-form-select"></select>
+                        <select name="mydeptId" lay-filter="mydeptId" id="mydeptId" class="layui-form-select">
+                            <option value="-1">无部门</option>
+                        </select>
 
                     </div>
                 </div>
@@ -64,21 +66,21 @@
         <div class="layui-form-item">
             <label class="layui-form-label febs-form-item-require">原密码：</label>
             <div class="layui-input-block">
-                <input autocomplete="off" class="layui-input" lay-verify="required"
+                <input autocomplete="off" class="layui-input"
                        name="oldPassword" type="password">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label febs-form-item-require">新密码：</label>
             <div class="layui-input-block">
-                <input autocomplete="off" class="layui-input" lay-verify="range" minlength="6"
+                <input autocomplete="off" class="layui-input"  minlength="6"
                        name="newPassword" type="password">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label febs-form-item-require">密码确认：</label>
             <div class="layui-input-block">
-                <input autocomplete="off" class="layui-input" lay-verify="range" minlength="6"
+                <input autocomplete="off" class="layui-input"  minlength="6"
                        name="confirmPassword" type="password">
             </div>
         </div>
@@ -192,7 +194,6 @@
                 return false;
             }
             febs.put(ctx + 'myUser/tUser', data.field, function () {
-
                 layer.closeAll();
                 $('#febs-tUser').find('#query').click();
             });
@@ -212,7 +213,7 @@
                     //设置value（这个值就可以是在更新的时候后台传递到前台的值）为2的值为默认选中
                     // $('#deptId').val(tUser.deptId);
                     form.render(); //更新全部表单内容
-                    //form.render('select'); //刷新表单select选择框渲染
+                     //form.render('select'); //刷新表单select选择框渲染
 
                     $view.find("#mydeptId").val($view.find("#hidenDeptID").val())
                 })

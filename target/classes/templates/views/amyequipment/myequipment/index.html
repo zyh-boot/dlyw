@@ -32,7 +32,7 @@
                                     <div class="layui-inline">
                                         <label class="layui-form-label layui-form-label-sm">创建时间</label>
                                         <div class="layui-input-inline">
-                                            <input type="text" name="createDate" id="createTime1" class="layui-input">
+                                            <input type="text" name="createDate" id="createTime1" class="layui-input" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -43,6 +43,7 @@
                            lay-data="{id: 'myequipmentTable'}"></table>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
@@ -113,61 +114,62 @@
             $view.find("td").hover(function (event) {
                 // console.log($(this).attr("data-index"))
                 _this = this
+                if($(this).attr('data-field') == 12 ){
+                    return
+                }
                 const index = $(this).parent().attr("data-index");
-                console.log("index>>>>>>>>",index)
+                // console.log("index>>>>>>>>", index)
                 subtips = ""
-                var s = '<div>' +
-                '<label>pm2.5:</label>' +
-                '<label>' + res[index].eqPmTwo + '</label>' +
-                '</div>' + '<div>' +
-                '<label>pm10:</label>' +
-                '<label>' + res[index].eqPmTen + '</label>' +
-                '</div>' + '<div>' +
-                '<label>noise:</label>' +
-                '<label>' + res[index].eqNoise + '</label>' +
-                '</div>' + '<div>' +
-                '<label>co:</label>' +
-                '<label>' + res[index].eqCo + '</label>' +
-                '</div>' + '<div>' +
-                '<label>so2:</label>' +
-                '<label>' + res[index].eqSo2 + '</label>' +
-                '</div>' + '<div>' +
-                '<label>no2:</label>' +
-                '<label>' + res[index].sqNo2 + '</label>' +
-                '</div>' + '<div>' +
-                '<label>o3:</label>' +
-                '<label>' + res[index].sqO3 + '</label>' +
-                '</div>'
                 // var s = '<div>' +
-                //     '<label>pm2.5:</label>' +
-                //     '<label>' + res[index].eqPmTwo + '</label>' +
-                //     '<label>pm10:</label>' +
-                //     '<label>' + res[index].eqPmTen + '</label>' +
-                //
-                //
-                //     '</div>' + '<div>' +
-                //     '<label>pm10:</label>' +
-                //     '<label>' + res[index].eqPmTen + '</label>' +
-                //     '</div>' + '<div>' +
-                //     '<label>noise:</label>' +
-                //     '<label>' + res[index].eqNoise + '</label>' +
-                //     '</div>' + '<div>' +
-                //     '<label>co:</label>' +
-                //     '<label>' + res[index].eqCo + '</label>' +
-                //     '</div>' + '<div>' +
-                //     '<label>so2:</label>' +
-                //     '<label>' + res[index].eqSo2 + '</label>' +
-                //     '</div>' + '<div>' +
-                //     '<label>no2:</label>' +
-                //     '<label>' + res[index].sqNo2 + '</label>' +
-                //     '</div>' + '<div>' +
-                //     '<label>o3:</label>' +
-                //     '<label>' + res[index].sqO3 + '</label>' +
-                //     '</div>'
-                console.log($view.find("td :focus").prop("tagName"))
+                // '<label>pm2.5:</label>' +
+                // '<label>' + res[index].eqPmTwo + '</label>' +
+                // '</div>' + '<div>' +
+                // '<label>pm10:</label>' +
+                // '<label>' + res[index].eqPmTen + '</label>' +
+                // '</div>' + '<div>' +
+                // '<label>noise:</label>' +
+                // '<label>' + res[index].eqNoise + '</label>' +
+                // '</div>' + '<div>' +
+                // '<label>co:</label>' +
+                // '<label>' + res[index].eqCo + '</label>' +
+                // '</div>' + '<div>' +
+                // '<label>so2:</label>' +
+                // '<label>' + res[index].eqSo2 + '</label>' +
+                // '</div>' + '<div>' +
+                // '<label>no2:</label>' +
+                // '<label>' + res[index].sqNo2 + '</label>' +
+                // '</div>' + '<div>' +
+                // '<label>o3:</label>' +
+                // '<label>' + res[index].sqO3 + '</label>' +
+                // '</div>'
+                var s = '   <table>' +
+                        '<tr style="text-align: center">设备实时数据</tr>'+
+                    '<tr>' +
+                    '<td>pm2.5:</td>' +
+                    '<td>' + change(res[index].eqPmTwo) + 'μg/m3</td><td></td>' +
+                    '<td>pm10:</td>' +
+                    '<td>' + change(res[index].eqPmTen) + 'μg/m3</td>' +
+                    '</tr>' + '<tr>' +
+                    '<td>co:</td>' +
+                    '<td>' + change(res[index].eqCo) + 'mg/m3</td><td></td>' +
+                    '<td>so2:</td>' +
+                    '<td>' + change(res[index].eqSo2) + 'μg/m3</td>' +
+                    '</tr>' + '<tr>' +
+                    '<td>no2:</td>' +
+                    '<td>' + change(res[index].sqNo2) + 'μg/m3</td><td></td>' +
+                    '<td>o3:</td>' +
+                    '<td>' +change( res[index].sqO3) + 'μg/m3</td>' +
+                    '</tr>' + '<tr>' +
+                    '<td>噪声:</td>' +
+                    '<td>' + change(res[index].eqNoise) + 'db</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td>' +
+                    '<td>风速:</td>' +
+                    '<td>' + change(res[index].windSpeed) + 'm/s</td>' +
+                    '</tr>' +
+                    '</table>'
+
+                // console.log($view.find("td :focus").prop("tagName"))
                 timer = setTimeout(function () {
-                    // const  wq=$view.find("td:focus").attr("tagName")
-                    subtips = layer.tips(s,_this, {tips: [1, '#ff6700'], time: 30000})
+                    subtips = layer.tips(s, _this, {tips: [1, '#ff6700'], time: 30000})
                 }, 1000)
             }, function () {
                 //这里去clear
@@ -176,6 +178,9 @@
             })
         }
 
+        function change(val){
+            return val == null ? "0" : val
+        }
 
         //设置父标签全覆盖
         $view.parent().css("height", "100%")
@@ -209,13 +214,13 @@
                 layEvent = obj.event;
             console.log("data", data);
             if (layEvent === 'del') {
-                febs.modal.confirm('删除设备', '确定删除该设备 ？', function () {
+                febs.modal.confirm('删除设备', '确定删除该设备: <span style="color: #00d57b">' + data.eqName + '</span>', function () {
                     deleteMyequipment(data.id);
                 });
             }
             if (layEvent === 'info') {
                 var data = obj.data;
-                console.log(data.id)
+                console.log("dataID>>>>>>>",data.id)
                 console.log($(window).width())
                 febs.modal.open('设备数据', 'rank/myequipment/detiles/' + data.id, {
                     area: $(window).width() <= 750 ? '90%' : '70%',
@@ -281,6 +286,7 @@
 
         $delete.on('click', function () {
             var checkStatus = table.checkStatus('myequipmentTable');
+            console.log("del>>>>>>>>>>>",checkStatus)
             if (!checkStatus.data.length) {
                 febs.alert.warn('请选择需要删除的设备 ');
             } else {
@@ -316,8 +322,8 @@
                     {title: '设备机构类别', templet: '#myequipment-category', hide: true},
                     {field: 'eqAddTime', title: '设备添加时间'},
                     {field: 'eqSupplier', title: '设备供应商'},
-                    {title: '是否检修', templet: "#myequipment-eqOverhaul"},
-                    {title: '状态', templet: '#myequipment-status'},
+                    {title: '是否检修', templet: "#myequipment-eqOverhaul",hide: true},
+                    {title: '状态', templet: '#myequipment-status',hide:true},
                     // {field: 'createDate', title: '创建时间', minWidth: 180, sort: true},
                     {title: '操作', toolbar: '#myequipment-option', minWidth: 140}
                 ]],

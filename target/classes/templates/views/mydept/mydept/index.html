@@ -31,7 +31,7 @@
                                                 <option value="0" selected="">机构名称</option>
                                                 <option value="1">机构负责人</option>
                                                 <option value="2">机构类别</option>
-                                                <option value="3">机构所在地</option>
+                                                <option value="3">机构地址</option>
                                             </select>
                                         </div>
                                     </div>
@@ -43,7 +43,7 @@
                                     <div class="layui-inline">
                                         <label class="layui-form-label layui-form-label-sm">创建时间</label>
                                         <div class="layui-input-inline">
-                                            <input type="text" name="createDate" id="createTimeDept" class="layui-input">
+                                            <input type="text" name="createDate" id="createTimeDept" class="layui-input" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -123,7 +123,8 @@
                 layEvent = obj.event;
             console.log("data", data);
             if (layEvent === 'del') {
-                febs.modal.confirm('删除', '确定删除该 ？', function () {
+                /*#00d57b*/
+                febs.modal.confirm('删除', '确定删除该机构: <span style="color: #00d57b">' + data.name + '</span>', function () {
                     deleteMydept(data.id);
                 });
             }
@@ -157,7 +158,6 @@
         })
 
         $query.on('click', function () {
-
             let index = $searchForm.find('select[name="interest"]').val().trim();
             let queryParams = ''
             queryParams = getQueryParams(index);
@@ -211,6 +211,7 @@
                     {field: 'name', title: '机构名称'},
                     {field: 'head', title: '机构负责人'},
                     {field: 'address', title: '机构地址'},
+                    {field: 'phone', title: '负责人电话'},
                     {title: '机构类别', templet: '#mydept-category'},
                     {title: '状态', templet: '#mydept-status', hide: true},
                     {field: 'createDate', title: '创建时间', minWidth: 180, sort: true, hide: true},

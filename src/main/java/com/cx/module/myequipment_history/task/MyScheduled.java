@@ -37,7 +37,7 @@ public class MyScheduled {
     }
 
     //测试模拟设备数据传递
-    @Scheduled(cron = " 59 */4 * * * ?")
+//    @Scheduled(cron = " 59 */4 * * * ?")
     public void addda() {
         log.info("************数据发送************");
         List<Myequipment> list = myequipmentService.list(new Myequipment());

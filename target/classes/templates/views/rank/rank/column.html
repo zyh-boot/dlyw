@@ -35,7 +35,7 @@
             laydate = layui.laydate,
             echarts = layui.echarts,
             chartZhu = echarts.init(document.getElementById("dataLabelsColumnChart"));
-        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>", id)
+        // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>", id)
         laydate.render({
             elem: '#mycreate',
             // range: true,
@@ -69,14 +69,14 @@
                 },
                 tooltip: {
                     trigger: 'axis',
-                    formatter : function(value){
-                        console.log(value[0])
+                    formatter: function (value) {
+                        // console.log(value[0])
                         const aname = value[0].name
-                        if("pm2.5" == aname || "pm10" == aname){
+                        if ("pm2.5" == aname || "pm10" == aname) {
                             // ug/m3
                         }
                         return (value[0].seriesName + "</br>" + value[0].marker
-                            +value[0].name +"  " + value[0].value+optionchart.yAxis.name
+                            + value[0].name + "  " + value[0].value + optionchart.yAxis.name
                         )
                     }
                 },
@@ -163,14 +163,14 @@
             };
             chartZhu.on("legendselectchanged", function (value) {
                 const name = value.name;
-                if (name == "co" ) {
+                if (name == "co") {
                     optionchart.yAxis.name = "mg/m3"
-                }
-                if (name == "噪声") {
+                } else if (name == "噪声") {
                     optionchart.yAxis.name = "db"
-                }
-                if (name == "风速") {
+                } else if (name == "风速") {
                     optionchart.yAxis.name = "m/s"
+                } else {
+                    optionchart.yAxis.name = "ug/m3"
                 }
                 const selected = optionchart.legend.selected;
                 for (key in selected) {
@@ -193,7 +193,7 @@
                 success: function (res) {
                     const result = res.data
                     tmpData = res.data
-                    console.log("<><><><", res)
+                    // console.log("<><><><", res)
                     pmtwo = result.pmtwo
                     pmten = result.pmten
                     co = result.co
@@ -203,7 +203,6 @@
                     windSpeed = result.windSpeed
                     noise = result.noise
                     getEcharts(res.data)
-                    console.log(">>>>>>>>>")
                     // chartZhu.setOption(optionchart, true);
                 }
             })
